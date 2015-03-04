@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -423,10 +424,13 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A9c-gT-oiW" userLabel="全局滚动视图">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="1519"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtb-vL-L7P" userLabel="轮播">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtb-vL-L7P" userLabel="轮播">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="135"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="qtb-vL-L7P" secondAttribute="height" multiplier="64:27" id="9lr-Bg-axj"/>
+                                        </constraints>
                                     </scrollView>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kA8-2w-6XS" userLabel="搜索框">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kA8-2w-6XS" userLabel="搜索框">
                                         <rect key="frame" x="0.0" y="138" width="320" height="24"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Tq-WJ-Wxu">
@@ -439,8 +443,11 @@
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="kA8-2w-6XS" secondAttribute="height" multiplier="40:3" id="x6f-IA-bgG"/>
+                                        </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="64A-Br-rxY" userLabel="排行3图标">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="64A-Br-rxY" userLabel="排行3图标">
                                         <rect key="frame" x="0.0" y="168" width="320" height="134"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NlO-lt-7qh">
@@ -463,8 +470,11 @@
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="64A-Br-rxY" secondAttribute="height" multiplier="160:67" id="OgZ-cm-e7G"/>
+                                        </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wjv-Yb-pJ6" userLabel="产品搜索bar">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wjv-Yb-pJ6" userLabel="产品搜索bar">
                                         <rect key="frame" x="0.0" y="305" width="320" height="45"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="product_search_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="8Vv-8G-R5I">
@@ -486,8 +496,11 @@
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="wjv-Yb-pJ6" secondAttribute="height" multiplier="64:9" id="qX9-j0-GwT"/>
+                                        </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="20E-uM-FnG" userLabel="产品分类">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="20E-uM-FnG" userLabel="产品分类">
                                         <rect key="frame" x="0.0" y="349" width="320" height="165"/>
                                         <subviews>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hLP-PX-evp">
@@ -520,10 +533,16 @@
                                             </segmentedControl>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="20E-uM-FnG" secondAttribute="height" multiplier="64:33" id="jDB-Gy-H8h"/>
+                                        </constraints>
                                     </view>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="kgi-k8-NXJ" userLabel="产品列表">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="kgi-k8-NXJ" userLabel="产品列表">
                                         <rect key="frame" x="0.0" y="566" width="320" height="353"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="kgi-k8-NXJ" secondAttribute="height" multiplier="320:353" id="3Bc-La-hfk"/>
+                                        </constraints>
                                         <prototypes>
                                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="product" rowHeight="120" id="61W-sg-RTm">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -538,7 +557,7 @@
                                             <outlet property="delegate" destination="liq-n0-45t" id="Iik-Nq-rqS"/>
                                         </connections>
                                     </tableView>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qSb-8C-Ha2" userLabel="产品试用">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qSb-8C-Ha2" userLabel="产品试用">
                                         <rect key="frame" x="0.0" y="520" width="320" height="45"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="try_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="ots-vj-tIx">
@@ -560,8 +579,36 @@
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="qSb-8C-Ha2" secondAttribute="height" multiplier="64:9" id="qa7-Zp-kZx"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="kA8-2w-6XS" firstAttribute="top" secondItem="qtb-vL-L7P" secondAttribute="bottom" constant="3" id="0Io-2B-MgJ"/>
+                                    <constraint firstItem="qtb-vL-L7P" firstAttribute="leading" secondItem="A9c-gT-oiW" secondAttribute="leading" id="1wT-Wg-Mhq"/>
+                                    <constraint firstAttribute="trailing" secondItem="kA8-2w-6XS" secondAttribute="trailing" id="3Fz-SW-RNm"/>
+                                    <constraint firstItem="kgi-k8-NXJ" firstAttribute="leading" secondItem="A9c-gT-oiW" secondAttribute="leading" id="49s-Q6-rUK"/>
+                                    <constraint firstItem="kgi-k8-NXJ" firstAttribute="top" secondItem="qSb-8C-Ha2" secondAttribute="bottom" constant="1" id="6DC-uO-TvG"/>
+                                    <constraint firstItem="qSb-8C-Ha2" firstAttribute="leading" secondItem="A9c-gT-oiW" secondAttribute="leading" id="7Sf-o9-r29"/>
+                                    <constraint firstItem="wjv-Yb-pJ6" firstAttribute="top" secondItem="64A-Br-rxY" secondAttribute="bottom" constant="3" id="ArO-Cc-qmI"/>
+                                    <constraint firstAttribute="trailing" secondItem="qSb-8C-Ha2" secondAttribute="trailing" id="Bh8-g4-Zqv"/>
+                                    <constraint firstAttribute="centerX" secondItem="qtb-vL-L7P" secondAttribute="centerX" id="CTD-Ch-BBk"/>
+                                    <constraint firstAttribute="trailing" secondItem="kgi-k8-NXJ" secondAttribute="trailing" id="EbF-qx-28U"/>
+                                    <constraint firstItem="64A-Br-rxY" firstAttribute="leading" secondItem="A9c-gT-oiW" secondAttribute="leading" id="GoY-Ju-rMc"/>
+                                    <constraint firstItem="qSb-8C-Ha2" firstAttribute="top" secondItem="20E-uM-FnG" secondAttribute="bottom" constant="6" id="KkK-ap-5kQ"/>
+                                    <constraint firstItem="64A-Br-rxY" firstAttribute="top" secondItem="kA8-2w-6XS" secondAttribute="bottom" constant="6" id="P8o-FD-9oX"/>
+                                    <constraint firstAttribute="trailing" secondItem="wjv-Yb-pJ6" secondAttribute="trailing" id="PJY-aI-pQE"/>
+                                    <constraint firstAttribute="bottom" secondItem="qtb-vL-L7P" secondAttribute="bottom" constant="1384" id="XHN-1E-mXW"/>
+                                    <constraint firstItem="wjv-Yb-pJ6" firstAttribute="leading" secondItem="A9c-gT-oiW" secondAttribute="leading" id="XdS-oO-bf3"/>
+                                    <constraint firstItem="qtb-vL-L7P" firstAttribute="top" secondItem="A9c-gT-oiW" secondAttribute="top" id="ZA6-bq-bBC"/>
+                                    <constraint firstItem="kA8-2w-6XS" firstAttribute="leading" secondItem="A9c-gT-oiW" secondAttribute="leading" id="el1-Vk-xy8"/>
+                                    <constraint firstAttribute="trailing" secondItem="qtb-vL-L7P" secondAttribute="trailing" id="lwM-Af-HeZ"/>
+                                    <constraint firstItem="20E-uM-FnG" firstAttribute="leading" secondItem="A9c-gT-oiW" secondAttribute="leading" id="rnu-cw-f8j"/>
+                                    <constraint firstItem="20E-uM-FnG" firstAttribute="top" secondItem="wjv-Yb-pJ6" secondAttribute="bottom" constant="-1" id="rzP-2f-Xtb"/>
+                                    <constraint firstAttribute="trailing" secondItem="64A-Br-rxY" secondAttribute="trailing" id="wbm-FQ-BDR"/>
+                                    <constraint firstAttribute="trailing" secondItem="20E-uM-FnG" secondAttribute="trailing" id="x85-RU-yNG"/>
+                                </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

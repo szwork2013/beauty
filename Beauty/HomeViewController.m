@@ -57,6 +57,7 @@
         }else{
             self.productArray = array;
             [self.productTableView reloadData];
+            CGRect rect = self.productTableView.frame;
         }
     }];
 }
