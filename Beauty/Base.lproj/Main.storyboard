@@ -427,16 +427,17 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kA8-2w-6XS">
                                         <rect key="frame" x="0.0" y="143" width="320" height="30"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9b1-hY-ZPO">
-                                                <rect key="frame" x="265" y="0.0" width="47" height="30"/>
-                                                <state key="normal">
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Tq-WJ-Wxu">
+                                                <rect key="frame" x="8" y="0.0" width="218" height="28"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <state key="normal" title="看一看最新优惠活动">
+                                                    <color key="titleColor" red="0.73333333333333328" green="0.47843137254901957" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Tq-WJ-Wxu">
-                                                <rect key="frame" x="8" y="0.0" width="218" height="30"/>
-                                                <state key="normal" title="看一看最新优惠活动">
-                                                    <color key="titleColor" red="0.73333333333333328" green="0.47843137254901957" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9b1-hY-ZPO">
+                                                <rect key="frame" x="273" y="-1" width="32" height="29"/>
+                                                <state key="normal" image="search.png">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                             </button>
@@ -450,20 +451,20 @@
                                         <rect key="frame" x="0.0" y="181" width="320" height="150"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NlO-lt-7qh">
-                                                <rect key="frame" x="8" y="8" width="103" height="47"/>
+                                                <rect key="frame" x="15" y="8" width="137" height="65"/>
                                                 <state key="normal" image="test.png">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QhU-X0-5GM">
-                                                <rect key="frame" x="192" y="8" width="103" height="47"/>
-                                                <state key="normal" image="rank.png">
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JWD-Qt-jea">
+                                                <rect key="frame" x="15" y="77" width="290" height="65"/>
+                                                <state key="normal" image="club.png">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JWD-Qt-jea">
-                                                <rect key="frame" x="23" y="75" width="272" height="47"/>
-                                                <state key="normal" image="club.png">
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QhU-X0-5GM">
+                                                <rect key="frame" x="168" y="8" width="137" height="65"/>
+                                                <state key="normal" image="rank.png">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                             </button>
@@ -479,6 +480,25 @@
                                     </view>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qSb-8C-Ha2">
                                         <rect key="frame" x="0.0" y="629" width="320" height="45"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="try_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="ots-vj-tIx">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="45"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="产品试用" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fB1-7I-1IU">
+                                                <rect key="frame" x="16" y="12" width="68" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kqg-D6-Cdr">
+                                                <rect key="frame" x="239" y="13" width="73" height="22"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <state key="normal" title="查看所有">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="20E-uM-FnG">
@@ -489,7 +509,7 @@
                                         <rect key="frame" x="0.0" y="682" width="320" height="353"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
-                                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="product" rowHeight="115" id="61W-sg-RTm">
+                                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="product" rowHeight="120" id="61W-sg-RTm">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="61W-sg-RTm" id="QIl-gn-vxx">
@@ -497,8 +517,12 @@
                                                 </tableViewCellContentView>
                                             </tableViewCell>
                                         </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="liq-n0-45t" id="vvE-Bf-8O1"/>
+                                            <outlet property="delegate" destination="liq-n0-45t" id="Iik-Nq-rqS"/>
+                                        </connections>
                                     </tableView>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qtb-vL-L7P">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtb-vL-L7P">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="135"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="qtb-vL-L7P" secondAttribute="height" multiplier="64:27" id="EmE-iB-acv"/>
@@ -532,6 +556,9 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="1568"/>
                     <connections>
+                        <outlet property="activitySearchBar" destination="9Tq-WJ-Wxu" id="xgd-nS-Yj4"/>
+                        <outlet property="moreButton" destination="Kqg-D6-Cdr" id="g9P-wv-08T"/>
+                        <outlet property="productTableView" destination="kgi-k8-NXJ" id="QAv-AT-8rf"/>
                         <outlet property="recommendScrollView" destination="qtb-vL-L7P" id="e7P-W0-7fV"/>
                     </connections>
                 </viewController>
@@ -564,12 +591,14 @@
         <image name="bar_member.png" width="23" height="23"/>
         <image name="bar_search.png" width="22" height="22"/>
         <image name="bar_shop.png" width="23" height="19"/>
-        <image name="club.png" width="103" height="47"/>
+        <image name="club.png" width="290" height="65"/>
         <image name="favor.png" width="99" height="28"/>
         <image name="location.png" width="14" height="14"/>
-        <image name="rank.png" width="103" height="47"/>
+        <image name="rank.png" width="137" height="65"/>
+        <image name="search.png" width="11" height="11"/>
         <image name="tel.png" width="20" height="20"/>
-        <image name="test.png" width="103" height="47"/>
+        <image name="test.png" width="137" height="65"/>
         <image name="time.png" width="14" height="14"/>
+        <image name="try_bg.png" width="317" height="36"/>
     </resources>
 </document>

@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import <BmobSDK/Bmob.h>
-
+#import "Global.h"
 @interface AppDelegate ()
 
 @end
@@ -19,7 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSString *appKey = @"4f9af9412c122816f905cfbdc5efd2e1";
     [Bmob registerWithAppKey:appKey];
-    UIColor *tintColor = [UIColor colorWithRed:187.0/255.0 green:122.0/255.0 blue:178.0/255.0 alpha:1.0];
+    UIColor *tintColor = MAIN_COLOR;
     [[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];
     [[UINavigationBar appearance] setBarTintColor:tintColor];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
