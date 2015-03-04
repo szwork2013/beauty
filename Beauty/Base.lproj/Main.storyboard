@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--个人中心-->
@@ -416,11 +417,11 @@
                         <viewControllerLayoutGuide type="bottom" id="bIO-gQ-kRX"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="utL-A2-mtL">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="1568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="1068"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A9c-gT-oiW">
-                                <rect key="frame" x="0.0" y="44" width="320" height="1475"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A9c-gT-oiW">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="1519"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtb-vL-L7P">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="135"/>
@@ -564,10 +565,16 @@
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="A9c-gT-oiW" secondAttribute="trailing" constant="-16" id="Qoa-z8-9hd"/>
+                            <constraint firstItem="A9c-gT-oiW" firstAttribute="top" secondItem="XPz-U4-2W2" secondAttribute="bottom" constant="-64" id="X27-2o-TFZ"/>
+                            <constraint firstItem="bIO-gQ-kRX" firstAttribute="top" secondItem="A9c-gT-oiW" secondAttribute="bottom" constant="-500" id="wMw-vP-mK8"/>
+                            <constraint firstItem="A9c-gT-oiW" firstAttribute="leading" secondItem="utL-A2-mtL" secondAttribute="leadingMargin" constant="-16" id="y40-Ez-iB5"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="首页" id="csR-Dt-vCt"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="1568"/>
+                    <size key="freeformSize" width="320" height="1068"/>
                     <connections>
                         <outlet property="activitySearchBar" destination="9Tq-WJ-Wxu" id="xgd-nS-Yj4"/>
                         <outlet property="moreButton" destination="Kqg-D6-Cdr" id="g9P-wv-08T"/>
