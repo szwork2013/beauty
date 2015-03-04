@@ -30,6 +30,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     /*propery init*/
     //更多按钮
     self.moreButton.layer.borderColor = [[UIColor whiteColor]CGColor];
@@ -57,7 +58,6 @@
         }else{
             self.productArray = array;
             [self.productTableView reloadData];
-            CGRect rect = self.productTableView.frame;
         }
     }];
 }
