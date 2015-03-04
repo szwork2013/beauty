@@ -36,9 +36,9 @@
     self.moreButton.layer.borderWidth = 1.0;
     self.moreButton.layer.cornerRadius = 4.0;
 //    搜索活动
-    self.activitySearchBar.layer.borderColor = [MAIN_COLOR CGColor];
-    self.activitySearchBar.layer.borderWidth = 1.0;
-    self.activitySearchBar.layer.cornerRadius = 10.0;
+//    self.activitySearchBar.layer.borderColor = [MAIN_COLOR CGColor];
+//    self.activitySearchBar.layer.borderWidth = 1.0;
+//    self.activitySearchBar.layer.cornerRadius = 10.0;
     [self fetchRecommendScrollView];
     [self fetchProducts];
     // Do any additional setup after loading the view.
