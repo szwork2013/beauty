@@ -568,6 +568,7 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="A9c-gT-oiW" secondAttribute="trailing" constant="-16" id="Qoa-z8-9hd"/>
                             <constraint firstItem="A9c-gT-oiW" firstAttribute="top" secondItem="XPz-U4-2W2" secondAttribute="bottom" constant="-64" id="X27-2o-TFZ"/>
+                            <constraint firstAttribute="centerX" secondItem="A9c-gT-oiW" secondAttribute="centerX" id="hCh-kB-oLu"/>
                             <constraint firstItem="bIO-gQ-kRX" firstAttribute="top" secondItem="A9c-gT-oiW" secondAttribute="bottom" constant="-500" id="wMw-vP-mK8"/>
                             <constraint firstItem="A9c-gT-oiW" firstAttribute="leading" secondItem="utL-A2-mtL" secondAttribute="leadingMargin" constant="-16" id="y40-Ez-iB5"/>
                         </constraints>
