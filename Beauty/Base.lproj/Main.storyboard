@@ -3,8 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--个人中心-->
@@ -421,14 +419,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="1568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A9c-gT-oiW">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="1519"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A9c-gT-oiW">
+                                <rect key="frame" x="0.0" y="44" width="320" height="1475"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtb-vL-L7P">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtb-vL-L7P">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="135"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="qtb-vL-L7P" secondAttribute="height" multiplier="64:27" id="7vt-Kj-lFD"/>
-                                        </constraints>
                                     </scrollView>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kA8-2w-6XS">
                                         <rect key="frame" x="0.0" y="138" width="320" height="25"/>
@@ -566,25 +561,11 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="centerX" secondItem="qtb-vL-L7P" secondAttribute="centerX" id="GDR-yW-8IM"/>
-                                    <constraint firstItem="qtb-vL-L7P" firstAttribute="top" secondItem="A9c-gT-oiW" secondAttribute="top" id="Xvb-Uc-v4U"/>
-                                    <constraint firstItem="qtb-vL-L7P" firstAttribute="leading" secondItem="A9c-gT-oiW" secondAttribute="leading" id="f65-0y-tY9"/>
-                                    <constraint firstAttribute="trailing" secondItem="qtb-vL-L7P" secondAttribute="trailing" id="gwE-CY-dgn"/>
-                                    <constraint firstAttribute="bottom" secondItem="qtb-vL-L7P" secondAttribute="bottom" constant="1384" id="mlx-ve-Qmw"/>
-                                </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="A9c-gT-oiW" firstAttribute="top" secondItem="XPz-U4-2W2" secondAttribute="bottom" constant="-20" id="3eA-ZN-MfV"/>
-                            <constraint firstItem="A9c-gT-oiW" firstAttribute="leading" secondItem="utL-A2-mtL" secondAttribute="leadingMargin" constant="-16" id="HWj-ye-hZ1"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="A9c-gT-oiW" secondAttribute="trailing" constant="-16" id="gal-cW-TKF"/>
-                            <constraint firstItem="bIO-gQ-kRX" firstAttribute="top" secondItem="A9c-gT-oiW" secondAttribute="bottom" id="jjr-6M-tDf"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="首页" id="csR-Dt-vCt"/>
-                    <nil key="simulatedTopBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="1568"/>
                     <connections>
