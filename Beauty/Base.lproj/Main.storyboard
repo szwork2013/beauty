@@ -418,11 +418,11 @@
                         <viewControllerLayoutGuide type="bottom" id="bIO-gQ-kRX"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="utL-A2-mtL" userLabel="控制器视图">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="1568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A9c-gT-oiW" userLabel="全局滚动视图">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="1568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtb-vL-L7P" userLabel="轮播">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="135"/>
@@ -445,7 +445,7 @@
                                                 </state>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.94117647059999998" green="0.93725490199999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="9Tq-WJ-Wxu" firstAttribute="leading" secondItem="kA8-2w-6XS" secondAttribute="leading" constant="14" id="JG3-5Z-FZD"/>
                                             <constraint firstItem="9Tq-WJ-Wxu" firstAttribute="top" secondItem="kA8-2w-6XS" secondAttribute="top" id="c7s-Jq-gAW"/>
@@ -461,7 +461,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="NlO-lt-7qh" secondAttribute="height" multiplier="137:65" id="Fa5-uh-kzL"/>
                                                 </constraints>
-                                                <state key="normal" image="test.png">
+                                                <state key="normal" backgroundImage="test.png">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                             </button>
@@ -470,30 +470,42 @@
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="QhU-X0-5GM" secondAttribute="height" multiplier="137:65" id="xhB-0z-S8C"/>
                                                 </constraints>
-                                                <state key="normal" image="rank.png">
+                                                <state key="normal" backgroundImage="rank.png">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JWD-Qt-jea" userLabel="微商好产品">
                                                 <rect key="frame" x="15" y="66" width="290" height="65"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="width" secondItem="JWD-Qt-jea" secondAttribute="height" multiplier="58:13" id="5FK-qO-lh2"/>
                                                     <constraint firstAttribute="width" secondItem="JWD-Qt-jea" secondAttribute="height" multiplier="58:13" id="ALQ-3y-ZKf"/>
                                                 </constraints>
-                                                <state key="normal" image="club.png">
+                                                <state key="normal" backgroundImage="club.png">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="ALQ-3y-ZKf"/>
+                                                    </mask>
+                                                </variation>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="JWD-Qt-jea" firstAttribute="top" secondItem="NlO-lt-7qh" secondAttribute="bottom" constant="4" id="3Ha-8h-i32"/>
                                             <constraint firstAttribute="bottom" secondItem="JWD-Qt-jea" secondAttribute="bottom" constant="3" id="BaY-MK-7Gy"/>
+                                            <constraint firstAttribute="trailing" secondItem="JWD-Qt-jea" secondAttribute="trailing" constant="15" id="ERg-I9-tHc"/>
+                                            <constraint firstItem="QhU-X0-5GM" firstAttribute="leading" secondItem="NlO-lt-7qh" secondAttribute="trailing" constant="16" id="Ei3-Ed-9QS"/>
                                             <constraint firstItem="JWD-Qt-jea" firstAttribute="top" secondItem="QhU-X0-5GM" secondAttribute="bottom" constant="4" id="Fn2-kJ-ylh"/>
                                             <constraint firstItem="QhU-X0-5GM" firstAttribute="top" secondItem="64A-Br-rxY" secondAttribute="top" id="Hr7-RF-gOv"/>
                                             <constraint firstAttribute="width" secondItem="64A-Br-rxY" secondAttribute="height" multiplier="160:67" id="OgZ-cm-e7G"/>
                                             <constraint firstAttribute="trailing" secondItem="QhU-X0-5GM" secondAttribute="trailing" constant="15" id="TJE-IO-vyw"/>
+                                            <constraint firstAttribute="bottom" secondItem="QhU-X0-5GM" secondAttribute="bottom" constant="69" id="Ueq-CA-iTy"/>
+                                            <constraint firstAttribute="centerX" secondItem="JWD-Qt-jea" secondAttribute="centerX" id="XjL-I8-2oC"/>
+                                            <constraint firstItem="JWD-Qt-jea" firstAttribute="leading" secondItem="64A-Br-rxY" secondAttribute="leading" constant="15" id="bNk-CF-x0O"/>
                                             <constraint firstAttribute="trailing" secondItem="JWD-Qt-jea" secondAttribute="trailing" constant="15" id="hbt-Gx-SzU"/>
                                             <constraint firstItem="NlO-lt-7qh" firstAttribute="top" secondItem="64A-Br-rxY" secondAttribute="top" id="rbq-UQ-ql3"/>
+                                            <constraint firstAttribute="bottom" secondItem="NlO-lt-7qh" secondAttribute="bottom" constant="69" id="uDL-mS-CMh"/>
                                             <constraint firstItem="NlO-lt-7qh" firstAttribute="leading" secondItem="64A-Br-rxY" secondAttribute="leading" constant="15" id="x40-YO-IkW"/>
                                             <constraint firstItem="JWD-Qt-jea" firstAttribute="leading" secondItem="64A-Br-rxY" secondAttribute="leading" constant="15" id="yIy-5N-4rH"/>
                                         </constraints>
@@ -501,6 +513,10 @@
                                             <mask key="constraints">
                                                 <exclude reference="3Ha-8h-i32"/>
                                                 <exclude reference="Fn2-kJ-ylh"/>
+                                                <exclude reference="XjL-I8-2oC"/>
+                                                <exclude reference="hbt-Gx-SzU"/>
+                                                <exclude reference="yIy-5N-4rH"/>
+                                                <exclude reference="Ei3-Ed-9QS"/>
                                             </mask>
                                         </variation>
                                     </view>
@@ -539,13 +555,6 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="20E-uM-FnG" userLabel="产品分类">
                                         <rect key="frame" x="0.0" y="349" width="320" height="165"/>
                                         <subviews>
-                                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hLP-PX-evp">
-                                                <rect key="frame" x="30" y="25" width="123" height="29"/>
-                                                <segments>
-                                                    <segment title="First"/>
-                                                    <segment title="Second"/>
-                                                </segments>
-                                            </segmentedControl>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2jh-Lz-OCa">
                                                 <rect key="frame" x="189" y="25" width="123" height="29"/>
                                                 <segments>
@@ -631,6 +640,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" red="0.94117647058823528" green="0.93725490196078431" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="kA8-2w-6XS" firstAttribute="top" secondItem="qtb-vL-L7P" secondAttribute="bottom" constant="3" id="0Io-2B-MgJ"/>
                                     <constraint firstItem="qtb-vL-L7P" firstAttribute="leading" secondItem="A9c-gT-oiW" secondAttribute="leading" id="1wT-Wg-Mhq"/>
@@ -674,10 +684,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="首页" id="csR-Dt-vCt"/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="1568"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="activitySearchBar" destination="9Tq-WJ-Wxu" id="xgd-nS-Yj4"/>
+                        <outlet property="mainScrollView" destination="A9c-gT-oiW" id="aYV-jm-hBe"/>
                         <outlet property="moreButton" destination="Kqg-D6-Cdr" id="g9P-wv-08T"/>
                         <outlet property="productTableView" destination="kgi-k8-NXJ" id="QAv-AT-8rf"/>
                         <outlet property="recommendScrollView" destination="qtb-vL-L7P" id="e7P-W0-7fV"/>

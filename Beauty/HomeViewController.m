@@ -13,6 +13,7 @@
 #import "Global.h"
 
 @interface HomeViewController ()<UIScrollViewDelegate>
+@property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
 //置顶海报轮播
 @property (weak, nonatomic) IBOutlet UIScrollView *recommendScrollView;
 @property(strong,nonatomic) UIPageControl *pageControl;
@@ -87,12 +88,12 @@
 
         CGFloat width = 20 * array.count;
         CGFloat height = 20;
-        self.pageControl.frame = CGRectMake(self.view.frame.size.width - width, self.recommendScrollView.frame.size.height + 64 - height, width, height);
+        self.pageControl.frame = CGRectMake(self.view.frame.size.width - width, self.recommendScrollView.frame.size.height - height, width, height);
         self.pageControl.pageIndicatorTintColor = [UIColor colorWithWhite:1.0 alpha:0.3];
         self.pageControl.currentPageIndicatorTintColor = [UIColor whiteColor];
         self.pageControl.numberOfPages = array.count;
         self.recommendScrollView.delegate = self;
-        [self.view addSubview:self.pageControl];
+        [self.mainScrollView addSubview:self.pageControl];
     }];
 }
 #pragma mark Delegate of banner ScrollView
