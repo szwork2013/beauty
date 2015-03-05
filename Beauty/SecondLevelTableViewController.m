@@ -8,6 +8,7 @@
 
 #import "SecondLevelTableViewController.h"
 #import <BmobSDK/Bmob.h>
+#import "ProductTableViewController.h"
 
 @interface SecondLevelTableViewController ()
 @property (nonatomic,strong) NSArray *secondLevelArray;
@@ -104,14 +105,14 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    ProductTableViewController *vc = segue.destinationViewController;
+    vc.secondLevelId = [self.secondLevelArray[self.tableView.indexPathForSelectedRow.row] objectId];
 }
-*/
+
 
 @end

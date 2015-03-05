@@ -18,6 +18,7 @@
 		F7147A651AA73105007605E6 /* try_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7147A641AA73105007605E6 /* try_bg@2x.png */; };
 		F7147A681AA73962007605E6 /* search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7147A671AA73962007605E6 /* search@2x.png */; };
 		F7172C331AA84F8D00A9ED4C /* SecondLevelTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7172C321AA84F8D00A9ED4C /* SecondLevelTableViewController.m */; };
+		F7172C371AA87D8500A9ED4C /* ProductTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7172C361AA87D8500A9ED4C /* ProductTableViewController.m */; };
 		F78FC9091AA73E8A00F3C1EE /* product_search_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F78FC9081AA73E8A00F3C1EE /* product_search_bg@2x.png */; };
 		F78FC90B1AA73F6500F3C1EE /* product_search_bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F78FC90A1AA73F6500F3C1EE /* product_search_bar@2x.png */; };
 		F78FC90D1AA7436B00F3C1EE /* activity_search_bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F78FC90C1AA7436B00F3C1EE /* activity_search_bar@2x.png */; };
@@ -110,6 +111,8 @@
 		F7147A671AA73962007605E6 /* search@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "search@2x.png"; path = "images/home/search@2x.png"; sourceTree = "<group>"; };
 		F7172C311AA84F8D00A9ED4C /* SecondLevelTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondLevelTableViewController.h; sourceTree = "<group>"; };
 		F7172C321AA84F8D00A9ED4C /* SecondLevelTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondLevelTableViewController.m; sourceTree = "<group>"; };
+		F7172C351AA87D8500A9ED4C /* ProductTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductTableViewController.h; sourceTree = "<group>"; };
+		F7172C361AA87D8500A9ED4C /* ProductTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductTableViewController.m; sourceTree = "<group>"; };
 		F78FC9081AA73E8A00F3C1EE /* product_search_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "product_search_bg@2x.png"; path = "images/home/product_search_bg@2x.png"; sourceTree = "<group>"; };
 		F78FC90A1AA73F6500F3C1EE /* product_search_bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "product_search_bar@2x.png"; path = "images/home/product_search_bar@2x.png"; sourceTree = "<group>"; };
 		F78FC90C1AA7436B00F3C1EE /* activity_search_bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "activity_search_bar@2x.png"; path = "images/home/activity_search_bar@2x.png"; sourceTree = "<group>"; };
@@ -188,8 +191,8 @@
 		F7E4F1781AA5D1280025D868 /* club@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "club@2x.png"; path = "images/home/club@2x.png"; sourceTree = "<group>"; };
 		F7E4F1791AA5D1280025D868 /* rank@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "rank@2x.png"; path = "images/home/rank@2x.png"; sourceTree = "<group>"; };
 		F7E4F17A1AA5D1280025D868 /* test@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "test@2x.png"; path = "images/home/test@2x.png"; sourceTree = "<group>"; };
-		F7E4F1801AA5EC310025D868 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = Beauty/HomeViewController.h; sourceTree = "<group>"; };
-		F7E4F1811AA5EC310025D868 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = Beauty/HomeViewController.m; sourceTree = "<group>"; };
+		F7E4F1801AA5EC310025D868 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		F7E4F1811AA5EC310025D868 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		F7E84A441AA477430042F779 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		F7E84A451AA477430042F779 /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
 		F7E84A461AA477430042F779 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -247,11 +250,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F7172C341AA87C9D00A9ED4C /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				F7147A571AA6F9D1007605E6 /* ProductTableViewCell.h */,
+				F7147A581AA6F9D1007605E6 /* ProductTableViewCell.m */,
+				F7147A591AA6F9D1007605E6 /* ProductTableViewCell.xib */,
+				F7B4986E1AA31B250067219E /* StoreTableViewCell.h */,
+				F7B4986F1AA31B250067219E /* StoreTableViewCell.m */,
+				F7B498701AA31B250067219E /* StoreTableViewCell.xib */,
+			);
+			name = cell;
+			sourceTree = "<group>";
+		};
 		F7B4982C1AA2FF300067219E = {
 			isa = PBXGroup;
 			children = (
-				F7E4F1801AA5EC310025D868 /* HomeViewController.h */,
-				F7E4F1811AA5EC310025D868 /* HomeViewController.m */,
 				F713C8C91AA49089004BE58C /* StoreDetailTableViewController.h */,
 				F713C8CA1AA49089004BE58C /* StoreDetailTableViewController.m */,
 				F7B498821AA32B580067219E /* HomeTabBarController.h */,
@@ -283,6 +297,7 @@
 		F7B498371AA2FF300067219E /* Beauty */ = {
 			isa = PBXGroup;
 			children = (
+				F7172C341AA87C9D00A9ED4C /* cell */,
 				F7B498771AA31CFF0067219E /* images */,
 				F7B4983C1AA2FF300067219E /* AppDelegate.h */,
 				F7B4983D1AA2FF300067219E /* AppDelegate.m */,
@@ -296,15 +311,12 @@
 				F7BBEBC41AA35C66000D74D0 /* ActivityViewController.m */,
 				F7B4987F1AA3246B0067219E /* StoreActivityDataSource.h */,
 				F7B498801AA3246B0067219E /* StoreActivityDataSource.m */,
-				F7147A571AA6F9D1007605E6 /* ProductTableViewCell.h */,
-				F7147A581AA6F9D1007605E6 /* ProductTableViewCell.m */,
-				F7147A591AA6F9D1007605E6 /* ProductTableViewCell.xib */,
-				F7B4986E1AA31B250067219E /* StoreTableViewCell.h */,
-				F7B4986F1AA31B250067219E /* StoreTableViewCell.m */,
-				F7B498701AA31B250067219E /* StoreTableViewCell.xib */,
-				F7147A661AA73826007605E6 /* Global.h */,
 				F7172C311AA84F8D00A9ED4C /* SecondLevelTableViewController.h */,
 				F7172C321AA84F8D00A9ED4C /* SecondLevelTableViewController.m */,
+				F7172C351AA87D8500A9ED4C /* ProductTableViewController.h */,
+				F7172C361AA87D8500A9ED4C /* ProductTableViewController.m */,
+				F7E4F1801AA5EC310025D868 /* HomeViewController.h */,
+				F7E4F1811AA5EC310025D868 /* HomeViewController.m */,
 			);
 			path = Beauty;
 			sourceTree = "<group>";
@@ -312,6 +324,7 @@
 		F7B498381AA2FF300067219E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F7147A661AA73826007605E6 /* Global.h */,
 				F7B498391AA2FF300067219E /* Info.plist */,
 				F7B4983A1AA2FF300067219E /* main.m */,
 			);
@@ -628,6 +641,7 @@
 				F7E84A691AA477430042F779 /* SDWebImageDecoder.m in Sources */,
 				F7E84A711AA477430042F779 /* UIImage+WebP.m in Sources */,
 				F7E84A681AA477430042F779 /* SDWebImageCompat.m in Sources */,
+				F7172C371AA87D8500A9ED4C /* ProductTableViewController.m in Sources */,
 				F7B4989E1AA3356F0067219E /* UIImageView+AFNetworking.m in Sources */,
 				F7B498B81AA335E30067219E /* AFHTTPSessionManager.m in Sources */,
 				F713C8CB1AA49089004BE58C /* StoreDetailTableViewController.m in Sources */,

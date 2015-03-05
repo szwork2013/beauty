@@ -115,10 +115,10 @@
             </objects>
             <point key="canvasLocation" x="1204.5" y="48.5"/>
         </scene>
-        <!--Store Detail Table View Controller-->
+        <!--店铺详情-->
         <scene sceneID="jCA-nx-QAr">
             <objects>
-                <tableViewController id="WRk-gT-Qc4" customClass="StoreDetailTableViewController" sceneMemberID="viewController">
+                <tableViewController id="WRk-gT-Qc4" userLabel="店铺详情" customClass="StoreDetailTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Xtv-PR-FoR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -675,10 +675,10 @@
             </objects>
             <point key="canvasLocation" x="467" y="-662"/>
         </scene>
-        <!--Second Level Table View Controller-->
+        <!--二级分类-->
         <scene sceneID="vss-PC-vNv">
             <objects>
-                <tableViewController id="JDv-5z-1Wb" customClass="SecondLevelTableViewController" sceneMemberID="viewController">
+                <tableViewController id="JDv-5z-1Wb" userLabel="二级分类" customClass="SecondLevelTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="Fjf-fr-bPf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -703,6 +703,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="mUs-oH-ZQf" kind="show" id="VTX-Dx-Ee3"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -714,6 +717,32 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Clm-xZ-V9W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="982" y="-662"/>
+        </scene>
+        <!--产品列表-->
+        <scene sceneID="ReE-eN-pd5">
+            <objects>
+                <tableViewController id="mUs-oH-ZQf" userLabel="产品列表" customClass="ProductTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="IDn-dm-WlP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="product" rowHeight="75" id="cEl-UR-BdP">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cEl-UR-BdP" id="695-Np-xOW">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="mUs-oH-ZQf" id="YDX-o5-cJx"/>
+                            <outlet property="delegate" destination="mUs-oH-ZQf" id="IwZ-32-9Cq"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WHN-S8-uch" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1489" y="-666"/>
         </scene>
         <!--首页-->
         <scene sceneID="oTv-Cb-G4d">
