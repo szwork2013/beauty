@@ -554,29 +554,6 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="20E-uM-FnG" userLabel="产品分类">
                                         <rect key="frame" x="0.0" y="349" width="320" height="165"/>
-                                        <subviews>
-                                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2jh-Lz-OCa">
-                                                <rect key="frame" x="189" y="25" width="123" height="29"/>
-                                                <segments>
-                                                    <segment title="First"/>
-                                                    <segment title="Second"/>
-                                                </segments>
-                                            </segmentedControl>
-                                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="XJy-cf-Scq">
-                                                <rect key="frame" x="30" y="103" width="123" height="29"/>
-                                                <segments>
-                                                    <segment title="First"/>
-                                                    <segment title="Second"/>
-                                                </segments>
-                                            </segmentedControl>
-                                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9dM-SZ-hD1">
-                                                <rect key="frame" x="189" y="103" width="123" height="29"/>
-                                                <segments>
-                                                    <segment title="First"/>
-                                                    <segment title="Second"/>
-                                                </segments>
-                                            </segmentedControl>
-                                        </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="20E-uM-FnG" secondAttribute="height" multiplier="64:33" id="jDB-Gy-H8h"/>
@@ -686,16 +663,57 @@
                     <navigationItem key="navigationItem" title="首页" id="csR-Dt-vCt"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="activitySearchBar" destination="9Tq-WJ-Wxu" id="xgd-nS-Yj4"/>
+                        <outlet property="categoryView" destination="20E-uM-FnG" id="9GQ-kM-V4J"/>
                         <outlet property="mainScrollView" destination="A9c-gT-oiW" id="aYV-jm-hBe"/>
                         <outlet property="moreButton" destination="Kqg-D6-Cdr" id="g9P-wv-08T"/>
                         <outlet property="productTableView" destination="kgi-k8-NXJ" id="QAv-AT-8rf"/>
                         <outlet property="recommendScrollView" destination="qtb-vL-L7P" id="e7P-W0-7fV"/>
+                        <segue destination="JDv-5z-1Wb" kind="show" identifier="secondLevel" id="JbZ-RO-xKe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kQ4-ge-zda" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="467" y="-662"/>
+        </scene>
+        <!--Second Level Table View Controller-->
+        <scene sceneID="vss-PC-vNv">
+            <objects>
+                <tableViewController id="JDv-5z-1Wb" customClass="SecondLevelTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="Fjf-fr-bPf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="secondLevel" textLabel="w4m-9f-yPN" detailTextLabel="ntH-72-hVg" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="Jgf-md-VXg">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jgf-md-VXg" id="mV1-Eo-HtY">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="w4m-9f-yPN">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ntH-72-hVg">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="JDv-5z-1Wb" id="zNM-Cl-XIS"/>
+                            <outlet property="delegate" destination="JDv-5z-1Wb" id="oD5-eq-WjI"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Clm-xZ-V9W" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="982" y="-662"/>
         </scene>
         <!--首页-->
         <scene sceneID="oTv-Cb-G4d">

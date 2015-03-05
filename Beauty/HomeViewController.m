@@ -11,6 +11,7 @@
 #import "UIImageView+AFNetworking.h"
 #import "ProductTableViewCell.h"
 #import "Global.h"
+#import "SecondLevelTableViewController.h"
 
 @interface HomeViewController ()<UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
@@ -23,39 +24,77 @@
 @property (strong,nonatomic) NSArray *productArray;
 //查看所有图标
 @property (weak, nonatomic) IBOutlet UIButton *moreButton;
-//搜索框
-@property (weak, nonatomic) IBOutlet UIButton *activitySearchBar;
+//产品分类
+@property (weak, nonatomic) IBOutlet UIView *categoryView;
 @end
 
 @implementation HomeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
     /*propery init*/
     //更多按钮
     self.moreButton.layer.borderColor = [[UIColor whiteColor]CGColor];
     self.moreButton.layer.borderWidth = 1.0;
     self.moreButton.layer.cornerRadius = 4.0;
-//    搜索活动
-//    self.activitySearchBar.layer.borderColor = [MAIN_COLOR CGColor];
-//    self.activitySearchBar.layer.borderWidth = 1.0;
-//    self.activitySearchBar.layer.cornerRadius = 10.0;
+
     [self fetchRecommendScrollView];
     [self fetchProducts];
+    [self fetchCategory];
     // Do any additional setup after loading the view.
 }
+#pragma mark 获取一级分类
+-(void) fetchCategory {
+    BmobQuery *query = [BmobQuery queryWithClassName:@"ProductFirstLevel"];
+    [query orderByAscending:@"rank"];
+    query.limit = 10;
+    [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+        if (error) {
+            NSLog(@"%@",error);
+        }else{
+            //init width height margin
+            CGFloat width = 39.0;
+            CGFloat height = width;
+            CGFloat margin = 30.0;
+            for (int i = 0; i < array.count; i++) {
+                int row = i / 5;
+                int column = i % 5;
+                //image view
+                CGRect imageRect = CGRectMake(margin + (margin + width) * column, margin + (margin + height) * row, width, height);
+                UIImageView *imageView = [[UIImageView alloc]initWithFrame:imageRect];
+                BmobFile *imageFile = [array[i]objectForKey:@"avatar"];
+                [imageView setImageWithURL:[NSURL URLWithString:imageFile.url]];
+                [self.categoryView addSubview:imageView];
+                //button
+                UIButton *button = [[UIButton alloc]initWithFrame:imageRect];
+                [button addTarget:self action:@selector(pushSecondLevel) forControlEvents:UIControlEventTouchUpInside];
+                [self.categoryView addSubview:button];
+                //label
+                CGRect labelRect = imageRect;
+                labelRect.origin.y += height;
+                UILabel *nameLabel = [[UILabel alloc]initWithFrame:labelRect];
+                nameLabel.tintColor = [UIColor colorWithWhite:0.6 alpha:1.0];
+                nameLabel.font = [UIFont systemFontOfSize:12.0];
+                nameLabel.adjustsFontSizeToFitWidth = YES;
+                nameLabel.textAlignment = NSTextAlignmentCenter;
+                nameLabel.text = [array[i]objectForKey:@"name"];
+                [self.categoryView addSubview:nameLabel];
+            }
+        }
+    }];
+}
+
 #pragma mark 获取试用产品数据源
 -(void) fetchProducts {
     self.productArray = [NSArray array];
-
     BmobQuery *query = [[BmobQuery alloc]initWithClassName:@"TryEvent"];
     [query includeKey:@"product"];
     [query whereKey:@"endTime" greaterThanOrEqualTo:[NSDate date]];
     [query orderByAscending:@"endTime"];
-    [query setLimit:4];
+    query.limit = 4;
     [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
         if (error) {
+            NSLog(@"%@",error);
         }else{
             self.productArray = array;
             [self.productTableView reloadData];
@@ -95,6 +134,10 @@
         self.recommendScrollView.delegate = self;
         [self.mainScrollView addSubview:self.pageControl];
     }];
+}
+//进入二级分类
+-(void) pushSecondLevel {
+    [self performSegueWithIdentifier:@"secondLevel" sender:self];
 }
 #pragma mark Delegate of banner ScrollView
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -146,14 +189,16 @@
     return 120.0;
     
 }
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    //which segue works
+    SecondLevelTableViewController *vc = (SecondLevelTableViewController *)segue.destinationViewController;
+    vc.firstLevelId = @"LeBD666H";
+    
 }
-*/
+
 
 @end
