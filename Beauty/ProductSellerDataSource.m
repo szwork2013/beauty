@@ -25,6 +25,7 @@
             }else{
                 self.sellerArray = array;
                 [vc.sellerTableView reloadData];
+                [vc.tableView reloadData];
             }
         }];
     }

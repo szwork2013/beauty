@@ -834,7 +834,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BhW-FD-zBT" id="Cj7-Mx-vMu">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ZCd-CT-mJF">
+                                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ZCd-CT-mJF">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="163"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <prototypes>
@@ -931,7 +931,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="EB0-QK-8Wv" firstAttribute="top" secondItem="9bv-z7-aSi" secondAttribute="bottom" constant="-49" id="jg1-YU-85j"/>
+                            <constraint firstItem="EB0-QK-8Wv" firstAttribute="top" secondItem="9bv-z7-aSi" secondAttribute="bottom" id="jg1-YU-85j"/>
                             <constraint firstItem="9bv-z7-aSi" firstAttribute="leading" secondItem="h1B-4n-YgU" secondAttribute="leadingMargin" constant="-16" id="tCh-tu-9jY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="9bv-z7-aSi" secondAttribute="trailing" constant="-16" id="thQ-Sk-hHW"/>
                             <constraint firstItem="9bv-z7-aSi" firstAttribute="top" secondItem="weB-u4-TW1" secondAttribute="bottom" constant="-64" id="xjb-ib-eU9"/>

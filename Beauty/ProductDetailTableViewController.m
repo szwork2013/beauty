@@ -19,6 +19,7 @@
 @property (nonatomic,weak) IBOutlet UILabel *commentLabel;
 @property (nonatomic,weak) IBOutlet UILabel *averagePrice;
 @property (nonatomic,weak) IBOutlet UIView *starView;
+@property (nonatomic,strong) ProductSellerDataSource *productSellerDataSource;
 @end
 
 @implementation ProductDetailTableViewController
@@ -28,9 +29,9 @@
     self.navigationItem.title = @"产品信息";
 
     [self fetchProduct];
-    ProductSellerDataSource *productSellerDataSource = [[ProductSellerDataSource alloc]initWithViewController:self];
-    self.sellerTableView.dataSource = productSellerDataSource;
-    self.sellerTableView.delegate = productSellerDataSource;
+    self.productSellerDataSource = [[ProductSellerDataSource alloc]initWithViewController:self];
+    self.sellerTableView.dataSource = self.productSellerDataSource;
+    self.sellerTableView.delegate = self.productSellerDataSource;
 }
 
 
@@ -50,7 +51,7 @@
 }
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 1 && indexPath.row == 1) {
-        return 212.0;
+        return self.productSellerDataSource.sellerArray.count * 100.0;
     }
     return [super tableView:tableView heightForRowAtIndexPath:indexPath];
 }
