@@ -774,11 +774,11 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rox-q9-3Wz">
-                                                    <rect key="frame" x="126" y="43" width="87" height="14"/>
+                                                    <rect key="frame" x="126" y="48" width="87" height="14"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="888" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rV0-PI-J9d">
-                                                    <rect key="frame" x="242" y="39" width="26" height="21"/>
+                                                    <rect key="frame" x="242" y="44" width="26" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -803,7 +803,7 @@
                                                     </state>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="人评论" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xem-NI-dFv">
-                                                    <rect key="frame" x="267" y="39" width="39" height="21"/>
+                                                    <rect key="frame" x="267" y="44" width="39" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -834,7 +834,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BhW-FD-zBT" id="Cj7-Mx-vMu">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ZCd-CT-mJF">
+                                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ZCd-CT-mJF">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="163"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <prototypes>
@@ -851,6 +851,12 @@
                                                     </prototypes>
                                                 </tableView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ZCd-CT-mJF" firstAttribute="top" secondItem="Cj7-Mx-vMu" secondAttribute="topMargin" constant="-8" id="3al-hi-Vmf"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ZCd-CT-mJF" secondAttribute="trailing" constant="-8" id="5wC-rn-VZq"/>
+                                                <constraint firstItem="ZCd-CT-mJF" firstAttribute="leading" secondItem="Cj7-Mx-vMu" secondAttribute="leadingMargin" constant="-8" id="bdY-4J-FkM"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="ZCd-CT-mJF" secondAttribute="bottom" constant="-8" id="phu-v5-Xix"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>

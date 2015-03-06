@@ -17,10 +17,8 @@
     if ([self init]) {
         self.vc = vc;
         BmobQuery *query = [BmobQuery queryWithClassName:@"ProductSeller"];
-        
         [query includeKey:@"seller"];
-        
-//        [query whereObjectKey:@"product" relatedTo:[BmobObject objectWithoutDatatWithClassName:@"Product" objectId:vc.productId]];
+        [query whereKey:@"product" equalTo:[BmobObject objectWithoutDatatWithClassName:@"Product" objectId:vc.productId]];
         [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
             if (error) {
                 NSLog(@"%@",error);
