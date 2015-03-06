@@ -713,6 +713,7 @@
                             <outlet property="delegate" destination="JDv-5z-1Wb" id="oD5-eq-WjI"/>
                         </connections>
                     </tableView>
+                    <nil key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Clm-xZ-V9W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -865,6 +866,10 @@
                                 </cells>
                             </tableViewSection>
                         </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="z5s-pb-0rk" id="OPL-Oi-H2S"/>
+                            <outlet property="delegate" destination="z5s-pb-0rk" id="hJr-nu-W53"/>
+                        </connections>
                     </tableView>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="968"/>
@@ -873,7 +878,7 @@
                         <outlet property="averagePrice" destination="ZAx-jb-qla" id="oTO-ac-cK4"/>
                         <outlet property="commentLabel" destination="rV0-PI-J9d" id="wiF-9Z-KgN"/>
                         <outlet property="nameLabel" destination="PKX-kp-FGf" id="hZb-BC-SBZ"/>
-                        <outlet property="sellerTableView" destination="ZCd-CT-mJF" id="FIl-WR-RNt"/>
+                        <outlet property="sellerTableView" destination="ZCd-CT-mJF" id="7yw-Er-1iD"/>
                         <outlet property="starView" destination="rox-q9-3Wz" id="Afi-dk-mgo"/>
                     </connections>
                 </tableViewController>

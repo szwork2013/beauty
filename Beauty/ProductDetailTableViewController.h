@@ -10,4 +10,8 @@
 
 @interface ProductDetailTableViewController : UITableViewController
 @property (nonatomic,strong) NSString *productId;
+//推荐商家列表
+@property (nonatomic,weak) IBOutlet UITableView *sellerTableView;
+
+@property (nonatomic,strong) NSString *urlString;
 @end

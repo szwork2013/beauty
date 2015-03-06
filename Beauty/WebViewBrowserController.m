@@ -16,12 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"urlString : %@",self.urlString);
-    if (self.urlString == nil || [self.urlString isEqualToString:@""]) {
-        self.urlString = @"www.it577.net";
+    if (self.urlString){
+        [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.urlString]]];
     }
-    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.urlString]]];
-    
     // Do any additional setup after loading the view.
 }
 
