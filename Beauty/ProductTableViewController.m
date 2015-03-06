@@ -11,7 +11,7 @@
 #import <BmobSDK/Bmob.h>
 #import "UIImageView+AFNetworking.h"
 #import "ProductDetailTableViewController.h"
-
+#import "StarView.h"
 
 @interface ProductTableViewController ()
 @property (strong,nonatomic) NSArray *productArray;
@@ -66,21 +66,8 @@
     cell.commentCountLabel.text = [[product objectForKey:@"commentCount"]stringValue];
     cell.averagePriceLabel.text = [[product objectForKey:@"averagePrice"]stringValue];
     //    评分星级
-    NSNumber *starFullNum = [NSNumber numberWithInteger:ceil([[product objectForKey:@"mark"]floatValue])];
-    CGFloat width = 9.0;
-    CGFloat height = 9.0;
-    CGFloat margin = 2.0;
-    for (int i = 0; i <= 4; i++) {
-        UIImageView *emptyImageView = [[UIImageView alloc]initWithFrame:CGRectMake((width + margin) * i, 0, width, height)];
-        [emptyImageView setImage:[UIImage imageNamed:@"star_empty"]];
-        [cell.starView addSubview:emptyImageView];
-    }
-    //    NSLog(@"%@ %@",[product objectForKey:@"mark"],starFullNum);
-    for (int i = 0; i < [starFullNum intValue]; i++) {
-        UIImageView *fullImageView = [[UIImageView alloc]initWithFrame:CGRectMake((width + margin) * i, 0, width, height)];
-        [fullImageView setImage:[UIImage imageNamed:@"star_full"]];
-        [cell.starView addSubview:fullImageView];
-    }
+    StarView *view = [[StarView alloc]initWithCount:[product objectForKey:@"mark"] frame:CGRectMake(0, 0, 55.0, 11.0)];
+    [cell.starView addSubview:view];
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

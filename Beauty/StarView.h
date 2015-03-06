@@ -1,5 +1,5 @@
 //
-//  StartView.h
+//  StarView.h
 //  Beauty
 //
 //  Created by HuangXiuJie on 15/3/5.
@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface StartView : UIView
-
+@interface StarView : UIView
+@property (nonatomic,strong) NSNumber *count;
+-(instancetype)initWithCount:(NSNumber *)count frame:(CGRect)frame;
 @end

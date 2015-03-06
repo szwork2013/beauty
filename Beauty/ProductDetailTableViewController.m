@@ -9,7 +9,9 @@
 #import "ProductDetailTableViewController.h"
 #import <BmobSDK/Bmob.h>
 #import "UIImageView+AFNetworking.h"
-#import "StartView.h"
+#import "StarView.h"
+#import "SellerTableViewCell.h"
+#import "WebViewBrowserController.h"
 
 @interface ProductDetailTableViewController ()
 @property (nonatomic,weak) IBOutlet UIImageView *avatarImageView;
@@ -17,6 +19,12 @@
 @property (nonatomic,weak) IBOutlet UILabel *commentLabel;
 @property (nonatomic,weak) IBOutlet UILabel *averagePrice;
 @property (nonatomic,weak) IBOutlet UIView *starView;
+//推荐商家列表
+@property (nonatomic,weak) IBOutlet UITableView *sellerTableView;
+
+
+//商家列表数据源
+@property (nonatomic,strong) NSArray *sellerArray;
 @end
 
 @implementation ProductDetailTableViewController
@@ -24,9 +32,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"产品信息";
+//    self.tableView.dataSource = nil;
+    [self fetchSeller];
     [self fetchProduct];
 }
 
+//获取商家数据
+
+- (void)fetchSeller {
+    self.sellerArray = [NSArray array];
+    BmobQuery *query = [BmobQuery queryWithClassName:@"ProductSeller"];
+    
+    [query includeKey:@"seller"];
+    [query whereObjectKey:@"product" relatedTo:[BmobObject objectWithoutDatatWithClassName:@"Product" objectId:self.productId]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+        if (error) {
+            NSLog(@"%@",error);
+        }else{
+            self.sellerArray = array;
+        }
+    }];
+}
+//获取产品数据
 - (void)fetchProduct {
     BmobQuery *query = [BmobQuery queryWithClassName:@"Product"];
     [query getObjectInBackgroundWithId:self.productId block:^(BmobObject *object, NSError *error) {
@@ -35,7 +62,8 @@
         self.nameLabel.text = [object objectForKey:@"name"];
         self.commentLabel.text = [[object objectForKey:@"commentCount"]stringValue];
         self.averagePrice.text = [[object objectForKey:@"averagePrice"]stringValue];
-        StartView *view = [[StartView alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
+        
+        StarView *view = [[StarView alloc]initWithCount:[object objectForKey:@"mark"] frame:CGRectMake(0, 0, 55.0, 11.0)];
         [self.starView addSubview:view];
     }];
 }
@@ -44,21 +72,38 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+//
+//#pragma mark - Table view data source
+//
+//-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+////    if (tableView == self.sellerTableView) {
+//        return self.sellerArray.count;
+////    }
+////    return 1;
+//}
+//
+//
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    SellerTableViewCell *cell = [[[NSBundle mainBundle]loadNibNamed:@"SellerTableViewCell" owner:self options:nil]firstObject];
+//    
+////    cell.avatarImageView setImageWithURL:<#(NSURL *)#>
+//    BmobObject *seller = self.sellerArray[indexPath.row];
+//    cell.nameLabel.text = [[seller objectForKey:@"seller"]objectForKey:@"name"];
+//    cell.priceLabel.text = [[seller objectForKey:@"price"]stringValue];
+//    cell.descriptLabel.text = [seller objectForKey:@"descipt"];
+//
+//    [cell.buyButton addTarget:self action:@selector(jumpWebView) forControlEvents:UIControlEventTouchUpInside];
+//    
+//    return cell;
+//}
+//
+//-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    return 100.0;
+//}
 
-#pragma mark - Table view data source
-
-
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
+- (void)jumpWebView{
+    [self performSegueWithIdentifier:@"webView" sender:self];
 }
-*/
-
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -93,14 +138,16 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    WebViewBrowserController *vc = segue.destinationViewController;
+    vc.urlString = [self.sellerArray[self.sellerTableView.indexPathForSelectedRow.row]objectForKey:@"urlString"];
 }
-*/
+
 
 @end
