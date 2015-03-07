@@ -8,9 +8,11 @@
 
 #import "EvaluateDetailViewController.h"
 #import <BmobSDK/Bmob.h>
+#import "ProductDetailTableViewController.h"
 
 @interface EvaluateDetailViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *productTableView;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) BmobObject *product;
 
 @end
@@ -52,14 +54,15 @@
     cell.textLabel.text = [self.product objectForKey:@"name"];
     return cell;
 }
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    ProductDetailTableViewController *vc = segue.destinationViewController;
+    vc.productId = self.product.objectId;
 }
-*/
+
+
 
 @end

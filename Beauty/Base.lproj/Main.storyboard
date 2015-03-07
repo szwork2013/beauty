@@ -751,7 +751,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hdG-1H-1Qo">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hdG-1H-1Qo" userLabel="滚动画布">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="I2O-Dx-O3d" userLabel="产品专用TableView">
@@ -775,6 +775,9 @@
                                                         </label>
                                                     </subviews>
                                                 </tableViewCellContentView>
+                                                <connections>
+                                                    <segue destination="z5s-pb-0rk" kind="show" id="sQB-0f-XKh"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                         <sections/>
@@ -783,14 +786,42 @@
                                             <outlet property="delegate" destination="LUz-7x-A7l" id="G6B-hO-GQ9"/>
                                         </connections>
                                     </tableView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WT0-pA-bW7" userLabel="图片容器">
+                                        <rect key="frame" x="0.0" y="62" width="320" height="44"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="图片详情" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LOX-Z8-TlW">
+                                                <rect key="frame" x="20" y="11" width="94" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QCx-Ec-1Ii">
+                                                <rect key="frame" x="0.0" y="43" width="320" height="1"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="XIF-L4-uEM"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="LXj-ZP-nxb"/>
+                                            <constraint firstItem="QCx-Ec-1Ii" firstAttribute="leading" secondItem="WT0-pA-bW7" secondAttribute="leading" id="ULE-2Q-QSv"/>
+                                            <constraint firstItem="QCx-Ec-1Ii" firstAttribute="top" secondItem="WT0-pA-bW7" secondAttribute="top" constant="43" id="a0k-B5-dGi"/>
+                                            <constraint firstAttribute="trailing" secondItem="QCx-Ec-1Ii" secondAttribute="trailing" id="aX4-CY-o38"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.92549019607843142" green="0.92156862745098034" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="I2O-Dx-O3d" secondAttribute="trailing" id="5pG-x8-hnA"/>
                                     <constraint firstItem="I2O-Dx-O3d" firstAttribute="top" secondItem="hdG-1H-1Qo" secondAttribute="top" constant="8" id="98T-Za-TPl"/>
+                                    <constraint firstItem="WT0-pA-bW7" firstAttribute="leading" secondItem="hdG-1H-1Qo" secondAttribute="leading" id="AP3-Fe-6NZ"/>
                                     <constraint firstAttribute="bottom" secondItem="I2O-Dx-O3d" secondAttribute="bottom" constant="516" id="Gay-Fg-aJh"/>
                                     <constraint firstAttribute="bottom" secondItem="I2O-Dx-O3d" secondAttribute="bottom" constant="516" id="bbT-xR-Cu4"/>
+                                    <constraint firstItem="WT0-pA-bW7" firstAttribute="top" secondItem="hdG-1H-1Qo" secondAttribute="top" constant="62" id="jTY-An-y0b"/>
                                     <constraint firstAttribute="centerX" secondItem="I2O-Dx-O3d" secondAttribute="centerX" id="lZf-6l-MWm"/>
+                                    <constraint firstAttribute="trailing" secondItem="WT0-pA-bW7" secondAttribute="trailing" id="o4R-Bn-a04"/>
                                     <constraint firstItem="I2O-Dx-O3d" firstAttribute="leading" secondItem="hdG-1H-1Qo" secondAttribute="leading" id="vkX-a2-wU8"/>
                                 </constraints>
                                 <variation key="default">
@@ -823,6 +854,7 @@
                     </view>
                     <connections>
                         <outlet property="productTableView" destination="I2O-Dx-O3d" id="oq0-wC-vlH"/>
+                        <outlet property="scrollView" destination="hdG-1H-1Qo" id="8kF-Oy-QvA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1pD-mi-4Ea" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1401,4 +1433,7 @@
         <image name="time.png" width="14" height="14"/>
         <image name="try_bg.png" width="317" height="36"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="sQB-0f-XKh"/>
+    </inferredMetricsTieBreakers>
 </document>
