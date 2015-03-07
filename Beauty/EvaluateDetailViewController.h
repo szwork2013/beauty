@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface EvaluateDetailViewController : UIViewController
-
+@property (nonatomic,strong) NSString *evaluateId;
 @end

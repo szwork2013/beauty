@@ -7,8 +7,11 @@
 //
 
 #import "EvaluateDetailViewController.h"
+#import <BmobSDK/Bmob.h>
 
-@interface EvaluateDetailViewController ()
+@interface EvaluateDetailViewController ()<UITableViewDataSource,UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *productTableView;
+@property (strong, nonatomic) BmobObject *product;
 
 @end
 
@@ -16,15 +19,39 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     self.navigationItem.title = @"评测详情";
+    [self fetchProduct];
     // Do any additional setup after loading the view.
 }
 
+#pragma mark 获取关联的产品信息
+- (void)fetchProduct {
+    BmobQuery *query = [BmobQuery queryWithClassName:@"Evaluate"];
+    [query includeKey:@"product"];
+    [query getObjectInBackgroundWithId:self.evaluateId block:^(BmobObject *object, NSError *error) {
+        if (error) {
+            NSLog(@"%@",error);
+        } else {
+            self.product = [object objectForKey:@"product"];
+            [self.productTableView reloadData];
+        }
+    }];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+#pragma mark - tableview delegate
+-(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
+}
 
+-(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"product" forIndexPath:indexPath];
+    cell.textLabel.text = [self.product objectForKey:@"name"];
+    return cell;
+}
 /*
 #pragma mark - Navigation
 

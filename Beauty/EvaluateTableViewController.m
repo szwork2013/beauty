@@ -9,6 +9,7 @@
 #import "EvaluateTableViewController.h"
 #import <BmobSDK/Bmob.h>
 #import "UIImageView+AFNetworking.h"
+#import "EvaluateDetailViewController.h"
 
 @interface EvaluateTableViewController ()
 @property (nonatomic, strong) NSArray *EvaluateArray;
@@ -80,14 +81,16 @@
 //- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 //    [self performSegueWithIdentifier:@"evaluateDetail" sender:self];
 //}
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    EvaluateDetailViewController *vc = segue.destinationViewController;
+    vc.evaluateId = [self.EvaluateArray[self.tableView.indexPathForSelectedRow.section] objectId];
 }
-*/
+
 
 @end

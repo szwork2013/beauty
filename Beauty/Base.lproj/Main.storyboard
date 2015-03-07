@@ -754,14 +754,14 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hdG-1H-1Qo">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="I2O-Dx-O3d" userLabel="产品专用TableView">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="I2O-Dx-O3d" userLabel="产品专用TableView">
                                         <rect key="frame" x="0.0" y="8" width="320" height="44"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="fL3-68-cus"/>
                                         </constraints>
                                         <prototypes>
-                                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="product" textLabel="VjP-i4-OVc" style="IBUITableViewCellStyleDefault" id="xFN-2o-tta">
+                                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="product" textLabel="VjP-i4-OVc" style="IBUITableViewCellStyleDefault" id="xFN-2o-tta">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xFN-2o-tta" id="Gyd-nS-KOt">
@@ -778,6 +778,10 @@
                                             </tableViewCell>
                                         </prototypes>
                                         <sections/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="LUz-7x-A7l" id="wVy-Xi-7T7"/>
+                                            <outlet property="delegate" destination="LUz-7x-A7l" id="G6B-hO-GQ9"/>
+                                        </connections>
                                     </tableView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.92549019607843142" green="0.92156862745098034" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
@@ -817,6 +821,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="hdG-1H-1Qo" secondAttribute="trailing" constant="-16" id="rOe-o3-TtL"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="productTableView" destination="I2O-Dx-O3d" id="oq0-wC-vlH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1pD-mi-4Ea" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
