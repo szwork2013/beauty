@@ -33,6 +33,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     /*propery init*/
     //更多按钮
     self.moreButton.layer.borderColor = [[UIColor whiteColor]CGColor];
@@ -43,6 +44,10 @@
     [self fetchProducts];
     [self fetchCategory];
     // Do any additional setup after loading the view.
+}
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.tabBarController.tabBar.hidden = NO;
 }
 #pragma mark 获取一级分类
 -(void) fetchCategory {
@@ -182,9 +187,11 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    //which segue works
-    SecondLevelTableViewController *vc = (SecondLevelTableViewController *)segue.destinationViewController;
-    vc.firstLevelId = @"LeBD666H";
+    if ([segue.identifier isEqualToString:@"secondLevel"]) {
+        SecondLevelTableViewController *vc = (SecondLevelTableViewController *)segue.destinationViewController;
+        vc.firstLevelId = @"LeBD666H";
+    }
+    
     
 }
 

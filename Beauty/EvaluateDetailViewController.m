@@ -1,24 +1,22 @@
 //
-//  HomeTabBarController.m
+//  EvaluateDetailViewController.m
 //  Beauty
 //
-//  Created by HuangXiuJie on 15/3/1.
+//  Created by HuangXiuJie on 15/3/7.
 //  Copyright (c) 2015年 瑞安市灵犀网络技术有限公司. All rights reserved.
 //
 
-#import "HomeTabBarController.h"
+#import "EvaluateDetailViewController.h"
 
-@interface HomeTabBarController ()
+@interface EvaluateDetailViewController ()
 
 @end
 
-@implementation HomeTabBarController
+@implementation EvaluateDetailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.selectedIndex = 1;
-
-    
+    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {

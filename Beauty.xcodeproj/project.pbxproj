@@ -27,6 +27,8 @@
 		F7172C471AA94C0600A9ED4C /* buy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7172C461AA94C0600A9ED4C /* buy@2x.png */; };
 		F7172C4A1AA94E3800A9ED4C /* WebViewBrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7172C491AA94E3800A9ED4C /* WebViewBrowserController.m */; };
 		F7172C4E1AA98DAB00A9ED4C /* ProductSellerDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F7172C4D1AA98DAB00A9ED4C /* ProductSellerDataSource.m */; };
+		F72A95BC1AAAD47A00B2B611 /* EvaluateDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F72A95BB1AAAD47A00B2B611 /* EvaluateDetailViewController.m */; };
+		F77FB1CD1AA9F02F0092D57F /* EvaluateTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F77FB1CC1AA9F02F0092D57F /* EvaluateTableViewController.m */; };
 		F78FC9091AA73E8A00F3C1EE /* product_search_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F78FC9081AA73E8A00F3C1EE /* product_search_bg@2x.png */; };
 		F78FC90B1AA73F6500F3C1EE /* product_search_bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F78FC90A1AA73F6500F3C1EE /* product_search_bar@2x.png */; };
 		F78FC90D1AA7436B00F3C1EE /* activity_search_bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F78FC90C1AA7436B00F3C1EE /* activity_search_bar@2x.png */; };
@@ -134,6 +136,10 @@
 		F7172C491AA94E3800A9ED4C /* WebViewBrowserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewBrowserController.m; sourceTree = "<group>"; };
 		F7172C4C1AA98DAB00A9ED4C /* ProductSellerDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductSellerDataSource.h; sourceTree = "<group>"; };
 		F7172C4D1AA98DAB00A9ED4C /* ProductSellerDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductSellerDataSource.m; sourceTree = "<group>"; };
+		F72A95BA1AAAD47A00B2B611 /* EvaluateDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvaluateDetailViewController.h; sourceTree = "<group>"; };
+		F72A95BB1AAAD47A00B2B611 /* EvaluateDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EvaluateDetailViewController.m; sourceTree = "<group>"; };
+		F77FB1CB1AA9F02F0092D57F /* EvaluateTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvaluateTableViewController.h; sourceTree = "<group>"; };
+		F77FB1CC1AA9F02F0092D57F /* EvaluateTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EvaluateTableViewController.m; sourceTree = "<group>"; };
 		F78FC9081AA73E8A00F3C1EE /* product_search_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "product_search_bg@2x.png"; path = "images/home/product_search_bg@2x.png"; sourceTree = "<group>"; };
 		F78FC90A1AA73F6500F3C1EE /* product_search_bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "product_search_bar@2x.png"; path = "images/home/product_search_bar@2x.png"; sourceTree = "<group>"; };
 		F78FC90C1AA7436B00F3C1EE /* activity_search_bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "activity_search_bar@2x.png"; path = "images/home/activity_search_bar@2x.png"; sourceTree = "<group>"; };
@@ -329,8 +335,12 @@
 		F7B498371AA2FF300067219E /* Beauty */ = {
 			isa = PBXGroup;
 			children = (
+				F72A95BA1AAAD47A00B2B611 /* EvaluateDetailViewController.h */,
+				F72A95BB1AAAD47A00B2B611 /* EvaluateDetailViewController.m */,
 				F7172C481AA94E3800A9ED4C /* WebViewBrowserController.h */,
 				F7172C491AA94E3800A9ED4C /* WebViewBrowserController.m */,
+				F77FB1CB1AA9F02F0092D57F /* EvaluateTableViewController.h */,
+				F77FB1CC1AA9F02F0092D57F /* EvaluateTableViewController.m */,
 				F7172C341AA87C9D00A9ED4C /* cell */,
 				F7B498771AA31CFF0067219E /* images */,
 				F7B4983C1AA2FF300067219E /* AppDelegate.h */,
@@ -692,6 +702,7 @@
 				F7E84A711AA477430042F779 /* UIImage+WebP.m in Sources */,
 				F7E84A681AA477430042F779 /* SDWebImageCompat.m in Sources */,
 				F7172C371AA87D8500A9ED4C /* ProductTableViewController.m in Sources */,
+				F77FB1CD1AA9F02F0092D57F /* EvaluateTableViewController.m in Sources */,
 				F7B4989E1AA3356F0067219E /* UIImageView+AFNetworking.m in Sources */,
 				F7B498B81AA335E30067219E /* AFHTTPSessionManager.m in Sources */,
 				F713C8CB1AA49089004BE58C /* StoreDetailTableViewController.m in Sources */,
@@ -701,6 +712,7 @@
 				F7B4983B1AA2FF300067219E /* main.m in Sources */,
 				F7B498BE1AA335E30067219E /* AFURLSessionManager.m in Sources */,
 				F7E84A671AA477430042F779 /* SDImageCache.m in Sources */,
+				F72A95BC1AAAD47A00B2B611 /* EvaluateDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
