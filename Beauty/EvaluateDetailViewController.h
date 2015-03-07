@@ -10,4 +10,6 @@
 
 @interface EvaluateDetailViewController : UIViewController
 @property (nonatomic,strong) NSString *evaluateId;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+
 @end

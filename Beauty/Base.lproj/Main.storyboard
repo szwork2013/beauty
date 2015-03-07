@@ -754,7 +754,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hdG-1H-1Qo" userLabel="滚动画布">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="I2O-Dx-O3d" userLabel="产品专用TableView">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="I2O-Dx-O3d" userLabel="产品专用TableView">
                                         <rect key="frame" x="0.0" y="8" width="320" height="44"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -795,9 +795,9 @@
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QCx-Ec-1Ii">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QCx-Ec-1Ii" userLabel="seperate">
                                                 <rect key="frame" x="0.0" y="43" width="320" height="1"/>
-                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="XIF-L4-uEM"/>
                                                 </constraints>
@@ -853,6 +853,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="nameLabel" destination="0Ux-B0-sbL" id="Diw-OQ-hpo"/>
                         <outlet property="productTableView" destination="I2O-Dx-O3d" id="oq0-wC-vlH"/>
                         <outlet property="scrollView" destination="hdG-1H-1Qo" id="8kF-Oy-QvA"/>
                     </connections>

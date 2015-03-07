@@ -19,7 +19,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tabBarController.tabBar.hidden = YES;
     self.navigationItem.title = @"评测室";
     [self fetchEvaluate];
     // Uncomment the following line to preserve selection between presentations.

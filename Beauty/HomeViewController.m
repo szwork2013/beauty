@@ -191,7 +191,7 @@
         SecondLevelTableViewController *vc = (SecondLevelTableViewController *)segue.destinationViewController;
         vc.firstLevelId = @"LeBD666H";
     }
-    
+    [self setHidesBottomBarWhenPushed:YES];
     
 }
 
