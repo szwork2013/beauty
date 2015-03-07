@@ -12,29 +12,37 @@
 #import "Global.h"
 #import "UIImageView+AFNetworking.h"
 
-@interface EvaluateDetailViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface EvaluateDetailViewController ()<UITableViewDataSource,UITableViewDelegate,UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *productTableView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) BmobObject *product;
 @property (strong, nonatomic) NSArray *imageArray;
-
+@property (assign, nonatomic) CGFloat offsetY;
+@property (strong, nonatomic) UIWebView *webView;
 @end
 
 @implementation EvaluateDetailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.offsetY = 0;
+    self.webView = [[UIWebView alloc]init];
+//    self.webView.scrollView.scrollEnabled = NO;
+    [self.scrollView addSubview:self.webView];
 
     self.navigationItem.title = @"评测详情";
     [self fetchProduct];
 
     // Do any additional setup after loading the view.
 }
-
+#pragma mark 网页加载代理
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    [self.webView sizeToFit];
+}
 - (void)createImageView {
     CGFloat y = 115.0;
     CGFloat margin = 8.0;
-    __block CGFloat offsetY = 0.0;
+//    __block CGFloat offsetY = 0.0;
     for (int i = 0; i < self.imageArray.count; i++) {
         UIImageView *imageView = [[UIImageView alloc]init];
         __weak UIImageView *_imageView = imageView;
@@ -46,14 +54,15 @@
             CGFloat imageViewHeight = imageViewWidth / (imageWidth / imageHeight);
             
             _imageView.image = image;
-            _imageView.frame = CGRectMake(margin, y + i * margin + offsetY, imageViewWidth, imageViewHeight);
-            offsetY += imageViewHeight;
+            _imageView.frame = CGRectMake(margin, y + i * margin + self.offsetY, imageViewWidth, imageViewHeight);
+            self.offsetY += imageViewHeight;
             UIView *seperatedView = [[UIView alloc]initWithFrame:CGRectMake(margin, _imageView.frame.origin.y + imageViewHeight + margin / 2, imageViewWidth, 1)];
             seperatedView.backgroundColor = [UIColor colorWithWhite:0.8 alpha:1.0];
 //            scrollView添加子视图
             [self.scrollView addSubview:seperatedView];
 //            scrollView内容高度增加
-            self.scrollView.contentSize = CGSizeMake(self.scrollView.contentSize.width, y + offsetY + margin * i + margin);
+            self.webView.frame = CGRectMake(0, y + self.offsetY, SCREEN_WIDTH, 400);
+            self.scrollView.contentSize = CGSizeMake(self.scrollView.contentSize.width, y + self.offsetY + margin * i + margin + self.webView.scrollView.contentSize.height);
         } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
             
         }];
@@ -74,12 +83,13 @@
 
 }
 
-- (void)createWebView:(NSString *)url {
-    UIWebView *webView = [[UIWebView alloc]init];
-    webView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 400);
-    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
-    [self.scrollView addSubview:webView];
-}
+//- (void)createWebView:(NSString *)url {
+//    self.webView = [[UIWebView alloc]init];
+//    webView.frame = CGRectMake(0, self.offsetY, SCREEN_WIDTH, 400);
+//    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
+//    [self.scrollView addSubview:webView];
+//
+//}
 #pragma mark 获取关联的产品信息
 - (void)fetchProduct {
     BmobQuery *query = [BmobQuery queryWithClassName:@"Evaluate"];
@@ -93,7 +103,7 @@
             self.nameLabel.text = [object objectForKey:@"name"];
             [self.productTableView reloadData];
             [self createImageView];
-            [self createWebView:[object objectForKey:@"webUrl"]];
+            [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[object objectForKey:@"webUrl"]]]];
         }
     }];
 }
