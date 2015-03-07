@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = @"评测详情";
     // Do any additional setup after loading the view.
 }
 

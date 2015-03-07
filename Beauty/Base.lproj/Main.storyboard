@@ -678,10 +678,10 @@
             </objects>
             <point key="canvasLocation" x="467" y="-662"/>
         </scene>
-        <!--Evaluate Table View Controller-->
+        <!--评测室列表-->
         <scene sceneID="Py7-G4-QwE">
             <objects>
-                <tableViewController id="8lu-rH-F7V" customClass="EvaluateTableViewController" sceneMemberID="viewController">
+                <tableViewController id="8lu-rH-F7V" userLabel="评测室列表" customClass="EvaluateTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="132" sectionHeaderHeight="10" sectionFooterHeight="10" id="WYo-b8-F5Z">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -739,10 +739,10 @@
             </objects>
             <point key="canvasLocation" x="982" y="-1298"/>
         </scene>
-        <!--Evaluate Detail View Controller-->
+        <!--评测室详情-->
         <scene sceneID="asM-sf-8z3">
             <objects>
-                <viewController id="LUz-7x-A7l" customClass="EvaluateDetailViewController" sceneMemberID="viewController">
+                <viewController id="LUz-7x-A7l" userLabel="评测室详情" customClass="EvaluateDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="O9Z-sV-Giq"/>
                         <viewControllerLayoutGuide type="bottom" id="Fhw-pd-ddh"/>
@@ -751,22 +751,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标题" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ux-B0-sbL">
-                                <rect key="frame" x="0.0" y="64" width="320" height="55"/>
-                                <color key="backgroundColor" red="0.86274509799999999" green="0.86274509799999999" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="55" id="xhJ-R3-K9m"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.73333333329999995" green="0.47843137250000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hdG-1H-1Qo">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="I2O-Dx-O3d" userLabel="产品专用TableView">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="I2O-Dx-O3d" userLabel="产品专用TableView">
                                         <rect key="frame" x="0.0" y="8" width="320" height="44"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="fL3-68-cus"/>
+                                        </constraints>
                                         <prototypes>
                                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="product" textLabel="VjP-i4-OVc" style="IBUITableViewCellStyleDefault" id="xFN-2o-tta">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -788,12 +781,35 @@
                                     </tableView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.92549019607843142" green="0.92156862745098034" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="I2O-Dx-O3d" secondAttribute="trailing" id="5pG-x8-hnA"/>
+                                    <constraint firstItem="I2O-Dx-O3d" firstAttribute="top" secondItem="hdG-1H-1Qo" secondAttribute="top" constant="8" id="98T-Za-TPl"/>
+                                    <constraint firstAttribute="bottom" secondItem="I2O-Dx-O3d" secondAttribute="bottom" constant="516" id="Gay-Fg-aJh"/>
+                                    <constraint firstAttribute="bottom" secondItem="I2O-Dx-O3d" secondAttribute="bottom" constant="516" id="bbT-xR-Cu4"/>
+                                    <constraint firstAttribute="centerX" secondItem="I2O-Dx-O3d" secondAttribute="centerX" id="lZf-6l-MWm"/>
+                                    <constraint firstItem="I2O-Dx-O3d" firstAttribute="leading" secondItem="hdG-1H-1Qo" secondAttribute="leading" id="vkX-a2-wU8"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="bbT-xR-Cu4"/>
+                                    </mask>
+                                </variation>
                             </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标题" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ux-B0-sbL">
+                                <rect key="frame" x="0.0" y="64" width="320" height="55"/>
+                                <color key="backgroundColor" red="0.86274509799999999" green="0.86274509799999999" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="xhJ-R3-K9m"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.73333333329999995" green="0.47843137250000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="hdG-1H-1Qo" firstAttribute="leading" secondItem="iKF-7W-7QT" secondAttribute="leadingMargin" constant="-16" id="8yj-xi-Vll"/>
-                            <constraint firstItem="hdG-1H-1Qo" firstAttribute="top" secondItem="O9Z-sV-Giq" secondAttribute="bottom" constant="-64" id="9CA-hf-z3H"/>
+                            <constraint firstItem="hdG-1H-1Qo" firstAttribute="top" secondItem="O9Z-sV-Giq" secondAttribute="bottom" id="9CA-hf-z3H"/>
                             <constraint firstItem="Fhw-pd-ddh" firstAttribute="top" secondItem="hdG-1H-1Qo" secondAttribute="bottom" id="9oM-dP-JD0"/>
                             <constraint firstAttribute="trailingMargin" secondItem="0Ux-B0-sbL" secondAttribute="trailing" constant="-16" id="G1J-6v-07Z"/>
                             <constraint firstItem="0Ux-B0-sbL" firstAttribute="top" secondItem="O9Z-sV-Giq" secondAttribute="bottom" id="KnS-4j-Uz4"/>
