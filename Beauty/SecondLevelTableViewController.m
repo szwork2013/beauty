@@ -18,6 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tabBarController.tabBar.hidden = YES;
     [self fetchTitle];
     [self fetchSecondLevel];
 

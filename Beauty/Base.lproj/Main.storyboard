@@ -491,6 +491,9 @@
                                                         <exclude reference="ALQ-3y-ZKf"/>
                                                     </mask>
                                                 </variation>
+                                                <connections>
+                                                    <segue destination="jaR-Mt-7rr" kind="show" id="N0e-Zl-UVu"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -676,7 +679,39 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kQ4-ge-zda" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="467" y="-662"/>
+            <point key="canvasLocation" x="526" y="-811"/>
+        </scene>
+        <!--微商好产品-->
+        <scene sceneID="RU2-UD-whi">
+            <objects>
+                <viewController id="jaR-Mt-7rr" userLabel="微商好产品" customClass="WechatProductViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1Mg-zb-YKb"/>
+                        <viewControllerLayoutGuide type="bottom" id="Yn2-5w-ozJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nQg-IP-UPz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tXm-TF-nXd">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tXm-TF-nXd" firstAttribute="top" secondItem="1Mg-zb-YKb" secondAttribute="bottom" id="4Y9-Hl-pSd"/>
+                            <constraint firstItem="Yn2-5w-ozJ" firstAttribute="top" secondItem="tXm-TF-nXd" secondAttribute="bottom" id="Y7S-s7-4Dl"/>
+                            <constraint firstItem="tXm-TF-nXd" firstAttribute="top" secondItem="1Mg-zb-YKb" secondAttribute="bottom" id="sp9-jF-tnG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tXm-TF-nXd" secondAttribute="trailing" constant="-16" id="tGV-eA-XUI"/>
+                            <constraint firstItem="tXm-TF-nXd" firstAttribute="leading" secondItem="nQg-IP-UPz" secondAttribute="leadingMargin" constant="-16" id="uAt-DR-Y9g"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bhb-HE-ZR3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="982" y="-1968"/>
         </scene>
         <!--评测室列表-->
         <scene sceneID="Py7-G4-QwE">
@@ -1360,7 +1395,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZTF-rT-QHc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1981" y="-666"/>
+            <point key="canvasLocation" x="2224" y="-682"/>
         </scene>
         <!--首页-->
         <scene sceneID="oTv-Cb-G4d">
@@ -1414,7 +1449,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gX0-Rg-LAe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2450" y="-656"/>
+            <point key="canvasLocation" x="2614" y="-662"/>
         </scene>
     </scenes>
     <resources>
