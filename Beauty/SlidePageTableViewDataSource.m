@@ -8,6 +8,9 @@
 
 #import "SlidePageTableViewDataSource.h"
 #import <BmobSDK/Bmob.h>
+#import "ProductTableViewCell.h"
+#import "StarView.h"
+#import "UIImageView+AFNetworking.h"
 
 @implementation SlidePageTableViewDataSource
 - (instancetype)initWithViewController:(SlidePageViewController *)viewController {
@@ -43,9 +46,20 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-    cell.textLabel.text = [[self.dataSourceArray[indexPath.row] objectForKey:@"product"]objectForKey:@"name"];
+    ProductTableViewCell *cell = [[[NSBundle mainBundle]loadNibNamed:@"ProductTableViewCell" owner:self options:nil]firstObject];
+    BmobObject *product = [self.dataSourceArray[indexPath.row] objectForKey:@"product"];
+    BmobFile *avatar = [product objectForKey:@"avatar"];
+    [cell.thumbImageView setImageWithURL:[NSURL URLWithString:avatar.url]];
+    cell.titleLabel.text = [product objectForKey:@"name"];
+    cell.commentCountLabel.text = [product objectForKey:@"comment"];
+    cell.averagePriceLabel.text = [[product objectForKey:@"averagePrice"]stringValue];
+//        评分星级
+    StarView *view = [[StarView alloc]initWithCount:[product objectForKey:@"mark"] frame:CGRectMake(0, 0, 55.0, 11.0)];
+    [cell.starView addSubview:view];
     return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 120.0;
 }
 @end
