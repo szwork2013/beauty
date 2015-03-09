@@ -9,6 +9,7 @@
 #import "SlidePageViewController.h"
 #import "SlidePageTableViewDataSource.h"
 #import "Global.h"
+#import "PageIndicatorView.h"
 
 @interface SlidePageViewController ()
 
@@ -19,17 +20,32 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableViewArray = [NSMutableArray array];
+    //初始化VC中的View尺寸
+    self.view.frame = CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT - 64);
     self.count = 3;
+    //生成若干个tableview
     [self createTableView:(NSInteger)self.count];
+    //生成若干个pageIndicator
+    [self createPageIndicator];
     self.tableViewContainerScrollView.pagingEnabled = YES;
-    self.tableViewContainerScrollView.contentSize = CGSizeMake(self.tableViewContainerScrollView.frame.size.width * self.count, self.tableViewContainerScrollView.frame.size.height);
-    // Do any additional setup after loading the view from its nib.
+    self.tableViewContainerScrollView.contentSize = CGSizeMake(SCREEN_WIDTH * self.count, self.tableViewContainerScrollView.frame.size.height);
 }
+//生成createPageIndicator
+- (void)createPageIndicator {
+//    self.pageControlScrollView;
+    PageIndicatorView *view = [[[NSBundle mainBundle]loadNibNamed:@"PageIndicator" owner:self options:nil]firstObject];
+    for (int i = 0; i < self.count; i++) {
+//        view.frame = CGRectMake(i * view.frame.size.width, 0, view.frame.size.width, view.frame.size.height);
+        [self.pageControlScrollView addSubview:view];
+    }
+    
+    
+}
+//生成tableview
 - (void)createTableView:(NSInteger)count {
     for (int i = 0; i < count; i++) {
         UITableView *tableView = [[UITableView alloc]init];
-        CGRect parentRect = self.tableViewContainerScrollView.frame;
-        tableView.frame = CGRectMake(i * parentRect.size.width, 0, parentRect.size.width, parentRect.size.height);
+        tableView.frame = CGRectMake(i * SCREEN_WIDTH, 0, SCREEN_WIDTH, self.tableViewContainerScrollView.frame.size.height);
         
         SlidePageTableViewDataSource *slidePageDataSource = [[SlidePageTableViewDataSource alloc]initWithTableView:tableView];
         slidePageDataSource.viewController = self;

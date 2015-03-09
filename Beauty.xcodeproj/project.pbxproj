@@ -32,6 +32,8 @@
 		F72A95C31AABEA1000B2B611 /* SlidePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F72A95C11AABEA1000B2B611 /* SlidePageViewController.m */; };
 		F72A95C41AABEA1000B2B611 /* SlidePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F72A95C21AABEA1000B2B611 /* SlidePageViewController.xib */; };
 		F72A95C71AABF33300B2B611 /* SlidePageTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F72A95C61AABF33300B2B611 /* SlidePageTableViewDataSource.m */; };
+		F72A95CF1AACB73900B2B611 /* PageIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = F72A95CE1AACB73900B2B611 /* PageIndicatorView.m */; };
+		F72A95D11AACB75B00B2B611 /* PageIndicator.xib in Resources */ = {isa = PBXBuildFile; fileRef = F72A95D01AACB75B00B2B611 /* PageIndicator.xib */; };
 		F77FB1CD1AA9F02F0092D57F /* EvaluateTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F77FB1CC1AA9F02F0092D57F /* EvaluateTableViewController.m */; };
 		F78FC9091AA73E8A00F3C1EE /* product_search_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F78FC9081AA73E8A00F3C1EE /* product_search_bg@2x.png */; };
 		F78FC90B1AA73F6500F3C1EE /* product_search_bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F78FC90A1AA73F6500F3C1EE /* product_search_bar@2x.png */; };
@@ -133,6 +135,9 @@
 		F72A95C21AABEA1000B2B611 /* SlidePageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SlidePageViewController.xib; sourceTree = "<group>"; };
 		F72A95C51AABF33300B2B611 /* SlidePageTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlidePageTableViewDataSource.h; sourceTree = "<group>"; };
 		F72A95C61AABF33300B2B611 /* SlidePageTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlidePageTableViewDataSource.m; sourceTree = "<group>"; };
+		F72A95CD1AACB73900B2B611 /* PageIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageIndicatorView.h; sourceTree = "<group>"; };
+		F72A95CE1AACB73900B2B611 /* PageIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageIndicatorView.m; sourceTree = "<group>"; };
+		F72A95D01AACB75B00B2B611 /* PageIndicator.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageIndicator.xib; sourceTree = "<group>"; };
 		F77FB1CB1AA9F02F0092D57F /* EvaluateTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvaluateTableViewController.h; sourceTree = "<group>"; };
 		F77FB1CC1AA9F02F0092D57F /* EvaluateTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EvaluateTableViewController.m; sourceTree = "<group>"; };
 		F78FC9081AA73E8A00F3C1EE /* product_search_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "product_search_bg@2x.png"; path = "images/home/product_search_bg@2x.png"; sourceTree = "<group>"; };
@@ -265,6 +270,21 @@
 			path = images/product;
 			sourceTree = "<group>";
 		};
+		F72A95D21AACBAD200B2B611 /* SlidePage */ = {
+			isa = PBXGroup;
+			children = (
+				F72A95C01AABEA1000B2B611 /* SlidePageViewController.h */,
+				F72A95C11AABEA1000B2B611 /* SlidePageViewController.m */,
+				F72A95CD1AACB73900B2B611 /* PageIndicatorView.h */,
+				F72A95CE1AACB73900B2B611 /* PageIndicatorView.m */,
+				F72A95D01AACB75B00B2B611 /* PageIndicator.xib */,
+				F72A95C51AABF33300B2B611 /* SlidePageTableViewDataSource.h */,
+				F72A95C61AABF33300B2B611 /* SlidePageTableViewDataSource.m */,
+				F72A95C21AABEA1000B2B611 /* SlidePageViewController.xib */,
+			);
+			name = SlidePage;
+			sourceTree = "<group>";
+		};
 		F7B4982C1AA2FF300067219E = {
 			isa = PBXGroup;
 			children = (
@@ -296,11 +316,7 @@
 		F7B498371AA2FF300067219E /* Beauty */ = {
 			isa = PBXGroup;
 			children = (
-				F72A95C01AABEA1000B2B611 /* SlidePageViewController.h */,
-				F72A95C11AABEA1000B2B611 /* SlidePageViewController.m */,
-				F72A95C51AABF33300B2B611 /* SlidePageTableViewDataSource.h */,
-				F72A95C61AABF33300B2B611 /* SlidePageTableViewDataSource.m */,
-				F72A95C21AABEA1000B2B611 /* SlidePageViewController.xib */,
+				F72A95D21AACBAD200B2B611 /* SlidePage */,
 				F72A95BD1AABE68800B2B611 /* WechatProductViewController.h */,
 				F72A95BE1AABE68800B2B611 /* WechatProductViewController.m */,
 				F72A95BA1AAAD47A00B2B611 /* EvaluateDetailViewController.h */,
@@ -569,6 +585,7 @@
 				F79D17951AA5A6E700F0D86E /* Default-568h@2x.png in Resources */,
 				F78FC90D1AA7436B00F3C1EE /* activity_search_bar@2x.png in Resources */,
 				F7147A5D1AA6FBC2007605E6 /* willtry@2x.png in Resources */,
+				F72A95D11AACB75B00B2B611 /* PageIndicator.xib in Resources */,
 				F7B4986D1AA311350067219E /* bar_shop@2x.png in Resources */,
 				F7B4986C1AA311350067219E /* bar_search@2x.png in Resources */,
 				F7B4987B1AA31D390067219E /* time@2x.png in Resources */,
@@ -612,6 +629,7 @@
 				F7B498BC1AA335E30067219E /* AFURLRequestSerialization.m in Sources */,
 				F7B498B91AA335E30067219E /* AFNetworkReachabilityManager.m in Sources */,
 				F7172C441AA94A1000A9ED4C /* SellerTableViewCell.m in Sources */,
+				F72A95CF1AACB73900B2B611 /* PageIndicatorView.m in Sources */,
 				F7B4989A1AA3356F0067219E /* AFNetworkActivityIndicatorManager.m in Sources */,
 				F7172C401AA8A13B00A9ED4C /* StarView.m in Sources */,
 				F72A95C31AABEA1000B2B611 /* SlidePageViewController.m in Sources */,

@@ -21,11 +21,7 @@
     self.tabBarController.tabBar.hidden = YES;
     self.navigationItem.title = @"微商好产品";
     SlidePageViewController *pageViewController = [[SlidePageViewController alloc]initWithNibName:@"SlidePageViewController" bundle:[NSBundle mainBundle]];
-    CGRect originRect = pageViewController.view.frame;
-    CGRect newRect = CGRectMake(originRect.origin.x, 64, originRect.size.width, originRect.size.height);
-    pageViewController.view.frame = newRect;
     [self.view addSubview:pageViewController.view];
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
