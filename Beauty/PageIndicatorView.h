@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface PageIndicatorView : UIView
-@property (weak, nonatomic) IBOutlet UIButton *nameButton;
-@property (weak, nonatomic) IBOutlet UIView *indicatorView;
+@property (strong, nonatomic) UIButton *nameButton;
+@property (strong, nonatomic) UIView *indicatorView;
 
 @end

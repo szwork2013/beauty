@@ -33,10 +33,13 @@
 //生成createPageIndicator
 - (void)createPageIndicator {
 //    self.pageControlScrollView;
-    PageIndicatorView *view = [[[NSBundle mainBundle]loadNibNamed:@"PageIndicator" owner:self options:nil]firstObject];
+//    PageIndicatorView *view = [[[NSBundle mainBundle]loadNibNamed:@"PageIndicator" owner:self options:nil]firstObject];
+    PageIndicatorView *pageIndicatorView = [[PageIndicatorView alloc]initWithFrame:CGRectMake(0, 0, 120, 30)];
+    pageIndicatorView.backgroundColor = [UIColor whiteColor];
+    
     for (int i = 0; i < self.count; i++) {
 //        view.frame = CGRectMake(i * view.frame.size.width, 0, view.frame.size.width, view.frame.size.height);
-        [self.pageControlScrollView addSubview:view];
+        [self.pageControlScrollView addSubview:pageIndicatorView];
     }
     
     
