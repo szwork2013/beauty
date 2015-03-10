@@ -10,8 +10,13 @@
 #import <BmobSDK/Bmob.h>
 
 @interface MemberTableViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *productCollectLabel;
-@property (weak, nonatomic) IBOutlet UILabel *storeCollectLabel;
+@property (weak, nonatomic) IBOutlet UIButton *nicknameButton;
+
+
+@property (weak, nonatomic) IBOutlet UIButton *tryCountButton;
+@property (weak, nonatomic) IBOutlet UIButton *collectCountButton;
+@property (weak, nonatomic) IBOutlet UIButton *tryButton;
+@property (weak, nonatomic) IBOutlet UIButton *collectButton;
 
 @end
 
@@ -28,20 +33,27 @@
 }
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self fetchUser];
+    
+}
+- (void)fetchUser {
     NSString *username = [[NSUserDefaults standardUserDefaults]objectForKey:@"username"];
     if (username) {
         [self.loginButton setTitle:@"退出登录" forState:UIControlStateNormal];
-//        获取收藏数
+        //        获取收藏数
         BmobQuery *query = [BmobUser query];
         [query whereKey:@"username" equalTo:username];
+        //通过用户手机号码获得用户信息
         [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
             if (error) {
                 NSLog(@"%@",error);
             } else {
                 BmobObject *user = [array firstObject];
-//                NSLog(@"%@",[user objectForKey:@"username"]);
-                NSArray *productCollect = [user objectForKey:@"relProductCollect"];
-//                产品收藏
+                //获取user基本信息
+                [self.nicknameButton setTitle:[user objectForKey:@"nickname"] forState:UIControlStateNormal];
+                
+;
+                //                产品收藏
                 BmobQuery *productQuery = [BmobQuery queryWithClassName:@"Product"];
                 [productQuery whereObjectKey:@"relProductCollect" relatedTo:user];
                 [productQuery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
@@ -49,7 +61,7 @@
                         NSLog(@"%@",[product objectForKey:@"name"]);
                     }
                 }];
-//                店铺收藏
+                //                店铺收藏
                 BmobQuery *storeQuery = [BmobQuery queryWithClassName:@"Store"];
                 [storeQuery whereObjectKey:@"relStoreCollect" relatedTo:user];
                 [storeQuery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
@@ -57,13 +69,11 @@
                         NSLog(@"%@",[product objectForKey:@"name"]);
                     }
                 }];
-                //                NSLog(@"%@",[[productCollect firstObject]objectForKey:@"name"]);
-                self.productCollectLabel.text = [NSString stringWithFormat:@"%lud",(unsigned long)productCollect.count];
-
+    
+                
             }
         }];
     }
-    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
