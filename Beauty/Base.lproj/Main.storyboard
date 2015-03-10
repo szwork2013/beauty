@@ -561,7 +561,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="guH-dy-95a" userLabel="获取验证码view">
                                         <rect key="frame" x="0.0" y="39" width="320" height="55"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b82-Mr-S3T">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b82-Mr-S3T">
                                                 <rect key="frame" x="17" y="13" width="170" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -577,7 +577,10 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="55" id="01q-fM-h0d"/>
+                                            <constraint firstAttribute="trailing" secondItem="b82-Mr-S3T" secondAttribute="trailing" constant="133" id="1n5-dH-FcQ"/>
                                             <constraint firstAttribute="trailing" secondItem="Vzt-Ef-cfa" secondAttribute="trailing" constant="17" id="MMH-vY-XLq"/>
+                                            <constraint firstItem="b82-Mr-S3T" firstAttribute="leading" secondItem="guH-dy-95a" secondAttribute="leading" constant="17" id="Zkp-KK-OMM"/>
+                                            <constraint firstItem="b82-Mr-S3T" firstAttribute="top" secondItem="guH-dy-95a" secondAttribute="top" constant="13" id="kBg-Qf-jeV"/>
                                             <constraint firstItem="Vzt-Ef-cfa" firstAttribute="top" secondItem="guH-dy-95a" secondAttribute="top" constant="9" id="kp5-xS-o1P"/>
                                             <constraint firstAttribute="bottom" secondItem="Vzt-Ef-cfa" secondAttribute="bottom" constant="8" id="zme-0v-uBO"/>
                                         </constraints>
@@ -585,7 +588,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MOg-UP-l02" userLabel="输入验证码view">
                                         <rect key="frame" x="0.0" y="102" width="320" height="55"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3UL-hW-W7O">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3UL-hW-W7O">
                                                 <rect key="frame" x="17" y="13" width="286" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -594,12 +597,15 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="55" id="7fB-9O-Thf"/>
+                                            <constraint firstItem="3UL-hW-W7O" firstAttribute="leading" secondItem="MOg-UP-l02" secondAttribute="leading" constant="17" id="FSx-ev-Usv"/>
+                                            <constraint firstAttribute="trailing" secondItem="3UL-hW-W7O" secondAttribute="trailing" constant="17" id="V5M-gC-yNb"/>
+                                            <constraint firstItem="3UL-hW-W7O" firstAttribute="top" secondItem="MOg-UP-l02" secondAttribute="top" constant="13" id="m1d-Cv-2OA"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xt6-jK-7I4" userLabel="登录view">
                                         <rect key="frame" x="0.0" y="165" width="320" height="55"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9nz-MX-8ge">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9nz-MX-8ge">
                                                 <rect key="frame" x="16" y="9" width="288" height="37"/>
                                                 <state key="normal" title="登录" backgroundImage="login_bg.png">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -609,7 +615,11 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="9nz-MX-8ge" secondAttribute="bottom" constant="9" id="4gM-hv-JWO"/>
+                                            <constraint firstAttribute="trailing" secondItem="9nz-MX-8ge" secondAttribute="trailing" constant="16" id="Ci5-tP-czd"/>
+                                            <constraint firstItem="9nz-MX-8ge" firstAttribute="top" secondItem="xt6-jK-7I4" secondAttribute="top" constant="9" id="HjC-r8-rjo"/>
                                             <constraint firstAttribute="height" constant="55" id="iKM-6Y-2of"/>
+                                            <constraint firstItem="9nz-MX-8ge" firstAttribute="leading" secondItem="xt6-jK-7I4" secondAttribute="leading" constant="16" id="zN1-zW-IpV"/>
                                         </constraints>
                                     </view>
                                 </subviews>
