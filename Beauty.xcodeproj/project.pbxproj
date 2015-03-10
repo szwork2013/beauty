@@ -39,6 +39,8 @@
 		F72FFE6E1AAD935400C01BB2 /* member_try@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F72FFE6B1AAD935400C01BB2 /* member_try@2x.png */; };
 		F72FFE711AAE77BD00C01BB2 /* code_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F72FFE6F1AAE77BD00C01BB2 /* code_bg@2x.png */; };
 		F72FFE721AAE77BD00C01BB2 /* login_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F72FFE701AAE77BD00C01BB2 /* login_bg@2x.png */; };
+		F72FFE751AAE8F4100C01BB2 /* MemberLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F72FFE741AAE8F4100C01BB2 /* MemberLoginViewController.m */; };
+		F72FFE8B1AAEF14B00C01BB2 /* MemberTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F72FFE8A1AAEF14B00C01BB2 /* MemberTableViewController.m */; };
 		F77FB1CD1AA9F02F0092D57F /* EvaluateTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F77FB1CC1AA9F02F0092D57F /* EvaluateTableViewController.m */; };
 		F78FC9091AA73E8A00F3C1EE /* product_search_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F78FC9081AA73E8A00F3C1EE /* product_search_bg@2x.png */; };
 		F78FC90B1AA73F6500F3C1EE /* product_search_bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F78FC90A1AA73F6500F3C1EE /* product_search_bar@2x.png */; };
@@ -150,6 +152,10 @@
 		F72FFE6B1AAD935400C01BB2 /* member_try@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "member_try@2x.png"; sourceTree = "<group>"; };
 		F72FFE6F1AAE77BD00C01BB2 /* code_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "code_bg@2x.png"; sourceTree = "<group>"; };
 		F72FFE701AAE77BD00C01BB2 /* login_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_bg@2x.png"; sourceTree = "<group>"; };
+		F72FFE731AAE8F4100C01BB2 /* MemberLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemberLoginViewController.h; sourceTree = "<group>"; };
+		F72FFE741AAE8F4100C01BB2 /* MemberLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberLoginViewController.m; sourceTree = "<group>"; };
+		F72FFE891AAEF14B00C01BB2 /* MemberTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemberTableViewController.h; sourceTree = "<group>"; };
+		F72FFE8A1AAEF14B00C01BB2 /* MemberTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberTableViewController.m; sourceTree = "<group>"; };
 		F77FB1CB1AA9F02F0092D57F /* EvaluateTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvaluateTableViewController.h; sourceTree = "<group>"; };
 		F77FB1CC1AA9F02F0092D57F /* EvaluateTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EvaluateTableViewController.m; sourceTree = "<group>"; };
 		F78FC9081AA73E8A00F3C1EE /* product_search_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "product_search_bg@2x.png"; path = "images/home/product_search_bg@2x.png"; sourceTree = "<group>"; };
@@ -345,6 +351,10 @@
 		F7B498371AA2FF300067219E /* Beauty */ = {
 			isa = PBXGroup;
 			children = (
+				F72FFE891AAEF14B00C01BB2 /* MemberTableViewController.h */,
+				F72FFE8A1AAEF14B00C01BB2 /* MemberTableViewController.m */,
+				F72FFE731AAE8F4100C01BB2 /* MemberLoginViewController.h */,
+				F72FFE741AAE8F4100C01BB2 /* MemberLoginViewController.m */,
 				F72A95D21AACBAD200B2B611 /* SlidePage */,
 				F72A95BD1AABE68800B2B611 /* WechatProductViewController.h */,
 				F72A95BE1AABE68800B2B611 /* WechatProductViewController.m */,
@@ -653,6 +663,7 @@
 				F7B4989F1AA3356F0067219E /* UIProgressView+AFNetworking.m in Sources */,
 				F7BBEBC51AA35C66000D74D0 /* ActivityViewController.m in Sources */,
 				F7B498711AA31B250067219E /* StoreTableViewCell.m in Sources */,
+				F72FFE8B1AAEF14B00C01BB2 /* MemberTableViewController.m in Sources */,
 				F7172C4E1AA98DAB00A9ED4C /* ProductSellerDataSource.m in Sources */,
 				F7E4F1821AA5EC310025D868 /* HomeViewController.m in Sources */,
 				F7172C331AA84F8D00A9ED4C /* SecondLevelTableViewController.m in Sources */,
@@ -669,6 +680,7 @@
 				F72A95CF1AACB73900B2B611 /* PageIndicatorView.m in Sources */,
 				F7B4989A1AA3356F0067219E /* AFNetworkActivityIndicatorManager.m in Sources */,
 				F7172C401AA8A13B00A9ED4C /* StarView.m in Sources */,
+				F72FFE751AAE8F4100C01BB2 /* MemberLoginViewController.m in Sources */,
 				F72A95C31AABEA1000B2B611 /* SlidePageViewController.m in Sources */,
 				F7147A5A1AA6F9D1007605E6 /* ProductTableViewCell.m in Sources */,
 				F7B498A11AA3356F0067219E /* UIWebView+AFNetworking.m in Sources */,
