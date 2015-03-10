@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *tryButton;
 @property (weak, nonatomic) IBOutlet UIButton *collectButton;
 
+@property (assign, nonatomic) NSUInteger collectCount;
 @end
 
 @implementation MemberTableViewController
@@ -25,14 +26,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    self.collectCount = 0;
     [self fetchUser];
     
 }
@@ -51,26 +48,31 @@
                 BmobObject *user = [array firstObject];
                 //获取user基本信息
                 [self.nicknameButton setTitle:[user objectForKey:@"nickname"] forState:UIControlStateNormal];
-                
-;
                 //                产品收藏
                 BmobQuery *productQuery = [BmobQuery queryWithClassName:@"Product"];
                 [productQuery whereObjectKey:@"relProductCollect" relatedTo:user];
-                [productQuery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
-                    for (BmobObject *product in array) {
-                        NSLog(@"%@",[product objectForKey:@"name"]);
+                [productQuery countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
+                    if (error) {
+                        NSLog(@"%@",error);
+                    } else {
+                        self.collectCount += number;
+                        [self.collectCountButton setTitle:[NSString stringWithFormat:@"%lu",(unsigned long)self.collectCount] forState:UIControlStateNormal];
                     }
+
                 }];
                 //                店铺收藏
                 BmobQuery *storeQuery = [BmobQuery queryWithClassName:@"Store"];
                 [storeQuery whereObjectKey:@"relStoreCollect" relatedTo:user];
-                [storeQuery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
-                    for (BmobObject *product in array) {
-                        NSLog(@"%@",[product objectForKey:@"name"]);
-                    }
+                [storeQuery countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
+                    self.collectCount += number;
+                    [self.collectCountButton setTitle:[NSString stringWithFormat:@"%lu",(unsigned long)self.collectCount] forState:UIControlStateNormal];
                 }];
-    
-                
+                //试用
+                BmobQuery *tryQuery = [BmobQuery queryWithClassName:@"TryRecord"];
+                [tryQuery whereKey:@"user" equalTo:user];
+                [tryQuery countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
+                    [self.tryCountButton setTitle:[NSString stringWithFormat:@"%d",number] forState:UIControlStateNormal];
+                }];
             }
         }];
     }
