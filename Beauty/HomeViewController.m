@@ -33,7 +33,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+//    self.tabBarController.tabBar.hidden = NO;
     /*propery init*/
     //更多按钮
     self.moreButton.layer.borderColor = [[UIColor whiteColor]CGColor];
