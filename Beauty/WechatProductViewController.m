@@ -10,7 +10,7 @@
 #import "SlidePageViewController.h"
 
 @interface WechatProductViewController ()
-@property (weak, nonatomic) IBOutlet UIView *containerView;
+
 
 @end
 
