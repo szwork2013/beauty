@@ -10,35 +10,64 @@
 #import "SlidePageTableViewDataSource.h"
 #import "Global.h"
 #import "PageIndicatorView.h"
+#import <BmobSDK/Bmob.h>
 
 @interface SlidePageViewController ()
 
 @end
 
 @implementation SlidePageViewController
+//代理分类数组
+NSArray *classifyArray;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableViewArray = [NSMutableArray array];
     //初始化VC中的View尺寸
-    self.view.frame = CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT - 64);
-    self.count = 3;
-    //生成若干个tableview
-    [self createTableView:(NSInteger)self.count];
-    //生成若干个pageIndicator
-    [self createPageIndicator];
+    self.view.frame = CGRectMake(0, TOPBAR_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT - TOPBAR_HEIGHT);
+    //    配置tableView滚动视图容器
     self.tableViewContainerScrollView.pagingEnabled = YES;
-    self.tableViewContainerScrollView.contentSize = CGSizeMake(SCREEN_WIDTH * self.count, self.tableViewContainerScrollView.frame.size.height);
+//    获取分类
+    [self fetchWechatClassify];
+
+}
+//获取分类
+- (void)fetchWechatClassify {
+    BmobQuery *query = [BmobQuery queryWithClassName:@"WechatClassify"];
+    [query orderByAscending:@"rank"];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+        if (error) {
+            NSLog(@"%@",error);
+        } else {
+            self.count = array.count;
+            classifyArray = array;
+            //生成若干个pageIndicator
+            [self createPageIndicator];
+//            配置PageIndicatorView
+            self.pageControlScrollView.contentSize = CGSizeMake(self.count * PAGEINDICATOR_WIDTH, self.pageControlScrollView.frame.size.height);
+            
+            //生成若干个tableview
+            [self createTableView:(NSInteger)self.count];
+            //配置tableView滚动视图容器
+            self.tableViewContainerScrollView.contentSize = CGSizeMake(SCREEN_WIDTH * self.count, self.tableViewContainerScrollView.frame.size.height);
+        }
+    }];
+}
+//获取分类产品
+- (void)fetchWechatProduct {
+    
 }
 //生成createPageIndicator
 - (void)createPageIndicator {
 //    self.pageControlScrollView;
 //    PageIndicatorView *view = [[[NSBundle mainBundle]loadNibNamed:@"PageIndicator" owner:self options:nil]firstObject];
-    PageIndicatorView *pageIndicatorView = [[PageIndicatorView alloc]initWithFrame:CGRectMake(0, 0, 120, 30)];
-    pageIndicatorView.backgroundColor = [UIColor whiteColor];
     
     for (int i = 0; i < self.count; i++) {
-//        view.frame = CGRectMake(i * view.frame.size.width, 0, view.frame.size.width, view.frame.size.height);
+        BmobObject *classify = classifyArray[i];
+        
+        PageIndicatorView *pageIndicatorView = [[PageIndicatorView alloc]initWithFrame:CGRectMake(PAGEINDICATOR_WIDTH * i, 0, PAGEINDICATOR_WIDTH, 30) title:[classify objectForKey:@"name"] currentColor:i == 0 ? MAIN_COLOR : [UIColor whiteColor]];
+        pageIndicatorView.backgroundColor = [UIColor whiteColor];
         [self.pageControlScrollView addSubview:pageIndicatorView];
     }
     

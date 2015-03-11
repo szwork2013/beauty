@@ -11,5 +11,7 @@
 @interface PageIndicatorView : UIView
 @property (strong, nonatomic) UIButton *nameButton;
 @property (strong, nonatomic) UIView *indicatorView;
-
+@property (strong, nonatomic) UIColor *color;
+@property (strong, nonatomic) NSString *title;
+- (instancetype)initWithFrame:(CGRect)frame title:(NSString *)title currentColor:(UIColor *)color;
 @end

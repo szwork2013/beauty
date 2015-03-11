@@ -16,20 +16,30 @@
 // An empty implementation adversely affects performance during animation.
 
 */
+- (instancetype)initWithFrame:(CGRect)frame title:(NSString *)title currentColor:(UIColor *)color{
+    if ([self initWithFrame:frame]) {
+//        [self.nameButton setTitle:title forState:UIControlStateNormal];
+//        self.indicatorView.backgroundColor = color;
+        self.title = title;
+        self.color = color;
+    }
+    return self;
+}
+
 - (void)drawRect:(CGRect)rect {
     self.backgroundColor = [UIColor whiteColor];
     
     self.nameButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    self.nameButton.frame = CGRectMake(0, 0, 120, 27);
-    [self.nameButton setTitle:@"免费代理" forState:UIControlStateNormal];
-    self.nameButton.titleLabel.font = [UIFont systemFontOfSize:14.0];
+    self.nameButton.frame = CGRectMake(0, 0, PAGEINDICATOR_WIDTH, 27);
+    [self.nameButton setTitle:self.title forState:UIControlStateNormal];
+    self.nameButton.titleLabel.font = [UIFont systemFontOfSize:16.0];
     self.nameButton.tintColor = [UIColor darkGrayColor];
     
     [self addSubview:self.nameButton];
     
     self.indicatorView = [[UIView alloc]init];
-    self.indicatorView.frame = CGRectMake(0, 27, 120, 3);
-    self.indicatorView.backgroundColor = MAIN_COLOR;
+    self.indicatorView.frame = CGRectMake(0, 27, PAGEINDICATOR_WIDTH, 3);
+    self.indicatorView.backgroundColor = self.color;
     [self addSubview:self.indicatorView];
     
 }

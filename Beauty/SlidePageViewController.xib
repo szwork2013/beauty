@@ -17,7 +17,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sxt-sn-q6F" userLabel="pageControl">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sxt-sn-q6F" userLabel="pageControl">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="31"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="31" id="Ead-jn-Yh7"/>
@@ -28,7 +28,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </scrollView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.92549019610000005" green="0.92156862750000001" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="8XA-Xf-NgA" secondAttribute="trailing" id="2gH-hu-ehs"/>
                 <constraint firstItem="8XA-Xf-NgA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="43K-HH-pKV"/>
