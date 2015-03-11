@@ -1,5 +1,5 @@
 //
-//  ProductTableViewCell.h
+//  ProductTryTableViewCell.h
 //  Beauty
 //
 //  Created by HuangXiuJie on 15/3/4.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProductTableViewCell : UITableViewCell
+@interface ProductTryTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *thumbImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UIView *starView;

@@ -1,14 +1,14 @@
 //
-//  ProductTableViewCell.m
+//  ProductTryTableViewCell.m
 //  Beauty
 //
 //  Created by HuangXiuJie on 15/3/4.
 //  Copyright (c) 2015年 瑞安市灵犀网络技术有限公司. All rights reserved.
 //
 
-#import "ProductTableViewCell.h"
+#import "ProductTryTableViewCell.h"
 
-@implementation ProductTableViewCell
+@implementation ProductTryTableViewCell
 
 - (void)awakeFromNib {
     // Initialization code
