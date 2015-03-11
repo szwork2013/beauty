@@ -11,6 +11,7 @@
 #import "ProductTryTableViewCell.h"
 #import "StarView.h"
 #import "UIImageView+AFNetworking.h"
+#import "Global.h"
 
 @implementation SlidePageTableViewDataSource
 - (instancetype)initWithViewController:(SlidePageViewController *)viewController {
@@ -53,9 +54,14 @@
     BmobObject *product = [self.dataSourceArray[indexPath.row] objectForKey:@"product"];
     BmobFile *avatar = [product objectForKey:@"avatar"];
     [cell.thumbImageView setImageWithURL:[NSURL URLWithString:avatar.url]];
+    //缩略图加圆角边框
+    cell.thumbImageView.layer.cornerRadius = 40.0;
+    cell.thumbImageView.layer.borderColor = [TINYGRAY_COLOR CGColor];
+    cell.thumbImageView.layer.borderWidth = 1.0;
     cell.nameLabel.text = [product objectForKey:@"name"];
-    cell.commentCountLabel.text = [[product objectForKey:@"comment"]stringValue];
-    cell.averagePriceLabel.text = [[product objectForKey:@"averagePrice"]stringValue];
+    cell.commentCountLabel.text = [[product objectForKey:@"commentCount"]stringValue];
+
+    cell.averagePriceLabel.text = [NSString stringWithFormat:@"%.1f",[[product objectForKey:@"averagePrice"]floatValue]];
 //        评分星级
     StarView *view = [[StarView alloc]initWithCount:[product objectForKey:@"mark"] frame:CGRectMake(0, 0, 55.0, 11.0)];
     [cell.starView addSubview:view];
