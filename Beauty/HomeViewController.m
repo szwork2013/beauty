@@ -164,7 +164,7 @@
 
 #pragma mark 自定义单元格
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ProductTryTableViewCell *cell = [[[NSBundle mainBundle]loadNibNamed:@"ProductTryTableViewCell" owner:self options:nil]firstObject];
+    ProductTryTableViewCell *cell = [[[NSBundle mainBundle]loadNibNamed:@"ProductTableViewCell" owner:self options:nil]firstObject];
     BmobObject *product = [self.productArray[indexPath.row]objectForKey:@"product"];
     BmobFile *avatar = [product objectForKey:@"avatar"];
     [cell.thumbImageView setImageWithURL:[NSURL URLWithString:avatar.url]];
