@@ -14,12 +14,7 @@
 #import "Global.h"
 
 @implementation SlidePageTableViewDataSource
-- (instancetype)initWithViewController:(SlidePageViewController *)viewController {
-    if ([self init]) {
-        self.viewController = viewController;
-    }
-    return self;
-}
+
 - (instancetype)initWithTableView:(UITableView *)tableView classifyId:(NSString *)classifyId{
     if ([self init]) {
         self.tableView = tableView;
@@ -41,6 +36,15 @@
         } else {
             self.dataSourceArray = array;
             [self.tableView reloadData];
+            if (array.count == 0) {
+                self.tableView.hidden = YES;
+                UILabel *label = [[UILabel alloc]initWithFrame:self.tableView.frame];
+                label.textAlignment = NSTextAlignmentCenter;
+                label.textColor = [UIColor grayColor];
+                label.font = [UIFont systemFontOfSize:18.0];
+                label.text = @"结果空空如也～";
+                [self.tableView.superview addSubview:label];
+            }
         }
     }];
 }
