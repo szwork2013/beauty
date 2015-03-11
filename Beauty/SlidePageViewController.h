@@ -13,5 +13,6 @@
 @property (nonatomic, assign) NSInteger count;
 @property (weak, nonatomic) IBOutlet UIScrollView *tableViewContainerScrollView;
 @property (weak, nonatomic) IBOutlet UIScrollView *pageControlScrollView;
+@property (strong, nonatomic) NSMutableArray *pageIndicatorViewArray;
 
 @end

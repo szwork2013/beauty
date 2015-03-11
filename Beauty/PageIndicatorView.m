@@ -30,10 +30,10 @@
     self.backgroundColor = [UIColor whiteColor];
     
     self.nameButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    self.nameButton.frame = CGRectMake(0, 0, PAGEINDICATOR_WIDTH, 27);
+    self.nameButton.frame = CGRectMake(0, 3, PAGEINDICATOR_WIDTH, 24);
     [self.nameButton setTitle:self.title forState:UIControlStateNormal];
     self.nameButton.titleLabel.font = [UIFont systemFontOfSize:16.0];
-    self.nameButton.tintColor = [UIColor darkGrayColor];
+    self.nameButton.tintColor = [UIColor grayColor];
     
     [self addSubview:self.nameButton];
     
