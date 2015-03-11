@@ -79,7 +79,7 @@ NSArray *classifyArray;
         UITableView *tableView = [[UITableView alloc]init];
         tableView.frame = CGRectMake(i * SCREEN_WIDTH, 0, SCREEN_WIDTH, self.tableViewContainerScrollView.frame.size.height);
         
-        SlidePageTableViewDataSource *slidePageDataSource = [[SlidePageTableViewDataSource alloc]initWithTableView:tableView];
+        SlidePageTableViewDataSource *slidePageDataSource = [[SlidePageTableViewDataSource alloc]initWithTableView:tableView classifyId:[classifyArray[i] objectId]];
         slidePageDataSource.viewController = self;
         tableView.delegate = slidePageDataSource;
         tableView.dataSource = slidePageDataSource;

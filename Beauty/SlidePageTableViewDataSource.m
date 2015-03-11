@@ -19,9 +19,10 @@
     }
     return self;
 }
-- (instancetype)initWithTableView:(UITableView *)tableView {
+- (instancetype)initWithTableView:(UITableView *)tableView classifyId:(NSString *)classifyId{
     if ([self init]) {
         self.tableView = tableView;
+        self.classifyId = classifyId;
     }
     return self;
 }
@@ -31,6 +32,8 @@
     
     BmobQuery *query = [BmobQuery queryWithClassName:className];
     [query includeKey:@"product"];
+    [query orderByAscending:@"rank"];
+    [query whereKey:@"wechatClassify" equalTo:[BmobObject objectWithoutDatatWithClassName:@"WechatClassify" objectId:self.classifyId]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
         if (error) {
             NSLog(@"%@",error);
@@ -51,7 +54,7 @@
     BmobFile *avatar = [product objectForKey:@"avatar"];
     [cell.thumbImageView setImageWithURL:[NSURL URLWithString:avatar.url]];
     cell.titleLabel.text = [product objectForKey:@"name"];
-    cell.commentCountLabel.text = [product objectForKey:@"comment"];
+    cell.commentCountLabel.text = [[product objectForKey:@"comment"]stringValue];
     cell.averagePriceLabel.text = [[product objectForKey:@"averagePrice"]stringValue];
 //        评分星级
     StarView *view = [[StarView alloc]initWithCount:[product objectForKey:@"mark"] frame:CGRectMake(0, 0, 55.0, 11.0)];

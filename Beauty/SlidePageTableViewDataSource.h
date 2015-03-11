@@ -13,6 +13,7 @@
 @property (nonatomic,strong) NSArray *dataSourceArray;
 @property (nonatomic,strong) SlidePageViewController *viewController;
 @property (nonatomic,strong) UITableView *tableView;
-- (instancetype)initWithTableView:(UITableView *)tableView;
+@property (nonatomic,strong) NSString *classifyId;
+- (instancetype)initWithTableView:(UITableView *)tableView classifyId:(NSString *)classifyId;
 - (void)fetchData;
 @end
