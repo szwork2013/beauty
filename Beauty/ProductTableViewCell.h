@@ -10,7 +10,7 @@
 
 @interface ProductTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *thumbImageView;
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UIView *starView;
 @property (weak, nonatomic) IBOutlet UILabel *commentCountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *averagePriceLabel;

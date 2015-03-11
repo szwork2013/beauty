@@ -53,7 +53,7 @@
     BmobObject *product = [self.dataSourceArray[indexPath.row] objectForKey:@"product"];
     BmobFile *avatar = [product objectForKey:@"avatar"];
     [cell.thumbImageView setImageWithURL:[NSURL URLWithString:avatar.url]];
-    cell.titleLabel.text = [product objectForKey:@"name"];
+    cell.nameLabel.text = [product objectForKey:@"name"];
     cell.commentCountLabel.text = [[product objectForKey:@"comment"]stringValue];
     cell.averagePriceLabel.text = [[product objectForKey:@"averagePrice"]stringValue];
 //        评分星级
