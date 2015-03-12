@@ -412,9 +412,6 @@
                                                     <state key="normal" image="default_avatar.png">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
-                                                    <connections>
-                                                        <segue destination="XIx-iL-kZY" kind="show" id="d6S-C0-6se"/>
-                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6VT-fY-WQM">
                                                     <rect key="frame" x="62" y="124" width="197" height="30"/>
@@ -590,7 +587,7 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="XIx-iL-kZY" kind="show" id="KWR-kO-pr5"/>
+                                                        <action selector="loginButtonPress:" destination="Jzr-06-u16" eventType="touchUpInside" id="Y0M-ag-8fH"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -618,6 +615,7 @@
                         <outlet property="nicknameButton" destination="6VT-fY-WQM" id="lHU-pF-jLC"/>
                         <outlet property="tryButton" destination="jmI-u0-Lz8" id="xa0-CW-Snd"/>
                         <outlet property="tryCountButton" destination="eoL-qC-pwF" id="pd4-cN-pSj"/>
+                        <segue destination="XIx-iL-kZY" kind="show" identifier="login" id="ZlD-nl-gaj"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mQM-TF-1cm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -757,7 +755,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VK9-jE-9ol" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2460" y="-2025"/>
+            <point key="canvasLocation" x="724" y="723"/>
         </scene>
         <!--首页-->
         <scene sceneID="xqH-1S-Mkm">
@@ -2097,7 +2095,7 @@
         <image name="try_bg.png" width="317" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="ZlD-nl-gaj"/>
         <segue reference="961-P2-2Vm"/>
-        <segue reference="pZj-uo-L8A"/>
     </inferredMetricsTieBreakers>
 </document>

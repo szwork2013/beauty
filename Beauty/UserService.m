@@ -16,8 +16,12 @@
     }
     return instance;
 }
+- (BOOL)isLogin {
+    return [[NSUserDefaults standardUserDefaults]objectForKey:@"username"];
+}
+
 - (void)actionWithUser:(actionBlock)actionBlock {
-    if ([[NSUserDefaults standardUserDefaults]objectForKey:@"username"]) {
+    if ([self isLogin]) {
         BmobQuery *query = [BmobUser query];
         [query whereKey:@"username" equalTo:[[NSUserDefaults standardUserDefaults]objectForKey:@"username"]];
         [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
@@ -29,7 +33,8 @@
             }
         }];
     } else {
-        //请先登录，可以使用segue跳转，但一般还是写在failureBlock中比如好。
+        //请先登录
+        actionBlock(nil);
     }
     
 }

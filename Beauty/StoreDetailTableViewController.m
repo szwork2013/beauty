@@ -30,6 +30,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tableView.contentInset=UIEdgeInsetsMake(-36, 0, 0, 0);
     [self fetchStoreData];
     self.callButton.layer.borderColor = [[UIColor colorWithRed:158.0/255.0 green:122.0/255.0 blue:183.0/255.0 alpha:1.0]CGColor];
     self.callButton.layer.borderWidth = 1.0;

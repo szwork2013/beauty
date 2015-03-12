@@ -27,7 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"产品信息";
-
+    self.tableView.contentInset=UIEdgeInsetsMake(-36, 0, 0, 0);
     [self fetchProduct];
     self.productSellerDataSource = [[ProductSellerDataSource alloc]initWithViewController:self];
     self.sellerTableView.dataSource = self.productSellerDataSource;

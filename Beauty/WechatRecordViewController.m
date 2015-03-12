@@ -9,8 +9,10 @@
 #import "WechatRecordViewController.h"
 #import <BmobSDK/Bmob.h>
 #import "UserService.h"
-
-@interface WechatRecordViewController ()
+/**
+ 申请代理
+ */
+@interface WechatRecordViewController ()<UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *sexSegmentedControl;
 @property (weak, nonatomic) IBOutlet UITextField *mobileTextField;
@@ -45,15 +47,19 @@
             if (error) {
                 NSLog(@"%@",error);
             } else if (isSuccessful) {
-                UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"申请成功" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+                UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"申请成功" message:nil delegate:self cancelButtonTitle:@"确定" otherButtonTitles: nil];
                 [alertView show];
+                
+                
             }
         }];
 
     }];  
     
 }
-
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

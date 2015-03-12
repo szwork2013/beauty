@@ -13,4 +13,5 @@ typedef void(^actionBlock)(BmobUser *user);
 @interface UserService : NSObject
 + (instancetype)getInstance;
 - (void)actionWithUser:(actionBlock)actionBlock;
+- (BOOL)isLogin;
 @end

@@ -21,6 +21,7 @@
     [super viewDidLoad];
     self.navigationItem.title = @"评测室";
     self.tabBarController.tabBar.hidden = YES;
+    self.tableView.contentInset=UIEdgeInsetsMake(-36, 0, 0, 0);
     [self fetchEvaluate];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
