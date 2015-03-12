@@ -757,7 +757,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VK9-jE-9ol" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="848" y="691"/>
+            <point key="canvasLocation" x="2460" y="-2025"/>
         </scene>
         <!--首页-->
         <scene sceneID="xqH-1S-Mkm">
@@ -1093,6 +1093,9 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="dr8-AL-djt" secondAttribute="trailing" constant="-8" id="ziz-SV-7Hv"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="XIx-iL-kZY" kind="show" identifier="login" id="pZj-uo-L8A"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -1191,7 +1194,7 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="d0r-Rb-FY1" kind="show" identifier="submit" id="2md-Hk-3GR"/>
+                                                        <action selector="submit:" destination="aRq-cU-0Zw" eventType="touchUpInside" id="B1B-iJ-l4g"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -1215,6 +1218,7 @@
                         <outlet property="descriptTextView" destination="D9U-Zq-fkZ" id="RLD-K9-hkE"/>
                         <outlet property="nameLabel" destination="a8Z-lc-XMM" id="BSw-Jn-N2c"/>
                         <outlet property="webUrlwebView" destination="tED-QN-4Pc" id="OIP-cf-hTc"/>
+                        <segue destination="d0r-Rb-FY1" kind="show" identifier="submit" id="Eqf-jQ-uws"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wHr-Od-2UT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1233,62 +1237,70 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="KhV-xJ-bJb">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="姓名" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M7c-wA-BbE">
-                                        <rect key="frame" x="27" y="26" width="42" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.73333333329999995" green="0.47843137250000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="电话" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6gA-c0-6LO">
-                                        <rect key="frame" x="27" y="121" width="42" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.73333333329999995" green="0.47843137250000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bh3-sn-Cg0">
-                                        <rect key="frame" x="45" y="169" width="230" height="39"/>
-                                        <state key="normal" title="提交申请" backgroundImage="submit_button.png">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="submit:" destination="d0r-Rb-FY1" eventType="touchUpInside" id="VQ8-PJ-1fs"/>
-                                        </connections>
-                                    </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入姓名" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ha9-3g-zky">
-                                        <rect key="frame" x="82" y="22" width="212" height="30"/>
-                                        <color key="textColor" red="0.73333333329999995" green="0.47843137250000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入电话" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sgY-GW-TcP">
-                                        <rect key="frame" x="82" y="118" width="212" height="30"/>
-                                        <color key="textColor" red="0.73333333329999995" green="0.47843137250000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                    </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="性别" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aNh-pt-P6p">
-                                        <rect key="frame" x="27" y="72" width="42" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.73333333329999995" green="0.47843137250000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="FTz-oc-PFx">
-                                        <rect key="frame" x="82" y="69" width="212" height="29"/>
-                                        <segments>
-                                            <segment title="保密"/>
-                                            <segment title="男"/>
-                                            <segment title="女"/>
-                                        </segments>
-                                        <color key="tintColor" red="0.73333333329999995" green="0.47843137250000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </segmentedControl>
-                                </subviews>
-                            </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="姓名" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M7c-wA-BbE">
+                                <rect key="frame" x="27" y="91" width="42" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.73333333329999995" green="0.47843137250000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入姓名" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ha9-3g-zky">
+                                <rect key="frame" x="77" y="87" width="212" height="30"/>
+                                <color key="textColor" red="0.73333333329999995" green="0.47843137250000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="性别" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aNh-pt-P6p">
+                                <rect key="frame" x="27" y="142" width="42" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.73333333329999995" green="0.47843137250000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="FTz-oc-PFx">
+                                <rect key="frame" x="77" y="139" width="212" height="29"/>
+                                <segments>
+                                    <segment title="保密"/>
+                                    <segment title="男"/>
+                                    <segment title="女"/>
+                                </segments>
+                                <color key="tintColor" red="0.73333333329999995" green="0.47843137250000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="电话" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6gA-c0-6LO">
+                                <rect key="frame" x="27" y="196" width="42" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.73333333329999995" green="0.47843137250000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入电话" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sgY-GW-TcP">
+                                <rect key="frame" x="77" y="192" width="212" height="30"/>
+                                <color key="textColor" red="0.73333333329999995" green="0.47843137250000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bh3-sn-Cg0">
+                                <rect key="frame" x="45" y="251" width="230" height="39"/>
+                                <state key="normal" title="提交申请" backgroundImage="submit_button.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="submit:" destination="d0r-Rb-FY1" eventType="touchUpInside" id="VQ8-PJ-1fs"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="sgY-GW-TcP" firstAttribute="top" secondItem="nbD-R3-XX9" secondAttribute="bottom" constant="128" id="GSP-zx-tTn"/>
+                            <constraint firstItem="Bh3-sn-Cg0" firstAttribute="top" secondItem="nbD-R3-XX9" secondAttribute="bottom" constant="187" id="JVK-Bj-XAe"/>
+                            <constraint firstItem="FTz-oc-PFx" firstAttribute="leading" secondItem="5xf-B9-KF9" secondAttribute="leadingMargin" constant="61" id="Mef-Gb-1Jx"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ha9-3g-zky" secondAttribute="trailing" constant="15" id="RXY-Qs-BSc"/>
+                            <constraint firstItem="FTz-oc-PFx" firstAttribute="top" secondItem="nbD-R3-XX9" secondAttribute="bottom" constant="75" id="XTu-WF-YxS"/>
+                            <constraint firstItem="Ha9-3g-zky" firstAttribute="leading" secondItem="5xf-B9-KF9" secondAttribute="leadingMargin" constant="61" id="erZ-p1-gtE"/>
+                            <constraint firstItem="Ha9-3g-zky" firstAttribute="top" secondItem="nbD-R3-XX9" secondAttribute="bottom" constant="23" id="f8k-og-RDq"/>
+                            <constraint firstItem="sgY-GW-TcP" firstAttribute="leading" secondItem="5xf-B9-KF9" secondAttribute="leadingMargin" constant="61" id="gsa-ln-HSE"/>
+                            <constraint firstAttribute="centerX" secondItem="Bh3-sn-Cg0" secondAttribute="centerX" id="k11-5C-dMu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FTz-oc-PFx" secondAttribute="trailing" constant="15" id="o9W-Hw-iUv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sgY-GW-TcP" secondAttribute="trailing" constant="15" id="whi-bD-uQT"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="申请代理" id="EJ3-CZ-mnq"/>
                     <connections>
@@ -2085,7 +2097,7 @@
         <image name="try_bg.png" width="317" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="d6S-C0-6se"/>
         <segue reference="961-P2-2Vm"/>
+        <segue reference="pZj-uo-L8A"/>
     </inferredMetricsTieBreakers>
 </document>

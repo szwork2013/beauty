@@ -90,6 +90,13 @@
 }
 */
 
+- (IBAction)submit:(id)sender {
+    if ([[NSUserDefaults standardUserDefaults]objectForKey:@"username"]) {
+        [self performSegueWithIdentifier:@"submit" sender:self];
+    } else {
+        [self performSegueWithIdentifier:@"login" sender:self];
+    }
+}
 
 #pragma mark - Navigation
 
@@ -100,7 +107,7 @@
         
         ProductDetailTableViewController *vc = segue.destinationViewController;
         vc.productId = self.productId;
-    } else if ([segue.identifier isEqual:@"submit"]) {
+    } else if ([segue.identifier isEqual:@"submit"]) {        
         WechatRecordViewController *vc = segue.destinationViewController;
         vc.productId = self.productId;
     }
