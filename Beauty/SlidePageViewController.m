@@ -82,7 +82,6 @@ NSArray *classifyArray;
 }
 //滚动到特定的tableview
 - (void)scrollToSpecificTableView {
-    NSLog(@"test");
     [self.tableViewContainerScrollView setContentOffset:CGPointMake(0, 375) animated:YES];
 }
 //生成tableview

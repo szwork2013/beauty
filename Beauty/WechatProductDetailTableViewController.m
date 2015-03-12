@@ -7,8 +7,16 @@
 //
 
 #import "WechatProductDetailTableViewController.h"
+#import <BmobSDK/Bmob.h>
+#import "UIImageView+AFNetworking.h"
+#import "ProductDetailTableViewController.h"
+#import "WechatRecordViewController.h"
 
 @interface WechatProductDetailTableViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
+@property (weak, nonatomic) IBOutlet UITextView *descriptTextView;
+@property (weak, nonatomic) IBOutlet UIWebView *webUrlwebView;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
 @end
 
@@ -16,12 +24,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
+    [self fetchProduct];
+}
+
+- (void)fetchProduct {
+    BmobQuery *query = [BmobQuery queryWithClassName:@"WechatProduct"];
+    [query includeKey:@"product"];
+    [query getObjectInBackgroundWithId:[[NSUserDefaults standardUserDefaults]objectForKey:@"wechatProductId"] block:^(BmobObject *object, NSError *error) {
+        if (error) {
+            NSLog(@"%@",error);
+        } else {
+//            获取头像
+            BmobFile *avatarFile = [object objectForKey:@"avatar"];
+            [self.avatarImageView setImageWithURL:[NSURL URLWithString:avatarFile.url]];
+//            关联查询产品名称
+            self.nameLabel.text = [[object objectForKey:@"product"]objectForKey:@"name"];
+//            简介
+            self.descriptTextView.text = [object objectForKey:@"descript"];
+//            网页
+            [self.webUrlwebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[object objectForKey:@"webUrl"]]]];
+//            产品id，以备跳转时传值用
+            self.productId = [[object objectForKey:@"product"]objectId];
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -64,14 +90,19 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    // 共有两条连线，只有跳转往产品详情页时才传productId值
+    if ([segue.identifier isEqualToString:@"productDetail"]) {
+        
+        ProductDetailTableViewController *vc = segue.destinationViewController;
+        vc.productId = self.productId;
+    } else if ([segue.identifier isEqual:@"submit"]) {
+        WechatRecordViewController *vc = segue.destinationViewController;
+        vc.productId = self.productId;
+    }
 }
-*/
-
 @end

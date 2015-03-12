@@ -12,6 +12,7 @@
 #import "StarView.h"
 #import "UIImageView+AFNetworking.h"
 #import "Global.h"
+#import "WechatProductDetailTableViewController.h"
 
 @implementation SlidePageTableViewDataSource
 
@@ -72,7 +73,9 @@
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-
+    [self.viewController.sourceViewController performSegueWithIdentifier:@"wechatProductDetail" sender:self];
+    [[NSUserDefaults standardUserDefaults]setObject:[self.dataSourceArray[tableView.indexPathForSelectedRow.row] objectId] forKey:@"wechatProductId"];
+    
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 120.0;

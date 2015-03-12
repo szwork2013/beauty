@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface WechatProductDetailTableViewController : UITableViewController
-
+@property (strong, nonatomic) NSString *productId;
 @end

@@ -8,6 +8,7 @@
 
 #import "WechatProductViewController.h"
 #import "SlidePageViewController.h"
+#import "WechatProductDetailTableViewController.h"
 
 @interface WechatProductViewController ()
 
@@ -21,6 +22,7 @@
     self.tabBarController.tabBar.hidden = YES;
     self.navigationItem.title = @"微商好产品";
     SlidePageViewController *pageViewController = [[SlidePageViewController alloc]initWithNibName:@"SlidePageViewController" bundle:[NSBundle mainBundle]];
+    pageViewController.sourceViewController = (UITableViewController *)self;
     [self.view addSubview:pageViewController.view];
 }
 
@@ -29,14 +31,14 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    WechatProductDetailTableViewController *vc = segue.destinationViewController;
+//    vc.wechatProductId = @"";
+//}
+
 
 @end
