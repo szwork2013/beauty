@@ -39,7 +39,7 @@
 }
 - (void)initWebView {
     
-    self.webHeight = 100.0;
+    self.webHeight = 51.0;
     self.webUrlwebView.delegate = self;
     self.webUrlwebView.scrollView.scrollEnabled = NO;
 }
