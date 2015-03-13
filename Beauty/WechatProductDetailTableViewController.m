@@ -63,10 +63,7 @@
             
 //            网页
             
-            if ([[object objectForKey:@"webUrl"] isEqualToString:@""]) {
-                self.webHeight = 0.0;
-                
-            } else {
+            if (![[object objectForKey:@"webUrl"] isEqualToString:@""]) {
                 [self.webUrlwebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[object objectForKey:@"webUrl"]]]];
             }
 //            产品id，以备跳转时传值用
