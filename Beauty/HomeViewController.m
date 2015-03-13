@@ -99,13 +99,15 @@
     [query includeKey:@"product"];
     [query whereKey:@"endTime" greaterThanOrEqualTo:[NSDate date]];
     [query orderByAscending:@"endTime"];
-    query.limit = 4;
+    query.limit = 2;
     [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
         if (error) {
             NSLog(@"%@",error);
         }else{
             self.productArray = array;
+            
             [self.productTableView reloadData];
+            [self.mainScrollView sizeToFit];
         }
     }];
 }

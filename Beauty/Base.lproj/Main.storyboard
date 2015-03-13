@@ -45,7 +45,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eCX-Dq-bsa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="664" y="54"/>
+            <point key="canvasLocation" x="623" y="148"/>
         </scene>
         <!--活动详情-->
         <scene sceneID="k6X-Hf-JYe">
@@ -637,11 +637,11 @@
                         <viewControllerLayoutGuide type="bottom" id="xAb-ya-X8F"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ZqA-Cu-8it">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="arq-Oj-DMm">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="手机通过验证即可注册登录" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JfO-yN-KOi">
                                         <rect key="frame" x="0.0" y="11" width="320" height="21"/>
@@ -772,11 +772,11 @@
                         <viewControllerLayoutGuide type="bottom" id="bIO-gQ-kRX"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="utL-A2-mtL" userLabel="控制器视图">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A9c-gT-oiW" userLabel="全局滚动视图">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtb-vL-L7P" userLabel="轮播">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="135"/>
@@ -850,7 +850,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.92549019607843142" green="0.92156862745098034" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="JWD-Qt-jea" firstAttribute="top" secondItem="NlO-lt-7qh" secondAttribute="bottom" constant="4" id="3Ha-8h-i32"/>
                                             <constraint firstAttribute="bottom" secondItem="JWD-Qt-jea" secondAttribute="bottom" constant="3" id="BaY-MK-7Gy"/>
@@ -920,7 +920,7 @@
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="kgi-k8-NXJ" userLabel="产品列表">
-                                        <rect key="frame" x="0.0" y="566" width="320" height="551"/>
+                                        <rect key="frame" x="0.0" y="566" width="320" height="415"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="kgi-k8-NXJ" secondAttribute="height" multiplier="320:353" id="3Bc-La-hfk"/>
@@ -1003,8 +1003,7 @@
                                     <constraint firstItem="kgi-k8-NXJ" firstAttribute="top" secondItem="qSb-8C-Ha2" secondAttribute="bottom" constant="1" id="NF6-J9-k2n"/>
                                     <constraint firstItem="64A-Br-rxY" firstAttribute="top" secondItem="kA8-2w-6XS" secondAttribute="bottom" constant="6" id="P8o-FD-9oX"/>
                                     <constraint firstAttribute="trailing" secondItem="wjv-Yb-pJ6" secondAttribute="trailing" id="PJY-aI-pQE"/>
-                                    <constraint firstAttribute="bottom" secondItem="kgi-k8-NXJ" secondAttribute="bottom" constant="1" id="R53-7k-LJe"/>
-                                    <constraint firstAttribute="bottom" secondItem="qtb-vL-L7P" secondAttribute="bottom" constant="982" id="XHN-1E-mXW"/>
+                                    <constraint firstAttribute="bottom" secondItem="qtb-vL-L7P" secondAttribute="bottom" constant="846" id="XHN-1E-mXW"/>
                                     <constraint firstItem="wjv-Yb-pJ6" firstAttribute="leading" secondItem="A9c-gT-oiW" secondAttribute="leading" id="XdS-oO-bf3"/>
                                     <constraint firstItem="qtb-vL-L7P" firstAttribute="top" secondItem="A9c-gT-oiW" secondAttribute="top" id="ZA6-bq-bBC"/>
                                     <constraint firstItem="kA8-2w-6XS" firstAttribute="leading" secondItem="A9c-gT-oiW" secondAttribute="leading" id="el1-Vk-xy8"/>
@@ -1014,11 +1013,6 @@
                                     <constraint firstAttribute="trailing" secondItem="64A-Br-rxY" secondAttribute="trailing" id="wbm-FQ-BDR"/>
                                     <constraint firstAttribute="trailing" secondItem="20E-uM-FnG" secondAttribute="trailing" id="x85-RU-yNG"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="R53-7k-LJe"/>
-                                    </mask>
-                                </variation>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1031,7 +1025,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="首页" id="csR-Dt-vCt"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="568"/>
+                    <size key="freeformSize" width="320" height="800"/>
                     <connections>
                         <outlet property="categoryView" destination="20E-uM-FnG" id="9GQ-kM-V4J"/>
                         <outlet property="mainScrollView" destination="A9c-gT-oiW" id="aYV-jm-hBe"/>
@@ -1054,11 +1048,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Yn2-5w-ozJ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="nQg-IP-UPz">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tXm-TF-nXd">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="736"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -1085,7 +1079,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="wechatProductDetail" id="aRq-cU-0Zw" customClass="WechatProductDetailTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="45" sectionHeaderHeight="10" sectionFooterHeight="10" id="Cg7-2P-W7u">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
@@ -1241,7 +1235,7 @@
             <objects>
                 <tableViewController id="3Bq-0s-D2I" customClass="TryEventProductDetailTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="GFV-Iw-gQF">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
@@ -1397,7 +1391,7 @@
                         <viewControllerLayoutGuide type="bottom" id="8D3-Sr-MZf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="5xf-B9-KF9">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="姓名" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M7c-wA-BbE">
@@ -1481,7 +1475,7 @@
             <objects>
                 <tableViewController id="8lu-rH-F7V" userLabel="评测室列表" customClass="EvaluateTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="132" sectionHeaderHeight="10" sectionFooterHeight="10" id="WYo-b8-F5Z">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
@@ -1546,11 +1540,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Fhw-pd-ddh"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="iKF-7W-7QT">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hdG-1H-1Qo" userLabel="滚动画布">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="736"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="I2O-Dx-O3d" userLabel="产品专用TableView">
                                         <rect key="frame" x="0.0" y="8" width="320" height="44"/>
@@ -1665,7 +1659,7 @@
             <objects>
                 <tableViewController id="JDv-5z-1Wb" userLabel="二级分类" customClass="SecondLevelTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="Fjf-fr-bPf">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -1709,7 +1703,7 @@
             <objects>
                 <tableViewController id="mUs-oH-ZQf" userLabel="产品列表" customClass="ProductTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="IDn-dm-WlP">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
