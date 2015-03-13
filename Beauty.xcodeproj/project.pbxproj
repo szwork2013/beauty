@@ -92,6 +92,7 @@
 		F7BBEBC51AA35C66000D74D0 /* ActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BBEBC41AA35C66000D74D0 /* ActivityViewController.m */; };
 		F7BBEBCA1AA3633D000D74D0 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F7BBEBC71AA3633D000D74D0 /* SVProgressHUD.bundle */; };
 		F7BBEBCB1AA3633D000D74D0 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BBEBC91AA3633D000D74D0 /* SVProgressHUD.m */; };
+		F7BD0BA41AB1D998009E48B6 /* CommonUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BD0BA31AB1D998009E48B6 /* CommonUtil.m */; };
 		F7E4F17B1AA5D1280025D868 /* club@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7E4F1781AA5D1280025D868 /* club@2x.png */; };
 		F7E4F17C1AA5D1280025D868 /* rank@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7E4F1791AA5D1280025D868 /* rank@2x.png */; };
 		F7E4F17D1AA5D1280025D868 /* test@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7E4F17A1AA5D1280025D868 /* test@2x.png */; };
@@ -109,14 +110,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		F7091A8E1AB13BE6009D8C1D /* WechatRecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatRecordViewController.h; sourceTree = "<group>"; };
-		F7091A8F1AB13BE6009D8C1D /* WechatRecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WechatRecordViewController.m; sourceTree = "<group>"; };
-		F7091A911AB18366009D8C1D /* UserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserService.h; sourceTree = "<group>"; };
-		F7091A921AB18366009D8C1D /* UserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserService.m; sourceTree = "<group>"; };
+		F7091A8E1AB13BE6009D8C1D /* WechatRecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WechatRecordViewController.h; path = Beauty/WechatRecordViewController.h; sourceTree = "<group>"; };
+		F7091A8F1AB13BE6009D8C1D /* WechatRecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WechatRecordViewController.m; path = Beauty/WechatRecordViewController.m; sourceTree = "<group>"; };
+		F7091A911AB18366009D8C1D /* UserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserService.h; path = Beauty/UserService.h; sourceTree = "<group>"; };
+		F7091A921AB18366009D8C1D /* UserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserService.m; path = Beauty/UserService.m; sourceTree = "<group>"; };
 		F713C8C51AA48A5A004BE58C /* favor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "favor@2x.png"; path = "images/favor@2x.png"; sourceTree = "<group>"; };
 		F713C8C71AA48F5D004BE58C /* tel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tel@2x.png"; path = "images/tel@2x.png"; sourceTree = "<group>"; };
-		F713C8C91AA49089004BE58C /* StoreDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreDetailTableViewController.h; sourceTree = "<group>"; };
-		F713C8CA1AA49089004BE58C /* StoreDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreDetailTableViewController.m; sourceTree = "<group>"; };
+		F713C8C91AA49089004BE58C /* StoreDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreDetailTableViewController.h; path = Beauty/StoreDetailTableViewController.h; sourceTree = "<group>"; };
+		F713C8CA1AA49089004BE58C /* StoreDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoreDetailTableViewController.m; path = Beauty/StoreDetailTableViewController.m; sourceTree = "<group>"; };
 		F7147A571AA6F9D1007605E6 /* ProductTryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductTryTableViewCell.h; sourceTree = "<group>"; };
 		F7147A581AA6F9D1007605E6 /* ProductTryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductTryTableViewCell.m; sourceTree = "<group>"; };
 		F7147A591AA6F9D1007605E6 /* ProductTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductTableViewCell.xib; sourceTree = "<group>"; };
@@ -124,7 +125,7 @@
 		F7147A5E1AA6FCF7007605E6 /* star_empty@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "star_empty@2x.png"; path = "images/home/star_empty@2x.png"; sourceTree = "<group>"; };
 		F7147A621AA725CA007605E6 /* star_full@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "star_full@2x.png"; path = "images/home/star_full@2x.png"; sourceTree = "<group>"; };
 		F7147A641AA73105007605E6 /* try_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "try_bg@2x.png"; path = "images/home/try_bg@2x.png"; sourceTree = "<group>"; };
-		F7147A661AA73826007605E6 /* Global.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
+		F7147A661AA73826007605E6 /* Global.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Global.h; path = Beauty/Global.h; sourceTree = "<group>"; };
 		F7147A671AA73962007605E6 /* search@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "search@2x.png"; path = "images/home/search@2x.png"; sourceTree = "<group>"; };
 		F7172C311AA84F8D00A9ED4C /* SecondLevelTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondLevelTableViewController.h; sourceTree = "<group>"; };
 		F7172C321AA84F8D00A9ED4C /* SecondLevelTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondLevelTableViewController.m; sourceTree = "<group>"; };
@@ -145,13 +146,13 @@
 		F7172C4D1AA98DAB00A9ED4C /* ProductSellerDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductSellerDataSource.m; sourceTree = "<group>"; };
 		F71B7C831AAFE4CD005E8648 /* ProductShowTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductShowTableViewCell.h; sourceTree = "<group>"; };
 		F71B7C841AAFE4CD005E8648 /* ProductShowTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductShowTableViewCell.m; sourceTree = "<group>"; };
-		F71B7C861AB038B6005E8648 /* WechatProductDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatProductDetailTableViewController.h; sourceTree = "<group>"; };
-		F71B7C871AB038B6005E8648 /* WechatProductDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WechatProductDetailTableViewController.m; sourceTree = "<group>"; };
+		F71B7C861AB038B6005E8648 /* WechatProductDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WechatProductDetailTableViewController.h; path = Beauty/WechatProductDetailTableViewController.h; sourceTree = "<group>"; };
+		F71B7C871AB038B6005E8648 /* WechatProductDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WechatProductDetailTableViewController.m; path = Beauty/WechatProductDetailTableViewController.m; sourceTree = "<group>"; };
 		F71B7C891AB03F63005E8648 /* submit_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "submit_button@2x.png"; path = "images/submit_button@2x.png"; sourceTree = "<group>"; };
-		F72A95BA1AAAD47A00B2B611 /* EvaluateDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvaluateDetailViewController.h; sourceTree = "<group>"; };
-		F72A95BB1AAAD47A00B2B611 /* EvaluateDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EvaluateDetailViewController.m; sourceTree = "<group>"; };
-		F72A95BD1AABE68800B2B611 /* WechatProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatProductViewController.h; sourceTree = "<group>"; };
-		F72A95BE1AABE68800B2B611 /* WechatProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WechatProductViewController.m; sourceTree = "<group>"; };
+		F72A95BA1AAAD47A00B2B611 /* EvaluateDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EvaluateDetailViewController.h; path = Beauty/EvaluateDetailViewController.h; sourceTree = "<group>"; };
+		F72A95BB1AAAD47A00B2B611 /* EvaluateDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EvaluateDetailViewController.m; path = Beauty/EvaluateDetailViewController.m; sourceTree = "<group>"; };
+		F72A95BD1AABE68800B2B611 /* WechatProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WechatProductViewController.h; path = Beauty/WechatProductViewController.h; sourceTree = "<group>"; };
+		F72A95BE1AABE68800B2B611 /* WechatProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WechatProductViewController.m; path = Beauty/WechatProductViewController.m; sourceTree = "<group>"; };
 		F72A95C01AABEA1000B2B611 /* SlidePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlidePageViewController.h; sourceTree = "<group>"; };
 		F72A95C11AABEA1000B2B611 /* SlidePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlidePageViewController.m; sourceTree = "<group>"; };
 		F72A95C21AABEA1000B2B611 /* SlidePageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SlidePageViewController.xib; sourceTree = "<group>"; };
@@ -164,12 +165,12 @@
 		F72FFE6B1AAD935400C01BB2 /* member_try@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "member_try@2x.png"; sourceTree = "<group>"; };
 		F72FFE6F1AAE77BD00C01BB2 /* code_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "code_bg@2x.png"; sourceTree = "<group>"; };
 		F72FFE701AAE77BD00C01BB2 /* login_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login_bg@2x.png"; sourceTree = "<group>"; };
-		F72FFE731AAE8F4100C01BB2 /* MemberLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemberLoginViewController.h; sourceTree = "<group>"; };
-		F72FFE741AAE8F4100C01BB2 /* MemberLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberLoginViewController.m; sourceTree = "<group>"; };
-		F72FFE891AAEF14B00C01BB2 /* MemberTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemberTableViewController.h; sourceTree = "<group>"; };
-		F72FFE8A1AAEF14B00C01BB2 /* MemberTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberTableViewController.m; sourceTree = "<group>"; };
-		F77FB1CB1AA9F02F0092D57F /* EvaluateTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvaluateTableViewController.h; sourceTree = "<group>"; };
-		F77FB1CC1AA9F02F0092D57F /* EvaluateTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EvaluateTableViewController.m; sourceTree = "<group>"; };
+		F72FFE731AAE8F4100C01BB2 /* MemberLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MemberLoginViewController.h; path = Beauty/MemberLoginViewController.h; sourceTree = "<group>"; };
+		F72FFE741AAE8F4100C01BB2 /* MemberLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MemberLoginViewController.m; path = Beauty/MemberLoginViewController.m; sourceTree = "<group>"; };
+		F72FFE891AAEF14B00C01BB2 /* MemberTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MemberTableViewController.h; path = Beauty/MemberTableViewController.h; sourceTree = "<group>"; };
+		F72FFE8A1AAEF14B00C01BB2 /* MemberTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MemberTableViewController.m; path = Beauty/MemberTableViewController.m; sourceTree = "<group>"; };
+		F77FB1CB1AA9F02F0092D57F /* EvaluateTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EvaluateTableViewController.h; path = Beauty/EvaluateTableViewController.h; sourceTree = "<group>"; };
+		F77FB1CC1AA9F02F0092D57F /* EvaluateTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EvaluateTableViewController.m; path = Beauty/EvaluateTableViewController.m; sourceTree = "<group>"; };
 		F78FC9081AA73E8A00F3C1EE /* product_search_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "product_search_bg@2x.png"; path = "images/home/product_search_bg@2x.png"; sourceTree = "<group>"; };
 		F78FC90A1AA73F6500F3C1EE /* product_search_bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "product_search_bar@2x.png"; path = "images/home/product_search_bar@2x.png"; sourceTree = "<group>"; };
 		F78FC90C1AA7436B00F3C1EE /* activity_search_bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "activity_search_bar@2x.png"; path = "images/home/activity_search_bar@2x.png"; sourceTree = "<group>"; };
@@ -200,12 +201,12 @@
 		F7B498701AA31B250067219E /* StoreTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoreTableViewCell.xib; sourceTree = "<group>"; };
 		F7B498781AA31D390067219E /* location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "location@2x.png"; path = "images/location@2x.png"; sourceTree = "<group>"; };
 		F7B498791AA31D390067219E /* time@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "time@2x.png"; path = "images/time@2x.png"; sourceTree = "<group>"; };
-		F7B4987C1AA31FE90067219E /* StoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreViewController.h; sourceTree = "<group>"; };
-		F7B4987D1AA31FE90067219E /* StoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreViewController.m; sourceTree = "<group>"; };
-		F7B4987F1AA3246B0067219E /* StoreActivityDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreActivityDataSource.h; sourceTree = "<group>"; };
-		F7B498801AA3246B0067219E /* StoreActivityDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreActivityDataSource.m; sourceTree = "<group>"; };
-		F7B498821AA32B580067219E /* HomeTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeTabBarController.h; path = Beauty/HomeTabBarController.h; sourceTree = "<group>"; };
-		F7B498831AA32B580067219E /* HomeTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeTabBarController.m; path = Beauty/HomeTabBarController.m; sourceTree = "<group>"; };
+		F7B4987C1AA31FE90067219E /* StoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreViewController.h; path = Beauty/StoreViewController.h; sourceTree = "<group>"; };
+		F7B4987D1AA31FE90067219E /* StoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoreViewController.m; path = Beauty/StoreViewController.m; sourceTree = "<group>"; };
+		F7B4987F1AA3246B0067219E /* StoreActivityDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreActivityDataSource.h; path = Beauty/StoreActivityDataSource.h; sourceTree = "<group>"; };
+		F7B498801AA3246B0067219E /* StoreActivityDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoreActivityDataSource.m; path = Beauty/StoreActivityDataSource.m; sourceTree = "<group>"; };
+		F7B498821AA32B580067219E /* HomeTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTabBarController.h; sourceTree = "<group>"; };
+		F7B498831AA32B580067219E /* HomeTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTabBarController.m; sourceTree = "<group>"; };
 		F7B498891AA3356E0067219E /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
 		F7B4988A1AA3356F0067219E /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkActivityIndicatorManager.m; sourceTree = "<group>"; };
 		F7B4988B1AA3356F0067219E /* UIActivityIndicatorView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActivityIndicatorView+AFNetworking.h"; sourceTree = "<group>"; };
@@ -242,11 +243,13 @@
 		F7B498B31AA335E30067219E /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		F7B498B41AA335E30067219E /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		F7B498B51AA335E30067219E /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
-		F7BBEBC31AA35C66000D74D0 /* ActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityViewController.h; sourceTree = "<group>"; };
-		F7BBEBC41AA35C66000D74D0 /* ActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityViewController.m; sourceTree = "<group>"; };
+		F7BBEBC31AA35C66000D74D0 /* ActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityViewController.h; path = Beauty/ActivityViewController.h; sourceTree = "<group>"; };
+		F7BBEBC41AA35C66000D74D0 /* ActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityViewController.m; path = Beauty/ActivityViewController.m; sourceTree = "<group>"; };
 		F7BBEBC71AA3633D000D74D0 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		F7BBEBC81AA3633D000D74D0 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
 		F7BBEBC91AA3633D000D74D0 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		F7BD0BA21AB1D998009E48B6 /* CommonUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonUtil.h; path = Beauty/CommonUtil.h; sourceTree = "<group>"; };
+		F7BD0BA31AB1D998009E48B6 /* CommonUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommonUtil.m; path = Beauty/CommonUtil.m; sourceTree = "<group>"; };
 		F7E4F1781AA5D1280025D868 /* club@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "club@2x.png"; path = "images/home/club@2x.png"; sourceTree = "<group>"; };
 		F7E4F1791AA5D1280025D868 /* rank@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "rank@2x.png"; path = "images/home/rank@2x.png"; sourceTree = "<group>"; };
 		F7E4F17A1AA5D1280025D868 /* test@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "test@2x.png"; path = "images/home/test@2x.png"; sourceTree = "<group>"; };
@@ -279,6 +282,8 @@
 		F7172C341AA87C9D00A9ED4C /* cell */ = {
 			isa = PBXGroup;
 			children = (
+				F7172C3E1AA8A13B00A9ED4C /* StarView.h */,
+				F7172C3F1AA8A13B00A9ED4C /* StarView.m */,
 				F71B7C831AAFE4CD005E8648 /* ProductShowTableViewCell.h */,
 				F71B7C841AAFE4CD005E8648 /* ProductShowTableViewCell.m */,
 				F7147A571AA6F9D1007605E6 /* ProductTryTableViewCell.h */,
@@ -336,8 +341,6 @@
 		F7B4982C1AA2FF300067219E = {
 			isa = PBXGroup;
 			children = (
-				F7B498821AA32B580067219E /* HomeTabBarController.h */,
-				F7B498831AA32B580067219E /* HomeTabBarController.m */,
 				F7B498371AA2FF300067219E /* Beauty */,
 				F7B498511AA2FF300067219E /* BeautyTests */,
 				F7B498361AA2FF300067219E /* Products */,
@@ -364,53 +367,27 @@
 		F7B498371AA2FF300067219E /* Beauty */ = {
 			isa = PBXGroup;
 			children = (
-				F7091A8E1AB13BE6009D8C1D /* WechatRecordViewController.h */,
-				F7091A8F1AB13BE6009D8C1D /* WechatRecordViewController.m */,
-				F7091A911AB18366009D8C1D /* UserService.h */,
-				F7091A921AB18366009D8C1D /* UserService.m */,
-				F72FFE891AAEF14B00C01BB2 /* MemberTableViewController.h */,
-				F72FFE8A1AAEF14B00C01BB2 /* MemberTableViewController.m */,
-				F72FFE731AAE8F4100C01BB2 /* MemberLoginViewController.h */,
-				F72FFE741AAE8F4100C01BB2 /* MemberLoginViewController.m */,
-				F72A95BD1AABE68800B2B611 /* WechatProductViewController.h */,
-				F72A95BE1AABE68800B2B611 /* WechatProductViewController.m */,
-				F71B7C861AB038B6005E8648 /* WechatProductDetailTableViewController.h */,
-				F71B7C871AB038B6005E8648 /* WechatProductDetailTableViewController.m */,
-				F72A95D21AACBAD200B2B611 /* SlidePage */,
-				F72A95BA1AAAD47A00B2B611 /* EvaluateDetailViewController.h */,
-				F72A95BB1AAAD47A00B2B611 /* EvaluateDetailViewController.m */,
-				F7172C481AA94E3800A9ED4C /* WebViewBrowserController.h */,
-				F7172C491AA94E3800A9ED4C /* WebViewBrowserController.m */,
-				F77FB1CB1AA9F02F0092D57F /* EvaluateTableViewController.h */,
-				F77FB1CC1AA9F02F0092D57F /* EvaluateTableViewController.m */,
-				F7172C341AA87C9D00A9ED4C /* cell */,
-				F7B498771AA31CFF0067219E /* images */,
 				F7B4983C1AA2FF300067219E /* AppDelegate.h */,
 				F7B4983D1AA2FF300067219E /* AppDelegate.m */,
+				F7E4F1801AA5EC310025D868 /* HomeViewController.h */,
+				F7E4F1811AA5EC310025D868 /* HomeViewController.m */,
+				F7B498821AA32B580067219E /* HomeTabBarController.h */,
+				F7B498831AA32B580067219E /* HomeTabBarController.m */,
+				F7172C481AA94E3800A9ED4C /* WebViewBrowserController.h */,
+				F7172C491AA94E3800A9ED4C /* WebViewBrowserController.m */,
+				F7BD0BAA1AB1DF54009E48B6 /* Evaluate */,
+				F7BD0BA81AB1DF08009E48B6 /* Store */,
+				F7BD0BA71AB1DEE4009E48B6 /* Common */,
+				F7BD0BA61AB1DED5009E48B6 /* Member */,
+				F7BD0BA51AB1DEC0009E48B6 /* WechatProduct */,
+				F7BD0BA91AB1DF35009E48B6 /* Product */,
+				F72A95D21AACBAD200B2B611 /* SlidePage */,
+				F7172C341AA87C9D00A9ED4C /* cell */,
+				F7B498771AA31CFF0067219E /* images */,
 				F7B498421AA2FF300067219E /* Main.storyboard */,
 				F7B498451AA2FF300067219E /* Images.xcassets */,
 				F7B498471AA2FF300067219E /* LaunchScreen.xib */,
 				F7B498381AA2FF300067219E /* Supporting Files */,
-				F7B4987C1AA31FE90067219E /* StoreViewController.h */,
-				F7B4987D1AA31FE90067219E /* StoreViewController.m */,
-				F713C8C91AA49089004BE58C /* StoreDetailTableViewController.h */,
-				F713C8CA1AA49089004BE58C /* StoreDetailTableViewController.m */,
-				F7BBEBC31AA35C66000D74D0 /* ActivityViewController.h */,
-				F7BBEBC41AA35C66000D74D0 /* ActivityViewController.m */,
-				F7B4987F1AA3246B0067219E /* StoreActivityDataSource.h */,
-				F7B498801AA3246B0067219E /* StoreActivityDataSource.m */,
-				F7172C311AA84F8D00A9ED4C /* SecondLevelTableViewController.h */,
-				F7172C321AA84F8D00A9ED4C /* SecondLevelTableViewController.m */,
-				F7172C4C1AA98DAB00A9ED4C /* ProductSellerDataSource.h */,
-				F7172C4D1AA98DAB00A9ED4C /* ProductSellerDataSource.m */,
-				F7172C351AA87D8500A9ED4C /* ProductTableViewController.h */,
-				F7172C361AA87D8500A9ED4C /* ProductTableViewController.m */,
-				F7172C381AA8957800A9ED4C /* ProductDetailTableViewController.h */,
-				F7172C391AA8957800A9ED4C /* ProductDetailTableViewController.m */,
-				F7E4F1801AA5EC310025D868 /* HomeViewController.h */,
-				F7E4F1811AA5EC310025D868 /* HomeViewController.m */,
-				F7172C3E1AA8A13B00A9ED4C /* StarView.h */,
-				F7172C3F1AA8A13B00A9ED4C /* StarView.m */,
 			);
 			path = Beauty;
 			sourceTree = "<group>";
@@ -418,7 +395,6 @@
 		F7B498381AA2FF300067219E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				F7147A661AA73826007605E6 /* Global.h */,
 				F7B498391AA2FF300067219E /* Info.plist */,
 				F7B4983A1AA2FF300067219E /* main.m */,
 			);
@@ -519,6 +495,88 @@
 				F7BBEBC91AA3633D000D74D0 /* SVProgressHUD.m */,
 			);
 			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
+		F7BD0BA51AB1DEC0009E48B6 /* WechatProduct */ = {
+			isa = PBXGroup;
+			children = (
+				F7091A8E1AB13BE6009D8C1D /* WechatRecordViewController.h */,
+				F7091A8F1AB13BE6009D8C1D /* WechatRecordViewController.m */,
+				F72A95BD1AABE68800B2B611 /* WechatProductViewController.h */,
+				F72A95BE1AABE68800B2B611 /* WechatProductViewController.m */,
+				F71B7C861AB038B6005E8648 /* WechatProductDetailTableViewController.h */,
+				F71B7C871AB038B6005E8648 /* WechatProductDetailTableViewController.m */,
+			);
+			name = WechatProduct;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		F7BD0BA61AB1DED5009E48B6 /* Member */ = {
+			isa = PBXGroup;
+			children = (
+				F72FFE891AAEF14B00C01BB2 /* MemberTableViewController.h */,
+				F72FFE8A1AAEF14B00C01BB2 /* MemberTableViewController.m */,
+				F72FFE731AAE8F4100C01BB2 /* MemberLoginViewController.h */,
+				F72FFE741AAE8F4100C01BB2 /* MemberLoginViewController.m */,
+			);
+			name = Member;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		F7BD0BA71AB1DEE4009E48B6 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				F7147A661AA73826007605E6 /* Global.h */,
+				F7BD0BA21AB1D998009E48B6 /* CommonUtil.h */,
+				F7BD0BA31AB1D998009E48B6 /* CommonUtil.m */,
+				F7091A911AB18366009D8C1D /* UserService.h */,
+				F7091A921AB18366009D8C1D /* UserService.m */,
+			);
+			name = Common;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		F7BD0BA81AB1DF08009E48B6 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				F7B4987C1AA31FE90067219E /* StoreViewController.h */,
+				F7B4987D1AA31FE90067219E /* StoreViewController.m */,
+				F713C8C91AA49089004BE58C /* StoreDetailTableViewController.h */,
+				F713C8CA1AA49089004BE58C /* StoreDetailTableViewController.m */,
+				F7BBEBC31AA35C66000D74D0 /* ActivityViewController.h */,
+				F7BBEBC41AA35C66000D74D0 /* ActivityViewController.m */,
+				F7B4987F1AA3246B0067219E /* StoreActivityDataSource.h */,
+				F7B498801AA3246B0067219E /* StoreActivityDataSource.m */,
+			);
+			name = Store;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		F7BD0BA91AB1DF35009E48B6 /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				F7172C311AA84F8D00A9ED4C /* SecondLevelTableViewController.h */,
+				F7172C321AA84F8D00A9ED4C /* SecondLevelTableViewController.m */,
+				F7172C4C1AA98DAB00A9ED4C /* ProductSellerDataSource.h */,
+				F7172C4D1AA98DAB00A9ED4C /* ProductSellerDataSource.m */,
+				F7172C351AA87D8500A9ED4C /* ProductTableViewController.h */,
+				F7172C361AA87D8500A9ED4C /* ProductTableViewController.m */,
+				F7172C381AA8957800A9ED4C /* ProductDetailTableViewController.h */,
+				F7172C391AA8957800A9ED4C /* ProductDetailTableViewController.m */,
+			);
+			name = Product;
+			sourceTree = "<group>";
+		};
+		F7BD0BAA1AB1DF54009E48B6 /* Evaluate */ = {
+			isa = PBXGroup;
+			children = (
+				F72A95BA1AAAD47A00B2B611 /* EvaluateDetailViewController.h */,
+				F72A95BB1AAAD47A00B2B611 /* EvaluateDetailViewController.m */,
+				F77FB1CB1AA9F02F0092D57F /* EvaluateTableViewController.h */,
+				F77FB1CC1AA9F02F0092D57F /* EvaluateTableViewController.m */,
+			);
+			name = Evaluate;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		F7E4F1771AA5D1190025D868 /* home */ = {
@@ -719,6 +777,7 @@
 				F7172C4A1AA94E3800A9ED4C /* WebViewBrowserController.m in Sources */,
 				F7B4983B1AA2FF300067219E /* main.m in Sources */,
 				F7B498BE1AA335E30067219E /* AFURLSessionManager.m in Sources */,
+				F7BD0BA41AB1D998009E48B6 /* CommonUtil.m in Sources */,
 				F72A95BC1AAAD47A00B2B611 /* EvaluateDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

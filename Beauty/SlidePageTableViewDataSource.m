@@ -8,7 +8,7 @@
 
 #import "SlidePageTableViewDataSource.h"
 #import <BmobSDK/Bmob.h>
-#import "ProductTryTableViewCell.h"
+#import "ProductShowTableViewCell.h"
 #import "StarView.h"
 #import "UIImageView+AFNetworking.h"
 #import "Global.h"
@@ -55,7 +55,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ProductTryTableViewCell *cell = [[[NSBundle mainBundle]loadNibNamed:@"ProductTableViewCell" owner:self options:nil]lastObject];
+    ProductShowTableViewCell *cell = [[[NSBundle mainBundle]loadNibNamed:@"ProductTableViewCell" owner:self options:nil]lastObject];
     BmobObject *product = [self.dataSourceArray[indexPath.row] objectForKey:@"product"];
     BmobFile *avatar = [product objectForKey:@"avatar"];
     [cell.thumbImageView setImageWithURL:[NSURL URLWithString:avatar.url]];

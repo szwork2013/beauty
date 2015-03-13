@@ -27,7 +27,7 @@
     [super viewDidLoad];
     self.offsetY = 0;
     self.webView = [[UIWebView alloc]init];
-//    self.webView.scrollView.scrollEnabled = NO;
+    self.webView.scrollView.scrollEnabled = NO;
     [self.scrollView addSubview:self.webView];
 
     self.navigationItem.title = @"评测详情";

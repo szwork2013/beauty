@@ -9,6 +9,7 @@
 #import "StoreDetailTableViewController.h"
 #import <BmobSDK/Bmob.h>
 #import "UIImageView+AFNetworking.h"
+#import "CommonUtil.h"
 
 @interface StoreDetailTableViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *imagesScrollView;
@@ -18,6 +19,9 @@
 @property (weak, nonatomic) IBOutlet UITextView *descriptTextView;
 @property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
+//描述高度
+@property (assign, nonatomic) CGFloat descriptHeight;
+
 //拨号
 @property (weak, nonatomic) IBOutlet UIButton *callButton;
 
@@ -45,14 +49,11 @@
         self.phoneLabel.text        = [object objectForKey:@"phone"];
         self.addressLabel.text      = [object objectForKey:@"address"];
 //        店铺简介，使用富文本
-        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-        paragraphStyle.lineSpacing = 7;
-        NSDictionary *attributes = @{
-                                     NSFontAttributeName:[UIFont systemFontOfSize:16],
-                                     NSParagraphStyleAttributeName:paragraphStyle
-                                     };
-        self.descriptTextView.attributedText = [[NSAttributedString alloc] initWithString:[object objectForKey:@"descript"] attributes:attributes];
-        
+        self.descriptTextView.attributedText = [[NSAttributedString alloc] initWithString:[object objectForKey:@"descript"] attributes:[CommonUtil textViewAttribute]];
+        [self.descriptTextView sizeToFit];
+//        取得高度
+        self.descriptHeight = self.descriptTextView.frame.size.height + 8;
+        [self.tableView reloadData];
         //banner
         CGFloat imageWidth = 375.0;
         CGFloat imageHeight = 181.0;
@@ -68,7 +69,15 @@
         
     }];
 }
+//高度
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    描述TextView
+    if (indexPath.section == 1 && indexPath.row == 1) {
+        return self.descriptHeight;
+    }
 
+    return [super tableView:tableView heightForRowAtIndexPath:indexPath];
+}
 - (IBAction)callMe:(id)sender {
     NSString *telStr = self.phoneLabel.text;
     if (![telStr isEqualToString:@""]) {
