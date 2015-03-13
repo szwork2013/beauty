@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 瑞安市灵犀网络技术有限公司. All rights reserved.
 //
 
-#import "WechatProductDetailTableViewController.h"
+#import "TryEventProductDetailTableViewController.h"
 #import <BmobSDK/Bmob.h>
 #import "UIImageView+AFNetworking.h"
 #import "ProductDetailTableViewController.h"
@@ -15,10 +15,11 @@
 #import "Global.h"
 #import "ProductShowTableViewCell.h"
 
-@interface WechatProductDetailTableViewController ()<UIWebViewDelegate>
+@interface TryEventProductDetailTableViewController ()<UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
 @property (weak, nonatomic) IBOutlet UITextView *descriptTextView;
 @property (weak, nonatomic) IBOutlet UIWebView *webUrlwebView;
+
 //描述高度
 @property (assign, nonatomic) CGFloat descriptHeight;
 //网页高度
@@ -27,10 +28,11 @@
 @property (strong, nonatomic) BmobObject *productObject;
 @end
 
-@implementation WechatProductDetailTableViewController
+@implementation TryEventProductDetailTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tabBarController.tabBar.hidden = YES;
     //    tableview顶部不留空
     self.tableView.contentInset=UIEdgeInsetsMake(-36, 0, 0, 0);
     [self initWebView];
@@ -43,12 +45,14 @@
     self.webUrlwebView.scrollView.scrollEnabled = NO;
 }
 - (void)fetchProduct {
-    BmobQuery *query = [BmobQuery queryWithClassName:@"WechatProduct"];
+    BmobQuery *query = [BmobQuery queryWithClassName:@"TryEvent"];
     [query includeKey:@"product"];
-    [query getObjectInBackgroundWithId:[[NSUserDefaults standardUserDefaults]objectForKey:@"wechatProductId"] block:^(BmobObject *object, NSError *error) {
+    [query whereKey:@"product" equalTo:[BmobObject objectWithoutDatatWithClassName:@"Product" objectId:self.productId]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
         if (error) {
             NSLog(@"%@",error);
         } else {
+            BmobObject *object = [array firstObject];
 //            获取图像
             BmobFile *avatarFile = [object objectForKey:@"avatar"];
             [self.avatarImageView setImageWithURL:[NSURL URLWithString:avatarFile.url]];
@@ -66,31 +70,13 @@
                 [self.webUrlwebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[object objectForKey:@"webUrl"]]]];
             }
 //            产品id，以备跳转时传值用
-            self.productId = [[object objectForKey:@"product"]objectId];
+
             //刷新数据源，以适配单元格高度
             [self.tableView reloadData];
         }
     }];
 }
-//- (CGFloat) tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-//    if (section == 3) {
-//        if (self.webHeight == 0.0) {
-//           return 1.0;
-//        }
-//        
-//    }
-//    return [super tableView:tableView heightForFooterInSection:section];
-//}
-//
-//- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-//    if (section == 3) {
-//        if (self.webHeight == 0.0) {
-//            return 1.0;
-//        }
-//        
-//    }
-//    return [super tableView:tableView heightForHeaderInSection:section];
-//}
+
 //产品单元格
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 1 && indexPath.row == 0) {

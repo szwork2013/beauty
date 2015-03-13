@@ -14,6 +14,7 @@
 #import "SecondLevelTableViewController.h"
 #import "StarView.h"
 #import "CommonUtil.h"
+#import "TryEventProductDetailTableViewController.h"
 
 @interface HomeViewController ()<UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
@@ -142,6 +143,10 @@
         [self.mainScrollView addSubview:self.pageControl];
     }];
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:@"tryEventDetail" sender:self];
+}
 //进入二级分类
 -(void) pushSecondLevel {
     [self performSegueWithIdentifier:@"secondLevel" sender:self];
@@ -182,9 +187,11 @@
     if ([segue.identifier isEqualToString:@"secondLevel"]) {
         SecondLevelTableViewController *vc = (SecondLevelTableViewController *)segue.destinationViewController;
         vc.firstLevelId = @"LeBD666H";
+    } else if ([segue.identifier isEqualToString:@"tryEventDetail"]) {
+        TryEventProductDetailTableViewController *vc = segue.destinationViewController;
+        vc.productId = [[self.productArray[self.productTableView.indexPathForSelectedRow.row]objectForKey:@"product"] objectId];
     }
     [self setHidesBottomBarWhenPushed:YES];
-    
 }
 
 
