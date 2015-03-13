@@ -129,6 +129,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 1 && indexPath.row == 0) {
+        [self performSegueWithIdentifier:@"productDetail" sender:self];
+    }
+}
+
 //网页加载完成代理方法
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
     self.webHeight = [[webView stringByEvaluatingJavaScriptFromString:@"document.body.offsetHeight;"] floatValue] + 44;
@@ -148,7 +154,9 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // 共有两条连线，只有跳转往产品详情页时才传productId值
+    // 共有两条连线
+    
+    
     if ([segue.identifier isEqualToString:@"productDetail"]) {
         
         ProductDetailTableViewController *vc = segue.destinationViewController;

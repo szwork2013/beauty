@@ -1125,7 +1125,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="z5s-pb-0rk" kind="show" identifier="productDetail" id="961-P2-2Vm"/>
+                                            <segue destination="z5s-pb-0rk" kind="show" identifier="productDetail" id="qqI-84-Lb5"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -2113,7 +2113,7 @@
         <image name="try_bg.png" width="317" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="961-P2-2Vm"/>
+        <segue reference="qqI-84-Lb5"/>
         <segue reference="pZj-uo-L8A"/>
     </inferredMetricsTieBreakers>
 </document>
