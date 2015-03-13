@@ -919,35 +919,7 @@
                                             <constraint firstAttribute="width" secondItem="20E-uM-FnG" secondAttribute="height" multiplier="64:33" id="jDB-Gy-H8h"/>
                                         </constraints>
                                     </view>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="kgi-k8-NXJ" userLabel="产品列表">
-                                        <rect key="frame" x="0.0" y="566" width="320" height="415"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="kgi-k8-NXJ" secondAttribute="height" multiplier="320:353" id="3Bc-La-hfk"/>
-                                        </constraints>
-                                        <prototypes>
-                                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="product" rowHeight="120" id="61W-sg-RTm">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="61W-sg-RTm" id="QIl-gn-vxx">
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </tableViewCellContentView>
-                                                <connections>
-                                                    <segue destination="3Bq-0s-D2I" kind="show" identifier="tryEventDetail" id="lCi-hW-Cwb"/>
-                                                </connections>
-                                            </tableViewCell>
-                                        </prototypes>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="3Bc-La-hfk"/>
-                                            </mask>
-                                        </variation>
-                                        <connections>
-                                            <outlet property="dataSource" destination="liq-n0-45t" id="vvE-Bf-8O1"/>
-                                            <outlet property="delegate" destination="liq-n0-45t" id="Iik-Nq-rqS"/>
-                                        </connections>
-                                    </tableView>
-                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qSb-8C-Ha2" userLabel="产品试用">
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qSb-8C-Ha2" userLabel="产品试用bar">
                                         <rect key="frame" x="0.0" y="520" width="320" height="45"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="try_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="ots-vj-tIx">
@@ -985,6 +957,34 @@
                                             <constraint firstAttribute="trailing" secondItem="Kqg-D6-Cdr" secondAttribute="trailing" constant="8" id="sUf-TC-fNF"/>
                                         </constraints>
                                     </view>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="kgi-k8-NXJ" userLabel="产品列表">
+                                        <rect key="frame" x="0.0" y="566" width="320" height="415"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="kgi-k8-NXJ" secondAttribute="height" multiplier="320:353" id="3Bc-La-hfk"/>
+                                        </constraints>
+                                        <prototypes>
+                                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="product" rowHeight="120" id="61W-sg-RTm">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="61W-sg-RTm" id="QIl-gn-vxx">
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <segue destination="3Bq-0s-D2I" kind="show" identifier="tryEventDetail" id="lCi-hW-Cwb"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="3Bc-La-hfk"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <outlet property="dataSource" destination="liq-n0-45t" id="vvE-Bf-8O1"/>
+                                            <outlet property="delegate" destination="liq-n0-45t" id="Iik-Nq-rqS"/>
+                                        </connections>
+                                    </tableView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.94117647058823528" green="0.93725490196078431" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -992,7 +992,7 @@
                                     <constraint firstItem="qtb-vL-L7P" firstAttribute="leading" secondItem="A9c-gT-oiW" secondAttribute="leading" id="1wT-Wg-Mhq"/>
                                     <constraint firstAttribute="trailing" secondItem="kA8-2w-6XS" secondAttribute="trailing" id="3Fz-SW-RNm"/>
                                     <constraint firstItem="qSb-8C-Ha2" firstAttribute="leading" secondItem="A9c-gT-oiW" secondAttribute="leading" id="7Sf-o9-r29"/>
-                                    <constraint firstAttribute="bottom" secondItem="kgi-k8-NXJ" secondAttribute="bottom" id="7eD-nK-u3w"/>
+                                    <constraint firstAttribute="bottom" secondItem="kgi-k8-NXJ" secondAttribute="bottom" constant="-181" id="7eD-nK-u3w"/>
                                     <constraint firstItem="kgi-k8-NXJ" firstAttribute="leading" secondItem="A9c-gT-oiW" secondAttribute="leading" id="AVd-5Q-GbD"/>
                                     <constraint firstItem="wjv-Yb-pJ6" firstAttribute="top" secondItem="64A-Br-rxY" secondAttribute="bottom" constant="3" id="ArO-Cc-qmI"/>
                                     <constraint firstAttribute="trailing" secondItem="qSb-8C-Ha2" secondAttribute="trailing" id="Bh8-g4-Zqv"/>
@@ -1000,10 +1000,10 @@
                                     <constraint firstAttribute="trailing" secondItem="kgi-k8-NXJ" secondAttribute="trailing" id="EWf-Hz-LA0"/>
                                     <constraint firstItem="64A-Br-rxY" firstAttribute="leading" secondItem="A9c-gT-oiW" secondAttribute="leading" id="GoY-Ju-rMc"/>
                                     <constraint firstItem="qSb-8C-Ha2" firstAttribute="top" secondItem="20E-uM-FnG" secondAttribute="bottom" constant="6" id="KkK-ap-5kQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="qtb-vL-L7P" secondAttribute="bottom" constant="665" id="LFU-xV-coO"/>
                                     <constraint firstItem="kgi-k8-NXJ" firstAttribute="top" secondItem="qSb-8C-Ha2" secondAttribute="bottom" constant="1" id="NF6-J9-k2n"/>
                                     <constraint firstItem="64A-Br-rxY" firstAttribute="top" secondItem="kA8-2w-6XS" secondAttribute="bottom" constant="6" id="P8o-FD-9oX"/>
                                     <constraint firstAttribute="trailing" secondItem="wjv-Yb-pJ6" secondAttribute="trailing" id="PJY-aI-pQE"/>
-                                    <constraint firstAttribute="bottom" secondItem="qtb-vL-L7P" secondAttribute="bottom" constant="846" id="XHN-1E-mXW"/>
                                     <constraint firstItem="wjv-Yb-pJ6" firstAttribute="leading" secondItem="A9c-gT-oiW" secondAttribute="leading" id="XdS-oO-bf3"/>
                                     <constraint firstItem="qtb-vL-L7P" firstAttribute="top" secondItem="A9c-gT-oiW" secondAttribute="top" id="ZA6-bq-bBC"/>
                                     <constraint firstItem="kA8-2w-6XS" firstAttribute="leading" secondItem="A9c-gT-oiW" secondAttribute="leading" id="el1-Vk-xy8"/>

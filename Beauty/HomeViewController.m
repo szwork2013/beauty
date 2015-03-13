@@ -91,7 +91,6 @@
         }
     }];
 }
-
 #pragma mark 获取试用产品数据源
 -(void) fetchProducts {
     self.productArray = [NSArray array];
@@ -99,7 +98,7 @@
     [query includeKey:@"product"];
     [query whereKey:@"endTime" greaterThanOrEqualTo:[NSDate date]];
     [query orderByAscending:@"endTime"];
-    query.limit = 2;
+    query.limit = 5;
     [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
         if (error) {
             NSLog(@"%@",error);
@@ -107,7 +106,8 @@
             self.productArray = array;
             
             [self.productTableView reloadData];
-            [self.mainScrollView sizeToFit];
+//            配置高度
+            self.mainScrollView.contentSize = CGSizeMake(self.mainScrollView.contentSize.width, self.mainScrollView.contentSize.height + (array.count - 1) * 120 - 60);
         }
     }];
 }
