@@ -15,5 +15,5 @@
 @interface CommonUtil : NSObject
 + (NSDictionary *)textViewAttribute;
 + (NSString *)enterChar:(NSString *)descriptString;
-+ (ProductShowTableViewCell *)fetchProductShowCell:(BmobObject *)product;
++ (ProductShowTableViewCell *)fetchProductShowCell:(BmobObject *)product index:(NSInteger)i;
 @end

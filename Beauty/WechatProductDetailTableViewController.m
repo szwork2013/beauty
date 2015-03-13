@@ -95,7 +95,7 @@
 //产品单元格
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 1 && indexPath.row == 0) {
-        return [CommonUtil fetchProductShowCell:self.productObject];
+        return [CommonUtil fetchProductShowCell:self.productObject index:1];
     }
     
     

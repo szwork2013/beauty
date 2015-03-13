@@ -13,6 +13,7 @@
 #import "Global.h"
 #import "SecondLevelTableViewController.h"
 #import "StarView.h"
+#import "CommonUtil.h"
 
 @interface HomeViewController ()<UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
@@ -164,16 +165,7 @@
 
 #pragma mark 自定义单元格
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ProductTryTableViewCell *cell = [[[NSBundle mainBundle]loadNibNamed:@"ProductTableViewCell" owner:self options:nil]firstObject];
-    BmobObject *product = [self.productArray[indexPath.row]objectForKey:@"product"];
-    BmobFile *avatar = [product objectForKey:@"avatar"];
-    [cell.thumbImageView setImageWithURL:[NSURL URLWithString:avatar.url]];
-    cell.nameLabel.text = [product objectForKey:@"name"];
-    cell.commentCountLabel.text = [[product objectForKey:@"commentCount"]stringValue];
-    cell.averagePriceLabel.text = [[product objectForKey:@"averagePrice"]stringValue];
-//    评分星级
-    StarView *view = [[StarView alloc]initWithCount:[product objectForKey:@"mark"] frame:CGRectMake(0, 0, 55.0, 11.0)];
-    [cell.starView addSubview:view];
+    ProductShowTableViewCell *cell = [CommonUtil fetchProductShowCell:[self.productArray[indexPath.row]objectForKey:@"product"] index:0];
     return cell;
 }
 

@@ -25,8 +25,8 @@
     return descriptString;
 }
 
-+ (ProductShowTableViewCell *)fetchProductShowCell:(BmobObject *)product {
-    ProductShowTableViewCell *cell = [[[NSBundle mainBundle]loadNibNamed:@"ProductTableViewCell" owner:self options:nil]lastObject];
++ (ProductShowTableViewCell *)fetchProductShowCell:(BmobObject *)product index:(NSInteger)i{
+    ProductShowTableViewCell *cell = [[[NSBundle mainBundle]loadNibNamed:@"ProductTableViewCell" owner:self options:nil]objectAtIndex:i];
     BmobFile *avatar = [product objectForKey:@"avatar"];
     [cell.thumbImageView setImageWithURL:[NSURL URLWithString:avatar.url]];
     //缩略图加圆角边框
