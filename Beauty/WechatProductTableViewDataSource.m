@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 瑞安市灵犀网络技术有限公司. All rights reserved.
 //
 
-#import "SlidePageTableViewDataSource.h"
+#import "WechatProductTableViewDataSource.h"
 #import <BmobSDK/Bmob.h>
 #import "ProductShowTableViewCell.h"
 #import "StarView.h"
@@ -15,7 +15,7 @@
 #import "WechatProductDetailTableViewController.h"
 #import "CommonUtil.h"
 
-@implementation SlidePageTableViewDataSource
+@implementation WechatProductTableViewDataSource
 
 - (instancetype)initWithTableView:(UITableView *)tableView classifyId:(NSString *)classifyId{
     if ([self init]) {

@@ -9,7 +9,7 @@
 #import "WechatProductViewController.h"
 #import "WechatProductDetailTableViewController.h"
 #import <BmobSDK/Bmob.h>
-#import "SlidePageTableViewDataSource.h"
+#import "WechatProductTableViewDataSource.h"
 #import "XHRootView.h"
 
 @interface WechatProductViewController ()
@@ -73,7 +73,7 @@
                 //边距
                 tableView.contentInset = UIEdgeInsetsMake(4, 0, 0, 0);
                 //        设置tableview代理类
-                SlidePageTableViewDataSource *slidePageDataSource = [[SlidePageTableViewDataSource alloc]initWithTableView:tableView classifyId:[array[i] objectId]];
+                WechatProductTableViewDataSource *slidePageDataSource = [[WechatProductTableViewDataSource alloc]initWithTableView:tableView classifyId:[array[i] objectId]];
                 slidePageDataSource.viewController = self;
                 //        设置滚动视图代理类
                 tableView.delegate = slidePageDataSource;

@@ -10,7 +10,7 @@
 #import "WechatProductViewController.h"
 
 
-@interface SlidePageTableViewDataSource : NSObject<UITableViewDataSource,UITableViewDelegate>
+@interface WechatProductTableViewDataSource : NSObject<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) NSArray *dataSourceArray;
 @property (nonatomic,strong) WechatProductViewController *viewController;
 @property (nonatomic,strong) UITableView *tableView;
