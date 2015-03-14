@@ -45,7 +45,7 @@
 //还剩下几天
 + (NSInteger)daysInterval:(NSDate *)date {
     NSDate *now = [NSDate date];
-    NSTimeInterval seconds = [now timeIntervalSinceDate:date];
+    NSTimeInterval seconds = [date timeIntervalSinceDate:now];
     return seconds / 60 / 60 / 24;
 }
 @end

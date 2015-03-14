@@ -89,18 +89,18 @@
     cell.nameLabel.text = [tryEvent objectForKey:@"name"];
     cell.applyNumberLabel.text = [NSString stringWithFormat:@"%@份",[[tryEvent objectForKey:@"applyNumber"]stringValue]];
     cell.countLabel.text = [NSString stringWithFormat:@"%@人参与",[[tryEvent objectForKey:@"count"]stringValue]];
-//    if ([CommonUtil daysInterval:[tryEvent objectForKey:@"count"]] > 0) {
-//        cell.endTimeLabel.text = [NSString stringWithFormat:@"还剩%ld天",(long)[CommonUtil daysInterval:[tryEvent objectForKey:@"count"]]];
-//    } else {
-//        cell.endTimeLabel.text = @"已结束";
-//    }
+    if ([CommonUtil daysInterval:[tryEvent objectForKey:@"endTime"]] > 0) {
+        cell.endTimeLabel.text = [NSString stringWithFormat:@"还剩%ld天",(long)[CommonUtil daysInterval:[tryEvent objectForKey:@"endTime"]]];
+    } else {
+        cell.endTimeLabel.text = @"已结束";
+    }
     
     return cell;
 }
 //传值
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    self.viewController.productId = [self.dataSourceArray[tableView.indexPathForSelectedRow.section] objectId];
-    [self.viewController performSegueWithIdentifier:@"wechatProductDetail" sender:self];
+    self.viewController.productId = [[self.dataSourceArray[tableView.indexPathForSelectedRow.section]objectForKey:@"product"] objectId];
+    [self.viewController performSegueWithIdentifier:@"tryEventDetail" sender:self];
 }
 //单元格高度
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
