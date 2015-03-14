@@ -12,6 +12,7 @@
 #import "WechatProductTableViewDataSource.h"
 #import "XHRootView.h"
 
+
 @interface WechatProductViewController ()
 
 
@@ -78,9 +79,10 @@
                 //        设置滚动视图代理类
                 tableView.delegate = slidePageDataSource;
                 tableView.dataSource = slidePageDataSource;
+
                 //        获取数据并刷新表格
                 [viewPager.scrollView addSubview:tableView];
-                [slidePageDataSource fetchData];
+                [slidePageDataSource fetchData:0];
 
 
             }

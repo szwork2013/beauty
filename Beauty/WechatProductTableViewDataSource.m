@@ -14,6 +14,8 @@
 #import "Global.h"
 #import "WechatProductDetailTableViewController.h"
 #import "CommonUtil.h"
+#import "SVPullToRefresh.h"
+#import "SVProgressHUD.h"
 
 @implementation WechatProductTableViewDataSource
 
@@ -21,14 +23,24 @@
     if ([self init]) {
         self.tableView = tableView;
         self.classifyId = classifyId;
+        self.dataSourceArray = [NSMutableArray array];
+        //                配置上拉无限刷新
+        __weak WechatProductTableViewDataSource *weakSelf = self;
+        [self.tableView addInfiniteScrollingWithActionHandler:^{
+            weakSelf.page++;
+            [weakSelf fetchData:PER_PAGE * weakSelf.page];
+            [tableView.infiniteScrollingView stopAnimating];
+        }];
     }
     return self;
 }
-- (void)fetchData {
+- (void)fetchData:(NSInteger)skip {
     //to do name
     NSString *className = @"WechatProduct";
     
     BmobQuery *query = [BmobQuery queryWithClassName:className];
+    query.limit = PER_PAGE;
+    query.skip = skip;
     [query includeKey:@"product"];
     [query orderByAscending:@"rank"];
     [query whereKey:@"wechatClassify" equalTo:[BmobObject objectWithoutDatatWithClassName:@"WechatClassify" objectId:self.classifyId]];
@@ -36,16 +48,21 @@
         if (error) {
             NSLog(@"%@",error);
         } else {
-            self.dataSourceArray = array;
-            [self.tableView reloadData];
             if (array.count == 0) {
-                self.tableView.hidden = YES;
-                UILabel *label = [[UILabel alloc]initWithFrame:self.tableView.frame];
-                label.textAlignment = NSTextAlignmentCenter;
-                label.textColor = [UIColor grayColor];
-                label.font = [UIFont systemFontOfSize:18.0];
-                label.text = @"结果空空如也～";
-                [self.tableView.superview addSubview:label];
+                if (self.page == 0) {
+                    self.tableView.hidden = YES;
+                    UILabel *label = [[UILabel alloc]initWithFrame:self.tableView.frame];
+                    label.textAlignment = NSTextAlignmentCenter;
+                    label.textColor = [UIColor grayColor];
+                    label.font = [UIFont systemFontOfSize:18.0];
+                    label.text = NO_DATA;
+                    [self.tableView.superview addSubview:label];
+                } else {
+                [SVProgressHUD showSuccessWithStatus:NO_MORE];
+                }
+            } else {
+                [self.dataSourceArray addObjectsFromArray:array];
+                [self.tableView reloadData];
             }
         }
     }];

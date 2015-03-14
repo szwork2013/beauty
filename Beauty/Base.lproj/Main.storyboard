@@ -94,7 +94,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cHk-4T-Hby" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="994" y="62"/>
+            <point key="canvasLocation" x="923" y="62"/>
         </scene>
         <!--店铺详情-->
         <scene sceneID="jCA-nx-QAr">
@@ -349,7 +349,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mp6-gB-NdY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1489" y="62"/>
+            <point key="canvasLocation" x="1393" y="62"/>
         </scene>
         <!--Home Tab Bar Controller-->
         <scene sceneID="pOV-yb-Ik5">
@@ -944,6 +944,9 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="cm5-2t-orp" kind="show" id="Eux-RG-oK3"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1024,7 +1027,8 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="首页" id="csR-Dt-vCt"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="568"/>
                     <connections>
                         <outlet property="categoryView" destination="20E-uM-FnG" id="9GQ-kM-V4J"/>
                         <outlet property="mainScrollView" destination="A9c-gT-oiW" id="aYV-jm-hBe"/>
@@ -1230,23 +1234,27 @@
             </objects>
             <point key="canvasLocation" x="1705" y="-1917"/>
         </scene>
-        <!--View Controller-->
+        <!--产品试用-->
         <scene sceneID="fZ2-Xm-qnI">
             <objects>
-                <viewController id="cm5-2t-orp" sceneMemberID="viewController">
+                <viewController id="cm5-2t-orp" customClass="TryEventViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7UR-1m-bZR"/>
                         <viewControllerLayoutGuide type="bottom" id="jFX-w1-z40"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="LEp-xV-AGt">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="产品试用" id="gUD-DF-kyb"/>
+                    <connections>
+                        <segue destination="3Bq-0s-D2I" kind="show" identifier="tryEventDetail" id="6zP-3P-Cza"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hcB-bm-Bbf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="212" y="-2678"/>
+            <point key="canvasLocation" x="384" y="-2798"/>
         </scene>
         <!--产品试用-->
         <scene sceneID="6zM-bi-fcF">
@@ -1547,7 +1555,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vrv-vk-SaV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="916" y="-1248"/>
+            <point key="canvasLocation" x="923" y="-1276"/>
         </scene>
         <!--评测室详情-->
         <scene sceneID="asM-sf-8z3">
@@ -1670,7 +1678,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1pD-mi-4Ea" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1393" y="-1241"/>
+            <point key="canvasLocation" x="1393" y="-1276"/>
         </scene>
         <!--二级分类-->
         <scene sceneID="vss-PC-vNv">
@@ -1714,7 +1722,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Clm-xZ-V9W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="982" y="-662"/>
+            <point key="canvasLocation" x="923" y="-600"/>
         </scene>
         <!--产品列表-->
         <scene sceneID="ReE-eN-pd5">
@@ -1743,7 +1751,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WHN-S8-uch" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1489" y="-666"/>
+            <point key="canvasLocation" x="1393" y="-600"/>
         </scene>
         <!--Product Detail Table View Controller-->
         <scene sceneID="ihc-mc-eQc">
@@ -2273,6 +2281,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="pZj-uo-L8A"/>
-        <segue reference="qqI-84-Lb5"/>
+        <segue reference="sQB-0f-XKh"/>
+        <segue reference="6zP-3P-Cza"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -43,6 +43,9 @@
 		F72FFE751AAE8F4100C01BB2 /* MemberLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F72FFE741AAE8F4100C01BB2 /* MemberLoginViewController.m */; };
 		F72FFE8B1AAEF14B00C01BB2 /* MemberTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F72FFE8A1AAEF14B00C01BB2 /* MemberTableViewController.m */; };
 		F7540A091AB41DAD00042CB0 /* XHRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7540A081AB41DAD00042CB0 /* XHRootView.m */; };
+		F7540A0C1AB42C6100042CB0 /* TryEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7540A0B1AB42C6100042CB0 /* TryEventViewController.m */; };
+		F7540A131AB42D2A00042CB0 /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = F7540A101AB42D2A00042CB0 /* UIScrollView+SVInfiniteScrolling.m */; };
+		F7540A141AB42D2A00042CB0 /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = F7540A121AB42D2A00042CB0 /* UIScrollView+SVPullToRefresh.m */; };
 		F76B38151AB303F90012F3A7 /* TryEventProductDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F76B38141AB303F90012F3A7 /* TryEventProductDetailTableViewController.m */; };
 		F77FB1CD1AA9F02F0092D57F /* EvaluateTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F77FB1CC1AA9F02F0092D57F /* EvaluateTableViewController.m */; };
 		F787B7141AB3DFBE00D4C27D /* UIScrollView+XHVisibleCenterScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = F787B70B1AB3DFBE00D4C27D /* UIScrollView+XHVisibleCenterScroll.m */; };
@@ -170,6 +173,13 @@
 		F72FFE8A1AAEF14B00C01BB2 /* MemberTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MemberTableViewController.m; path = Beauty/MemberTableViewController.m; sourceTree = "<group>"; };
 		F7540A071AB41DAD00042CB0 /* XHRootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHRootView.h; sourceTree = "<group>"; };
 		F7540A081AB41DAD00042CB0 /* XHRootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHRootView.m; sourceTree = "<group>"; };
+		F7540A0A1AB42C6100042CB0 /* TryEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TryEventViewController.h; sourceTree = "<group>"; };
+		F7540A0B1AB42C6100042CB0 /* TryEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TryEventViewController.m; sourceTree = "<group>"; };
+		F7540A0E1AB42D2A00042CB0 /* SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVPullToRefresh.h; sourceTree = "<group>"; };
+		F7540A0F1AB42D2A00042CB0 /* UIScrollView+SVInfiniteScrolling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVInfiniteScrolling.h"; sourceTree = "<group>"; };
+		F7540A101AB42D2A00042CB0 /* UIScrollView+SVInfiniteScrolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVInfiniteScrolling.m"; sourceTree = "<group>"; };
+		F7540A111AB42D2A00042CB0 /* UIScrollView+SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVPullToRefresh.h"; sourceTree = "<group>"; };
+		F7540A121AB42D2A00042CB0 /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
 		F76B38131AB303F90012F3A7 /* TryEventProductDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TryEventProductDetailTableViewController.h; path = TryEvent/TryEventProductDetailTableViewController.h; sourceTree = "<group>"; };
 		F76B38141AB303F90012F3A7 /* TryEventProductDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TryEventProductDetailTableViewController.m; path = TryEvent/TryEventProductDetailTableViewController.m; sourceTree = "<group>"; };
 		F77FB1CB1AA9F02F0092D57F /* EvaluateTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EvaluateTableViewController.h; path = Beauty/EvaluateTableViewController.h; sourceTree = "<group>"; };
@@ -331,9 +341,23 @@
 			name = SlidePage;
 			sourceTree = "<group>";
 		};
+		F7540A0D1AB42D2A00042CB0 /* SVPullToRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				F7540A0E1AB42D2A00042CB0 /* SVPullToRefresh.h */,
+				F7540A0F1AB42D2A00042CB0 /* UIScrollView+SVInfiniteScrolling.h */,
+				F7540A101AB42D2A00042CB0 /* UIScrollView+SVInfiniteScrolling.m */,
+				F7540A111AB42D2A00042CB0 /* UIScrollView+SVPullToRefresh.h */,
+				F7540A121AB42D2A00042CB0 /* UIScrollView+SVPullToRefresh.m */,
+			);
+			path = SVPullToRefresh;
+			sourceTree = "<group>";
+		};
 		F76B38121AB303DE0012F3A7 /* TryEvent */ = {
 			isa = PBXGroup;
 			children = (
+				F7540A0A1AB42C6100042CB0 /* TryEventViewController.h */,
+				F7540A0B1AB42C6100042CB0 /* TryEventViewController.m */,
 				F76B38131AB303F90012F3A7 /* TryEventProductDetailTableViewController.h */,
 				F76B38141AB303F90012F3A7 /* TryEventProductDetailTableViewController.m */,
 			);
@@ -377,6 +401,7 @@
 		F7B4982C1AA2FF300067219E = {
 			isa = PBXGroup;
 			children = (
+				F7540A0D1AB42D2A00042CB0 /* SVPullToRefresh */,
 				F787B7091AB3DFBE00D4C27D /* XHScrollMenu */,
 				F7B498371AA2FF300067219E /* Beauty */,
 				F7B498511AA2FF300067219E /* BeautyTests */,
@@ -782,6 +807,7 @@
 				F7B498711AA31B250067219E /* StoreTableViewCell.m in Sources */,
 				F71B7C851AAFE4CD005E8648 /* ProductShowTableViewCell.m in Sources */,
 				F72FFE8B1AAEF14B00C01BB2 /* MemberTableViewController.m in Sources */,
+				F7540A131AB42D2A00042CB0 /* UIScrollView+SVInfiniteScrolling.m in Sources */,
 				F7172C4E1AA98DAB00A9ED4C /* ProductSellerDataSource.m in Sources */,
 				F7E4F1821AA5EC310025D868 /* HomeViewController.m in Sources */,
 				F7172C331AA84F8D00A9ED4C /* SecondLevelTableViewController.m in Sources */,
@@ -799,6 +825,7 @@
 				F71B7C881AB038B6005E8648 /* WechatProductDetailTableViewController.m in Sources */,
 				F7B4989A1AA3356F0067219E /* AFNetworkActivityIndicatorManager.m in Sources */,
 				F7172C401AA8A13B00A9ED4C /* StarView.m in Sources */,
+				F7540A0C1AB42C6100042CB0 /* TryEventViewController.m in Sources */,
 				F72FFE751AAE8F4100C01BB2 /* MemberLoginViewController.m in Sources */,
 				F7147A5A1AA6F9D1007605E6 /* ProductTryTableViewCell.m in Sources */,
 				F7540A091AB41DAD00042CB0 /* XHRootView.m in Sources */,
@@ -818,6 +845,7 @@
 				F713C8CB1AA49089004BE58C /* StoreDetailTableViewController.m in Sources */,
 				F7172C4A1AA94E3800A9ED4C /* WebViewBrowserController.m in Sources */,
 				F7B4983B1AA2FF300067219E /* main.m in Sources */,
+				F7540A141AB42D2A00042CB0 /* UIScrollView+SVPullToRefresh.m in Sources */,
 				F7B498BE1AA335E30067219E /* AFURLSessionManager.m in Sources */,
 				F7BD0BA41AB1D998009E48B6 /* CommonUtil.m in Sources */,
 				F72A95BC1AAAD47A00B2B611 /* EvaluateDetailViewController.m in Sources */,

@@ -11,11 +11,11 @@
 
 
 @interface WechatProductTableViewDataSource : NSObject<UITableViewDataSource,UITableViewDelegate>
-@property (nonatomic,strong) NSArray *dataSourceArray;
+@property (nonatomic,strong) NSMutableArray *dataSourceArray;
 @property (nonatomic,strong) WechatProductViewController *viewController;
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) NSString *classifyId;
-
+@property (nonatomic,assign) NSInteger page;
 - (instancetype)initWithTableView:(UITableView *)tableView classifyId:(NSString *)classifyId;
-- (void)fetchData;
+- (void)fetchData:(NSInteger)skip;
 @end
