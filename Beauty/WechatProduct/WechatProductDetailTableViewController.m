@@ -45,7 +45,7 @@
 - (void)fetchProduct {
     BmobQuery *query = [BmobQuery queryWithClassName:@"WechatProduct"];
     [query includeKey:@"product"];
-    [query getObjectInBackgroundWithId:[[NSUserDefaults standardUserDefaults]objectForKey:@"wechatProductId"] block:^(BmobObject *object, NSError *error) {
+    [query getObjectInBackgroundWithId:self.productId block:^(BmobObject *object, NSError *error) {
         if (error) {
             NSLog(@"%@",error);
         } else {
@@ -72,25 +72,7 @@
         }
     }];
 }
-//- (CGFloat) tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-//    if (section == 3) {
-//        if (self.webHeight == 0.0) {
-//           return 1.0;
-//        }
-//        
-//    }
-//    return [super tableView:tableView heightForFooterInSection:section];
-//}
-//
-//- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-//    if (section == 3) {
-//        if (self.webHeight == 0.0) {
-//            return 1.0;
-//        }
-//        
-//    }
-//    return [super tableView:tableView heightForHeaderInSection:section];
-//}
+
 //产品单元格
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 1 && indexPath.row == 0) {

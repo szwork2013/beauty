@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface WechatProductViewController : UIViewController
-
+@property (nonatomic, strong) NSString *productId;
 @end

@@ -17,5 +17,5 @@
 #define PAGEINDICATOR_WIDTH 100
 #define PER_PAGE 2
 #define NO_MORE @"没有新数据了"
-#define NO_DATA @"结果空空如也～"
+#define NO_DATAS @"结果空空如也～"
 #endif

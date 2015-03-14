@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface TryEventViewController : UIViewController
-
+@property (nonatomic, strong) NSString *productId;
 @end

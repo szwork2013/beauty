@@ -1105,9 +1105,6 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="dr8-AL-djt" secondAttribute="trailing" constant="-8" id="ziz-SV-7Hv"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="XIx-iL-kZY" kind="show" identifier="login" id="pZj-uo-L8A"/>
-                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -1228,6 +1225,7 @@
                         <outlet property="descriptTextView" destination="D9U-Zq-fkZ" id="RLD-K9-hkE"/>
                         <outlet property="webUrlwebView" destination="tED-QN-4Pc" id="OIP-cf-hTc"/>
                         <segue destination="d0r-Rb-FY1" kind="show" identifier="submit" id="Eqf-jQ-uws"/>
+                        <segue destination="XIx-iL-kZY" kind="show" identifier="login" id="QJK-84-Obb"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wHr-Od-2UT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2280,8 +2278,8 @@
         <image name="try_bg.png" width="317" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pZj-uo-L8A"/>
-        <segue reference="sQB-0f-XKh"/>
+        <segue reference="QJK-84-Obb"/>
+        <segue reference="qqI-84-Lb5"/>
         <segue reference="6zP-3P-Cza"/>
     </inferredMetricsTieBreakers>
 </document>

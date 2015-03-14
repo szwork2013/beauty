@@ -31,6 +31,7 @@
     XHRootView *viewPager = [[XHRootView alloc]init];
     viewPager.bounds = self.view.bounds;
     viewPager.center = self.view.center;
+    viewPager.backgroundColor = [UIColor groupTableViewBackgroundColor];
     [self.view addSubview:viewPager];
     
     viewPager.shouldObserving = YES;
@@ -38,10 +39,10 @@
     viewPager.scrollMenu = [[XHScrollMenu alloc] initWithFrame:CGRectMake(0, 64, CGRectGetWidth(viewPager.bounds), 36)];
     viewPager.scrollMenu.backgroundColor = [UIColor whiteColor];
     viewPager.scrollMenu.delegate = viewPager;
-    //    _scrollMenu.selectedIndex = 3;
+
     [viewPager addSubview:viewPager.scrollMenu];
     
-    viewPager.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(viewPager.scrollMenu.frame), CGRectGetWidth(viewPager.bounds), CGRectGetHeight(viewPager.bounds) - CGRectGetMaxY(viewPager.scrollMenu.frame))];
+    viewPager.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(viewPager.scrollMenu.frame) + 8, CGRectGetWidth(viewPager.bounds), CGRectGetHeight(viewPager.bounds) - CGRectGetMaxY(viewPager.scrollMenu.frame))];
     viewPager.scrollView.showsHorizontalScrollIndicator = NO;
     viewPager.scrollView.showsVerticalScrollIndicator = NO;
     viewPager.scrollView.delegate = viewPager;
@@ -72,17 +73,17 @@
                 //        初始化tableview
                 UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(i * CGRectGetWidth(viewPager.scrollView.bounds), 0, CGRectGetWidth(viewPager.scrollView.bounds), CGRectGetHeight(viewPager.scrollView.bounds)) style:UITableViewStyleGrouped];
                 //边距
-                tableView.contentInset = UIEdgeInsetsMake(4, 0, 0, 0);
+                tableView.contentInset = UIEdgeInsetsMake(-4, 0, 0, 0);
                 //        设置tableview代理类
-                WechatProductTableViewDataSource *slidePageDataSource = [[WechatProductTableViewDataSource alloc]initWithTableView:tableView classifyId:[array[i] objectId]];
-                slidePageDataSource.viewController = self;
+                WechatProductTableViewDataSource *productDataSource = [[WechatProductTableViewDataSource alloc]initWithTableView:tableView classifyId:[array[i] objectId]];
+                productDataSource.viewController = self;
                 //        设置滚动视图代理类
-                tableView.delegate = slidePageDataSource;
-                tableView.dataSource = slidePageDataSource;
+                tableView.delegate = productDataSource;
+                tableView.dataSource = productDataSource;
 
                 //        获取数据并刷新表格
                 [viewPager.scrollView addSubview:tableView];
-                [slidePageDataSource fetchData:0];
+                [productDataSource fetchData:0];
 
 
             }
@@ -106,10 +107,10 @@
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    WechatProductDetailTableViewController *vc = segue.destinationViewController;
-//    vc.wechatProductId = @"";
-//}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    WechatProductDetailTableViewController *vc = segue.destinationViewController;
+    vc.productId = self.productId;
+}
 
 
 @end

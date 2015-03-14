@@ -55,10 +55,10 @@
                     label.textAlignment = NSTextAlignmentCenter;
                     label.textColor = [UIColor grayColor];
                     label.font = [UIFont systemFontOfSize:18.0];
-                    label.text = NO_DATA;
+                    label.text = NO_DATAS;
                     [self.tableView.superview addSubview:label];
                 } else {
-                [SVProgressHUD showSuccessWithStatus:NO_MORE];
+                    [SVProgressHUD showSuccessWithStatus:NO_MORE];
                 }
             } else {
                 [self.dataSourceArray addObjectsFromArray:array];
@@ -79,10 +79,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     return [CommonUtil fetchProductShowCell:[self.dataSourceArray[indexPath.section] objectForKey:@"product"] index:1];
 }
-//UserDefault传值
+//传值
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.viewController.productId = [self.dataSourceArray[tableView.indexPathForSelectedRow.section] objectId];
     [self.viewController performSegueWithIdentifier:@"wechatProductDetail" sender:self];
-    [[NSUserDefaults standardUserDefaults]setObject:[self.dataSourceArray[tableView.indexPathForSelectedRow.row] objectId] forKey:@"wechatProductId"];
 }
 //单元格高度
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
