@@ -8,16 +8,12 @@
 
 #import "WechatProductViewController.h"
 #import "WechatProductDetailTableViewController.h"
-#import "XHMenu.h"
-#import "XHScrollMenu.h"
 #import <BmobSDK/Bmob.h>
 #import "SlidePageTableViewDataSource.h"
+#import "XHRootView.h"
 
-@interface WechatProductViewController ()<XHScrollMenuDelegate, UIScrollViewDelegate>
-@property (nonatomic, strong) UIScrollView *scrollView;
-@property (nonatomic, strong) XHScrollMenu *scrollMenu;
-@property (nonatomic, strong) NSMutableArray *menus;
-@property (nonatomic, assign) BOOL shouldObserving;
+@interface WechatProductViewController ()
+
 
 @end
 
@@ -26,25 +22,31 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tabBarController.tabBar.hidden = YES;
+    
     [self setup];
 }
 
 - (void)setup {
-    self.shouldObserving = YES;
+    XHRootView *viewPager = [[XHRootView alloc]init];
+    viewPager.bounds = self.view.bounds;
+    viewPager.center = self.view.center;
+    [self.view addSubview:viewPager];
     
-    _scrollMenu = [[XHScrollMenu alloc] initWithFrame:CGRectMake(0, 64, CGRectGetWidth(self.view.bounds), 36)];
-    _scrollMenu.backgroundColor = [UIColor whiteColor];
-    _scrollMenu.delegate = self;
+    viewPager.shouldObserving = YES;
+    
+    viewPager.scrollMenu = [[XHScrollMenu alloc] initWithFrame:CGRectMake(0, 64, CGRectGetWidth(viewPager.bounds), 36)];
+    viewPager.scrollMenu.backgroundColor = [UIColor whiteColor];
+    viewPager.scrollMenu.delegate = viewPager;
     //    _scrollMenu.selectedIndex = 3;
-    [self.view addSubview:self.scrollMenu];
+    [viewPager addSubview:viewPager.scrollMenu];
     
-    _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_scrollMenu.frame), CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds) - CGRectGetMaxY(_scrollMenu.frame))];
-    _scrollView.showsHorizontalScrollIndicator = NO;
-    _scrollView.showsVerticalScrollIndicator = NO;
-    _scrollView.delegate = self;
-    _scrollView.pagingEnabled = YES;
-    _scrollView.backgroundColor = [UIColor groupTableViewBackgroundColor];
-    [self.view addSubview:self.scrollView];
+    viewPager.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(viewPager.scrollMenu.frame), CGRectGetWidth(viewPager.bounds), CGRectGetHeight(viewPager.bounds) - CGRectGetMaxY(viewPager.scrollMenu.frame))];
+    viewPager.scrollView.showsHorizontalScrollIndicator = NO;
+    viewPager.scrollView.showsVerticalScrollIndicator = NO;
+    viewPager.scrollView.delegate = viewPager;
+    viewPager.scrollView.pagingEnabled = YES;
+    viewPager.scrollView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    [viewPager addSubview:viewPager.scrollView];
 
     //获取分类
     
@@ -63,11 +65,11 @@
                 
                 menu.titleNormalColor = [UIColor grayColor];
                 menu.titleFont = [UIFont boldSystemFontOfSize:17.0];
-                [self.menus addObject:menu];
+                [viewPager.menus addObject:menu];
 //                生成表格
                 
                 //        初始化tableview
-                UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(i * CGRectGetWidth(_scrollView.bounds), 0, CGRectGetWidth(_scrollView.bounds), CGRectGetHeight(_scrollView.bounds)) style:UITableViewStyleGrouped];
+                UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(i * CGRectGetWidth(viewPager.scrollView.bounds), 0, CGRectGetWidth(viewPager.scrollView.bounds), CGRectGetHeight(viewPager.scrollView.bounds)) style:UITableViewStyleGrouped];
                 //边距
                 tableView.contentInset = UIEdgeInsetsMake(4, 0, 0, 0);
                 //        设置tableview代理类
@@ -77,116 +79,22 @@
                 tableView.delegate = slidePageDataSource;
                 tableView.dataSource = slidePageDataSource;
                 //        获取数据并刷新表格
-                [_scrollView addSubview:tableView];
+                [viewPager.scrollView addSubview:tableView];
                 [slidePageDataSource fetchData];
 
 
             }
-            [_scrollView setContentSize:CGSizeMake(self.menus.count * CGRectGetWidth(_scrollView.bounds), CGRectGetHeight(_scrollView.bounds))];
-            [self startObservingContentOffsetForScrollView:_scrollView];
+            [viewPager.scrollView setContentSize:CGSizeMake(viewPager.menus.count * CGRectGetWidth(viewPager.scrollView.bounds), CGRectGetHeight(viewPager.scrollView.bounds))];
+            [viewPager startObservingContentOffsetForScrollView:viewPager.scrollView];
             
-            _scrollMenu.menus = self.menus;
-            [_scrollMenu reloadData];
+            viewPager.scrollMenu.menus = viewPager.menus;
+            [viewPager.scrollMenu reloadData];
             
         }
     }];
     
 
 }
-/**start
- */
-- (NSMutableArray *)menus {
-    if (!_menus) {
-        _menus = [[NSMutableArray alloc] initWithCapacity:1];
-    }
-    return _menus;
-}
-- (void)startObservingContentOffsetForScrollView:(UIScrollView *)scrollView
-{
-    [scrollView addObserver:self forKeyPath:@"contentOffset" options:0 context:nil];
-}
-
-- (void)stopObservingContentOffset
-{
-    if (self.scrollView) {
-        [self.scrollView removeObserver:self forKeyPath:@"contentOffset"];
-        self.scrollView = nil;
-    }
-}
-
-- (void)dealloc {
-    [self stopObservingContentOffset];
-}
-
-- (void)scrollMenuDidSelected:(XHScrollMenu *)scrollMenu menuIndex:(NSUInteger)selectIndex {
-    self.shouldObserving = NO;
-    [self menuSelectedIndex:selectIndex];
-    
-
-}
-
-- (void)menuSelectedIndex:(NSUInteger)index {
-    CGRect visibleRect = CGRectMake(index * CGRectGetWidth(self.scrollView.bounds), 0, CGRectGetWidth(self.scrollView.bounds), CGRectGetHeight(self.scrollView.bounds));
-    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
-        [self.scrollView scrollRectToVisible:visibleRect animated:NO];
-    } completion:^(BOOL finished) {
-        self.shouldObserving = YES;
-
-    }];
-}
-
-#pragma mark - ScrollView delegate
-
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    //每页宽度
-    CGFloat pageWidth = scrollView.frame.size.width;
-    //根据当前的坐标与页宽计算当前页码
-    int currentPage = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
-    [self.scrollMenu setSelectedIndex:currentPage animated:YES calledDelegate:NO];
-}
-
-#pragma mark - KVO
-
-- (void)observeValueForKeyPath:(NSString *)keyPath
-                      ofObject:(id)object
-                        change:(NSDictionary *)change
-                       context:(void *)context
-{
-    if ([keyPath isEqualToString:@"contentOffset"] && self.shouldObserving) {
-        //每页宽度
-        CGFloat pageWidth = self.scrollView.frame.size.width;
-        //根据当前的坐标与页宽计算当前页码
-        NSUInteger currentPage = floor((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
-        if (currentPage > self.menus.count - 1)
-            currentPage = self.menus.count - 1;
-        
-        CGFloat oldX = currentPage * CGRectGetWidth(self.scrollView.frame);
-        if (oldX != self.scrollView.contentOffset.x) {
-            BOOL scrollingTowards = (self.scrollView.contentOffset.x > oldX);
-            NSInteger targetIndex = (scrollingTowards) ? currentPage + 1 : currentPage - 1;
-            if (targetIndex >= 0 && targetIndex < self.menus.count) {
-                CGFloat ratio = (self.scrollView.contentOffset.x - oldX) / CGRectGetWidth(self.scrollView.frame);
-                CGRect previousMenuButtonRect = [self.scrollMenu rectForSelectedItemAtIndex:currentPage];
-                CGRect nextMenuButtonRect = [self.scrollMenu rectForSelectedItemAtIndex:targetIndex];
-                CGFloat previousItemPageIndicatorX = previousMenuButtonRect.origin.x;
-                CGFloat nextItemPageIndicatorX = nextMenuButtonRect.origin.x;
-                CGRect indicatorViewFrame = self.scrollMenu.indicatorView.frame;
-                
-                if (scrollingTowards) {
-                    indicatorViewFrame.size.width = CGRectGetWidth(previousMenuButtonRect) + (CGRectGetWidth(nextMenuButtonRect) - CGRectGetWidth(previousMenuButtonRect)) * ratio;
-                    indicatorViewFrame.origin.x = previousItemPageIndicatorX + (nextItemPageIndicatorX - previousItemPageIndicatorX) * ratio;
-                } else {
-                    indicatorViewFrame.size.width = CGRectGetWidth(previousMenuButtonRect) - (CGRectGetWidth(nextMenuButtonRect) - CGRectGetWidth(previousMenuButtonRect)) * ratio;
-                    indicatorViewFrame.origin.x = previousItemPageIndicatorX - (nextItemPageIndicatorX - previousItemPageIndicatorX) * ratio;
-                }
-                
-                self.scrollMenu.indicatorView.frame = indicatorViewFrame;
-            }
-        }
-    }
-}
-
-/*end*/
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
