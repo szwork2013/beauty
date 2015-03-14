@@ -19,7 +19,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     self.tabBarController.tabBar.hidden = YES;
     [self setup];
 }
@@ -36,7 +35,7 @@
     viewPager.scrollMenu = [[XHScrollMenu alloc] initWithFrame:CGRectMake(0, 64, CGRectGetWidth(viewPager.bounds), 36)];
     viewPager.scrollMenu.backgroundColor = [UIColor whiteColor];
     viewPager.scrollMenu.delegate = viewPager;
-
+    
     [viewPager addSubview:viewPager.scrollMenu];
     
     viewPager.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(viewPager.scrollMenu.frame) + 8, CGRectGetWidth(viewPager.bounds), CGRectGetHeight(viewPager.bounds) - CGRectGetMaxY(viewPager.scrollMenu.frame))];
@@ -46,40 +45,72 @@
     viewPager.scrollView.pagingEnabled = YES;
     viewPager.scrollView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     [viewPager addSubview:viewPager.scrollView];
-//    设定分类
     
-    for (int i = 0; i < 2; i++) {
-        //生成导航
-        XHMenu *menu = [[XHMenu alloc] init];
-        if (i == 0) {
-            menu.title = @"正在试用";
+    //获取分类
+    
+    BmobQuery *query = [BmobQuery queryWithClassName:@"WechatClassify"];
+    [query orderByAscending:@"rank"];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+        if (error) {
+            NSLog(@"%@",error);
         } else {
-            menu.title = @"往期试用";
+            
+            for (int i = 0; i < array.count; i++) {
+                //生成导航
+                XHMenu *menu = [[XHMenu alloc] init];
+                menu.title = [array[i]objectForKey:@"name"];
+                
+                menu.titleNormalColor = [UIColor grayColor];
+                menu.titleFont = [UIFont systemFontOfSize:17.0];
+                [viewPager.menus addObject:menu];
+                
+                
+                
+            }
+            [viewPager.scrollView setContentSize:CGSizeMake(viewPager.menus.count * CGRectGetWidth(viewPager.scrollView.bounds), CGRectGetHeight(viewPager.scrollView.bounds))];
+            [viewPager startObservingContentOffsetForScrollView:viewPager.scrollView];
+            
+            viewPager.scrollMenu.menus = viewPager.menus;
+            [viewPager.scrollMenu reloadData];
+            
         }
-        menu.titleNormalColor = [UIColor grayColor];
-        menu.titleFont = [UIFont boldSystemFontOfSize:17.0];
-        [viewPager.menus addObject:menu];
-        //                生成表格
-        //        初始化tableview
-        UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(i * CGRectGetWidth(viewPager.scrollView.bounds), 0, CGRectGetWidth(viewPager.scrollView.bounds), CGRectGetHeight(viewPager.scrollView.bounds)) style:UITableViewStyleGrouped];
-        //边距
-        tableView.contentInset = UIEdgeInsetsMake(-4, 0, 0, 0);
-        //        设置tableview代理类
-        TryEventProductTableViewDataSource *productDataSource = [[TryEventProductTableViewDataSource alloc]initWithTableView:tableView classifyId:i];
-        productDataSource.viewController = self;
-        //        设置滚动视图代理类
-        tableView.delegate = productDataSource;
-        tableView.dataSource = productDataSource;
-        
-        //        获取数据并刷新表格
-        [viewPager.scrollView addSubview:tableView];
-        [productDataSource fetchData:0];
-    }
-    [viewPager.scrollView setContentSize:CGSizeMake(viewPager.menus.count * CGRectGetWidth(viewPager.scrollView.bounds), CGRectGetHeight(viewPager.scrollView.bounds))];
-    [viewPager startObservingContentOffsetForScrollView:viewPager.scrollView];
+    }];
     
-    viewPager.scrollMenu.menus = viewPager.menus;
-    [viewPager.scrollMenu reloadData];
+////    设定分类
+//    
+//    for (int i = 0; i < 2; i++) {
+//        //生成导航
+//        XHMenu *menu = [[XHMenu alloc] init];
+//        if (i == 0) {
+//            menu.title = @"正在进行";
+//        } else {
+//            menu.title = @"往期试用";
+//        }
+//        menu.titleNormalColor = [UIColor grayColor];
+//        menu.titleFont = [UIFont boldSystemFontOfSize:17.0];
+//        [viewPager.menus addObject:menu];
+//        //                生成表格
+//        //        初始化tableview
+//        UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(i * CGRectGetWidth(viewPager.scrollView.bounds), 0, CGRectGetWidth(viewPager.scrollView.bounds), CGRectGetHeight(viewPager.scrollView.bounds)) style:UITableViewStyleGrouped];
+//        //边距
+//        tableView.contentInset = UIEdgeInsetsMake(-4, 0, 0, 0);
+//        //        设置tableview代理类
+//        TryEventProductTableViewDataSource *productDataSource = [[TryEventProductTableViewDataSource alloc]initWithTableView:tableView classifyId:i];
+//        productDataSource.viewController = self;
+//        //        设置滚动视图代理类
+//        tableView.delegate = productDataSource;
+//        tableView.dataSource = productDataSource;
+//        
+//        //        获取数据并刷新表格
+//        [viewPager.scrollView addSubview:tableView];
+//        [productDataSource fetchData:0];
+//    }
+//    [viewPager.scrollView setContentSize:CGSizeMake(viewPager.menus.count * CGRectGetWidth(viewPager.scrollView.bounds), CGRectGetHeight(viewPager.scrollView.bounds))];
+//    [viewPager startObservingContentOffsetForScrollView:viewPager.scrollView];
+//    
+//    viewPager.scrollMenu.menus = viewPager.menus;
+//    [viewPager.scrollMenu reloadData];
    
     
     

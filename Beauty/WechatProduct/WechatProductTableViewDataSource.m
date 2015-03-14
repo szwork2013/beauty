@@ -9,8 +9,6 @@
 #import "WechatProductTableViewDataSource.h"
 #import <BmobSDK/Bmob.h>
 #import "ProductShowTableViewCell.h"
-#import "StarView.h"
-#import "UIImageView+AFNetworking.h"
 #import "Global.h"
 #import "WechatProductDetailTableViewController.h"
 #import "CommonUtil.h"

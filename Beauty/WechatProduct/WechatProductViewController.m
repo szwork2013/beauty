@@ -12,10 +12,7 @@
 #import "WechatProductTableViewDataSource.h"
 #import "XHRootView.h"
 
-
 @interface WechatProductViewController ()
-
-
 @end
 
 @implementation WechatProductViewController
@@ -23,7 +20,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tabBarController.tabBar.hidden = YES;
-    
     [self setup];
 }
 
@@ -66,7 +62,7 @@
                 menu.title = [array[i]objectForKey:@"name"];
                 
                 menu.titleNormalColor = [UIColor grayColor];
-                menu.titleFont = [UIFont boldSystemFontOfSize:17.0];
+                menu.titleFont = [UIFont systemFontOfSize:17.0];
                 [viewPager.menus addObject:menu];
 //                生成表格
                 

@@ -8,14 +8,13 @@
 
 #import "TryEventProductTableViewDataSource.h"
 #import <BmobSDK/Bmob.h>
-#import "ProductShowTableViewCell.h"
-#import "StarView.h"
-#import "UIImageView+AFNetworking.h"
+#import "TryEventTableViewCell.h"
 #import "Global.h"
-#import "WechatProductDetailTableViewController.h"
+#import "TryEventProductDetailTableViewController.h"
 #import "CommonUtil.h"
 #import "SVPullToRefresh.h"
 #import "SVProgressHUD.h"
+#import "UIImageView+AFNetworking.h"
 
 @implementation TryEventProductTableViewDataSource
 
@@ -82,7 +81,21 @@
 }
 //单元格
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [CommonUtil fetchProductShowCell:[self.dataSourceArray[indexPath.section] objectForKey:@"product"] index:1];
+    TryEventTableViewCell *cell = [[[NSBundle mainBundle]loadNibNamed:@"TryEventTableViewCell" owner:self options:nil]firstObject];
+    BmobObject *tryEvent = self.dataSourceArray[indexPath.section];
+    
+    BmobFile *avatar = [tryEvent objectForKey:@"avatar"];
+    [cell.avatarImageView setImageWithURL:[NSURL URLWithString:avatar.url]];
+    cell.nameLabel.text = [tryEvent objectForKey:@"name"];
+    cell.applyNumberLabel.text = [NSString stringWithFormat:@"%@份",[[tryEvent objectForKey:@"applyNumber"]stringValue]];
+    cell.countLabel.text = [NSString stringWithFormat:@"%@人参与",[[tryEvent objectForKey:@"count"]stringValue]];
+//    if ([CommonUtil daysInterval:[tryEvent objectForKey:@"count"]] > 0) {
+//        cell.endTimeLabel.text = [NSString stringWithFormat:@"还剩%ld天",(long)[CommonUtil daysInterval:[tryEvent objectForKey:@"count"]]];
+//    } else {
+//        cell.endTimeLabel.text = @"已结束";
+//    }
+    
+    return cell;
 }
 //传值
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -91,7 +104,7 @@
 }
 //单元格高度
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 120.0;
+    return 200.0;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 4.0;

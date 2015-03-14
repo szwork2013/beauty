@@ -16,4 +16,5 @@
 + (NSDictionary *)textViewAttribute;
 + (NSString *)enterChar:(NSString *)descriptString;
 + (ProductShowTableViewCell *)fetchProductShowCell:(BmobObject *)product index:(NSInteger)i;
++ (NSInteger)daysInterval:(NSDate *)date;
 @end

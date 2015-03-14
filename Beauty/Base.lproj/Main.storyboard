@@ -1246,6 +1246,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="产品试用" id="gUD-DF-kyb"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="3Bq-0s-D2I" kind="show" identifier="tryEventDetail" id="6zP-3P-Cza"/>
                     </connections>
