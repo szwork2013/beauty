@@ -141,7 +141,7 @@
     //每页宽度
     CGFloat pageWidth = scrollView.frame.size.width;
     //根据当前的坐标与页宽计算当前页码
-    int currentPage = floor((scrollView.contentOffset.x - pageWidth/2)/pageWidth)+1;
+    int currentPage = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
     [self.scrollMenu setSelectedIndex:currentPage animated:YES calledDelegate:NO];
 }
 
