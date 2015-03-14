@@ -12,7 +12,7 @@
 
 #define kXHMenuButtonBaseTag 100
 
-@interface XHScrollMenu () <UIScrollViewDelegate> {
+@interface XHScrollMenu () {
     
 }
 
@@ -61,7 +61,7 @@
     _scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     _scrollView.showsVerticalScrollIndicator = NO;
     _scrollView.showsHorizontalScrollIndicator = NO;
-    _scrollView.delegate = self;
+//    _scrollView.delegate = self;
     
     _indicatorView = [XHIndicatorView initIndicatorView];
     _indicatorView.alpha = 0.;
@@ -86,7 +86,8 @@
 
 - (UIButton *)getButtonWithMenu:(XHMenu *)menu {
     NSDictionary *attributes = @{NSFontAttributeName:menu.titleFont};
-     CGSize buttonSize = [menu.title boundingRectWithSize:CGSizeMake(MAXFLOAT, CGRectGetHeight(self.bounds) - 10) options:NSStringDrawingTruncatesLastVisibleLine attributes:attributes context:nil].size;
+    CGSize buttonSize = [menu.title boundingRectWithSize:CGSizeMake(MAXFLOAT, CGRectGetHeight(self.bounds) - 10) options:NSStringDrawingTruncatesLastVisibleLine attributes:attributes context:nil].size;
+
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, buttonSize.width, buttonSize.height)];
     button.titleLabel.textAlignment = NSTextAlignmentCenter;
     button.titleLabel.font = menu.titleFont;
@@ -178,34 +179,37 @@
         }
     }
     [self.scrollView setContentSize:CGSizeMake(contentWidth, CGRectGetHeight(self.scrollView.frame))];
+//    NSLog(@"%.2f,%.2f",self.scrollView.contentSize.width,self.scrollView.contentSize.height);
+//    NSLog(@"%.2f,%.2f",self.scrollView.frame.size.width,self.scrollView.frame.size.height);
     [self setSelectedIndex:self.selectedIndex animated:NO calledDelegate:YES];
 }
 
 #pragma mark - UIScrollView delegate
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    CGFloat contentOffsetX = scrollView.contentOffset.x;
-    CGFloat contentSizeWidth = (NSInteger)scrollView.contentSize.width;
-    CGFloat scrollViewWidth = CGRectGetWidth(scrollView.bounds);
-    if (contentSizeWidth == scrollViewWidth) {
-        self.leftShadowView.hidden = YES;
-        self.rightShadowView.hidden = YES;
-    } else if (contentSizeWidth <= scrollViewWidth) {
-        self.leftShadowView.hidden = YES;
-        self.rightShadowView.hidden = YES;
-    } else {
-        if (contentOffsetX > 0) {
-            self.leftShadowView.hidden = NO;
-        } else {
-            self.leftShadowView.hidden = YES;
-        }
-        
-        if ((contentOffsetX + scrollViewWidth) >= contentSizeWidth) {
-            self.rightShadowView.hidden = YES;
-        } else {
-            self.rightShadowView.hidden = NO;
-        }
-    }
-}
+//- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+//    CGFloat contentOffsetX = scrollView.contentOffset.x;
+////    NSLog(@"%.2f",scrollView.contentOffset.y);
+//    CGFloat contentSizeWidth = (NSInteger)scrollView.contentSize.width;
+//    CGFloat scrollViewWidth = CGRectGetWidth(scrollView.bounds);
+//    if (contentSizeWidth == scrollViewWidth) {
+//        self.leftShadowView.hidden = YES;
+//        self.rightShadowView.hidden = YES;
+//    } else if (contentSizeWidth <= scrollViewWidth) {
+//        self.leftShadowView.hidden = YES;
+//        self.rightShadowView.hidden = YES;
+//    } else {
+//        if (contentOffsetX > 0) {
+//            self.leftShadowView.hidden = NO;
+//        } else {
+//            self.leftShadowView.hidden = YES;
+//        }
+//        
+//        if ((contentOffsetX + scrollViewWidth) >= contentSizeWidth) {
+//            self.rightShadowView.hidden = YES;
+//        } else {
+//            self.rightShadowView.hidden = NO;
+//        }
+//    }
+//}
 
 @end

@@ -38,7 +38,7 @@
 
     [viewPager addSubview:viewPager.scrollMenu];
     
-    viewPager.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(viewPager.scrollMenu.frame) + 8, CGRectGetWidth(viewPager.bounds), CGRectGetHeight(viewPager.bounds) - CGRectGetMaxY(viewPager.scrollMenu.frame))];
+    viewPager.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(viewPager.scrollMenu.frame) + 8, CGRectGetWidth(viewPager.bounds), CGRectGetHeight(viewPager.bounds) - CGRectGetMaxY(viewPager.scrollMenu.frame) - 8)];
     viewPager.scrollView.showsHorizontalScrollIndicator = NO;
     viewPager.scrollView.showsVerticalScrollIndicator = NO;
     viewPager.scrollView.delegate = viewPager;

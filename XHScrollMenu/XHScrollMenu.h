@@ -25,8 +25,6 @@
 @interface XHScrollMenu : UIView
 
 @property (nonatomic, assign) id <XHScrollMenuDelegate> delegate;
-@property (nonatomic, strong) UIButton *managerMenusButton;
-
 @property (nonatomic, strong) NSMutableArray *menuButtons;
 // UI
 @property (nonatomic, strong) UIScrollView *scrollView;
