@@ -7,11 +7,11 @@
 //
 
 #import "WechatProductViewController.h"
-#import "SlidePageViewController.h"
 #import "WechatProductDetailTableViewController.h"
 #import "XHMenu.h"
 #import "XHScrollMenu.h"
 #import <BmobSDK/Bmob.h>
+#import "SlidePageTableViewDataSource.h"
 
 @interface WechatProductViewController ()<XHScrollMenuDelegate, UIScrollViewDelegate>
 @property (nonatomic, strong) UIScrollView *scrollView;
@@ -27,16 +27,13 @@
     [super viewDidLoad];
     self.tabBarController.tabBar.hidden = YES;
     [self setup];
-//    self.navigationItem.title = @"微商好产品";
-//    SlidePageViewController *pageViewController = [[SlidePageViewController alloc]initWithNibName:@"SlidePageViewController" bundle:[NSBundle mainBundle]];
-//    pageViewController.sourceViewController = (UITableViewController *)self;
-//    [self.view addSubview:pageViewController.view];
 }
+
 - (void)setup {
     self.shouldObserving = YES;
     
     _scrollMenu = [[XHScrollMenu alloc] initWithFrame:CGRectMake(0, 64, CGRectGetWidth(self.view.bounds), 36)];
-    _scrollMenu.backgroundColor = [UIColor colorWithWhite:0.902 alpha:1.000];
+    _scrollMenu.backgroundColor = [UIColor whiteColor];
     _scrollMenu.delegate = self;
     //    _scrollMenu.selectedIndex = 3;
     [self.view addSubview:self.scrollMenu];
@@ -46,7 +43,7 @@
     _scrollView.showsVerticalScrollIndicator = NO;
     _scrollView.delegate = self;
     _scrollView.pagingEnabled = YES;
-    
+    _scrollView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     [self.view addSubview:self.scrollView];
 
     //获取分类
@@ -60,17 +57,30 @@
         } else {
             
             for (int i = 0; i < array.count; i++) {
+                //生成导航
                 XHMenu *menu = [[XHMenu alloc] init];
                 menu.title = [array[i]objectForKey:@"name"];
                 
                 menu.titleNormalColor = [UIColor grayColor];
-                menu.titleSelectedColor = [UIColor darkGrayColor];
-                menu.titleFont = [UIFont boldSystemFontOfSize:16];
+                menu.titleFont = [UIFont boldSystemFontOfSize:17.0];
                 [self.menus addObject:menu];
+//                生成表格
                 
-                UIImageView *logoImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo"]];
-                logoImageView.frame = CGRectMake(i * CGRectGetWidth(_scrollView.bounds), 0, CGRectGetWidth(_scrollView.bounds), CGRectGetHeight(_scrollView.bounds));
-                [_scrollView addSubview:logoImageView];
+                //        初始化tableview
+                UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(i * CGRectGetWidth(_scrollView.bounds), 0, CGRectGetWidth(_scrollView.bounds), CGRectGetHeight(_scrollView.bounds)) style:UITableViewStyleGrouped];
+                //边距
+                tableView.contentInset = UIEdgeInsetsMake(4, 0, 0, 0);
+                //        设置tableview代理类
+                SlidePageTableViewDataSource *slidePageDataSource = [[SlidePageTableViewDataSource alloc]initWithTableView:tableView classifyId:[array[i] objectId]];
+                slidePageDataSource.viewController = self;
+                //        设置滚动视图代理类
+                tableView.delegate = slidePageDataSource;
+                tableView.dataSource = slidePageDataSource;
+                //        获取数据并刷新表格
+                [_scrollView addSubview:tableView];
+                [slidePageDataSource fetchData];
+
+
             }
             [_scrollView setContentSize:CGSizeMake(self.menus.count * CGRectGetWidth(_scrollView.bounds), CGRectGetHeight(_scrollView.bounds))];
             [self startObservingContentOffsetForScrollView:_scrollView];
@@ -83,7 +93,7 @@
     
 
 }
-/*start
+/**start
  */
 - (NSMutableArray *)menus {
     if (!_menus) {
@@ -111,6 +121,8 @@
 - (void)scrollMenuDidSelected:(XHScrollMenu *)scrollMenu menuIndex:(NSUInteger)selectIndex {
     self.shouldObserving = NO;
     [self menuSelectedIndex:selectIndex];
+    
+
 }
 
 - (void)menuSelectedIndex:(NSUInteger)index {
@@ -119,6 +131,7 @@
         [self.scrollView scrollRectToVisible:visibleRect animated:NO];
     } completion:^(BOOL finished) {
         self.shouldObserving = YES;
+
     }];
 }
 

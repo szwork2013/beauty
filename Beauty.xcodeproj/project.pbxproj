@@ -34,10 +34,7 @@
 		F71B7C8A1AB03F63005E8648 /* submit_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F71B7C891AB03F63005E8648 /* submit_button@2x.png */; };
 		F72A95BC1AAAD47A00B2B611 /* EvaluateDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F72A95BB1AAAD47A00B2B611 /* EvaluateDetailViewController.m */; };
 		F72A95BF1AABE68800B2B611 /* WechatProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F72A95BE1AABE68800B2B611 /* WechatProductViewController.m */; };
-		F72A95C31AABEA1000B2B611 /* SlidePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F72A95C11AABEA1000B2B611 /* SlidePageViewController.m */; };
-		F72A95C41AABEA1000B2B611 /* SlidePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F72A95C21AABEA1000B2B611 /* SlidePageViewController.xib */; };
 		F72A95C71AABF33300B2B611 /* SlidePageTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F72A95C61AABF33300B2B611 /* SlidePageTableViewDataSource.m */; };
-		F72A95CF1AACB73900B2B611 /* PageIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = F72A95CE1AACB73900B2B611 /* PageIndicatorView.m */; };
 		F72FFE6C1AAD935400C01BB2 /* member_chekin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F72FFE691AAD935400C01BB2 /* member_chekin@2x.png */; };
 		F72FFE6D1AAD935400C01BB2 /* member_favor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F72FFE6A1AAD935400C01BB2 /* member_favor@2x.png */; };
 		F72FFE6E1AAD935400C01BB2 /* member_try@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F72FFE6B1AAD935400C01BB2 /* member_try@2x.png */; };
@@ -159,13 +156,8 @@
 		F72A95BB1AAAD47A00B2B611 /* EvaluateDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EvaluateDetailViewController.m; path = Beauty/EvaluateDetailViewController.m; sourceTree = "<group>"; };
 		F72A95BD1AABE68800B2B611 /* WechatProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WechatProductViewController.h; path = Beauty/WechatProductViewController.h; sourceTree = "<group>"; };
 		F72A95BE1AABE68800B2B611 /* WechatProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WechatProductViewController.m; path = Beauty/WechatProductViewController.m; sourceTree = "<group>"; };
-		F72A95C01AABEA1000B2B611 /* SlidePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlidePageViewController.h; sourceTree = "<group>"; };
-		F72A95C11AABEA1000B2B611 /* SlidePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlidePageViewController.m; sourceTree = "<group>"; };
-		F72A95C21AABEA1000B2B611 /* SlidePageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SlidePageViewController.xib; sourceTree = "<group>"; };
 		F72A95C51AABF33300B2B611 /* SlidePageTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlidePageTableViewDataSource.h; sourceTree = "<group>"; };
 		F72A95C61AABF33300B2B611 /* SlidePageTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlidePageTableViewDataSource.m; sourceTree = "<group>"; };
-		F72A95CD1AACB73900B2B611 /* PageIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageIndicatorView.h; sourceTree = "<group>"; };
-		F72A95CE1AACB73900B2B611 /* PageIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageIndicatorView.m; sourceTree = "<group>"; };
 		F72FFE691AAD935400C01BB2 /* member_chekin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "member_chekin@2x.png"; sourceTree = "<group>"; };
 		F72FFE6A1AAD935400C01BB2 /* member_favor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "member_favor@2x.png"; sourceTree = "<group>"; };
 		F72FFE6B1AAD935400C01BB2 /* member_try@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "member_try@2x.png"; sourceTree = "<group>"; };
@@ -330,11 +322,6 @@
 		F72A95D21AACBAD200B2B611 /* SlidePage */ = {
 			isa = PBXGroup;
 			children = (
-				F72A95C01AABEA1000B2B611 /* SlidePageViewController.h */,
-				F72A95C11AABEA1000B2B611 /* SlidePageViewController.m */,
-				F72A95C21AABEA1000B2B611 /* SlidePageViewController.xib */,
-				F72A95CD1AACB73900B2B611 /* PageIndicatorView.h */,
-				F72A95CE1AACB73900B2B611 /* PageIndicatorView.m */,
 				F72A95C51AABF33300B2B611 /* SlidePageTableViewDataSource.h */,
 				F72A95C61AABF33300B2B611 /* SlidePageTableViewDataSource.m */,
 			);
@@ -741,7 +728,6 @@
 				F7147A681AA73962007605E6 /* search@2x.png in Resources */,
 				F71B7C8A1AB03F63005E8648 /* submit_button@2x.png in Resources */,
 				F7E4F17D1AA5D1280025D868 /* test@2x.png in Resources */,
-				F72A95C41AABEA1000B2B611 /* SlidePageViewController.xib in Resources */,
 				F7BBEBCA1AA3633D000D74D0 /* SVProgressHUD.bundle in Resources */,
 				F79547531AAD8A4600212CEA /* default_avatar@2x.png in Resources */,
 				F78FC9091AA73E8A00F3C1EE /* product_search_bg@2x.png in Resources */,
@@ -805,12 +791,10 @@
 				F7B498BC1AA335E30067219E /* AFURLRequestSerialization.m in Sources */,
 				F7B498B91AA335E30067219E /* AFNetworkReachabilityManager.m in Sources */,
 				F7172C441AA94A1000A9ED4C /* SellerTableViewCell.m in Sources */,
-				F72A95CF1AACB73900B2B611 /* PageIndicatorView.m in Sources */,
 				F71B7C881AB038B6005E8648 /* WechatProductDetailTableViewController.m in Sources */,
 				F7B4989A1AA3356F0067219E /* AFNetworkActivityIndicatorManager.m in Sources */,
 				F7172C401AA8A13B00A9ED4C /* StarView.m in Sources */,
 				F72FFE751AAE8F4100C01BB2 /* MemberLoginViewController.m in Sources */,
-				F72A95C31AABEA1000B2B611 /* SlidePageViewController.m in Sources */,
 				F7147A5A1AA6F9D1007605E6 /* ProductTryTableViewCell.m in Sources */,
 				F7B498A11AA3356F0067219E /* UIWebView+AFNetworking.m in Sources */,
 				F7B4989B1AA3356F0067219E /* UIActivityIndicatorView+AFNetworking.m in Sources */,

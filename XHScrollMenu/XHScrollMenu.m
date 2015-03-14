@@ -19,9 +19,7 @@
 @property (nonatomic, strong) UIImageView *leftShadowView;
 @property (nonatomic, strong) UIImageView *rightShadowView;
 
-@property (nonatomic, strong) UIButton *managerMenusButton;
 
-@property (nonatomic, strong) NSMutableArray *menuButtons;
 
 @end
 
@@ -73,8 +71,10 @@
 }
 
 - (void)setupIndicatorFrame:(CGRect)menuButtonFrame animated:(BOOL)animated callDelegate:(BOOL)called {
+
+    
     [UIView animateWithDuration:(animated ? 0.15 : 0) delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
-        _indicatorView.frame = CGRectMake(CGRectGetMinX(menuButtonFrame), CGRectGetHeight(self.bounds) - kXHIndicatorViewHeight, CGRectGetWidth(menuButtonFrame), kXHIndicatorViewHeight);
+        _indicatorView.frame = CGRectMake(CGRectGetMinX(menuButtonFrame) - 10, CGRectGetHeight(self.bounds) - kXHIndicatorViewHeight, CGRectGetWidth(menuButtonFrame) + 20, kXHIndicatorViewHeight);
     } completion:^(BOOL finished) {
         if (called) {
             if ([self.delegate respondsToSelector:@selector(scrollMenuDidSelected:menuIndex:)]) {
@@ -85,9 +85,10 @@
 }
 
 - (UIButton *)getButtonWithMenu:(XHMenu *)menu {
-    CGSize buttonSize = [menu.title sizeWithFont:menu.titleFont constrainedToSize:CGSizeMake(MAXFLOAT, CGRectGetHeight(self.bounds) - 10) lineBreakMode:NSLineBreakByCharWrapping];
+    NSDictionary *attributes = @{NSFontAttributeName:menu.titleFont};
+     CGSize buttonSize = [menu.title boundingRectWithSize:CGSizeMake(MAXFLOAT, CGRectGetHeight(self.bounds) - 10) options:NSStringDrawingTruncatesLastVisibleLine attributes:attributes context:nil].size;
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, buttonSize.width, buttonSize.height)];
-    button.titleLabel.textAlignment = UITextAlignmentCenter;
+    button.titleLabel.textAlignment = NSTextAlignmentCenter;
     button.titleLabel.font = menu.titleFont;
     [button setTitle:menu.title forState:UIControlStateNormal];
     [button setTitle:menu.title forState:UIControlStateHighlighted];
@@ -132,6 +133,7 @@
         [self.scrollView scrollRectToVisibleCenteredOn:selectedMenuButton.frame animated:NO];
     } completion:^(BOOL finished) {
         [self setupIndicatorFrame:selectedMenuButton.frame animated:aniamted callDelegate:calledDelgate];
+
     }];
 }
 

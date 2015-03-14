@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SlidePageViewController.h"
+#import "WechatProductViewController.h"
 
 
 @interface SlidePageTableViewDataSource : NSObject<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) NSArray *dataSourceArray;
-@property (nonatomic,strong) SlidePageViewController *viewController;
+@property (nonatomic,strong) WechatProductViewController *viewController;
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) NSString *classifyId;
 
