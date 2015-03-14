@@ -47,6 +47,11 @@
 		F72FFE8B1AAEF14B00C01BB2 /* MemberTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F72FFE8A1AAEF14B00C01BB2 /* MemberTableViewController.m */; };
 		F76B38151AB303F90012F3A7 /* TryEventProductDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F76B38141AB303F90012F3A7 /* TryEventProductDetailTableViewController.m */; };
 		F77FB1CD1AA9F02F0092D57F /* EvaluateTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F77FB1CC1AA9F02F0092D57F /* EvaluateTableViewController.m */; };
+		F787B7141AB3DFBE00D4C27D /* UIScrollView+XHVisibleCenterScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = F787B70B1AB3DFBE00D4C27D /* UIScrollView+XHVisibleCenterScroll.m */; };
+		F787B7151AB3DFBE00D4C27D /* XHIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = F787B70D1AB3DFBE00D4C27D /* XHIndicatorView.m */; };
+		F787B7161AB3DFBE00D4C27D /* XHMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F787B70F1AB3DFBE00D4C27D /* XHMenu.m */; };
+		F787B7171AB3DFBE00D4C27D /* XHMenuButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F787B7111AB3DFBE00D4C27D /* XHMenuButton.m */; };
+		F787B7181AB3DFBE00D4C27D /* XHScrollMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F787B7131AB3DFBE00D4C27D /* XHScrollMenu.m */; };
 		F78FC9091AA73E8A00F3C1EE /* product_search_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F78FC9081AA73E8A00F3C1EE /* product_search_bg@2x.png */; };
 		F78FC90B1AA73F6500F3C1EE /* product_search_bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F78FC90A1AA73F6500F3C1EE /* product_search_bar@2x.png */; };
 		F78FC90D1AA7436B00F3C1EE /* activity_search_bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F78FC90C1AA7436B00F3C1EE /* activity_search_bar@2x.png */; };
@@ -174,6 +179,16 @@
 		F76B38141AB303F90012F3A7 /* TryEventProductDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TryEventProductDetailTableViewController.m; path = TryEvent/TryEventProductDetailTableViewController.m; sourceTree = "<group>"; };
 		F77FB1CB1AA9F02F0092D57F /* EvaluateTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EvaluateTableViewController.h; path = Beauty/EvaluateTableViewController.h; sourceTree = "<group>"; };
 		F77FB1CC1AA9F02F0092D57F /* EvaluateTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EvaluateTableViewController.m; path = Beauty/EvaluateTableViewController.m; sourceTree = "<group>"; };
+		F787B70A1AB3DFBE00D4C27D /* UIScrollView+XHVisibleCenterScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+XHVisibleCenterScroll.h"; sourceTree = "<group>"; };
+		F787B70B1AB3DFBE00D4C27D /* UIScrollView+XHVisibleCenterScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+XHVisibleCenterScroll.m"; sourceTree = "<group>"; };
+		F787B70C1AB3DFBE00D4C27D /* XHIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHIndicatorView.h; sourceTree = "<group>"; };
+		F787B70D1AB3DFBE00D4C27D /* XHIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHIndicatorView.m; sourceTree = "<group>"; };
+		F787B70E1AB3DFBE00D4C27D /* XHMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHMenu.h; sourceTree = "<group>"; };
+		F787B70F1AB3DFBE00D4C27D /* XHMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHMenu.m; sourceTree = "<group>"; };
+		F787B7101AB3DFBE00D4C27D /* XHMenuButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHMenuButton.h; sourceTree = "<group>"; };
+		F787B7111AB3DFBE00D4C27D /* XHMenuButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHMenuButton.m; sourceTree = "<group>"; };
+		F787B7121AB3DFBE00D4C27D /* XHScrollMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHScrollMenu.h; sourceTree = "<group>"; };
+		F787B7131AB3DFBE00D4C27D /* XHScrollMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHScrollMenu.m; sourceTree = "<group>"; };
 		F78FC9081AA73E8A00F3C1EE /* product_search_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "product_search_bg@2x.png"; path = "images/home/product_search_bg@2x.png"; sourceTree = "<group>"; };
 		F78FC90A1AA73F6500F3C1EE /* product_search_bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "product_search_bar@2x.png"; path = "images/home/product_search_bar@2x.png"; sourceTree = "<group>"; };
 		F78FC90C1AA7436B00F3C1EE /* activity_search_bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "activity_search_bar@2x.png"; path = "images/home/activity_search_bar@2x.png"; sourceTree = "<group>"; };
@@ -335,6 +350,23 @@
 			name = TryEvent;
 			sourceTree = "<group>";
 		};
+		F787B7091AB3DFBE00D4C27D /* XHScrollMenu */ = {
+			isa = PBXGroup;
+			children = (
+				F787B70A1AB3DFBE00D4C27D /* UIScrollView+XHVisibleCenterScroll.h */,
+				F787B70B1AB3DFBE00D4C27D /* UIScrollView+XHVisibleCenterScroll.m */,
+				F787B70C1AB3DFBE00D4C27D /* XHIndicatorView.h */,
+				F787B70D1AB3DFBE00D4C27D /* XHIndicatorView.m */,
+				F787B70E1AB3DFBE00D4C27D /* XHMenu.h */,
+				F787B70F1AB3DFBE00D4C27D /* XHMenu.m */,
+				F787B7101AB3DFBE00D4C27D /* XHMenuButton.h */,
+				F787B7111AB3DFBE00D4C27D /* XHMenuButton.m */,
+				F787B7121AB3DFBE00D4C27D /* XHScrollMenu.h */,
+				F787B7131AB3DFBE00D4C27D /* XHScrollMenu.m */,
+			);
+			path = XHScrollMenu;
+			sourceTree = "<group>";
+		};
 		F79547501AAD8A4600212CEA /* member */ = {
 			isa = PBXGroup;
 			children = (
@@ -353,6 +385,7 @@
 		F7B4982C1AA2FF300067219E = {
 			isa = PBXGroup;
 			children = (
+				F787B7091AB3DFBE00D4C27D /* XHScrollMenu */,
 				F7B498371AA2FF300067219E /* Beauty */,
 				F7B498511AA2FF300067219E /* BeautyTests */,
 				F7B498361AA2FF300067219E /* Products */,
@@ -748,6 +781,7 @@
 				F7B4987E1AA31FE90067219E /* StoreViewController.m in Sources */,
 				F7B4983E1AA2FF300067219E /* AppDelegate.m in Sources */,
 				F7B4989C1AA3356F0067219E /* UIAlertView+AFNetworking.m in Sources */,
+				F787B7171AB3DFBE00D4C27D /* XHMenuButton.m in Sources */,
 				F7B498BD1AA335E30067219E /* AFURLResponseSerialization.m in Sources */,
 				F7172C3A1AA8957800A9ED4C /* ProductDetailTableViewController.m in Sources */,
 				F7B498BB1AA335E30067219E /* AFURLConnectionOperation.m in Sources */,
@@ -762,6 +796,7 @@
 				F7172C331AA84F8D00A9ED4C /* SecondLevelTableViewController.m in Sources */,
 				F7B498B71AA335E30067219E /* AFHTTPRequestOperationManager.m in Sources */,
 				F72A95BF1AABE68800B2B611 /* WechatProductViewController.m in Sources */,
+				F787B7181AB3DFBE00D4C27D /* XHScrollMenu.m in Sources */,
 				F7B498811AA3246B0067219E /* StoreActivityDataSource.m in Sources */,
 				F7B498BA1AA335E30067219E /* AFSecurityPolicy.m in Sources */,
 				F7BBEBCB1AA3633D000D74D0 /* SVProgressHUD.m in Sources */,
@@ -780,10 +815,13 @@
 				F7B498A11AA3356F0067219E /* UIWebView+AFNetworking.m in Sources */,
 				F7B4989B1AA3356F0067219E /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				F7B498B61AA335E30067219E /* AFHTTPRequestOperation.m in Sources */,
+				F787B7161AB3DFBE00D4C27D /* XHMenu.m in Sources */,
 				F7091A901AB13BE6009D8C1D /* WechatRecordViewController.m in Sources */,
+				F787B7151AB3DFBE00D4C27D /* XHIndicatorView.m in Sources */,
 				F7172C371AA87D8500A9ED4C /* ProductTableViewController.m in Sources */,
 				F77FB1CD1AA9F02F0092D57F /* EvaluateTableViewController.m in Sources */,
 				F76B38151AB303F90012F3A7 /* TryEventProductDetailTableViewController.m in Sources */,
+				F787B7141AB3DFBE00D4C27D /* UIScrollView+XHVisibleCenterScroll.m in Sources */,
 				F72A95C71AABF33300B2B611 /* SlidePageTableViewDataSource.m in Sources */,
 				F7B4989E1AA3356F0067219E /* UIImageView+AFNetworking.m in Sources */,
 				F7B498B81AA335E30067219E /* AFHTTPSessionManager.m in Sources */,
