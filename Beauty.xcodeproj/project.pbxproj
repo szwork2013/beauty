@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F70850291AB5CE5700DD4A1C /* no1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F70850261AB5CE5700DD4A1C /* no1@2x.png */; };
+		F708502A1AB5CE5700DD4A1C /* no2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F70850271AB5CE5700DD4A1C /* no2@2x.png */; };
+		F708502B1AB5CE5700DD4A1C /* no3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F70850281AB5CE5700DD4A1C /* no3@2x.png */; };
 		F7091A931AB18366009D8C1D /* UserService.m in Sources */ = {isa = PBXBuildFile; fileRef = F7091A921AB18366009D8C1D /* UserService.m */; };
 		F713C8C61AA48A5A004BE58C /* favor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F713C8C51AA48A5A004BE58C /* favor@2x.png */; };
 		F713C8C81AA48F5D004BE58C /* tel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F713C8C71AA48F5D004BE58C /* tel@2x.png */; };
@@ -51,7 +54,10 @@
 		F7540A0C1AB42C6100042CB0 /* TryEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7540A0B1AB42C6100042CB0 /* TryEventViewController.m */; };
 		F7540A131AB42D2A00042CB0 /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = F7540A101AB42D2A00042CB0 /* UIScrollView+SVInfiniteScrolling.m */; };
 		F7540A141AB42D2A00042CB0 /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = F7540A121AB42D2A00042CB0 /* UIScrollView+SVPullToRefresh.m */; };
+		F75DE8491AB532A200B669F2 /* RankViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F75DE8481AB532A200B669F2 /* RankViewController.m */; };
+		F75DE84E1AB5345F00B669F2 /* LSCanvasView.m in Sources */ = {isa = PBXBuildFile; fileRef = F75DE84D1AB5345F00B669F2 /* LSCanvasView.m */; };
 		F76B38151AB303F90012F3A7 /* TryEventProductDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F76B38141AB303F90012F3A7 /* TryEventProductDetailTableViewController.m */; };
+		F76B94F31AB57D910072FAD4 /* LSCanvasView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F76B94F21AB57D910072FAD4 /* LSCanvasView.xib */; };
 		F77FB1CD1AA9F02F0092D57F /* EvaluateTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F77FB1CC1AA9F02F0092D57F /* EvaluateTableViewController.m */; };
 		F787B7141AB3DFBE00D4C27D /* UIScrollView+XHVisibleCenterScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = F787B70B1AB3DFBE00D4C27D /* UIScrollView+XHVisibleCenterScroll.m */; };
 		F787B7151AB3DFBE00D4C27D /* XHIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = F787B70D1AB3DFBE00D4C27D /* XHIndicatorView.m */; };
@@ -122,6 +128,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F70850261AB5CE5700DD4A1C /* no1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "no1@2x.png"; sourceTree = "<group>"; };
+		F70850271AB5CE5700DD4A1C /* no2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "no2@2x.png"; sourceTree = "<group>"; };
+		F70850281AB5CE5700DD4A1C /* no3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "no3@2x.png"; sourceTree = "<group>"; };
 		F7091A911AB18366009D8C1D /* UserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserService.h; path = Beauty/UserService.h; sourceTree = "<group>"; };
 		F7091A921AB18366009D8C1D /* UserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserService.m; path = Beauty/UserService.m; sourceTree = "<group>"; };
 		F713C8C51AA48A5A004BE58C /* favor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "favor@2x.png"; path = "images/favor@2x.png"; sourceTree = "<group>"; };
@@ -192,8 +201,13 @@
 		F7540A101AB42D2A00042CB0 /* UIScrollView+SVInfiniteScrolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVInfiniteScrolling.m"; sourceTree = "<group>"; };
 		F7540A111AB42D2A00042CB0 /* UIScrollView+SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVPullToRefresh.h"; sourceTree = "<group>"; };
 		F7540A121AB42D2A00042CB0 /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
+		F75DE8471AB532A200B669F2 /* RankViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RankViewController.h; path = Beauty/Rank/RankViewController.h; sourceTree = SOURCE_ROOT; };
+		F75DE8481AB532A200B669F2 /* RankViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RankViewController.m; path = Beauty/Rank/RankViewController.m; sourceTree = SOURCE_ROOT; };
+		F75DE84C1AB5345F00B669F2 /* LSCanvasView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSCanvasView.h; sourceTree = "<group>"; };
+		F75DE84D1AB5345F00B669F2 /* LSCanvasView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSCanvasView.m; sourceTree = "<group>"; };
 		F76B38131AB303F90012F3A7 /* TryEventProductDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TryEventProductDetailTableViewController.h; path = TryEvent/TryEventProductDetailTableViewController.h; sourceTree = "<group>"; };
 		F76B38141AB303F90012F3A7 /* TryEventProductDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TryEventProductDetailTableViewController.m; path = TryEvent/TryEventProductDetailTableViewController.m; sourceTree = "<group>"; };
+		F76B94F21AB57D910072FAD4 /* LSCanvasView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LSCanvasView.xib; sourceTree = "<group>"; };
 		F77FB1CB1AA9F02F0092D57F /* EvaluateTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EvaluateTableViewController.h; path = Beauty/EvaluateTableViewController.h; sourceTree = "<group>"; };
 		F77FB1CC1AA9F02F0092D57F /* EvaluateTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EvaluateTableViewController.m; path = Beauty/EvaluateTableViewController.m; sourceTree = "<group>"; };
 		F787B70A1AB3DFBE00D4C27D /* UIScrollView+XHVisibleCenterScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+XHVisibleCenterScroll.h"; sourceTree = "<group>"; };
@@ -340,6 +354,9 @@
 		F7172C3B1AA89C2000A9ED4C /* product */ = {
 			isa = PBXGroup;
 			children = (
+				F70850261AB5CE5700DD4A1C /* no1@2x.png */,
+				F70850271AB5CE5700DD4A1C /* no2@2x.png */,
+				F70850281AB5CE5700DD4A1C /* no3@2x.png */,
 				F7172C461AA94C0600A9ED4C /* buy@2x.png */,
 				F7172C3C1AA89C2000A9ED4C /* product_favor@2x.png */,
 			);
@@ -374,6 +391,26 @@
 				F7540A121AB42D2A00042CB0 /* UIScrollView+SVPullToRefresh.m */,
 			);
 			path = SVPullToRefresh;
+			sourceTree = "<group>";
+		};
+		F75DE84A1AB532AB00B669F2 /* Rank */ = {
+			isa = PBXGroup;
+			children = (
+				F75DE8471AB532A200B669F2 /* RankViewController.h */,
+				F75DE8481AB532A200B669F2 /* RankViewController.m */,
+			);
+			name = Rank;
+			path = ../XHScrollMenu;
+			sourceTree = "<group>";
+		};
+		F75DE84B1AB533DF00B669F2 /* LSPagedScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				F76B94F21AB57D910072FAD4 /* LSCanvasView.xib */,
+				F75DE84C1AB5345F00B669F2 /* LSCanvasView.h */,
+				F75DE84D1AB5345F00B669F2 /* LSCanvasView.m */,
+			);
+			path = LSPagedScrollView;
 			sourceTree = "<group>";
 		};
 		F76B38121AB303DE0012F3A7 /* TryEvent */ = {
@@ -462,6 +499,8 @@
 				F7B498831AA32B580067219E /* HomeTabBarController.m */,
 				F7172C481AA94E3800A9ED4C /* WebViewBrowserController.h */,
 				F7172C491AA94E3800A9ED4C /* WebViewBrowserController.m */,
+				F75DE84B1AB533DF00B669F2 /* LSPagedScrollView */,
+				F75DE84A1AB532AB00B669F2 /* Rank */,
 				F76B38121AB303DE0012F3A7 /* TryEvent */,
 				F7BD0BAA1AB1DF54009E48B6 /* Evaluate */,
 				F7BD0BA81AB1DF08009E48B6 /* Store */,
@@ -770,6 +809,7 @@
 			files = (
 				F713C8C61AA48A5A004BE58C /* favor@2x.png in Resources */,
 				F7172C3D1AA89C2000A9ED4C /* product_favor@2x.png in Resources */,
+				F708502B1AB5CE5700DD4A1C /* no3@2x.png in Resources */,
 				F7147A631AA725CA007605E6 /* star_full@2x.png in Resources */,
 				F7B498441AA2FF300067219E /* Main.storyboard in Resources */,
 				F7147A601AA6FCF7007605E6 /* star_empty@2x.png in Resources */,
@@ -778,6 +818,7 @@
 				F7B498491AA2FF300067219E /* LaunchScreen.xib in Resources */,
 				F7B4986B1AA311350067219E /* bar_member@2x.png in Resources */,
 				F7147A5B1AA6F9D1007605E6 /* ProductTableViewCell.xib in Resources */,
+				F70850291AB5CE5700DD4A1C /* no1@2x.png in Resources */,
 				F7172C451AA94A1000A9ED4C /* SellerTableViewCell.xib in Resources */,
 				F7B498461AA2FF300067219E /* Images.xcassets in Resources */,
 				F7E4F17C1AA5D1280025D868 /* rank@2x.png in Resources */,
@@ -800,10 +841,12 @@
 				F7147A5D1AA6FBC2007605E6 /* willtry@2x.png in Resources */,
 				F7B4986D1AA311350067219E /* bar_shop@2x.png in Resources */,
 				F72FFE711AAE77BD00C01BB2 /* code_bg@2x.png in Resources */,
+				F76B94F31AB57D910072FAD4 /* LSCanvasView.xib in Resources */,
 				F72FFE6C1AAD935400C01BB2 /* member_chekin@2x.png in Resources */,
 				F7B4986C1AA311350067219E /* bar_search@2x.png in Resources */,
 				F74523391AB469F600C33281 /* gift@2x.png in Resources */,
 				F7B4987B1AA31D390067219E /* time@2x.png in Resources */,
+				F708502A1AB5CE5700DD4A1C /* no2@2x.png in Resources */,
 				F72FFE6E1AAD935400C01BB2 /* member_try@2x.png in Resources */,
 				F745233A1AB469F600C33281 /* person@2x.png in Resources */,
 				F72FFE6D1AAD935400C01BB2 /* member_favor@2x.png in Resources */,
@@ -835,6 +878,7 @@
 				F74523341AB467C200C33281 /* TryEventTableViewCell.m in Sources */,
 				F7B498BB1AA335E30067219E /* AFURLConnectionOperation.m in Sources */,
 				F7B4989F1AA3356F0067219E /* UIProgressView+AFNetworking.m in Sources */,
+				F75DE84E1AB5345F00B669F2 /* LSCanvasView.m in Sources */,
 				F7BBEBC51AA35C66000D74D0 /* ActivityViewController.m in Sources */,
 				F7091A931AB18366009D8C1D /* UserService.m in Sources */,
 				F7B498711AA31B250067219E /* StoreTableViewCell.m in Sources */,
@@ -881,6 +925,7 @@
 				F7540A141AB42D2A00042CB0 /* UIScrollView+SVPullToRefresh.m in Sources */,
 				F7B498BE1AA335E30067219E /* AFURLSessionManager.m in Sources */,
 				F7BD0BA41AB1D998009E48B6 /* CommonUtil.m in Sources */,
+				F75DE8491AB532A200B669F2 /* RankViewController.m in Sources */,
 				F72A95BC1AAAD47A00B2B611 /* EvaluateDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -763,6 +763,28 @@
             </objects>
             <point key="canvasLocation" x="2188" y="766"/>
         </scene>
+        <!--排行榜-->
+        <scene sceneID="yA0-U5-iKa">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="QrT-Wc-APG" customClass="RankViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sS1-A1-IpK"/>
+                        <viewControllerLayoutGuide type="bottom" id="ECx-yQ-1Ss"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Sst-Ic-3ny">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="排行榜" id="h4l-N6-eZK"/>
+                    <connections>
+                        <segue destination="z5s-pb-0rk" kind="show" identifier="productDetail" id="IeB-GA-u2I"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sRI-di-SUi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="384" y="-3612"/>
+        </scene>
         <!--首页-->
         <scene sceneID="xqH-1S-Mkm">
             <objects>
@@ -830,6 +852,9 @@
                                                 <state key="normal" backgroundImage="rank.png">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="QrT-Wc-APG" kind="show" id="3Ix-Kf-P1j"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JWD-Qt-jea" userLabel="微商好产品">
                                                 <rect key="frame" x="15" y="66" width="290" height="65"/>
@@ -1235,7 +1260,7 @@
         <!--产品试用-->
         <scene sceneID="fZ2-Xm-qnI">
             <objects>
-                <viewController id="cm5-2t-orp" customClass="TryEventViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="cm5-2t-orp" customClass="TryEventViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7UR-1m-bZR"/>
                         <viewControllerLayoutGuide type="bottom" id="jFX-w1-z40"/>
@@ -2177,7 +2202,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZTF-rT-QHc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2720" y="-2122"/>
+            <point key="canvasLocation" x="2710" y="-2810"/>
         </scene>
         <!--首页-->
         <scene sceneID="oTv-Cb-G4d">
@@ -2279,8 +2304,8 @@
         <image name="try_bg.png" width="317" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="IeB-GA-u2I"/>
         <segue reference="QJK-84-Obb"/>
-        <segue reference="qqI-84-Lb5"/>
         <segue reference="6zP-3P-Cza"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -18,4 +18,6 @@
 #define PER_PAGE 2
 #define NO_MORE @"没有新数据了"
 #define NO_DATAS @"结果空空如也～"
+#define BASE_TAG 1000
+#define RECT_LOG(f) NSLog(@"\nx:%f\ny:%f\nwidth:%f\nheight:%f\n",f.origin.x,f.origin.y,f.size.width,f.size.height)
 #endif
