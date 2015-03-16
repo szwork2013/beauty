@@ -167,8 +167,16 @@
 - (void)jump:(UIButton *)button {
 //    NSLog(@"%zi",button.tag);
 //    NSLog(@"%@",self.objectIdDictionary[[NSString stringWithFormat:@"%zi",button.tag]]);
-    self.vc.productId = self.objectIdDictionary[[NSString stringWithFormat:@"%zi",button.tag]];
-    [self.vc performSegueWithIdentifier:@"productDetail" sender:self];
+    if ([self.type intValue] == 0) {
+        self.vc.productId = self.objectIdDictionary[[NSString stringWithFormat:@"%zi",button.tag]];
+        [self.vc performSegueWithIdentifier:@"productDetail" sender:self];
+    } else if ([self.type intValue] == 1) {
+        self.vc.storeId = self.objectIdDictionary[[NSString stringWithFormat:@"%zi",button.tag]];
+        [self.vc performSegueWithIdentifier:@"storeDetail" sender:self];
+    } else {
+        self.vc.brandId = self.objectIdDictionary[[NSString stringWithFormat:@"%zi",button.tag]];
+        [self.vc performSegueWithIdentifier:@"brandDetail" sender:self];
+    }
 }
 
 - (void)showMore:(UIButton *)button {

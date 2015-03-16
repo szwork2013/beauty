@@ -782,6 +782,7 @@
                         <segue destination="kZg-wW-KWP" kind="show" identifier="rankListProduct" id="PRu-4R-OL7"/>
                         <segue destination="fqv-JQ-rQo" kind="show" identifier="rankListStore" id="B1z-qf-Qee"/>
                         <segue destination="9OC-QA-mfL" kind="show" identifier="rankListBrand" id="ilD-nc-N3n"/>
+                        <segue destination="WRk-gT-Qc4" kind="show" identifier="storeDetail" id="Bps-P6-DWG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sRI-di-SUi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2419,9 +2420,9 @@
         <image name="try_bg.png" width="317" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="GfM-99-pxe"/>
-        <segue reference="iWO-Pp-U3m"/>
-        <segue reference="QJK-84-Obb"/>
+        <segue reference="IeB-GA-u2I"/>
+        <segue reference="Bps-P6-DWG"/>
         <segue reference="6zP-3P-Cza"/>
+        <segue reference="QJK-84-Obb"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -160,7 +160,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     StoreDetailTableViewController *storeDetailVC = (StoreDetailTableViewController *)segue.destinationViewController;
-    storeDetailVC.shopObjectId = self.shopObjectId;
+    storeDetailVC.storeId = self.shopObjectId;
 }
 
 

@@ -92,7 +92,7 @@
 }
 //传值
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    self.viewController.productId = [self.dataSourceArray[tableView.indexPathForSelectedRow.section] objectId];
+    self.viewController.storeId = [[self.dataSourceArray[tableView.indexPathForSelectedRow.section]objectForKey:@"store"] objectId];
     [self.viewController performSegueWithIdentifier:@"storeDetail" sender:self];
 }
 //单元格高度

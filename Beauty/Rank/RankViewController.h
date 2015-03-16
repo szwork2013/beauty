@@ -10,4 +10,6 @@
 
 @interface RankViewController : UIViewController
 @property (nonatomic,strong) NSString *productId;
+@property (nonatomic,strong) NSString *storeId;
+@property (nonatomic,strong) NSString *brandId;
 @end

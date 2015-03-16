@@ -114,7 +114,7 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     StoreDetailTableViewController *vc = segue.destinationViewController;
-
+    vc.storeId = self.storeId;
 }
 
 

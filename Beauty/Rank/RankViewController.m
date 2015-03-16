@@ -12,6 +12,7 @@
 #import "UIImageView+AFNetworking.h"
 #import "ProductDetailTableViewController.h"
 #import "Global.h"
+#import "StoreDetailTableViewController.h"
 
 @interface RankViewController ()
 
@@ -76,6 +77,11 @@
     if ([segue.identifier isEqualToString:@"productDetail"]) {
         ProductDetailTableViewController *vc = segue.destinationViewController;
         vc.productId = self.productId;
+    } else if ([segue.identifier isEqualToString:@"storeDetail"]) {
+        StoreDetailTableViewController *vc = segue.destinationViewController;
+        vc.storeId = self.storeId;
+    }  else if ([segue.identifier isEqualToString:@"brandDetail"]) {
+
     }
 }
 

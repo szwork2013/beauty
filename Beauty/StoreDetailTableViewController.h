@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface StoreDetailTableViewController : UITableViewController
-@property (nonatomic, strong) NSString *shopObjectId;
+@property (nonatomic, strong) NSString *storeId;
 @end

@@ -43,7 +43,7 @@
 #pragma mark - 服务器抓取
 - (void)fetchStoreData {
     BmobQuery *storeQuery = [BmobQuery queryWithClassName:@"Store"];
-    [storeQuery getObjectInBackgroundWithId:self.shopObjectId block:^(BmobObject *object, NSError *error) {
+    [storeQuery getObjectInBackgroundWithId:self.storeId block:^(BmobObject *object, NSError *error) {
         self.nameLabel.text         = [object objectForKey:@"name"];
         self.businessHour.text      = [object objectForKey:@"businessHour"];
         self.phoneLabel.text        = [object objectForKey:@"phone"];
