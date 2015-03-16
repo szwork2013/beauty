@@ -52,9 +52,9 @@
     //    获取分类数据
     BmobQuery *query = [BmobQuery queryWithClassName:@"RankListClassify"];
     [query whereKey:@"type" equalTo:self.type];
-    NSDictionary *condiction1 = @{@"cityId":@""};
-    NSDictionary *condiction2 = @{@"cityId":@{@"$exists":[NSNumber numberWithBool:NO]}};
-    NSArray *array = @[condiction1,condiction2];
+    NSDictionary *condictionCityIdEmpty = @{@"cityId":@""};
+    NSDictionary *condictionCityIdNull = @{@"cityId":@{@"$exists":[NSNumber numberWithBool:NO]}};
+    NSArray *array = @[condictionCityIdEmpty,condictionCityIdNull];
     [query addTheConstraintByOrOperationWithArray:array];
     [query orderByAscending:@"rank"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
@@ -93,7 +93,7 @@
                             rankListProduct = [array[j] objectForKey:@"product"];
                         } else if ([self.type intValue] == 1){
                             rankListProduct = [array[j] objectForKey:@"store"];
-                        }else if ([self.type intValue] == 2){
+                        } else if ([self.type intValue] == 2){
                             rankListProduct = [array[j] objectForKey:@"brand"];
                         }
                         
@@ -149,7 +149,15 @@
             //    设置滚动视图内容尺寸
             _mainScrollView.contentSize = CGSizeMake(CGRectGetWidth(self.mainScrollView.frame) * self.titleArray.count, CGRectGetHeight(self.mainScrollView.frame));
 //            设置更多按钮跳转目标
-            _moreButton.tag = PRODUCT_TAG;
+            
+            if ([self.type intValue] == 0) {
+                _moreButton.tag = PRODUCT_TAG;
+            } else if ([self.type intValue] == 1){
+                _moreButton.tag = STORE_TAG;
+            } else if ([self.type intValue] == 2){
+                _moreButton.tag = BRAND_TAG;
+            }
+            
             [_moreButton addTarget:self action:@selector(showMore:) forControlEvents:UIControlEventTouchUpInside];
         }
     }];

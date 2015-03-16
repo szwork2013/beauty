@@ -42,6 +42,19 @@
     [cell.starView addSubview:view];
     return cell;
 }
+
++ (StoreShowTableViewCell *)fetchStoreShowCell:(BmobObject *)store {
+    StoreShowTableViewCell *cell = [[[NSBundle mainBundle]loadNibNamed:@"StoreShowTableViewCell" owner:self options:nil]objectAtIndex:0];
+    BmobFile *avatar = [store objectForKey:@"avatar"];
+    [cell.avatarImageView setImageWithURL:[NSURL URLWithString:avatar.url]];
+    //缩略图加圆角边框
+    cell.avatarImageView.layer.cornerRadius = 28.0;
+    cell.avatarImageView.layer.borderColor = [TINYGRAY_COLOR CGColor];
+    cell.avatarImageView.layer.borderWidth = 1.0;
+    cell.nameLabel.text = [store objectForKey:@"name"];
+    cell.descriptLabel.text = [store objectForKey:@"descript"];
+    return cell;
+}
 //还剩下几天
 + (NSInteger)daysInterval:(NSDate *)date {
     NSDate *now = [NSDate date];

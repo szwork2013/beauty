@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ProductShowTableViewCell.h"
+#import "StoreShowTableViewCell.h"
 #import <BmobSDK/Bmob.h>
 #import "UIImageView+AFNetworking.h"
 #import "Global.h"
@@ -17,4 +18,5 @@
 + (NSString *)enterChar:(NSString *)descriptString;
 + (ProductShowTableViewCell *)fetchProductShowCell:(BmobObject *)product index:(NSInteger)i;
 + (NSInteger)daysInterval:(NSDate *)date;
++ (StoreShowTableViewCell *)fetchStoreShowCell:(BmobObject *)store;
 @end
