@@ -28,27 +28,33 @@
     // Do any additional setup after loading the view.
 }
 - (void)setup {
-
+    CGFloat canvasHeight = 170.0;
+    UIScrollView *scrollView = [[UIScrollView alloc]init];
+    scrollView.frame = CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height - 64);
+    scrollView.contentSize = CGSizeMake(self.view.frame.size.width - 2 * MARGIN, (canvasHeight + MARGIN ) * 3);
+    scrollView.showsVerticalScrollIndicator = NO;
+    scrollView.showsHorizontalScrollIndicator = NO;
+    [self.view addSubview:scrollView];
 //    初始化视图
     LSCanvasView *productCanvasView = [[[NSBundle mainBundle]loadNibNamed:@"LSCanvasView" owner:self options:nil]firstObject];
-    productCanvasView.frame = CGRectMake(MARGIN, 64 + MARGIN, CGRectGetWidth(self.view.frame) - MARGIN * 2, 170);
-    [self.view addSubview:productCanvasView];
+    productCanvasView.frame = CGRectMake(MARGIN, 0 + MARGIN, CGRectGetWidth(self.view.frame) - MARGIN * 2, canvasHeight);
+    [scrollView addSubview:productCanvasView];
     productCanvasView.type = [NSNumber numberWithInt:0];
     [productCanvasView setup];
     productCanvasView.vc = self;
     
 //    初始化店铺
     LSCanvasView *storeCanvasView = [[[NSBundle mainBundle]loadNibNamed:@"LSCanvasView" owner:self options:nil]firstObject];
-    storeCanvasView.frame = CGRectMake(MARGIN, CGRectGetMaxY(productCanvasView.frame) + MARGIN, CGRectGetWidth(self.view.frame) - MARGIN * 2, 170);
-    [self.view addSubview:storeCanvasView];
+    storeCanvasView.frame = CGRectMake(MARGIN, CGRectGetMaxY(productCanvasView.frame) + MARGIN, CGRectGetWidth(self.view.frame) - MARGIN * 2, canvasHeight);
+    [scrollView addSubview:storeCanvasView];
     storeCanvasView.type = [NSNumber numberWithInt:1];
     [storeCanvasView setup];
     storeCanvasView.vc = self;
     
     //    初始化品牌
     LSCanvasView *brandCanvasView = [[[NSBundle mainBundle]loadNibNamed:@"LSCanvasView" owner:self options:nil]firstObject];
-    brandCanvasView.frame = CGRectMake(MARGIN, CGRectGetMaxY(storeCanvasView.frame) + MARGIN, CGRectGetWidth(self.view.frame) - MARGIN * 2, 170);
-    [self.view addSubview:brandCanvasView];
+    brandCanvasView.frame = CGRectMake(MARGIN, CGRectGetMaxY(storeCanvasView.frame) + MARGIN, CGRectGetWidth(self.view.frame) - MARGIN * 2, canvasHeight);
+    [scrollView addSubview:brandCanvasView];
     brandCanvasView.type = [NSNumber numberWithInt:2];
     [brandCanvasView setup];
     brandCanvasView.vc = self;

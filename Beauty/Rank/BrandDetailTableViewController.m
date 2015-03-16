@@ -7,23 +7,33 @@
 //
 
 #import "BrandDetailTableViewController.h"
+#import <BmobSDK/Bmob.h>
+#import "UIImageView+AFNetworking.h"
+#import "Global.h"
 
-@interface BrandDetailTableViewController ()
-
+@interface BrandDetailTableViewController () <UIWebViewDelegate>
+@property (nonatomic ,strong) BmobObject *brandObject;
+@property (nonatomic, assign) CGFloat webViewHeight;
 @end
 
 @implementation BrandDetailTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"brandId:%@",self.brandId);
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self fetch];
 }
-
+- (void)fetch {
+    BmobQuery *query = [BmobQuery queryWithClassName:@"Brand"];
+    [query getObjectInBackgroundWithId:self.brandId block:^(BmobObject *object, NSError *error) {
+        if (error) {
+            NSLog(@"%@",error);
+        } else {
+            self.brandObject = object;
+            self.navigationItem.title = [object objectForKey:@"name"];
+            [self.tableView reloadData];
+        }
+    }];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -33,59 +43,70 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    return 0;
+    if (!self.brandObject) {
+        return [super numberOfSectionsInTableView:tableView];
+    }
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-    return 0;
+    if (!self.brandObject) {
+        return [super tableView:tableView numberOfRowsInSection:section];
+    }
+    if (section == 1) {
+        return [[self.brandObject objectForKey:@"images"] count];
+    }
+    return 1;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"brand"];
+    if (!self.brandObject) {
+        return [super tableView:tableView cellForRowAtIndexPath:indexPath];
+    }
+    if (indexPath.section == 0) {
+        cell = [[UITableViewCell alloc]init];
+        cell.textLabel.text = @"图片详情";
+    } else if(indexPath.section == 2) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"webView"];
+        UIWebView *webView = (UIWebView *)[cell viewWithTag:21];
+        webView.delegate = self;
+        webView.scrollView.scrollEnabled = NO;
+        if (self.webViewHeight == 0.0) {
+            
+            [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[self.brandObject objectForKey:@"webUrl"]]]];
+        }
+    } else if (indexPath.section == 1){
+        UIImageView *imageView = (UIImageView *)[cell viewWithTag:11];
+        NSArray *imageArray = [self.brandObject objectForKey:@"images"];
+        [imageView setImageWithURL:[NSURL URLWithString:imageArray[indexPath.row]]];
+    }
     
-    // Configure the cell...
-    
+
     return cell;
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (!self.brandObject) {
+        return [super tableView:tableView heightForRowAtIndexPath:indexPath];
+    }
+    if (indexPath.section == 0) {
+        return 44.0;
+    } else if (indexPath.section == 2) {
+        return self.webViewHeight;
+    }
+//    图片高度 适配多尺寸
+    return (140.0 + MARGIN * 2) / 320.0 * SCREEN_WIDTH;
+    
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+//网页加载完成代理方法
+- (void)webViewDidFinishLoad:(UIWebView *)webView{
+    self.webViewHeight = [[webView stringByEvaluatingJavaScriptFromString:@"document.body.offsetHeight;"] floatValue];
+    [self.tableView reloadData];
+    
 }
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -93,6 +114,6 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+
 
 @end

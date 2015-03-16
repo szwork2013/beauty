@@ -354,6 +354,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F715AE7A1AB710D200D07C38 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				F715AE661AB6C2E900D07C38 /* RankListStoreTableViewDataSource.h */,
+				F715AE671AB6C2E900D07C38 /* RankListStoreTableViewDataSource.m */,
+				F715AE631AB6C26D00D07C38 /* RankListStoreViewController.h */,
+				F715AE641AB6C26D00D07C38 /* RankListStoreViewController.m */,
+			);
+			name = Store;
+			sourceTree = "<group>";
+		};
+		F715AE7B1AB710D900D07C38 /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				F70850321AB67F0200DD4A1C /* RankListProductTableViewDataSource.h */,
+				F70850331AB67F0200DD4A1C /* RankListProductTableViewDataSource.m */,
+				F708502C1AB66DE500DD4A1C /* RankListProductViewController.h */,
+				F708502D1AB66DE500DD4A1C /* RankListProductViewController.m */,
+			);
+			name = Product;
+			sourceTree = "<group>";
+		};
+		F715AE7C1AB710E200D07C38 /* Brand */ = {
+			isa = PBXGroup;
+			children = (
+				F715AE6E1AB7001300D07C38 /* RankListBrandViewController.h */,
+				F715AE6F1AB7001300D07C38 /* RankListBrandViewController.m */,
+				F715AE741AB7050C00D07C38 /* BrandDetailTableViewController.h */,
+				F715AE751AB7050C00D07C38 /* BrandDetailTableViewController.m */,
+				F715AE711AB7015100D07C38 /* RankListBrandTableViewDataSource.h */,
+				F715AE721AB7015100D07C38 /* RankListBrandTableViewDataSource.m */,
+			);
+			name = Brand;
+			sourceTree = "<group>";
+		};
 		F7172C341AA87C9D00A9ED4C /* cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -425,22 +460,11 @@
 		F75DE84A1AB532AB00B669F2 /* Rank */ = {
 			isa = PBXGroup;
 			children = (
-				F715AE661AB6C2E900D07C38 /* RankListStoreTableViewDataSource.h */,
-				F715AE671AB6C2E900D07C38 /* RankListStoreTableViewDataSource.m */,
-				F715AE631AB6C26D00D07C38 /* RankListStoreViewController.h */,
-				F715AE641AB6C26D00D07C38 /* RankListStoreViewController.m */,
-				F70850321AB67F0200DD4A1C /* RankListProductTableViewDataSource.h */,
-				F70850331AB67F0200DD4A1C /* RankListProductTableViewDataSource.m */,
-				F708502C1AB66DE500DD4A1C /* RankListProductViewController.h */,
-				F708502D1AB66DE500DD4A1C /* RankListProductViewController.m */,
 				F75DE8471AB532A200B669F2 /* RankViewController.h */,
 				F75DE8481AB532A200B669F2 /* RankViewController.m */,
-				F715AE6E1AB7001300D07C38 /* RankListBrandViewController.h */,
-				F715AE6F1AB7001300D07C38 /* RankListBrandViewController.m */,
-				F715AE741AB7050C00D07C38 /* BrandDetailTableViewController.h */,
-				F715AE751AB7050C00D07C38 /* BrandDetailTableViewController.m */,
-				F715AE711AB7015100D07C38 /* RankListBrandTableViewDataSource.h */,
-				F715AE721AB7015100D07C38 /* RankListBrandTableViewDataSource.m */,
+				F715AE7A1AB710D200D07C38 /* Store */,
+				F715AE7B1AB710D900D07C38 /* Product */,
+				F715AE7C1AB710E200D07C38 /* Brand */,
 			);
 			name = Rank;
 			path = ../XHScrollMenu;
@@ -506,9 +530,9 @@
 		F7B4982C1AA2FF300067219E = {
 			isa = PBXGroup;
 			children = (
+				F7B498371AA2FF300067219E /* Beauty */,
 				F7540A0D1AB42D2A00042CB0 /* SVPullToRefresh */,
 				F787B7091AB3DFBE00D4C27D /* XHScrollMenu */,
-				F7B498371AA2FF300067219E /* Beauty */,
 				F7B498511AA2FF300067219E /* BeautyTests */,
 				F7B498361AA2FF300067219E /* Products */,
 				F7BBEBC61AA3633D000D74D0 /* SVProgressHUD */,

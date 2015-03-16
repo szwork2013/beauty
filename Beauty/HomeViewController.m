@@ -193,7 +193,7 @@
         TryEventProductDetailTableViewController *vc = segue.destinationViewController;
         vc.productId = [[self.productArray[self.productTableView.indexPathForSelectedRow.row]objectForKey:@"product"] objectId];
     }
-    [self setHidesBottomBarWhenPushed:YES];
+//    [self setHidesBottomBarWhenPushed:YES];
 }
 
 
