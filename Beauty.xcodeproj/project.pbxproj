@@ -10,6 +10,8 @@
 		F70850291AB5CE5700DD4A1C /* no1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F70850261AB5CE5700DD4A1C /* no1@2x.png */; };
 		F708502A1AB5CE5700DD4A1C /* no2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F70850271AB5CE5700DD4A1C /* no2@2x.png */; };
 		F708502B1AB5CE5700DD4A1C /* no3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F70850281AB5CE5700DD4A1C /* no3@2x.png */; };
+		F708502E1AB66DE500DD4A1C /* RankListProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F708502D1AB66DE500DD4A1C /* RankListProductViewController.m */; };
+		F70850341AB67F0200DD4A1C /* RankListProductTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F70850331AB67F0200DD4A1C /* RankListProductTableViewDataSource.m */; };
 		F7091A931AB18366009D8C1D /* UserService.m in Sources */ = {isa = PBXBuildFile; fileRef = F7091A921AB18366009D8C1D /* UserService.m */; };
 		F713C8C61AA48A5A004BE58C /* favor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F713C8C51AA48A5A004BE58C /* favor@2x.png */; };
 		F713C8C81AA48F5D004BE58C /* tel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F713C8C71AA48F5D004BE58C /* tel@2x.png */; };
@@ -131,6 +133,10 @@
 		F70850261AB5CE5700DD4A1C /* no1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "no1@2x.png"; sourceTree = "<group>"; };
 		F70850271AB5CE5700DD4A1C /* no2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "no2@2x.png"; sourceTree = "<group>"; };
 		F70850281AB5CE5700DD4A1C /* no3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "no3@2x.png"; sourceTree = "<group>"; };
+		F708502C1AB66DE500DD4A1C /* RankListProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RankListProductViewController.h; path = Beauty/Rank/RankListProductViewController.h; sourceTree = SOURCE_ROOT; };
+		F708502D1AB66DE500DD4A1C /* RankListProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RankListProductViewController.m; path = Beauty/Rank/RankListProductViewController.m; sourceTree = SOURCE_ROOT; };
+		F70850321AB67F0200DD4A1C /* RankListProductTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankListProductTableViewDataSource.h; sourceTree = "<group>"; };
+		F70850331AB67F0200DD4A1C /* RankListProductTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankListProductTableViewDataSource.m; sourceTree = "<group>"; };
 		F7091A911AB18366009D8C1D /* UserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserService.h; path = Beauty/UserService.h; sourceTree = "<group>"; };
 		F7091A921AB18366009D8C1D /* UserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserService.m; path = Beauty/UserService.m; sourceTree = "<group>"; };
 		F713C8C51AA48A5A004BE58C /* favor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "favor@2x.png"; path = "images/favor@2x.png"; sourceTree = "<group>"; };
@@ -396,6 +402,10 @@
 		F75DE84A1AB532AB00B669F2 /* Rank */ = {
 			isa = PBXGroup;
 			children = (
+				F70850321AB67F0200DD4A1C /* RankListProductTableViewDataSource.h */,
+				F70850331AB67F0200DD4A1C /* RankListProductTableViewDataSource.m */,
+				F708502C1AB66DE500DD4A1C /* RankListProductViewController.h */,
+				F708502D1AB66DE500DD4A1C /* RankListProductViewController.m */,
 				F75DE8471AB532A200B669F2 /* RankViewController.h */,
 				F75DE8481AB532A200B669F2 /* RankViewController.m */,
 			);
@@ -915,11 +925,13 @@
 				F745232D1AB45A1300C33281 /* WechatRecordViewController.m in Sources */,
 				F7172C371AA87D8500A9ED4C /* ProductTableViewController.m in Sources */,
 				F77FB1CD1AA9F02F0092D57F /* EvaluateTableViewController.m in Sources */,
+				F70850341AB67F0200DD4A1C /* RankListProductTableViewDataSource.m in Sources */,
 				F76B38151AB303F90012F3A7 /* TryEventProductDetailTableViewController.m in Sources */,
 				F787B7141AB3DFBE00D4C27D /* UIScrollView+XHVisibleCenterScroll.m in Sources */,
 				F7B4989E1AA3356F0067219E /* UIImageView+AFNetworking.m in Sources */,
 				F7B498B81AA335E30067219E /* AFHTTPSessionManager.m in Sources */,
 				F713C8CB1AA49089004BE58C /* StoreDetailTableViewController.m in Sources */,
+				F708502E1AB66DE500DD4A1C /* RankListProductViewController.m in Sources */,
 				F7172C4A1AA94E3800A9ED4C /* WebViewBrowserController.m in Sources */,
 				F7B4983B1AA2FF300067219E /* main.m in Sources */,
 				F7540A141AB42D2A00042CB0 /* UIScrollView+SVPullToRefresh.m in Sources */,

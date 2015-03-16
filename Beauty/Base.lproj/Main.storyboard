@@ -779,11 +779,111 @@
                     <navigationItem key="navigationItem" title="排行榜" id="h4l-N6-eZK"/>
                     <connections>
                         <segue destination="z5s-pb-0rk" kind="show" identifier="productDetail" id="IeB-GA-u2I"/>
+                        <segue destination="kZg-wW-KWP" kind="show" identifier="rankListProduct" id="PRu-4R-OL7"/>
+                        <segue destination="fqv-JQ-rQo" kind="show" identifier="rankListStore" id="B1z-qf-Qee"/>
+                        <segue destination="9OC-QA-mfL" kind="show" identifier="rankListBrand" id="ilD-nc-N3n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sRI-di-SUi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="384" y="-3612"/>
+        </scene>
+        <!--店铺排行榜-->
+        <scene sceneID="KOJ-m2-U75">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="fqv-JQ-rQo" customClass="RankListStoreViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8LF-FX-KkA"/>
+                        <viewControllerLayoutGuide type="bottom" id="3yZ-PR-yfN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WnH-ce-5LV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="店铺排行榜" id="u81-vB-0Qx"/>
+                    <connections>
+                        <segue destination="WRk-gT-Qc4" kind="show" identifier="storeDetail" id="GfM-99-pxe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c31-Ip-JxR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1465" y="-4848"/>
+        </scene>
+        <!--品牌详情-->
+        <scene sceneID="OrM-EF-ksC">
+            <objects>
+                <tableViewController id="5Oz-SA-eMO" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="RCt-eR-LRz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection id="Uin-Xe-YpE">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="M66-bc-le3">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="M66-bc-le3" id="PG7-Pl-B3v">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="5Oz-SA-eMO" id="xRo-0l-kbp"/>
+                            <outlet property="delegate" destination="5Oz-SA-eMO" id="Fgm-zM-Io8"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="品牌详情" id="Lpl-c4-6pf"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p6O-fT-OES" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2512" y="-5316"/>
+        </scene>
+        <!--品牌排行榜-->
+        <scene sceneID="g9u-pd-vEt">
+            <objects>
+                <viewController id="9OC-QA-mfL" customClass="RankListBrandViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Pmw-pO-iwk"/>
+                        <viewControllerLayoutGuide type="bottom" id="cwT-nK-woV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iCt-TJ-Jbt">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="品牌排行榜" id="WH0-JG-nvR"/>
+                    <connections>
+                        <segue destination="5Oz-SA-eMO" kind="show" identifier="brandDetail" id="rIW-Hi-kUi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Shl-Hr-kpw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1141" y="-4006"/>
+        </scene>
+        <!--产品排行榜-->
+        <scene sceneID="VxX-7f-s6j">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="kZg-wW-KWP" customClass="RankListProductViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bY4-cm-5GM"/>
+                        <viewControllerLayoutGuide type="bottom" id="crY-52-a3K"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="l8H-j8-63n">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="产品排行榜" id="7AQ-bv-25y"/>
+                    <connections>
+                        <segue destination="z5s-pb-0rk" kind="show" identifier="productDetail" id="iWO-Pp-U3m"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DW2-Cf-KZw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1457" y="-5874"/>
         </scene>
         <!--首页-->
         <scene sceneID="xqH-1S-Mkm">
@@ -2304,7 +2404,8 @@
         <image name="try_bg.png" width="317" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="IeB-GA-u2I"/>
+        <segue reference="GfM-99-pxe"/>
+        <segue reference="iWO-Pp-U3m"/>
         <segue reference="QJK-84-Obb"/>
         <segue reference="6zP-3P-Cza"/>
     </inferredMetricsTieBreakers>

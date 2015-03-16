@@ -46,8 +46,18 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    ProductDetailTableViewController *vc = segue.destinationViewController;
-    vc.productId = self.productId;
+//    if ([segue.identifier isEqualToString:@"rankListProduct"]) {
+//        
+//    } else if ([segue.identifier isEqualToString:@"rankListStore"]){
+//        
+//    } else if ([segue.identifier isEqualToString:@"rankListBrand"]) {
+//        
+//    } else
+    
+    if ([segue.identifier isEqualToString:@"productDetail"]) {
+        ProductDetailTableViewController *vc = segue.destinationViewController;
+        vc.productId = self.productId;
+    }
 }
 
 

@@ -102,7 +102,7 @@
                         [button setTitle:@"" forState:UIControlStateNormal];
                         button.bounds = imageView.bounds;
                         button.center = imageView.center;
-                        button.tag = PRODUCT_TAG * (i + 1) + j;
+                        button.tag = PRODUCT_TAG * (i + 1) + j + 1;
                         //添加到成员字典
                         [self.objectIdDictionary setValue:rankListProduct.objectId forKey:[NSString stringWithFormat:@"%zi",button.tag]];
                         [button addTarget:self action:@selector(jump:) forControlEvents:UIControlEventTouchUpInside];
@@ -126,6 +126,9 @@
             _pageControl.numberOfPages = self.titleArray.count;
             //    设置滚动视图内容尺寸
             _mainScrollView.contentSize = CGSizeMake(CGRectGetWidth(self.mainScrollView.frame) * self.titleArray.count, CGRectGetHeight(self.mainScrollView.frame));
+//            设置更多按钮跳转目标
+            _moreButton.tag = PRODUCT_TAG;
+            [_moreButton addTarget:self action:@selector(showMore:) forControlEvents:UIControlEventTouchUpInside];
         }
     }];
 
@@ -136,5 +139,16 @@
 //    NSLog(@"%@",self.objectIdDictionary[[NSString stringWithFormat:@"%zi",button.tag]]);
     self.vc.productId = self.objectIdDictionary[[NSString stringWithFormat:@"%zi",button.tag]];
     [self.vc performSegueWithIdentifier:@"productDetail" sender:self];
+}
+
+- (void)showMore:(UIButton *)button {
+    if (button.tag == PRODUCT_TAG) {
+        [self.vc performSegueWithIdentifier:@"rankListProduct" sender:self];
+    } else if (button.tag == STORE_TAG) {
+        [self.vc performSegueWithIdentifier:@"rankListStore" sender:self];
+    } else if (button.tag == BRAND_TAG){
+        [self.vc performSegueWithIdentifier:@"rankListBrand" sender:self];
+    }
+    
 }
 @end
