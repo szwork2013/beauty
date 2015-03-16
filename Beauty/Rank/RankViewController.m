@@ -11,6 +11,7 @@
 #import <BmobSDK/Bmob.h>
 #import "UIImageView+AFNetworking.h"
 #import "ProductDetailTableViewController.h"
+#import "Global.h"
 
 @interface RankViewController ()
 
@@ -26,12 +27,30 @@
     // Do any additional setup after loading the view.
 }
 - (void)setup {
+
 //    初始化视图
     LSCanvasView *productCanvasView = [[[NSBundle mainBundle]loadNibNamed:@"LSCanvasView" owner:self options:nil]firstObject];
-    productCanvasView.frame = CGRectMake(8, 64 + 8, CGRectGetWidth(self.view.frame) - 16, 170);
+    productCanvasView.frame = CGRectMake(MARGIN, 64 + MARGIN, CGRectGetWidth(self.view.frame) - MARGIN * 2, 170);
     [self.view addSubview:productCanvasView];
+    productCanvasView.type = [NSNumber numberWithInt:0];
     [productCanvasView setup];
     productCanvasView.vc = self;
+    
+//    初始化店铺
+    LSCanvasView *storeCanvasView = [[[NSBundle mainBundle]loadNibNamed:@"LSCanvasView" owner:self options:nil]firstObject];
+    storeCanvasView.frame = CGRectMake(MARGIN, CGRectGetMaxY(productCanvasView.frame) + MARGIN, CGRectGetWidth(self.view.frame) - MARGIN * 2, 170);
+    [self.view addSubview:storeCanvasView];
+    storeCanvasView.type = [NSNumber numberWithInt:1];
+    [storeCanvasView setup];
+    storeCanvasView.vc = self;
+    
+    //    初始化品牌
+    LSCanvasView *brandCanvasView = [[[NSBundle mainBundle]loadNibNamed:@"LSCanvasView" owner:self options:nil]firstObject];
+    brandCanvasView.frame = CGRectMake(MARGIN, CGRectGetMaxY(storeCanvasView.frame) + MARGIN, CGRectGetWidth(self.view.frame) - MARGIN * 2, 170);
+    [self.view addSubview:brandCanvasView];
+    brandCanvasView.type = [NSNumber numberWithInt:2];
+    [brandCanvasView setup];
+    brandCanvasView.vc = self;
     
 }
 - (void)didReceiveMemoryWarning {

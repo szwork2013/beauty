@@ -51,13 +51,18 @@
 - (void)loadData{
     //    获取分类数据
     BmobQuery *query = [BmobQuery queryWithClassName:@"RankListClassify"];
-    [query whereKey:@"type" equalTo:[NSNumber numberWithInt:0]];
+    [query whereKey:@"type" equalTo:self.type];
+    NSDictionary *condiction1 = @{@"cityId":@""};
+    NSDictionary *condiction2 = @{@"cityId":@{@"$exists":[NSNumber numberWithBool:NO]}};
+    NSArray *array = @[condiction1,condiction2];
+    [query addTheConstraintByOrOperationWithArray:array];
     [query orderByAscending:@"rank"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
         if (error) {
             NSLog(@"%@",error);
         } else {
             for (int i = 0; i < array.count; i++) {
+                
                 BmobObject *classify = array[i];
 //                三个产品的背景层
                 UIView *backgroundView = [[UIView alloc]initWithFrame:CGRectMake(i * self.mainScrollView.frame.size.width, 0, self.mainScrollView.frame.size.width, self.mainScrollView.frame.size.height)];
@@ -65,14 +70,33 @@
                 [self.titleArray addObject:[classify objectForKey:@"name"]];
 //                NSLog(@"%@",[classify objectForKey:@"name"]);
                 //                获取产品数据
-                BmobQuery *query = [BmobQuery queryWithClassName:@"RankListProduct"];
-                [query includeKey:@"product"];
+                BmobQuery *query;
+//                先判断是哪张表
+                if ([self.type intValue] == 0) {
+                    query = [BmobQuery queryWithClassName:@"RankListProduct"];
+                    [query includeKey:@"product"];
+                } else if ([self.type intValue] == 1){
+                    query = [BmobQuery queryWithClassName:@"RankListStore"];
+                    [query includeKey:@"store"];
+
+                }else if ([self.type intValue] == 2){
+                    query = [BmobQuery queryWithClassName:@"RankListBrand"];
+                    [query includeKey:@"brand"];
+                }
                 query.limit = 3;
                 [query orderByAscending:@"rank"];
                 [query whereKey:@"rankListClassify" equalTo:classify];
                 [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
                     for (int j = 0; j < array.count; j++) {
-                        BmobObject *rankListProduct = [array[j] objectForKey:@"product"];
+                        BmobObject *rankListProduct;
+                        if ([self.type intValue] == 0) {
+                            rankListProduct = [array[j] objectForKey:@"product"];
+                        } else if ([self.type intValue] == 1){
+                            rankListProduct = [array[j] objectForKey:@"store"];
+                        }else if ([self.type intValue] == 2){
+                            rankListProduct = [array[j] objectForKey:@"brand"];
+                        }
+                        
                         //    生成图片
                         UIImageView *imageView = [[UIImageView alloc]init];
                         imageView.bounds = CGRectMake(0, 0, 60, 60);
@@ -84,8 +108,6 @@
                         }
 
                         imageView.center = CGPointMake(x, backgroundView.center.y);
-//                        UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(60 * i, 0, 60, 60)];
-
                         imageView.layer.cornerRadius = 30.0;
                         imageView.clipsToBounds = YES;
                         imageView.layer.borderColor = [TINYGRAY_COLOR CGColor];

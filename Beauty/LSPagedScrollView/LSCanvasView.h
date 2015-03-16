@@ -20,7 +20,7 @@
 @property (nonatomic, strong) IBOutlet UIPageControl *pageControl;
 @property (nonatomic, strong) IBOutlet UIScrollView *mainScrollView;
 @property (nonatomic, strong) IBOutlet UIButton *moreButton;
-
+@property (nonatomic, strong) NSNumber *type;
 - (void)setup;
 
 @end

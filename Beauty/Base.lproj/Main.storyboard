@@ -802,6 +802,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="店铺排行榜" id="u81-vB-0Qx"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="WRk-gT-Qc4" kind="show" identifier="storeDetail" id="GfM-99-pxe"/>
                     </connections>
@@ -855,6 +856,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="品牌排行榜" id="WH0-JG-nvR"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="5Oz-SA-eMO" kind="show" identifier="brandDetail" id="rIW-Hi-kUi"/>
                     </connections>
@@ -877,6 +879,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="产品排行榜" id="7AQ-bv-25y"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="z5s-pb-0rk" kind="show" identifier="productDetail" id="iWO-Pp-U3m"/>
                     </connections>
@@ -2343,11 +2346,23 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="9bv-z7-aSi" firstAttribute="leading" secondItem="h1B-4n-YgU" secondAttribute="leadingMargin" constant="-16" id="dxs-p0-k6b"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9bv-z7-aSi" secondAttribute="trailing" constant="-16" id="fjU-7Z-vNk"/>
                             <constraint firstItem="EB0-QK-8Wv" firstAttribute="top" secondItem="9bv-z7-aSi" secondAttribute="bottom" id="jg1-YU-85j"/>
+                            <constraint firstItem="9bv-z7-aSi" firstAttribute="top" secondItem="weB-u4-TW1" secondAttribute="bottom" constant="-64" id="kjK-yA-Y5T"/>
+                            <constraint firstItem="EB0-QK-8Wv" firstAttribute="top" secondItem="9bv-z7-aSi" secondAttribute="bottom" id="koA-Ck-Iye"/>
                             <constraint firstItem="9bv-z7-aSi" firstAttribute="leading" secondItem="h1B-4n-YgU" secondAttribute="leadingMargin" constant="-16" id="tCh-tu-9jY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="9bv-z7-aSi" secondAttribute="trailing" constant="-16" id="thQ-Sk-hHW"/>
                             <constraint firstItem="9bv-z7-aSi" firstAttribute="top" secondItem="weB-u4-TW1" secondAttribute="bottom" constant="-64" id="xjb-ib-eU9"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="tCh-tu-9jY"/>
+                                <exclude reference="thQ-Sk-hHW"/>
+                                <exclude reference="xjb-ib-eU9"/>
+                                <exclude reference="jg1-YU-85j"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
