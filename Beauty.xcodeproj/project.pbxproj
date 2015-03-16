@@ -27,6 +27,9 @@
 		F715AE681AB6C2E900D07C38 /* RankListStoreTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F715AE671AB6C2E900D07C38 /* RankListStoreTableViewDataSource.m */; };
 		F715AE6C1AB6C6C600D07C38 /* StoreShowTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F715AE6A1AB6C6C600D07C38 /* StoreShowTableViewCell.m */; };
 		F715AE6D1AB6C6C600D07C38 /* StoreShowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F715AE6B1AB6C6C600D07C38 /* StoreShowTableViewCell.xib */; };
+		F715AE701AB7001300D07C38 /* RankListBrandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F715AE6F1AB7001300D07C38 /* RankListBrandViewController.m */; };
+		F715AE731AB7015100D07C38 /* RankListBrandTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F715AE721AB7015100D07C38 /* RankListBrandTableViewDataSource.m */; };
+		F715AE761AB7050C00D07C38 /* BrandDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F715AE751AB7050C00D07C38 /* BrandDetailTableViewController.m */; };
 		F7172C331AA84F8D00A9ED4C /* SecondLevelTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7172C321AA84F8D00A9ED4C /* SecondLevelTableViewController.m */; };
 		F7172C371AA87D8500A9ED4C /* ProductTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7172C361AA87D8500A9ED4C /* ProductTableViewController.m */; };
 		F7172C3A1AA8957800A9ED4C /* ProductDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7172C391AA8957800A9ED4C /* ProductDetailTableViewController.m */; };
@@ -163,6 +166,12 @@
 		F715AE691AB6C6C600D07C38 /* StoreShowTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreShowTableViewCell.h; path = cell/StoreShowTableViewCell.h; sourceTree = "<group>"; };
 		F715AE6A1AB6C6C600D07C38 /* StoreShowTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoreShowTableViewCell.m; path = cell/StoreShowTableViewCell.m; sourceTree = "<group>"; };
 		F715AE6B1AB6C6C600D07C38 /* StoreShowTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StoreShowTableViewCell.xib; path = cell/StoreShowTableViewCell.xib; sourceTree = "<group>"; };
+		F715AE6E1AB7001300D07C38 /* RankListBrandViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RankListBrandViewController.h; path = Beauty/Rank/RankListBrandViewController.h; sourceTree = SOURCE_ROOT; };
+		F715AE6F1AB7001300D07C38 /* RankListBrandViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RankListBrandViewController.m; path = Beauty/Rank/RankListBrandViewController.m; sourceTree = SOURCE_ROOT; };
+		F715AE711AB7015100D07C38 /* RankListBrandTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RankListBrandTableViewDataSource.h; path = Beauty/Rank/RankListBrandTableViewDataSource.h; sourceTree = SOURCE_ROOT; };
+		F715AE721AB7015100D07C38 /* RankListBrandTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RankListBrandTableViewDataSource.m; path = Beauty/Rank/RankListBrandTableViewDataSource.m; sourceTree = SOURCE_ROOT; };
+		F715AE741AB7050C00D07C38 /* BrandDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BrandDetailTableViewController.h; path = Beauty/Rank/BrandDetailTableViewController.h; sourceTree = SOURCE_ROOT; };
+		F715AE751AB7050C00D07C38 /* BrandDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BrandDetailTableViewController.m; path = Beauty/Rank/BrandDetailTableViewController.m; sourceTree = SOURCE_ROOT; };
 		F7172C311AA84F8D00A9ED4C /* SecondLevelTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondLevelTableViewController.h; sourceTree = "<group>"; };
 		F7172C321AA84F8D00A9ED4C /* SecondLevelTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondLevelTableViewController.m; sourceTree = "<group>"; };
 		F7172C351AA87D8500A9ED4C /* ProductTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductTableViewController.h; sourceTree = "<group>"; };
@@ -426,6 +435,12 @@
 				F708502D1AB66DE500DD4A1C /* RankListProductViewController.m */,
 				F75DE8471AB532A200B669F2 /* RankViewController.h */,
 				F75DE8481AB532A200B669F2 /* RankViewController.m */,
+				F715AE6E1AB7001300D07C38 /* RankListBrandViewController.h */,
+				F715AE6F1AB7001300D07C38 /* RankListBrandViewController.m */,
+				F715AE741AB7050C00D07C38 /* BrandDetailTableViewController.h */,
+				F715AE751AB7050C00D07C38 /* BrandDetailTableViewController.m */,
+				F715AE711AB7015100D07C38 /* RankListBrandTableViewDataSource.h */,
+				F715AE721AB7015100D07C38 /* RankListBrandTableViewDataSource.m */,
 			);
 			name = Rank;
 			path = ../XHScrollMenu;
@@ -908,7 +923,9 @@
 				F7B498BB1AA335E30067219E /* AFURLConnectionOperation.m in Sources */,
 				F7B4989F1AA3356F0067219E /* UIProgressView+AFNetworking.m in Sources */,
 				F75DE84E1AB5345F00B669F2 /* LSCanvasView.m in Sources */,
+				F715AE701AB7001300D07C38 /* RankListBrandViewController.m in Sources */,
 				F7BBEBC51AA35C66000D74D0 /* ActivityViewController.m in Sources */,
+				F715AE731AB7015100D07C38 /* RankListBrandTableViewDataSource.m in Sources */,
 				F7091A931AB18366009D8C1D /* UserService.m in Sources */,
 				F7B498711AA31B250067219E /* StoreTableViewCell.m in Sources */,
 				F71B7C851AAFE4CD005E8648 /* ProductShowTableViewCell.m in Sources */,
@@ -938,6 +955,7 @@
 				F7B498A11AA3356F0067219E /* UIWebView+AFNetworking.m in Sources */,
 				F7B4989B1AA3356F0067219E /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				F7B498B61AA335E30067219E /* AFHTTPRequestOperation.m in Sources */,
+				F715AE761AB7050C00D07C38 /* BrandDetailTableViewController.m in Sources */,
 				F787B7161AB3DFBE00D4C27D /* XHMenu.m in Sources */,
 				F745232A1AB45A1300C33281 /* WechatProductDetailTableViewController.m in Sources */,
 				F787B7151AB3DFBE00D4C27D /* XHIndicatorView.m in Sources */,

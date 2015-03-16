@@ -1,22 +1,23 @@
 //
-//  RankListProductViewController.m
+//  RankListBrandViewController.m
 //  Beauty
 //
 //  Created by HuangXiuJie on 15/3/16.
 //  Copyright (c) 2015年 瑞安市灵犀网络技术有限公司. All rights reserved.
 //
 
-#import "RankListStoreViewController.h"
-#import "StoreDetailTableViewController.h"
+#import "RankListBrandViewController.h"
+#import "BrandDetailTableViewController.h"
 #import <BmobSDK/Bmob.h>
-#import "RankListStoreTableViewDataSource.h"
+#import "RankListBrandTableViewDataSource.h"
 #import "XHRootView.h"
 
-@interface RankListStoreViewController ()
+@interface RankListBrandViewController ()
 
 @end
 
-@implementation RankListStoreViewController
+@implementation RankListBrandViewController
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tabBarController.tabBar.hidden = YES;
@@ -49,7 +50,7 @@
     //获取分类
     
     BmobQuery *query = [BmobQuery queryWithClassName:@"RankListClassify"];
-    [query whereKey:@"type" equalTo:[NSNumber numberWithInt:1]];
+    [query whereKey:@"type" equalTo:[NSNumber numberWithInt:2]];
     NSDictionary *condictionCityIdEmpty = @{@"cityId":@""};
     NSDictionary *condictionCityIdNull = @{@"cityId":@{@"$exists":[NSNumber numberWithBool:NO]}};
     NSArray *array = @[condictionCityIdEmpty,condictionCityIdNull];
@@ -76,15 +77,15 @@
                 //边距
                 tableView.contentInset = UIEdgeInsetsMake(-4, 0, 0, 0);
                 //        设置tableview代理类
-                RankListStoreTableViewDataSource *storeDataSource = [[RankListStoreTableViewDataSource alloc]initWithTableView:tableView classifyId:[array[i] objectId]];
-                storeDataSource.viewController = self;
+                RankListBrandTableViewDataSource *brandDataSource = [[RankListBrandTableViewDataSource alloc]initWithTableView:tableView classifyId:[array[i] objectId]];
+                brandDataSource.viewController = self;
                 //        设置滚动视图代理类
-                tableView.delegate = storeDataSource;
-                tableView.dataSource = storeDataSource;
+                tableView.delegate = brandDataSource;
+                tableView.dataSource = brandDataSource;
                 
                 //        获取数据并刷新表格
                 [viewPager.scrollView addSubview:tableView];
-                [storeDataSource fetchData:0];
+                [brandDataSource fetchData:0];
                 
                 
             }
@@ -112,8 +113,8 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    StoreDetailTableViewController *vc = segue.destinationViewController;
-    vc.storeId = self.storeId;
+    BrandDetailTableViewController *vc = segue.destinationViewController;
+    vc.brandId = self.brandId;
 }
 
 

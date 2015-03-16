@@ -13,7 +13,7 @@
 #import "ProductDetailTableViewController.h"
 #import "Global.h"
 #import "StoreDetailTableViewController.h"
-
+#import "BrandDetailTableViewController.h"
 @interface RankViewController ()
 
 @end
@@ -81,7 +81,8 @@
         StoreDetailTableViewController *vc = segue.destinationViewController;
         vc.storeId = self.storeId;
     }  else if ([segue.identifier isEqualToString:@"brandDetail"]) {
-
+        BrandDetailTableViewController *vc = segue.destinationViewController;
+        vc.brandId = self.brandId;
     }
 }
 
