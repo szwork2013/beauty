@@ -16,6 +16,7 @@
 #import "CommonUtil.h"
 #import "TryEventProductDetailTableViewController.h"
 
+
 @interface HomeViewController ()<UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
 //置顶海报轮播
@@ -32,6 +33,8 @@
 //firstLevelId button
 @property (strong, nonatomic) NSMutableDictionary *buttonTagDictionary;
 @property (strong, nonatomic) NSString *currentFirstLevelId;
+//推荐图片张数
+@property (assign, nonatomic) NSUInteger imageCount;
 @end
 
 @implementation HomeViewController
@@ -125,17 +128,19 @@
             
             [self.productTableView reloadData];
 //            配置高度
-            self.mainScrollView.contentSize = CGSizeMake(self.mainScrollView.contentSize.width, self.mainScrollView.contentSize.height + (array.count - 1) * 120 - 60);
+            self.mainScrollView.contentSize = CGSizeMake(self.mainScrollView.contentSize.width, self.mainScrollView.contentSize.height + (array.count - 1) * 120 - 115);
         }
     }];
 }
 
-#pragma mark fetch data for banner scrollView
+#pragma mark 获取图片轮播
 -(void) fetchRecommendScrollView {
     BmobQuery *query = [[BmobQuery alloc]initWithClassName:@"Recommend"];
     [query whereKey:@"type" equalTo:[NSNumber numberWithInteger:2]];
+
     [query orderByAscending:@"rank"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+        self.imageCount = array.count;
         //get scroll view rect
         CGRect scrollRect = self.recommendScrollView.frame;
         //set scroll view content size
@@ -152,7 +157,7 @@
             [self.recommendScrollView addSubview:imageView];
         }
         self.pageControl = [[UIPageControl alloc]init];
-
+        
         CGFloat width = 20 * array.count;
         CGFloat height = 20;
         self.pageControl.frame = CGRectMake(self.view.frame.size.width - width, self.recommendScrollView.frame.size.height - height, width, height);
@@ -161,9 +166,53 @@
         self.pageControl.numberOfPages = array.count;
         self.recommendScrollView.delegate = self;
         [self.mainScrollView addSubview:self.pageControl];
+        [self updateScrollView];
     }];
 }
 
+
+- (void) updateScrollView
+{
+
+    NSTimer *myTimer = nil;
+//    [myTimer invalidate];
+
+    NSTimeInterval timeInterval = 3;
+    //timer
+    myTimer = [NSTimer scheduledTimerWithTimeInterval:timeInterval target:self
+                                             selector:@selector(handleMaxShowTimer:)
+                                             userInfo: nil
+                                              repeats:YES];
+}
+
+- (void)handleMaxShowTimer:(NSTimer*)theTimer
+{
+    CGPoint pt = self.recommendScrollView.contentOffset;
+    NSUInteger count = self.imageCount;
+    if(pt.x == self.recommendScrollView.frame.size.width * (count - 1)){
+        [self.recommendScrollView scrollRectToVisible:CGRectMake(0,0,self.recommendScrollView.frame.size.width,self.recommendScrollView.frame.size.height) animated:YES];
+        self.pageControl.currentPage = 0;
+    } else {
+        [self.recommendScrollView scrollRectToVisible:CGRectMake(pt.x+self.recommendScrollView.frame.size.width,0,self.recommendScrollView.frame.size.width,self.recommendScrollView.frame.size.height) animated:YES];
+        self.pageControl.currentPage = self.recommendScrollView.contentOffset.x / self.view.frame.size.width + 1;
+    }
+}
+
+#pragma mark Delegate of banner ScrollView
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    self.pageControl.currentPage = self.recommendScrollView.contentOffset.x / self.view.frame.size.width;
+}
+//- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+//    if (scrollView.contentOffset.x + scrollView.frame.size.width > scrollView.contentSize.width) {
+//        [self.recommendScrollView scrollRectToVisible:CGRectMake(0,0,self.recommendScrollView.frame.size.width,self.recommendScrollView.frame.size.height) animated:YES];
+//        self.pageControl.currentPage = 0;
+//    } else if (scrollView.contentOffset.x < 0) {
+//        [self.recommendScrollView scrollRectToVisible:CGRectMake(self.recommendScrollView.frame.size.width * (self.imageCount - 1),0,self.recommendScrollView.frame.size.width,self.recommendScrollView.frame.size.height) animated:YES];
+//        self.pageControl.currentPage = self.imageCount - 1;
+//    }
+//}
+
+//产品试用单元格点击
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self performSegueWithIdentifier:@"tryEventDetail" sender:self];
 }
@@ -176,13 +225,6 @@
         [self performSegueWithIdentifier:@"secondLevel" sender:self];
     }
 }
-#pragma mark Delegate of banner ScrollView
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    NSUInteger currentPage = (int)scrollView.contentOffset.x / self.view.frame.size.width;
-    self.pageControl.currentPage = currentPage;
-}
-
-
 
 #pragma mark - Delegate and Datasouce of ProductTableView
 - (void)didReceiveMemoryWarning {

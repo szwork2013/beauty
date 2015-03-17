@@ -36,6 +36,12 @@
     [self initWebView];
     [self fetchProduct];
 }
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [CommonUtil updateTableViewHeight:self];
+}
+
 - (void)initWebView {
     
     self.webHeight = 51.0;

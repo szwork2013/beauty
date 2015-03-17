@@ -657,10 +657,10 @@
             </objects>
             <point key="canvasLocation" x="352" y="766"/>
         </scene>
-        <!--Member Login View Controller-->
+        <!--用户登录-->
         <scene sceneID="esY-33-HFQ">
             <objects>
-                <viewController id="XIx-iL-kZY" customClass="MemberLoginViewController" sceneMemberID="viewController">
+                <viewController id="XIx-iL-kZY" userLabel="用户登录" customClass="MemberLoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hcu-xz-wqN"/>
                         <viewControllerLayoutGuide type="bottom" id="xAb-ya-X8F"/>
@@ -1360,6 +1360,24 @@
             </objects>
             <point key="canvasLocation" x="923" y="-1957"/>
         </scene>
+        <!--Try Record View Controller-->
+        <scene sceneID="Knb-r1-ebz">
+            <objects>
+                <viewController id="G8q-tY-JeL" customClass="TryRecordViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VBZ-cL-tx3"/>
+                        <viewControllerLayoutGuide type="bottom" id="56L-j4-A7p"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EA5-di-nS0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CIM-uj-X7D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1346" y="-3112"/>
+        </scene>
         <!--微商产品-->
         <scene sceneID="EPL-Kh-h6r">
             <objects>
@@ -1512,12 +1530,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wHr-Od-2UT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1705" y="-1917"/>
+            <point key="canvasLocation" x="1846" y="-3103"/>
         </scene>
-        <!--产品试用-->
+        <!--产品试用列表-->
         <scene sceneID="fZ2-Xm-qnI">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="cm5-2t-orp" customClass="TryEventViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="cm5-2t-orp" userLabel="产品试用列表" customClass="TryEventViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7UR-1m-bZR"/>
                         <viewControllerLayoutGuide type="bottom" id="jFX-w1-z40"/>
@@ -1683,11 +1701,13 @@
                         <outlet property="descriptTextView" destination="7bb-ka-YM3" id="IWM-Mb-pAz"/>
                         <outlet property="webUrlwebView" destination="e0u-JN-hLG" id="rjA-dz-VRp"/>
                         <segue destination="z5s-pb-0rk" kind="show" identifier="productDetail" id="fK9-ib-ITl"/>
+                        <segue destination="XIx-iL-kZY" kind="show" identifier="login" id="Ehz-G5-5vx"/>
+                        <segue destination="G8q-tY-JeL" kind="show" identifier="submit" id="qLu-OP-ihV"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hHJ-YC-PBc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="923" y="-2798"/>
+            <point key="canvasLocation" x="861" y="-2858"/>
         </scene>
         <!--申请代理-->
         <scene sceneID="EV0-tm-vYf">
@@ -2573,11 +2593,11 @@
         <image name="try_bg.png" width="317" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="6zP-3P-Cza"/>
+        <segue reference="QJK-84-Obb"/>
         <segue reference="qqI-84-Lb5"/>
-        <segue reference="Zst-Jl-lkN"/>
-        <segue reference="lCi-hW-Cwb"/>
         <segue reference="Ovv-6A-JRB"/>
         <segue reference="14H-Xx-qGq"/>
-        <segue reference="QJK-84-Obb"/>
+        <segue reference="Zst-Jl-lkN"/>
     </inferredMetricsTieBreakers>
 </document>

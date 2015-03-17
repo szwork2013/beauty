@@ -11,6 +11,7 @@
 #import "ProductDetailTableViewController.h"
 #import "Global.h"
 #import "UIImageView+AFNetworking.h"
+#import "CommonUtil.h"
 
 @interface EvaluateDetailViewController ()<UITableViewDataSource,UITableViewDelegate,UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *productTableView;
@@ -34,6 +35,11 @@
     [self fetchProduct];
 
     // Do any additional setup after loading the view.
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [CommonUtil updateTableViewHeight:self];
 }
 #pragma mark 网页加载代理
 - (void)webViewDidFinishLoad:(UIWebView *)webView {

@@ -25,6 +25,7 @@
 		F7147A681AA73962007605E6 /* search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7147A671AA73962007605E6 /* search@2x.png */; };
 		F71483D71AB85787005490FF /* cat_more@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F71483D61AB85787005490FF /* cat_more@2x.png */; };
 		F71483DA1AB85AB8005490FF /* FirstLevelTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F71483D91AB85AB8005490FF /* FirstLevelTableViewController.m */; };
+		F71483DD1AB8840B005490FF /* TryRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F71483DC1AB8840B005490FF /* TryRecordViewController.m */; };
 		F715AE651AB6C26D00D07C38 /* RankListStoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F715AE641AB6C26D00D07C38 /* RankListStoreViewController.m */; };
 		F715AE681AB6C2E900D07C38 /* RankListStoreTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F715AE671AB6C2E900D07C38 /* RankListStoreTableViewDataSource.m */; };
 		F715AE6C1AB6C6C600D07C38 /* StoreShowTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F715AE6A1AB6C6C600D07C38 /* StoreShowTableViewCell.m */; };
@@ -164,6 +165,8 @@
 		F71483D61AB85787005490FF /* cat_more@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cat_more@2x.png"; path = "images/cat_more@2x.png"; sourceTree = "<group>"; };
 		F71483D81AB85AB8005490FF /* FirstLevelTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstLevelTableViewController.h; sourceTree = "<group>"; };
 		F71483D91AB85AB8005490FF /* FirstLevelTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstLevelTableViewController.m; sourceTree = "<group>"; };
+		F71483DB1AB8840B005490FF /* TryRecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TryRecordViewController.h; path = Product/TryRecordViewController.h; sourceTree = "<group>"; };
+		F71483DC1AB8840B005490FF /* TryRecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TryRecordViewController.m; path = Product/TryRecordViewController.m; sourceTree = "<group>"; };
 		F715AE631AB6C26D00D07C38 /* RankListStoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankListStoreViewController.h; sourceTree = "<group>"; };
 		F715AE641AB6C26D00D07C38 /* RankListStoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankListStoreViewController.m; sourceTree = "<group>"; };
 		F715AE661AB6C2E900D07C38 /* RankListStoreTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankListStoreTableViewDataSource.h; sourceTree = "<group>"; };
@@ -499,6 +502,8 @@
 		F76B38121AB303DE0012F3A7 /* TryEvent */ = {
 			isa = PBXGroup;
 			children = (
+				F71483DB1AB8840B005490FF /* TryRecordViewController.h */,
+				F71483DC1AB8840B005490FF /* TryRecordViewController.m */,
 				F745232E1AB45DCA00C33281 /* TryEventProductTableViewDataSource.h */,
 				F745232F1AB45DCA00C33281 /* TryEventProductTableViewDataSource.m */,
 				F7540A0A1AB42C6100042CB0 /* TryEventViewController.h */,
@@ -993,6 +998,7 @@
 				F7147A5A1AA6F9D1007605E6 /* ProductTryTableViewCell.m in Sources */,
 				F72269321AB7BCF30068C436 /* ImageBrowserViewController.m in Sources */,
 				F7540A091AB41DAD00042CB0 /* XHRootView.m in Sources */,
+				F71483DD1AB8840B005490FF /* TryRecordViewController.m in Sources */,
 				F7B498A11AA3356F0067219E /* UIWebView+AFNetworking.m in Sources */,
 				F7B4989B1AA3356F0067219E /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				F7B498B61AA335E30067219E /* AFHTTPRequestOperation.m in Sources */,

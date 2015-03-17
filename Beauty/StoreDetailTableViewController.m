@@ -40,6 +40,11 @@
     self.callButton.layer.borderWidth = 1.0;
     self.callButton.layer.cornerRadius = 5.0;
 }
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [CommonUtil updateTableViewHeight:self];
+}
+
 #pragma mark - 服务器抓取
 - (void)fetchStoreData {
     BmobQuery *storeQuery = [BmobQuery queryWithClassName:@"Store"];

@@ -11,7 +11,7 @@
 #import "UIImageView+AFNetworking.h"
 #import "Global.h"
 #import "ImageBrowserViewController.h"
-
+#import "CommonUtil.h"
 @interface BrandDetailTableViewController () <UIWebViewDelegate>
 @property (nonatomic ,strong) BmobObject *brandObject;
 @property (nonatomic, assign) CGFloat webViewHeight;
@@ -24,6 +24,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self fetch];
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [CommonUtil updateTableViewHeight:self];
 }
 - (void)fetch {
     BmobQuery *query = [BmobQuery queryWithClassName:@"Brand"];
@@ -58,11 +63,11 @@
         return [super tableView:tableView numberOfRowsInSection:section];
     }
     if (section == 1) {
-        return [[self.brandObject objectForKey:@"images"] count];
+        NSArray *array = [self.brandObject objectForKey:@"images"];
+        return [array count];
     }
     return 1;
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"brand"];

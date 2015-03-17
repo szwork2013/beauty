@@ -12,7 +12,7 @@
 #import "StarView.h"
 #import "WebViewBrowserController.h"
 #import "ProductSellerDataSource.h"
-
+#import "CommonUtil.h"
 @interface ProductDetailTableViewController ()
 @property (nonatomic,weak) IBOutlet UIImageView *avatarImageView;
 @property (nonatomic,weak) IBOutlet UILabel *nameLabel;
@@ -34,7 +34,10 @@
     self.sellerTableView.delegate = self.productSellerDataSource;
 }
 
-
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [CommonUtil updateTableViewHeight:self];
+}
 //获取产品数据
 - (void)fetchProduct {
     BmobQuery *query = [BmobQuery queryWithClassName:@"Product"];

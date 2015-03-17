@@ -19,4 +19,5 @@
 + (ProductShowTableViewCell *)fetchProductShowCell:(BmobObject *)product index:(NSInteger)i;
 + (NSInteger)daysInterval:(NSDate *)date;
 + (StoreShowTableViewCell *)fetchStoreShowCell:(BmobObject *)store;
++ (void)updateTableViewHeight:(UIViewController *)vc;
 @end

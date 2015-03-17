@@ -9,6 +9,7 @@
 #import "FirstLevelTableViewController.h"
 #import <BmobSDK/Bmob.h>
 #import "SecondLevelTableViewController.h"
+#import "CommonUtil.h"
 @interface FirstLevelTableViewController ()
 @property (nonatomic, strong) NSArray *firstLevelArray;
 @end
@@ -25,7 +26,10 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
-
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [CommonUtil updateTableViewHeight:self];
+}
 - (void)fetch {
     BmobQuery *query = [BmobQuery queryWithClassName:@"ProductFirstLevel"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {

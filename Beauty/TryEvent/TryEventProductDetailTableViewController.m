@@ -10,7 +10,7 @@
 #import <BmobSDK/Bmob.h>
 #import "UIImageView+AFNetworking.h"
 #import "ProductDetailTableViewController.h"
-#import "WechatRecordViewController.h"
+#import "TryRecordViewController.h"
 #import "CommonUtil.h"
 #import "Global.h"
 #import "ProductShowTableViewCell.h"
@@ -33,10 +33,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tabBarController.tabBar.hidden = YES;
+
     //    tableview顶部不留空
     self.tableView.contentInset=UIEdgeInsetsMake(-36, 0, 0, 0);
     [self initWebView];
     [self fetchProduct];
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [CommonUtil updateTableViewHeight:self];
 }
 - (void)initWebView {
     
@@ -140,14 +146,11 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // 共有两条连线
-    
-    
     if ([segue.identifier isEqualToString:@"productDetail"]) {
-        
         ProductDetailTableViewController *vc = segue.destinationViewController;
         vc.productId = self.productId;
     } else if ([segue.identifier isEqual:@"submit"]) {        
-        WechatRecordViewController *vc = segue.destinationViewController;
+        TryRecordViewController *vc = segue.destinationViewController;
         vc.productId = self.productId;
     }
 }

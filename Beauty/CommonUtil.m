@@ -61,4 +61,12 @@
     NSTimeInterval seconds = [date timeIntervalSinceDate:now];
     return seconds / 60 / 60 / 24;
 }
+//      更新表格视图的高度
++ (void)updateTableViewHeight:(UIViewController *)vc{
+    UIView *rootView = [vc.tabBarController.view.subviews objectAtIndex:0];
+
+    CGRect frame = rootView.frame;
+    frame.size.height += 49.0;
+    rootView.frame = frame;
+}
 @end

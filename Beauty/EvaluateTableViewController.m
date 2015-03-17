@@ -10,6 +10,7 @@
 #import <BmobSDK/Bmob.h>
 #import "UIImageView+AFNetworking.h"
 #import "EvaluateDetailViewController.h"
+#import "CommonUtil.h"
 
 @interface EvaluateTableViewController ()
 @property (nonatomic, strong) NSArray *EvaluateArray;
@@ -29,7 +30,10 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
-
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [CommonUtil updateTableViewHeight:self];
+}
 - (void)fetchEvaluate {
     self.EvaluateArray = [NSArray array];
     BmobQuery *query = [BmobQuery queryWithClassName:@"Evaluate"];
