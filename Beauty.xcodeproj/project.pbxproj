@@ -42,6 +42,7 @@
 		F7172C4E1AA98DAB00A9ED4C /* ProductSellerDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F7172C4D1AA98DAB00A9ED4C /* ProductSellerDataSource.m */; };
 		F71B7C851AAFE4CD005E8648 /* ProductShowTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F71B7C841AAFE4CD005E8648 /* ProductShowTableViewCell.m */; };
 		F71B7C8A1AB03F63005E8648 /* submit_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F71B7C891AB03F63005E8648 /* submit_button@2x.png */; };
+		F72269321AB7BCF30068C436 /* ImageBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F72269311AB7BCF30068C436 /* ImageBrowserViewController.m */; };
 		F72A95BC1AAAD47A00B2B611 /* EvaluateDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F72A95BB1AAAD47A00B2B611 /* EvaluateDetailViewController.m */; };
 		F72FFE6C1AAD935400C01BB2 /* member_chekin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F72FFE691AAD935400C01BB2 /* member_chekin@2x.png */; };
 		F72FFE6D1AAD935400C01BB2 /* member_favor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F72FFE6A1AAD935400C01BB2 /* member_favor@2x.png */; };
@@ -192,6 +193,8 @@
 		F71B7C831AAFE4CD005E8648 /* ProductShowTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductShowTableViewCell.h; sourceTree = "<group>"; };
 		F71B7C841AAFE4CD005E8648 /* ProductShowTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductShowTableViewCell.m; sourceTree = "<group>"; };
 		F71B7C891AB03F63005E8648 /* submit_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "submit_button@2x.png"; path = "images/submit_button@2x.png"; sourceTree = "<group>"; };
+		F72269301AB7BCF30068C436 /* ImageBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageBrowserViewController.h; sourceTree = "<group>"; };
+		F72269311AB7BCF30068C436 /* ImageBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageBrowserViewController.m; sourceTree = "<group>"; };
 		F72A95BA1AAAD47A00B2B611 /* EvaluateDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EvaluateDetailViewController.h; path = Beauty/EvaluateDetailViewController.h; sourceTree = "<group>"; };
 		F72A95BB1AAAD47A00B2B611 /* EvaluateDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EvaluateDetailViewController.m; path = Beauty/EvaluateDetailViewController.m; sourceTree = "<group>"; };
 		F72FFE691AAD935400C01BB2 /* member_chekin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "member_chekin@2x.png"; sourceTree = "<group>"; };
@@ -428,6 +431,17 @@
 			path = images/product;
 			sourceTree = "<group>";
 		};
+		F72269681AB7BF1F0068C436 /* CommonViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F72269301AB7BCF30068C436 /* ImageBrowserViewController.h */,
+				F72269311AB7BCF30068C436 /* ImageBrowserViewController.m */,
+				F7172C481AA94E3800A9ED4C /* WebViewBrowserController.h */,
+				F7172C491AA94E3800A9ED4C /* WebViewBrowserController.m */,
+			);
+			name = CommonViewController;
+			sourceTree = "<group>";
+		};
 		F72A95D21AACBAD200B2B611 /* SlidePage */ = {
 			isa = PBXGroup;
 			children = (
@@ -558,14 +572,13 @@
 		F7B498371AA2FF300067219E /* Beauty */ = {
 			isa = PBXGroup;
 			children = (
+				F72269681AB7BF1F0068C436 /* CommonViewController */,
 				F7B4983C1AA2FF300067219E /* AppDelegate.h */,
 				F7B4983D1AA2FF300067219E /* AppDelegate.m */,
 				F7E4F1801AA5EC310025D868 /* HomeViewController.h */,
 				F7E4F1811AA5EC310025D868 /* HomeViewController.m */,
 				F7B498821AA32B580067219E /* HomeTabBarController.h */,
 				F7B498831AA32B580067219E /* HomeTabBarController.m */,
-				F7172C481AA94E3800A9ED4C /* WebViewBrowserController.h */,
-				F7172C491AA94E3800A9ED4C /* WebViewBrowserController.m */,
 				F75DE84B1AB533DF00B669F2 /* LSPagedScrollView */,
 				F75DE84A1AB532AB00B669F2 /* Rank */,
 				F76B38121AB303DE0012F3A7 /* TryEvent */,
@@ -975,6 +988,7 @@
 				F7540A0C1AB42C6100042CB0 /* TryEventViewController.m in Sources */,
 				F72FFE751AAE8F4100C01BB2 /* MemberLoginViewController.m in Sources */,
 				F7147A5A1AA6F9D1007605E6 /* ProductTryTableViewCell.m in Sources */,
+				F72269321AB7BCF30068C436 /* ImageBrowserViewController.m in Sources */,
 				F7540A091AB41DAD00042CB0 /* XHRootView.m in Sources */,
 				F7B498A11AA3356F0067219E /* UIWebView+AFNetworking.m in Sources */,
 				F7B4989B1AA3356F0067219E /* UIActivityIndicatorView+AFNetworking.m in Sources */,

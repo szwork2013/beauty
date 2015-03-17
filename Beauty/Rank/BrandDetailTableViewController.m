@@ -10,10 +10,13 @@
 #import <BmobSDK/Bmob.h>
 #import "UIImageView+AFNetworking.h"
 #import "Global.h"
+#import "ImageBrowserViewController.h"
 
 @interface BrandDetailTableViewController () <UIWebViewDelegate>
 @property (nonatomic ,strong) BmobObject *brandObject;
 @property (nonatomic, assign) CGFloat webViewHeight;
+@property (nonatomic, strong) NSArray *imageArray;
+@property (nonatomic, assign) NSInteger selectedIndex;
 @end
 
 @implementation BrandDetailTableViewController
@@ -30,6 +33,7 @@
         } else {
             self.brandObject = object;
             self.navigationItem.title = [object objectForKey:@"name"];
+            self.imageArray = [object objectForKey:@"images"];
             [self.tableView reloadData];
         }
     }];
@@ -105,12 +109,15 @@
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
     self.webViewHeight = [[webView stringByEvaluatingJavaScriptFromString:@"document.body.offsetHeight;"] floatValue];
     [self.tableView reloadData];
-    
 }
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    ImageBrowserViewController *vc = segue.destinationViewController;
+    vc.selectedIndex = self.tableView.indexPathForSelectedRow.row;
+    vc.imageArray = self.imageArray;
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
