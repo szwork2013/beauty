@@ -63,9 +63,11 @@
         BmobFile *thumb = (BmobFile *)object;
         [cell.thumbImageView setImageWithURL:[NSURL URLWithString:thumb.url]];
     }];
+//    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     //日期转换
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-    [formatter setDateFormat:@"YYYY-MM-dd"];
+    [formatter setDateFormat:@"MM-dd"];
+
     cell.timeLabel.text = [formatter stringFromDate:[activity objectForKey:@"time"]];
 //    关联查询店铺
     cell.shopNameLabel.text = [[activity objectForKey:@"store"]objectForKey:@"name"];
