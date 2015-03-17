@@ -25,12 +25,14 @@
 @property (weak, nonatomic) IBOutlet UITableView *activityTableView;
 @property (strong, nonatomic) NSArray *activityArray;
 @property (strong, nonatomic) NSString *shopObjectId;
+@property (assign, nonatomic) CGFloat webHeight;
 @end
 
 @implementation ActivityViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tabBarController.tabBar.hidden = YES;
     self.activityTableView.dataSource = self;
     self.activityTableView.delegate = self;
     [self fetch];
@@ -93,34 +95,30 @@
         NSUInteger margin = 5;
         UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(margin, margin, SCREEN_WIDTH - 2 * margin, IMAGE_HEIGHT)];
         NSString *imageUrl = self.activityArray[SECTION_IMAGE][indexPath.row];
-        [BmobImage thumbnailImageBySpecifiesTheLength:SCREEN_WIDTH * 2 quality:100 sourceImageUrl:imageUrl outputType:kBmobImageOutputBmobFile resultBlock:^(id object, NSError *error) {
-            BmobFile *imageFile = (BmobFile *)object;
-            [imageView setImageWithURL:[NSURL URLWithString:imageFile.url]];
-            imageView.contentMode = UIViewContentModeScaleAspectFill;
-            [cell addSubview:imageView];
-        }];
+        [imageView setImageWithURL:[NSURL URLWithString:imageUrl]];
+        
+        imageView.contentMode = UIViewContentModeScaleAspectFill;
+        [cell addSubview:imageView];
+            
+
         
     }else if (indexPath.section == SECTION_WEBVIEW) {
-        UIWebView *webView = [[UIWebView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 1391.0)];
-//        webView.delegate = self;
-        [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.activityArray[SECTION_WEBVIEW]]]];
-        [cell addSubview:webView];
+        cell = [tableView dequeueReusableCellWithIdentifier:@"webView"];
+        
+        UIWebView *webView = (UIWebView *)[cell viewWithTag:21];
+        webView.delegate = self;
+        webView.scrollView.scrollEnabled = NO;
+
+        if (self.webHeight == 0) {
+            [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.activityArray[SECTION_WEBVIEW]]]];
+        }
+        
+        
     }
 
     return cell;
 }
-//分组名称
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    switch (section) {
-        case 1:
-            return @"图片详情";
-            break;
-            
-        default:
-            break;
-    }
-    return nil;
-}
+
 
 #pragma mark - tableView delegate
 
@@ -129,9 +127,7 @@
     if (indexPath.section == SECTION_IMAGE) {
         return IMAGE_HEIGHT + 10.0;
     }else if (indexPath.section == SECTION_WEBVIEW) {
-
-
-        return 1391.0;
+        return self.webHeight;
     }
     return 55.0;
 }
@@ -144,8 +140,8 @@
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
     NSString *height_str= [webView stringByEvaluatingJavaScriptFromString: @"document.body.offsetHeight"];
-    int height = [height_str intValue];
-    webView.frame = CGRectMake(0,0,SCREEN_WIDTH,height);
+    self.webHeight = [height_str intValue];
+    [self.activityTableView reloadData];
 }
 
 //单击单元格

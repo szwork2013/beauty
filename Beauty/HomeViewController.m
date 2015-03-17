@@ -29,6 +29,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *moreButton;
 //产品分类
 @property (weak, nonatomic) IBOutlet UIView *categoryView;
+//firstLevelId button
+@property (strong, nonatomic) NSMutableDictionary *buttonTagDictionary;
+@property (strong, nonatomic) NSString *currentFirstLevelId;
 @end
 
 @implementation HomeViewController
@@ -60,32 +63,47 @@
         if (error) {
             NSLog(@"%@",error);
         }else{
+            self.buttonTagDictionary = [NSMutableDictionary dictionary];
+            
             //init width height margin
             CGFloat width = 39.0;
             CGFloat height = width;
-            CGFloat margin = 30.0;
+            CGFloat offsetY = - 10.0;
+
             for (int i = 0; i < array.count; i++) {
                 int row = i / 5;
                 int column = i % 5;
                 //image view
-                CGRect imageRect = CGRectMake(margin + (margin + width) * column, margin + (margin + height) * row, width, height);
-                UIImageView *imageView = [[UIImageView alloc]initWithFrame:imageRect];
+//                CGRect imageRect = CGRectMake(marginLeft + (marginLeft + height) * column, margin + (margin + width) * row, width, height);
+                UIImageView *imageView = [[UIImageView alloc]init];
+                imageView.bounds = CGRectMake(0, 0, width, height);
+                imageView.center = CGPointMake(SCREEN_WIDTH / 5.0 * (column + 0.5), offsetY + self.categoryView.frame.size.height / 2.0 * (row + 0.5));
                 BmobFile *imageFile = [array[i]objectForKey:@"avatar"];
-                [imageView setImageWithURL:[NSURL URLWithString:imageFile.url]];
+                if (i != 9) {
+                    [imageView setImageWithURL:[NSURL URLWithString:imageFile.url]];
+                } else {
+                    [imageView setImage:[UIImage imageNamed:@"cat_more"]];
+                }
                 [self.categoryView addSubview:imageView];
-                //button
-                UIButton *button = [[UIButton alloc]initWithFrame:imageRect];
-                [button addTarget:self action:@selector(pushSecondLevel) forControlEvents:UIControlEventTouchUpInside];
+                UIButton *button = [[UIButton alloc]initWithFrame:imageView.frame];
+                button.tag = i;
+                [self.buttonTagDictionary setObject:[array[i] objectId] forKey:[NSNumber numberWithInt:i]];
+                [button addTarget:self action:@selector(pushSecondLevel:) forControlEvents:UIControlEventTouchUpInside];
                 [self.categoryView addSubview:button];
                 //label
-                CGRect labelRect = imageRect;
-                labelRect.origin.y += height;
-                UILabel *nameLabel = [[UILabel alloc]initWithFrame:labelRect];
+                UILabel *nameLabel = [[UILabel alloc]init];
+                nameLabel.center = CGPointMake(imageView.center.x, CGRectGetMaxY(imageView.frame) + 22);
+                nameLabel.bounds = CGRectMake(0, 0, 60.0, 16.0);
                 nameLabel.tintColor = [UIColor colorWithWhite:0.6 alpha:1.0];
                 nameLabel.font = [UIFont systemFontOfSize:12.0];
                 nameLabel.adjustsFontSizeToFitWidth = YES;
                 nameLabel.textAlignment = NSTextAlignmentCenter;
-                nameLabel.text = [array[i]objectForKey:@"name"];
+                if (i != 9) {
+                    nameLabel.text = [array[i]objectForKey:@"name"];
+                } else {
+                    nameLabel.text = @"更多";
+                }
+                
                 [self.categoryView addSubview:nameLabel];
             }
         }
@@ -150,14 +168,20 @@
     [self performSegueWithIdentifier:@"tryEventDetail" sender:self];
 }
 //进入二级分类
--(void) pushSecondLevel {
-    [self performSegueWithIdentifier:@"secondLevel" sender:self];
+-(void) pushSecondLevel:(UIButton *)button {
+    if (button.tag == 9) {
+        [self performSegueWithIdentifier:@"firstLevel" sender:self];
+    } else {
+        self.currentFirstLevelId = self.buttonTagDictionary[[NSNumber numberWithLong:button.tag]];
+        [self performSegueWithIdentifier:@"secondLevel" sender:self];
+    }
 }
 #pragma mark Delegate of banner ScrollView
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     NSUInteger currentPage = (int)scrollView.contentOffset.x / self.view.frame.size.width;
     self.pageControl.currentPage = currentPage;
 }
+
 
 
 #pragma mark - Delegate and Datasouce of ProductTableView
@@ -188,10 +212,12 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"secondLevel"]) {
         SecondLevelTableViewController *vc = (SecondLevelTableViewController *)segue.destinationViewController;
-        vc.firstLevelId = @"LeBD666H";
+        vc.firstLevelId = self.currentFirstLevelId;
     } else if ([segue.identifier isEqualToString:@"tryEventDetail"]) {
         TryEventProductDetailTableViewController *vc = segue.destinationViewController;
         vc.productId = [[self.productArray[self.productTableView.indexPathForSelectedRow.row]objectForKey:@"product"] objectId];
+    } else if ([segue.identifier isEqualToString:@"firstLevel"]){
+        
     }
 //    [self setHidesBottomBarWhenPushed:YES];
 }

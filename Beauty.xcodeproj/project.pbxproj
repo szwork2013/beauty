@@ -23,6 +23,8 @@
 		F7147A631AA725CA007605E6 /* star_full@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7147A621AA725CA007605E6 /* star_full@2x.png */; };
 		F7147A651AA73105007605E6 /* try_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7147A641AA73105007605E6 /* try_bg@2x.png */; };
 		F7147A681AA73962007605E6 /* search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7147A671AA73962007605E6 /* search@2x.png */; };
+		F71483D71AB85787005490FF /* cat_more@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F71483D61AB85787005490FF /* cat_more@2x.png */; };
+		F71483DA1AB85AB8005490FF /* FirstLevelTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F71483D91AB85AB8005490FF /* FirstLevelTableViewController.m */; };
 		F715AE651AB6C26D00D07C38 /* RankListStoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F715AE641AB6C26D00D07C38 /* RankListStoreViewController.m */; };
 		F715AE681AB6C2E900D07C38 /* RankListStoreTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F715AE671AB6C2E900D07C38 /* RankListStoreTableViewDataSource.m */; };
 		F715AE6C1AB6C6C600D07C38 /* StoreShowTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F715AE6A1AB6C6C600D07C38 /* StoreShowTableViewCell.m */; };
@@ -99,7 +101,6 @@
 		F7B4987B1AA31D390067219E /* time@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7B498791AA31D390067219E /* time@2x.png */; };
 		F7B4987E1AA31FE90067219E /* StoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B4987D1AA31FE90067219E /* StoreViewController.m */; };
 		F7B498811AA3246B0067219E /* StoreActivityDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B498801AA3246B0067219E /* StoreActivityDataSource.m */; };
-		F7B498841AA32B580067219E /* HomeTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B498831AA32B580067219E /* HomeTabBarController.m */; };
 		F7B4989A1AA3356F0067219E /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B4988A1AA3356F0067219E /* AFNetworkActivityIndicatorManager.m */; };
 		F7B4989B1AA3356F0067219E /* UIActivityIndicatorView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B4988C1AA3356F0067219E /* UIActivityIndicatorView+AFNetworking.m */; };
 		F7B4989C1AA3356F0067219E /* UIAlertView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B4988E1AA3356F0067219E /* UIAlertView+AFNetworking.m */; };
@@ -160,6 +161,9 @@
 		F7147A641AA73105007605E6 /* try_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "try_bg@2x.png"; path = "images/home/try_bg@2x.png"; sourceTree = "<group>"; };
 		F7147A661AA73826007605E6 /* Global.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Global.h; path = Beauty/Global.h; sourceTree = "<group>"; };
 		F7147A671AA73962007605E6 /* search@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "search@2x.png"; path = "images/home/search@2x.png"; sourceTree = "<group>"; };
+		F71483D61AB85787005490FF /* cat_more@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cat_more@2x.png"; path = "images/cat_more@2x.png"; sourceTree = "<group>"; };
+		F71483D81AB85AB8005490FF /* FirstLevelTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstLevelTableViewController.h; sourceTree = "<group>"; };
+		F71483D91AB85AB8005490FF /* FirstLevelTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstLevelTableViewController.m; sourceTree = "<group>"; };
 		F715AE631AB6C26D00D07C38 /* RankListStoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankListStoreViewController.h; sourceTree = "<group>"; };
 		F715AE641AB6C26D00D07C38 /* RankListStoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankListStoreViewController.m; sourceTree = "<group>"; };
 		F715AE661AB6C2E900D07C38 /* RankListStoreTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankListStoreTableViewDataSource.h; sourceTree = "<group>"; };
@@ -283,8 +287,6 @@
 		F7B4987D1AA31FE90067219E /* StoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoreViewController.m; path = Beauty/StoreViewController.m; sourceTree = "<group>"; };
 		F7B4987F1AA3246B0067219E /* StoreActivityDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreActivityDataSource.h; path = Beauty/StoreActivityDataSource.h; sourceTree = "<group>"; };
 		F7B498801AA3246B0067219E /* StoreActivityDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoreActivityDataSource.m; path = Beauty/StoreActivityDataSource.m; sourceTree = "<group>"; };
-		F7B498821AA32B580067219E /* HomeTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTabBarController.h; sourceTree = "<group>"; };
-		F7B498831AA32B580067219E /* HomeTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTabBarController.m; sourceTree = "<group>"; };
 		F7B498891AA3356E0067219E /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
 		F7B4988A1AA3356F0067219E /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkActivityIndicatorManager.m; sourceTree = "<group>"; };
 		F7B4988B1AA3356F0067219E /* UIActivityIndicatorView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActivityIndicatorView+AFNetworking.h"; sourceTree = "<group>"; };
@@ -577,8 +579,6 @@
 				F7B4983D1AA2FF300067219E /* AppDelegate.m */,
 				F7E4F1801AA5EC310025D868 /* HomeViewController.h */,
 				F7E4F1811AA5EC310025D868 /* HomeViewController.m */,
-				F7B498821AA32B580067219E /* HomeTabBarController.h */,
-				F7B498831AA32B580067219E /* HomeTabBarController.m */,
 				F75DE84B1AB533DF00B669F2 /* LSPagedScrollView */,
 				F75DE84A1AB532AB00B669F2 /* Rank */,
 				F76B38121AB303DE0012F3A7 /* TryEvent */,
@@ -628,6 +628,7 @@
 		F7B498771AA31CFF0067219E /* images */ = {
 			isa = PBXGroup;
 			children = (
+				F71483D61AB85787005490FF /* cat_more@2x.png */,
 				F74523361AB469F600C33281 /* tryevent */,
 				F71B7C891AB03F63005E8648 /* submit_button@2x.png */,
 				F79547501AAD8A4600212CEA /* member */,
@@ -765,6 +766,8 @@
 		F7BD0BA91AB1DF35009E48B6 /* Product */ = {
 			isa = PBXGroup;
 			children = (
+				F71483D81AB85AB8005490FF /* FirstLevelTableViewController.h */,
+				F71483D91AB85AB8005490FF /* FirstLevelTableViewController.m */,
 				F7172C311AA84F8D00A9ED4C /* SecondLevelTableViewController.h */,
 				F7172C321AA84F8D00A9ED4C /* SecondLevelTableViewController.m */,
 				F7172C4C1AA98DAB00A9ED4C /* ProductSellerDataSource.h */,
@@ -915,6 +918,7 @@
 				F78FC90B1AA73F6500F3C1EE /* product_search_bar@2x.png in Resources */,
 				F72FFE721AAE77BD00C01BB2 /* login_bg@2x.png in Resources */,
 				F7172C471AA94C0600A9ED4C /* buy@2x.png in Resources */,
+				F71483D71AB85787005490FF /* cat_more@2x.png in Resources */,
 				F7B4987A1AA31D390067219E /* location@2x.png in Resources */,
 				F713C8C81AA48F5D004BE58C /* tel@2x.png in Resources */,
 				F79D17951AA5A6E700F0D86E /* Default-568h@2x.png in Resources */,
@@ -948,7 +952,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7B498841AA32B580067219E /* HomeTabBarController.m in Sources */,
 				F7B4987E1AA31FE90067219E /* StoreViewController.m in Sources */,
 				F7B4983E1AA2FF300067219E /* AppDelegate.m in Sources */,
 				F7B4989C1AA3356F0067219E /* UIAlertView+AFNetworking.m in Sources */,
@@ -999,6 +1002,7 @@
 				F787B7151AB3DFBE00D4C27D /* XHIndicatorView.m in Sources */,
 				F745232C1AB45A1300C33281 /* WechatProductViewController.m in Sources */,
 				F715AE651AB6C26D00D07C38 /* RankListStoreViewController.m in Sources */,
+				F71483DA1AB85AB8005490FF /* FirstLevelTableViewController.m in Sources */,
 				F745232D1AB45A1300C33281 /* WechatRecordViewController.m in Sources */,
 				F7172C371AA87D8500A9ED4C /* ProductTableViewController.m in Sources */,
 				F77FB1CD1AA9F02F0092D57F /* EvaluateTableViewController.m in Sources */,

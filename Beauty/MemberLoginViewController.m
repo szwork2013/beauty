@@ -39,7 +39,7 @@
 - (IBAction)fetchCode:(id)sender {
     if ([self isValidateMobile:self.phoneTextField.text]) {
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-        [manager GET:[NSString stringWithFormat:@"http://120.24.158.159/sendSMS/%@/%@",self.phoneTextField.text,[self createCode]] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [manager GET:[NSString stringWithFormat:@"http://120.24.158.159:8090/sendSMS/%@/%@",self.phoneTextField.text,[self createCode]] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
             UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"验证码已发送" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
             [[NSUserDefaults standardUserDefaults]setObject:self.phoneTextField.text forKey:@"username"];
             [alert show];
