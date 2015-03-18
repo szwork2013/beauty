@@ -9,6 +9,8 @@
 #import "WechatRecordViewController.h"
 #import <BmobSDK/Bmob.h>
 #import "UserService.h"
+#import "SVProgressHUD.h"
+
 /**
  申请代理
  */
@@ -25,7 +27,23 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
+
+- (BOOL)formValid {
+    if ([self.nameTextField.text isEqualToString:@""]) {
+        [SVProgressHUD showErrorWithStatus:@"请填写姓名"];
+        return NO;
+    }
+    if ([self.mobileTextField.text isEqualToString:@""]) {
+        [SVProgressHUD showErrorWithStatus:@"请填写手机"];
+        return NO;
+    }
+    return YES;
+}
+
 - (IBAction)submit:(id)sender {
+    if (![self formValid]) {
+        return;
+    }
 //    封装array
     NSMutableArray *formContent = [NSMutableArray array];
     NSString *username = [NSString stringWithFormat:@"姓名:%@",self.nameTextField.text];

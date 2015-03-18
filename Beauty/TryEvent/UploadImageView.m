@@ -9,6 +9,7 @@
 #import "UploadImageView.h"
 @implementation UploadImageView
 
+
 - (IBAction)selectUploadSource:(id)sender {
     UIActionSheet *sheet = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照",@"相册", nil];
         [sheet showInView:self];
@@ -84,6 +85,9 @@
         }
     }
     self.chosenImages = images;
+    [self.containerView setPagingEnabled:YES];
+    [self.containerView setContentSize:CGSizeMake(workingFrame.origin.x, workingFrame.size.height)];
+
 }
 
 - (void)elcImagePickerControllerDidCancel:(ELCImagePickerController *)picker

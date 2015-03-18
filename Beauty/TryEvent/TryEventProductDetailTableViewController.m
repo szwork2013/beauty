@@ -19,7 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
 @property (weak, nonatomic) IBOutlet UITextView *descriptTextView;
 @property (weak, nonatomic) IBOutlet UIWebView *webUrlwebView;
-
+@property (strong, nonatomic) NSString *tryEventId;
 //描述高度
 @property (assign, nonatomic) CGFloat descriptHeight;
 //网页高度
@@ -59,6 +59,7 @@
             NSLog(@"%@",error);
         } else {
             BmobObject *object = [array firstObject];
+            self.tryEventId = [object objectId];
 //            获取图像
             BmobFile *avatarFile = [object objectForKey:@"avatar"];
             [self.avatarImageView setImageWithURL:[NSURL URLWithString:avatarFile.url]];
@@ -134,6 +135,7 @@
 }
 
 - (IBAction)submit:(id)sender {
+//    NSLog(@"username : %@",[[NSUserDefaults standardUserDefaults]objectForKey:@"username"]);
     if ([[NSUserDefaults standardUserDefaults]objectForKey:@"username"]) {
         [self performSegueWithIdentifier:@"submit" sender:self];
     } else {
@@ -151,7 +153,7 @@
         vc.productId = self.productId;
     } else if ([segue.identifier isEqual:@"submit"]) {        
         TryRecordViewController *vc = segue.destinationViewController;
-        vc.productId = self.productId;
+        vc.tryEventId = self.tryEventId;
     }
 }
 @end

@@ -36,7 +36,7 @@
 //推荐图片张数
 @property (assign, nonatomic) NSUInteger imageCount;
 //海报关联的activity
-@property (assign, nonatomic) NSMutableDictionary *activityDictionary;
+@property (strong, nonatomic) NSMutableDictionary *activityDictionary;
 @property (assign, nonatomic) NSString *activityId;
 @end
 
@@ -45,7 +45,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    self.tabBarController.tabBar.hidden = NO;
-    self.activityDictionary = [NSMutableDictionary dictionary];
     /*propery init*/
     //更多按钮
     self.moreButton.layer.borderColor = [[UIColor whiteColor]CGColor];
@@ -70,7 +69,7 @@
         if (error) {
             NSLog(@"%@",error);
         }else{
-            self.buttonTagDictionary = [NSMutableDictionary dictionary];
+            self.buttonTagDictionary = [[NSMutableDictionary alloc]init];
             
             //init width height margin
             CGFloat width = 39.0;
@@ -146,7 +145,7 @@
     [query orderByAscending:@"rank"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
         
-        
+        self.activityDictionary = [[NSMutableDictionary alloc]init];
         self.imageCount = array.count;
         //get scroll view rect
         CGRect scrollRect = self.recommendScrollView.frame;
@@ -154,7 +153,7 @@
         self.recommendScrollView.contentSize = CGSizeMake(scrollRect.size.width * array.count, scrollRect.size.height);
         //init ImageView count of array.count
         for (int i = 0; i < array.count; i++) {
-            [self.activityDictionary setObject:[[array[i]objectForKey:@"storeActivity"]objectId] forKey:[NSNumber numberWithInt:i]];
+            self.activityDictionary[[NSString stringWithFormat:@"%zi",i]] = [[array[i]objectForKey:@"storeActivity"]objectId];
             UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(i * scrollRect.size.width, 0, scrollRect.size.width, scrollRect.size.height)];
             imageView.contentMode = UIViewContentModeScaleAspectFill;
             imageView.clipsToBounds = YES;
@@ -186,7 +185,7 @@
 
 //按钮点击事件
 - (void)scrollViewPress:(UIButton *)button {
-    self.activityId = [self.activityDictionary objectForKey:[NSNumber numberWithLong:button.tag]];
+    self.activityId = [self.activityDictionary objectForKey:[NSString stringWithFormat:@"%zi",button.tag]];
     [self performSegueWithIdentifier:@"activity" sender:self];
 
 }

@@ -13,6 +13,7 @@
 		F708502E1AB66DE500DD4A1C /* RankListProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F708502D1AB66DE500DD4A1C /* RankListProductViewController.m */; };
 		F70850341AB67F0200DD4A1C /* RankListProductTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F70850331AB67F0200DD4A1C /* RankListProductTableViewDataSource.m */; };
 		F7091A931AB18366009D8C1D /* UserService.m in Sources */ = {isa = PBXBuildFile; fileRef = F7091A921AB18366009D8C1D /* UserService.m */; };
+		F7096BE11AB9AC0800BE86FD /* Upload.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7096BE01AB9AC0800BE86FD /* Upload.xib */; };
 		F713C8C61AA48A5A004BE58C /* favor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F713C8C51AA48A5A004BE58C /* favor@2x.png */; };
 		F713C8C81AA48F5D004BE58C /* tel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F713C8C71AA48F5D004BE58C /* tel@2x.png */; };
 		F713C8CB1AA49089004BE58C /* StoreDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F713C8CA1AA49089004BE58C /* StoreDetailTableViewController.m */; };
@@ -38,7 +39,6 @@
 		F71483FF1AB9253C005490FF /* ELCAssetTablePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = F71483F31AB9253C005490FF /* ELCAssetTablePicker.xib */; };
 		F71484001AB9253C005490FF /* Overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = F71483F41AB9253C005490FF /* Overlay.png */; };
 		F71484011AB9253C005490FF /* Overlay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F71483F51AB9253C005490FF /* Overlay@2x.png */; };
-		F71484061AB94DC2005490FF /* UploadImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F71484041AB94DC2005490FF /* UploadImageView.xib */; };
 		F71484081AB952AD005490FF /* add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F71484071AB952AD005490FF /* add@2x.png */; };
 		F714840B1AB95F54005490FF /* UploadImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = F714840A1AB95F54005490FF /* UploadImageView.m */; };
 		F715AE651AB6C26D00D07C38 /* RankListStoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F715AE641AB6C26D00D07C38 /* RankListStoreViewController.m */; };
@@ -164,6 +164,7 @@
 		F70850331AB67F0200DD4A1C /* RankListProductTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankListProductTableViewDataSource.m; sourceTree = "<group>"; };
 		F7091A911AB18366009D8C1D /* UserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserService.h; path = Beauty/UserService.h; sourceTree = "<group>"; };
 		F7091A921AB18366009D8C1D /* UserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserService.m; path = Beauty/UserService.m; sourceTree = "<group>"; };
+		F7096BE01AB9AC0800BE86FD /* Upload.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Upload.xib; path = cell/Upload.xib; sourceTree = "<group>"; };
 		F713C8C51AA48A5A004BE58C /* favor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "favor@2x.png"; path = "images/favor@2x.png"; sourceTree = "<group>"; };
 		F713C8C71AA48F5D004BE58C /* tel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tel@2x.png"; path = "images/tel@2x.png"; sourceTree = "<group>"; };
 		F713C8C91AA49089004BE58C /* StoreDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreDetailTableViewController.h; path = Beauty/StoreDetailTableViewController.h; sourceTree = "<group>"; };
@@ -204,7 +205,6 @@
 		F71483F31AB9253C005490FF /* ELCAssetTablePicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ELCAssetTablePicker.xib; sourceTree = "<group>"; };
 		F71483F41AB9253C005490FF /* Overlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Overlay.png; sourceTree = "<group>"; };
 		F71483F51AB9253C005490FF /* Overlay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Overlay@2x.png"; sourceTree = "<group>"; };
-		F71484041AB94DC2005490FF /* UploadImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UploadImageView.xib; path = Common/UploadImageView.xib; sourceTree = "<group>"; };
 		F71484071AB952AD005490FF /* add@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "add@2x.png"; path = "images/add@2x.png"; sourceTree = "<group>"; };
 		F71484091AB95F54005490FF /* UploadImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UploadImageView.h; path = TryEvent/UploadImageView.h; sourceTree = "<group>"; };
 		F714840A1AB95F54005490FF /* UploadImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UploadImageView.m; path = TryEvent/UploadImageView.m; sourceTree = "<group>"; };
@@ -588,7 +588,7 @@
 				F7540A0B1AB42C6100042CB0 /* TryEventViewController.m */,
 				F76B38131AB303F90012F3A7 /* TryEventProductDetailTableViewController.h */,
 				F76B38141AB303F90012F3A7 /* TryEventProductDetailTableViewController.m */,
-				F71484041AB94DC2005490FF /* UploadImageView.xib */,
+				F7096BE01AB9AC0800BE86FD /* Upload.xib */,
 				F71484091AB95F54005490FF /* UploadImageView.h */,
 				F714840A1AB95F54005490FF /* UploadImageView.m */,
 			);
@@ -1006,7 +1006,6 @@
 				F71484011AB9253C005490FF /* Overlay@2x.png in Resources */,
 				F79547531AAD8A4600212CEA /* default_avatar@2x.png in Resources */,
 				F78FC9091AA73E8A00F3C1EE /* product_search_bg@2x.png in Resources */,
-				F71484061AB94DC2005490FF /* UploadImageView.xib in Resources */,
 				F78FC90B1AA73F6500F3C1EE /* product_search_bar@2x.png in Resources */,
 				F72FFE721AAE77BD00C01BB2 /* login_bg@2x.png in Resources */,
 				F7172C471AA94C0600A9ED4C /* buy@2x.png in Resources */,
@@ -1025,6 +1024,7 @@
 				F7B4986C1AA311350067219E /* bar_search@2x.png in Resources */,
 				F74523391AB469F600C33281 /* gift@2x.png in Resources */,
 				F7B4987B1AA31D390067219E /* time@2x.png in Resources */,
+				F7096BE11AB9AC0800BE86FD /* Upload.xib in Resources */,
 				F71484001AB9253C005490FF /* Overlay.png in Resources */,
 				F708502A1AB5CE5700DD4A1C /* no2@2x.png in Resources */,
 				F72FFE6E1AAD935400C01BB2 /* member_try@2x.png in Resources */,

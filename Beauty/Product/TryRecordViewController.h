@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface TryRecordViewController : UIViewController
-@property (nonatomic,strong) NSString *productId;
+@property (nonatomic,strong) NSString *tryEventId;
 @end
