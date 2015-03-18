@@ -7,6 +7,9 @@
 //
 
 #import "TryRecordViewController.h"
+#import <BmobSDK/Bmob.h>
+#import "UploadImageView.h"
+
 
 @interface TryRecordViewController ()
 
@@ -16,14 +19,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UploadImageView *uploadImageView = [[[NSBundle mainBundle]loadNibNamed:@"UploadImageView" owner:self options:nil]firstObject];
+    uploadImageView.vc = self;
+//    [self.view addSubview:uploadImageView];
+    
+//    [self upload];
 //    NSLog(@"%@",self.productId);
     // Do any additional setup after loading the view.
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 /*
 #pragma mark - Navigation

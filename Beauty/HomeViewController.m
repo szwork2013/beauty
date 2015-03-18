@@ -45,6 +45,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    self.tabBarController.tabBar.hidden = NO;
+    self.activityDictionary = [NSMutableDictionary dictionary];
     /*propery init*/
     //更多按钮
     self.moreButton.layer.borderColor = [[UIColor whiteColor]CGColor];
@@ -138,7 +139,7 @@
 
 #pragma mark 获取图片轮播
 -(void) fetchRecommendScrollView {
-    self.activityDictionary = [NSMutableDictionary dictionary];
+    
     BmobQuery *query = [[BmobQuery alloc]initWithClassName:@"Recommend"];
     [query whereKey:@"type" equalTo:[NSNumber numberWithInteger:2]];
     [query includeKey:@"storeActivity"];

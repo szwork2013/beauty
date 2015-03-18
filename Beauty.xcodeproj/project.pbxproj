@@ -38,6 +38,9 @@
 		F71483FF1AB9253C005490FF /* ELCAssetTablePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = F71483F31AB9253C005490FF /* ELCAssetTablePicker.xib */; };
 		F71484001AB9253C005490FF /* Overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = F71483F41AB9253C005490FF /* Overlay.png */; };
 		F71484011AB9253C005490FF /* Overlay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F71483F51AB9253C005490FF /* Overlay@2x.png */; };
+		F71484061AB94DC2005490FF /* UploadImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F71484041AB94DC2005490FF /* UploadImageView.xib */; };
+		F71484081AB952AD005490FF /* add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F71484071AB952AD005490FF /* add@2x.png */; };
+		F714840B1AB95F54005490FF /* UploadImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = F714840A1AB95F54005490FF /* UploadImageView.m */; };
 		F715AE651AB6C26D00D07C38 /* RankListStoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F715AE641AB6C26D00D07C38 /* RankListStoreViewController.m */; };
 		F715AE681AB6C2E900D07C38 /* RankListStoreTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F715AE671AB6C2E900D07C38 /* RankListStoreTableViewDataSource.m */; };
 		F715AE6C1AB6C6C600D07C38 /* StoreShowTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F715AE6A1AB6C6C600D07C38 /* StoreShowTableViewCell.m */; };
@@ -201,6 +204,10 @@
 		F71483F31AB9253C005490FF /* ELCAssetTablePicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ELCAssetTablePicker.xib; sourceTree = "<group>"; };
 		F71483F41AB9253C005490FF /* Overlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Overlay.png; sourceTree = "<group>"; };
 		F71483F51AB9253C005490FF /* Overlay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Overlay@2x.png"; sourceTree = "<group>"; };
+		F71484041AB94DC2005490FF /* UploadImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UploadImageView.xib; path = Common/UploadImageView.xib; sourceTree = "<group>"; };
+		F71484071AB952AD005490FF /* add@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "add@2x.png"; path = "images/add@2x.png"; sourceTree = "<group>"; };
+		F71484091AB95F54005490FF /* UploadImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UploadImageView.h; path = TryEvent/UploadImageView.h; sourceTree = "<group>"; };
+		F714840A1AB95F54005490FF /* UploadImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UploadImageView.m; path = TryEvent/UploadImageView.m; sourceTree = "<group>"; };
 		F715AE631AB6C26D00D07C38 /* RankListStoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankListStoreViewController.h; sourceTree = "<group>"; };
 		F715AE641AB6C26D00D07C38 /* RankListStoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankListStoreViewController.m; sourceTree = "<group>"; };
 		F715AE661AB6C2E900D07C38 /* RankListStoreTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankListStoreTableViewDataSource.h; sourceTree = "<group>"; };
@@ -581,6 +588,9 @@
 				F7540A0B1AB42C6100042CB0 /* TryEventViewController.m */,
 				F76B38131AB303F90012F3A7 /* TryEventProductDetailTableViewController.h */,
 				F76B38141AB303F90012F3A7 /* TryEventProductDetailTableViewController.m */,
+				F71484041AB94DC2005490FF /* UploadImageView.xib */,
+				F71484091AB95F54005490FF /* UploadImageView.h */,
+				F714840A1AB95F54005490FF /* UploadImageView.m */,
 			);
 			name = TryEvent;
 			sourceTree = "<group>";
@@ -705,6 +715,7 @@
 		F7B498771AA31CFF0067219E /* images */ = {
 			isa = PBXGroup;
 			children = (
+				F71484071AB952AD005490FF /* add@2x.png */,
 				F71483D61AB85787005490FF /* cat_more@2x.png */,
 				F74523361AB469F600C33281 /* tryevent */,
 				F71B7C891AB03F63005E8648 /* submit_button@2x.png */,
@@ -995,6 +1006,7 @@
 				F71484011AB9253C005490FF /* Overlay@2x.png in Resources */,
 				F79547531AAD8A4600212CEA /* default_avatar@2x.png in Resources */,
 				F78FC9091AA73E8A00F3C1EE /* product_search_bg@2x.png in Resources */,
+				F71484061AB94DC2005490FF /* UploadImageView.xib in Resources */,
 				F78FC90B1AA73F6500F3C1EE /* product_search_bar@2x.png in Resources */,
 				F72FFE721AAE77BD00C01BB2 /* login_bg@2x.png in Resources */,
 				F7172C471AA94C0600A9ED4C /* buy@2x.png in Resources */,
@@ -1002,6 +1014,7 @@
 				F7B4987A1AA31D390067219E /* location@2x.png in Resources */,
 				F71483FE1AB9253C005490FF /* ELCAssetPicker.xib in Resources */,
 				F713C8C81AA48F5D004BE58C /* tel@2x.png in Resources */,
+				F71484081AB952AD005490FF /* add@2x.png in Resources */,
 				F79D17951AA5A6E700F0D86E /* Default-568h@2x.png in Resources */,
 				F78FC90D1AA7436B00F3C1EE /* activity_search_bar@2x.png in Resources */,
 				F7147A5D1AA6FBC2007605E6 /* willtry@2x.png in Resources */,
@@ -1050,6 +1063,7 @@
 				F715AE701AB7001300D07C38 /* RankListBrandViewController.m in Sources */,
 				F7BBEBC51AA35C66000D74D0 /* ActivityViewController.m in Sources */,
 				F715AE731AB7015100D07C38 /* RankListBrandTableViewDataSource.m in Sources */,
+				F714840B1AB95F54005490FF /* UploadImageView.m in Sources */,
 				F7091A931AB18366009D8C1D /* UserService.m in Sources */,
 				F7B498711AA31B250067219E /* StoreTableViewCell.m in Sources */,
 				F71B7C851AAFE4CD005E8648 /* ProductShowTableViewCell.m in Sources */,
