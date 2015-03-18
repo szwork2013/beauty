@@ -903,10 +903,10 @@
             </objects>
             <point key="canvasLocation" x="1846" y="-1276"/>
         </scene>
-        <!--Image Browser View Controller-->
+        <!--图片浏览器-->
         <scene sceneID="oIw-01-vye">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="geS-Pb-LBb" customClass="ImageBrowserViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="geS-Pb-LBb" userLabel="图片浏览器" customClass="ImageBrowserViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bBu-gB-N4l"/>
                         <viewControllerLayoutGuide type="bottom" id="N0j-Ud-Vem"/>
@@ -1318,6 +1318,7 @@
                         <outlet property="recommendScrollView" destination="qtb-vL-L7P" id="e7P-W0-7fV"/>
                         <segue destination="JDv-5z-1Wb" kind="show" identifier="secondLevel" id="JbZ-RO-xKe"/>
                         <segue destination="uA6-2X-uOA" kind="show" identifier="firstLevel" id="2Ib-GD-yJp"/>
+                        <segue destination="SIY-JD-YnJ" kind="show" identifier="activity" id="0R7-G8-1VP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kQ4-ge-zda" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1360,10 +1361,10 @@
             </objects>
             <point key="canvasLocation" x="923" y="-1957"/>
         </scene>
-        <!--Try Record View Controller-->
+        <!--申请试用-->
         <scene sceneID="Knb-r1-ebz">
             <objects>
-                <viewController id="G8q-tY-JeL" customClass="TryRecordViewController" sceneMemberID="viewController">
+                <viewController id="G8q-tY-JeL" userLabel="申请试用" customClass="TryRecordViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VBZ-cL-tx3"/>
                         <viewControllerLayoutGuide type="bottom" id="56L-j4-A7p"/>
@@ -2501,10 +2502,10 @@
             </objects>
             <point key="canvasLocation" x="-650" y="-745"/>
         </scene>
-        <!--Web View Browser Controller-->
+        <!--网页浏览器-->
         <scene sceneID="xpe-jR-cL6">
             <objects>
-                <viewController id="No1-e6-VIJ" customClass="WebViewBrowserController" sceneMemberID="viewController">
+                <viewController id="No1-e6-VIJ" userLabel="网页浏览器" customClass="WebViewBrowserController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="weB-u4-TW1"/>
                         <viewControllerLayoutGuide type="bottom" id="EB0-QK-8Wv"/>
@@ -2593,11 +2594,12 @@
         <image name="try_bg.png" width="317" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6zP-3P-Cza"/>
-        <segue reference="QJK-84-Obb"/>
-        <segue reference="qqI-84-Lb5"/>
+        <segue reference="0R7-G8-1VP"/>
+        <segue reference="lCi-hW-Cwb"/>
+        <segue reference="JbZ-RO-xKe"/>
+        <segue reference="Ehz-G5-5vx"/>
+        <segue reference="fK9-ib-ITl"/>
         <segue reference="Ovv-6A-JRB"/>
-        <segue reference="14H-Xx-qGq"/>
-        <segue reference="Zst-Jl-lkN"/>
+        <segue reference="Bps-P6-DWG"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -15,7 +15,7 @@
 #import "StarView.h"
 #import "CommonUtil.h"
 #import "TryEventProductDetailTableViewController.h"
-
+#import "ActivityViewController.h"
 
 @interface HomeViewController ()<UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
@@ -35,6 +35,9 @@
 @property (strong, nonatomic) NSString *currentFirstLevelId;
 //推荐图片张数
 @property (assign, nonatomic) NSUInteger imageCount;
+//海报关联的activity
+@property (assign, nonatomic) NSMutableDictionary *activityDictionary;
+@property (assign, nonatomic) NSString *activityId;
 @end
 
 @implementation HomeViewController
@@ -135,11 +138,14 @@
 
 #pragma mark 获取图片轮播
 -(void) fetchRecommendScrollView {
+    self.activityDictionary = [NSMutableDictionary dictionary];
     BmobQuery *query = [[BmobQuery alloc]initWithClassName:@"Recommend"];
     [query whereKey:@"type" equalTo:[NSNumber numberWithInteger:2]];
-
+    [query includeKey:@"storeActivity"];
     [query orderByAscending:@"rank"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+        
+        
         self.imageCount = array.count;
         //get scroll view rect
         CGRect scrollRect = self.recommendScrollView.frame;
@@ -147,6 +153,7 @@
         self.recommendScrollView.contentSize = CGSizeMake(scrollRect.size.width * array.count, scrollRect.size.height);
         //init ImageView count of array.count
         for (int i = 0; i < array.count; i++) {
+            [self.activityDictionary setObject:[[array[i]objectForKey:@"storeActivity"]objectId] forKey:[NSNumber numberWithInt:i]];
             UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(i * scrollRect.size.width, 0, scrollRect.size.width, scrollRect.size.height)];
             imageView.contentMode = UIViewContentModeScaleAspectFill;
             imageView.clipsToBounds = YES;
@@ -155,6 +162,12 @@
 
             [imageView setImageWithURL:[NSURL URLWithString:image.url]];
             [self.recommendScrollView addSubview:imageView];
+            UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+            button.bounds = imageView.bounds;
+            button.center = imageView.center;
+            [button addTarget:self action:@selector(scrollViewPress:) forControlEvents:UIControlEventTouchUpInside];
+            button.tag = i;
+            [self.recommendScrollView addSubview:button];
         }
         self.pageControl = [[UIPageControl alloc]init];
         
@@ -170,7 +183,12 @@
     }];
 }
 
+//按钮点击事件
+- (void)scrollViewPress:(UIButton *)button {
+    self.activityId = [self.activityDictionary objectForKey:[NSNumber numberWithLong:button.tag]];
+    [self performSegueWithIdentifier:@"activity" sender:self];
 
+}
 - (void) updateScrollView
 {
 
@@ -202,6 +220,7 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     self.pageControl.currentPage = self.recommendScrollView.contentOffset.x / self.view.frame.size.width;
 }
+//左右拖到底的循环
 //- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
 //    if (scrollView.contentOffset.x + scrollView.frame.size.width > scrollView.contentSize.width) {
 //        [self.recommendScrollView scrollRectToVisible:CGRectMake(0,0,self.recommendScrollView.frame.size.width,self.recommendScrollView.frame.size.height) animated:YES];
@@ -260,6 +279,9 @@
         vc.productId = [[self.productArray[self.productTableView.indexPathForSelectedRow.row]objectForKey:@"product"] objectId];
     } else if ([segue.identifier isEqualToString:@"firstLevel"]){
         
+    } else if ([segue.identifier isEqualToString:@"activity"]) {
+        ActivityViewController *vc = segue.destinationViewController;
+        vc.objectId = self.activityId;
     }
 //    [self setHidesBottomBarWhenPushed:YES];
 }
