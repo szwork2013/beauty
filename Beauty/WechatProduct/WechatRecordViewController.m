@@ -34,7 +34,7 @@
         return NO;
     }
     if ([self.mobileTextField.text isEqualToString:@""]) {
-        [SVProgressHUD showErrorWithStatus:@"请填写手机"];
+        [SVProgressHUD showErrorWithStatus:@"请填写电话"];
         return NO;
     }
     return YES;

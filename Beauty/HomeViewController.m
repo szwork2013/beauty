@@ -130,8 +130,11 @@
             self.productArray = array;
             
             [self.productTableView reloadData];
+
+//            self.productTableView.frame = CGRectMake(self.productTableView.frame.origin.x, self.productTableView.frame.origin.y, self.view.frame.size.width, 120.0 * array.count);
+//            self.productTableView.hidden = YES;
 //            配置高度
-            self.mainScrollView.contentSize = CGSizeMake(self.mainScrollView.contentSize.width, self.mainScrollView.contentSize.height + (array.count - 1) * 120 - 115);
+//            self.mainScrollView.contentSize = CGSizeMake(self.mainScrollView.contentSize.width, self.mainScrollView.contentSize.height + array.count * 120);
         }
     }];
 }

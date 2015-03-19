@@ -11,12 +11,15 @@
 #import "UploadImageView.h"
 #import "UserService.h"
 #import "SVProgressHUD.h"
+#import <BmobSDK/BmobProFile.h>
 
 @interface TryRecordViewController ()<UIAlertViewDelegate>
 @property (nonatomic,strong) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *sexSegmentedControl;
 @property (weak, nonatomic) IBOutlet UITextField *mobileTextField;
+@property (strong, nonatomic) UploadImageView *uploadImageView;
+@property (strong, nonatomic) NSMutableArray *fileUrlArray;
 @end
 
 
@@ -24,12 +27,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, 1000);
-    UploadImageView *uploadImageView = [[[NSBundle mainBundle]loadNibNamed:@"Upload" owner:self options:nil]firstObject];
-    uploadImageView.vc = self;
+//初始化view
+    self.uploadImageView = [[[NSBundle mainBundle]loadNibNamed:@"Upload" owner:self options:nil]firstObject];
+    self.uploadImageView.vc = self;
 
-    uploadImageView.frame = CGRectMake(0, 230.0, self.view.frame.size.width, 130.0);
-    [self.view addSubview:uploadImageView];
+    self.uploadImageView.frame = CGRectMake(0, 230.0, self.view.frame.size.width, 130.0);
+    [self.view addSubview:self.uploadImageView];
+//    点击与滑动手势以去掉键盘
     UITapGestureRecognizer *topScrollView = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard:)];
     UIPanGestureRecognizer *moveScrollView = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard:)];
     [self.scrollView addGestureRecognizer:topScrollView];
@@ -39,17 +43,19 @@
 //    NSLog(@"%@",self.productId);
     // Do any additional setup after loading the view.
 }
+//表单验证
 - (BOOL)formValid {
     if ([self.nameTextField.text isEqualToString:@""]) {
         [SVProgressHUD showErrorWithStatus:@"请填写姓名"];
         return NO;
     }
     if ([self.mobileTextField.text isEqualToString:@""]) {
-        [SVProgressHUD showErrorWithStatus:@"请填写手机"];
+        [SVProgressHUD showErrorWithStatus:@"请填写电话"];
         return NO;
     }
     return YES;
 }
+//隐藏键盘
 - (void)hideKeyboard:(id)sender {
     [self.nameTextField resignFirstResponder];
     [self.mobileTextField resignFirstResponder];
@@ -70,12 +76,13 @@
     UserService *service = [UserService getInstance];
     [service actionWithUser:^(BmobUser *user) {
         //添加申请信息
-        BmobObject *wechatRecord = [BmobObject objectWithClassName:@"TryRecord"];
-        [wechatRecord setObject:user forKey:@"user"];
-        [wechatRecord setObject:[BmobObject objectWithoutDatatWithClassName:@"TryEvent" objectId:self.tryEventId] forKey:@"tryEvent"];
-        [wechatRecord setObject:formContent forKey:@"formContent"];
-        [wechatRecord setObject:[NSNumber numberWithInt:0] forKey:@"state"];
-        [wechatRecord saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+        BmobObject *tryRecord = [BmobObject objectWithClassName:@"TryRecord"];
+        [tryRecord setObject:user forKey:@"user"];
+        [tryRecord setObject:[BmobObject objectWithoutDatatWithClassName:@"TryEvent" objectId:self.tryEventId] forKey:@"tryEvent"];
+        [tryRecord setObject:formContent forKey:@"formContent"];
+        [tryRecord setObject:self.uploadImageView.fileUrlArray forKey:@"photos"];
+        [tryRecord setObject:[NSNumber numberWithInt:0] forKey:@"state"];
+        [tryRecord saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
             if (error) {
                 NSLog(@"%@",error);
             } else if (isSuccessful) {

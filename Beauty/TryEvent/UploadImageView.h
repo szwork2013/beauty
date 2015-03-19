@@ -14,7 +14,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *addButton;
 @property (weak, nonatomic) IBOutlet UILabel *desciptLabel;
 @property (nonatomic, copy) NSArray *chosenImages;
+@property (nonatomic, copy) NSArray *imagesURL;
 @property (nonatomic, strong) IBOutlet UIScrollView *containerView;
-
+@property (nonatomic, strong) NSMutableArray *fileUrlArray;
 @property (nonatomic, strong)UIViewController *vc;
 @end
