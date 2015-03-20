@@ -21,7 +21,7 @@
 
 @interface StoreViewController ()<UITableViewDataSource,UITableViewDelegate,CLLocationManagerDelegate>
 @property (strong ,nonatomic) NSMutableArray *storeActivityArray;
-@property (strong ,nonatomic) NSMutableArray *storeNearByActivityArray;
+@property (strong ,nonatomic) NSMutableArray *storeNearByArray;
 @property (nonatomic,assign) NSInteger page;
 @property (nonatomic,assign) NSInteger pageNearBy;
 @property (nonatomic, strong) CLLocationManager *locationManager;
@@ -40,7 +40,7 @@
     [self fetchLoaction];
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.storeActivityArray = [NSMutableArray array];
-    self.storeNearByActivityArray = [NSMutableArray array];
+    self.storeNearByArray = [NSMutableArray array];
     [self setup];
         // Do any additional setup after loading the view.
 }
@@ -189,18 +189,21 @@
                 city = placemark.administrativeArea;
             }
 //
-            
+            //simulate city name
+            city = @"北京市";
             self.cityButtonItem.title = city;
             
 //            获取邮编
+
             BmobQuery *query = [BmobQuery queryWithClassName:@"City"];
             [query whereKey:@"name" equalTo:city];
+            NSLog(@"city name : %@",city);
             [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
                 BmobObject *cityObject = [array firstObject];
                 self.cityId = [cityObject objectForKey:@"cityId"];
+                //    成功获取了地理定位，才去取的附近店铺
+                [self fetchNearByData:0 tableView:self.nearByTableView];
             }];
-            //    成功获取了地理定位，才去取的附近店铺
-            [self fetchNearByData:0 tableView:self.nearByTableView];
         }
     }];
     
@@ -216,10 +219,12 @@
     BmobQuery *query = [BmobQuery queryWithClassName:@"Store"];
     query.limit = PER_PAGE;
     query.skip = skip;
-    [query whereKey:@"city" equalTo:self.cityId];
+    
+    NSDictionary *condictionCityId = @{@"cityId":self.cityId == nil ? [NSNull null] : self.cityId};
     NSDictionary *condictionCityIdEmpty = @{@"cityId":@""};
     NSDictionary *condictionCityIdNull = @{@"cityId":@{@"$exists":[NSNumber numberWithBool:NO]}};
-    NSArray *array = @[condictionCityIdEmpty,condictionCityIdNull];
+    
+    NSArray *array = @[condictionCityId,condictionCityIdEmpty,condictionCityIdNull];
     [query addTheConstraintByOrOperationWithArray:array];
     [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
         if (array.count == 0) {
@@ -235,7 +240,7 @@
                 [SVProgressHUD showSuccessWithStatus:NO_MORE];
             }
         } else {
-            [self.storeNearByActivityArray addObjectsFromArray:array];
+            [self.storeNearByArray addObjectsFromArray:array];
             [tableView reloadData];
         }
     }];
@@ -281,8 +286,8 @@
 //组数
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     if (tableView == self.nearByTableView) {
-        NSLog(@"count 1: %zi",self.storeNearByActivityArray.count);
-        return self.storeNearByActivityArray.count;
+        NSLog(@"count 1: %zi",self.storeNearByArray.count);
+        return self.storeNearByArray.count;
     }
     NSLog(@"count 2: %zi",self.storeActivityArray.count);
     return self.storeActivityArray.count;
@@ -296,7 +301,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (tableView == self.nearByTableView) {
-        BmobObject *store = self.storeNearByActivityArray[indexPath.section];
+        BmobObject *store = self.storeNearByArray[indexPath.section];
         return [CommonUtil fetchStoreShowCell:store];
     }
     

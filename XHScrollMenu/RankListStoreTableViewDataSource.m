@@ -75,8 +75,20 @@
 }
 //单元格
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    StoreShowTableViewCell *cell = [[[NSBundle mainBundle]loadNibNamed:@"StoreShowTableViewCell" owner:self options:nil]objectAtIndex:0];
     BmobObject *store = [self.dataSourceArray[indexPath.section] objectForKey:@"store"];
-    return [CommonUtil fetchStoreShowCell:store];
+    BmobFile *avatar = [store objectForKey:@"avatar"];
+    
+    [cell.avatarImageView setImageWithURL:[NSURL URLWithString:avatar.url]];
+    //缩略图加圆角边框
+    cell.avatarImageView.layer.cornerRadius = 28.0;
+    cell.avatarImageView.layer.borderColor = [TINYGRAY_COLOR CGColor];
+    cell.avatarImageView.clipsToBounds = YES;
+    cell.avatarImageView.layer.borderWidth = 1.0;
+    cell.nameLabel.text = [store objectForKey:@"name"];
+    cell.orderLabel.text = [NSString stringWithFormat:@"%ld.",(long)indexPath.section + 1];
+    cell.descriptLabel.text = [store objectForKey:@"descript"];
+    return cell;
 }
 //传值
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
