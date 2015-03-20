@@ -18,6 +18,7 @@
 @implementation WechatProductViewController
 
 - (void)viewDidLoad {
+    self.automaticallyAdjustsScrollViewInsets = NO;
     [super viewDidLoad];
     self.tabBarController.tabBar.hidden = YES;
     [self setup];

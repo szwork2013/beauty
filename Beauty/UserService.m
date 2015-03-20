@@ -17,7 +17,10 @@
     return instance;
 }
 - (BOOL)isLogin {
-    return [[NSUserDefaults standardUserDefaults]objectForKey:@"username"];
+    if ([[NSUserDefaults standardUserDefaults]objectForKey:@"username"]) {
+        return YES;
+    }
+    return NO;
 }
 
 - (void)actionWithUser:(actionBlock)actionBlock {

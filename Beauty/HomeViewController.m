@@ -122,7 +122,7 @@
     [query includeKey:@"product"];
     [query whereKey:@"endTime" greaterThanOrEqualTo:[NSDate date]];
     [query orderByAscending:@"endTime"];
-    query.limit = 2;
+    query.limit = 3;
     [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
         if (error) {
             NSLog(@"%@",error);

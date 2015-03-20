@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface StoreViewController : UIViewController
-
+@property (nonatomic, strong) NSString *activityId;
 @end

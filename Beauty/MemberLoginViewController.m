@@ -8,6 +8,7 @@
 
 #import "MemberLoginViewController.h"
 #import "AFHTTPRequestOperationManager.h"
+#import <BmobSDK/Bmob.h>
 
 @interface MemberLoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
@@ -37,11 +38,14 @@
     return code;
 }
 - (IBAction)fetchCode:(id)sender {
+    
+    
     if ([self isValidateMobile:self.phoneTextField.text]) {
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         [manager GET:[NSString stringWithFormat:@"http://120.24.158.159:8090/sendSMS/%@/%@",self.phoneTextField.text,[self createCode]] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [self regist];
             UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"验证码已发送" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
-            [[NSUserDefaults standardUserDefaults]setObject:self.phoneTextField.text forKey:@"username"];
+            
             [alert show];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"验证码发送失败" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
@@ -53,8 +57,43 @@
     }
 }
 
+- (void)regist {
+    BmobQuery *query = [BmobUser query];
+    [query whereKey:@"username" equalTo:self.phoneTextField.text];
+    [query countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
+        if (error) {
+            NSLog(@"%@",error);
+        } else {
+            if (number <= 0) {
+                BmobUser *bUser = [[BmobUser alloc] init];
+                [bUser setUserName:self.phoneTextField.text];
+                [bUser setPassword:self.phoneTextField.text];
+                [bUser signUpInBackground];
+                
+//                
+//                BmobUser *user = [BmobUser objectWithClassName:@"User"];
+//                [user setObject:self.phoneTextField.text forKey:@"username"];
+//                [user saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+//                    if (error) {
+//                        NSLog(@"%@",error);
+//                    } else if (isSuccessful) {
+////                        [NSUserDefaults standardUserDefaults]objectForKey:@"username"] = self.phoneTextField.text;
+//                    } else {
+//                        NSLog(@"not regist");
+//                    }
+//                }];
+
+            } else {
+                NSLog(@"s");
+            }
+        }
+    }];
+
+}
+
 - (IBAction)loginPress:(id)sender {
     if ([self.code isEqualToString:self.codeTextFiled.text]) {
+        [[NSUserDefaults standardUserDefaults]setObject:self.phoneTextField.text forKey:@"username"];
         [self.navigationController popViewControllerAnimated:YES];
         
     } else {
