@@ -16,20 +16,44 @@
 #import "Global.h"
 #import "CommonUtil.h"
 #import "SVPullToRefresh.h"
+#import <CoreLocation/CoreLocation.h>
+#import <MapKit/MapKit.h>
 
-@interface StoreViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface StoreViewController ()<UITableViewDataSource,UITableViewDelegate,CLLocationManagerDelegate>
 @property (strong ,nonatomic) NSMutableArray *storeActivityArray;
+@property (strong ,nonatomic) NSMutableArray *storeNearByActivityArray;
 @property (nonatomic,assign) NSInteger page;
+@property (nonatomic,assign) NSInteger pageNearBy;
+@property (nonatomic, strong) CLLocationManager *locationManager;
+@property (nonatomic, assign) CLLocationCoordinate2D coordinate;
+@property (nonatomic, strong) UITableView *nearByTableView;
+//城市中文名
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *cityButtonItem;
+@property (weak, nonatomic) NSString *cityId;
 @end
 
 @implementation StoreViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setup];
-    
+    self.cityButtonItem.title = @"";
+    self.locationManager = [[CLLocationManager alloc]init];
+    [self fetchLoaction];
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.storeActivityArray = [NSMutableArray array];
+    self.storeNearByActivityArray = [NSMutableArray array];
+    [self setup];
         // Do any additional setup after loading the view.
+}
+- (IBAction)switchCity:(id)sender {
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.tabBarController.tabBar.hidden = NO;
+}
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [self.locationManager stopUpdatingLocation];
 }
 
 - (void)setup {
@@ -65,7 +89,7 @@
                 if (i == 0) {
                     menu.title = @"店铺活动";
                 } else {
-                    menu.title = @"附近";
+                    menu.title = @"附近店铺";
                 }
                 menu.titleNormalColor = [UIColor grayColor];
                 menu.titleFont = [UIFont systemFontOfSize:17.0];
@@ -75,20 +99,32 @@
                 UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(i * CGRectGetWidth(viewPager.scrollView.bounds), 0, CGRectGetWidth(viewPager.scrollView.bounds), CGRectGetHeight(viewPager.scrollView.bounds)) style:UITableViewStyleGrouped];
                 //边距
                 tableView.contentInset = UIEdgeInsetsMake(-4, 0, 0, 0);
-                if (i == 0) {
+//                if (i == 0) {
                     //        设置滚动视图代理类
                     tableView.delegate = self;
                     tableView.dataSource = self;
-                    [self fetchData:0 tableView:tableView];
+                
 //                    配置上拉无限刷新
                     __weak StoreViewController *weakSelf = self;
                     __weak UITableView *weakTableView = tableView;
+                if (i == 0) {
+                    [self fetchData:0 tableView:tableView];
                     [tableView addInfiniteScrollingWithActionHandler:^{
                         self.page ++;
                         [weakSelf fetchData:PER_PAGE * self.page tableView:weakTableView];
                         [weakTableView.infiniteScrollingView stopAnimating];
                     }];
+                } else {
+                    
+                    [tableView addInfiniteScrollingWithActionHandler:^{
+                        self.pageNearBy ++;
+                        [weakSelf fetchNearByData:PER_PAGE * self.pageNearBy tableView:weakTableView];
+                        [weakTableView.infiniteScrollingView stopAnimating];
+                    }];
+                    self.nearByTableView = tableView;
                 }
+                
+//                }
                 
 
                 
@@ -106,13 +142,110 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+//请求地理位置
+- (void)fetchLoaction {
+    if([CLLocationManager locationServicesEnabled]) {
+        self.locationManager = [[CLLocationManager alloc] init];
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+        self.locationManager.distanceFilter = 500;
+        self.locationManager.delegate = self;
+        if ([[[UIDevice currentDevice] systemVersion] doubleValue] >= 8.0)
+        {
+            //设置定位权限 仅ios8有意义
+            [self.locationManager requestWhenInUseAuthorization];// 前台定位
+            
+            
+        }
+        [self.locationManager startUpdatingLocation];
+    }else {
+        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"未开启定位" message:@"请打开设置-隐私-启用地理位置" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+        [alertView show];
+    }
+}
+//成功获取地理位置
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    
+    CLLocation *location = [locations lastObject];
+    self.coordinate = location.coordinate;
+    
+    [self convertCityName];
+    
 
-#pragma mark 代理方法
+    [self.locationManager stopUpdatingLocation];
+
+}
+
+//转换成城市名
+- (void)convertCityName {
+    CLGeocoder *geocoder = [[CLGeocoder alloc]init];
+    CLLocation *location = [[CLLocation alloc]initWithLatitude:self.coordinate.latitude longitude:self.coordinate.longitude];
+    [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
+        if (placemarks.count > 0) {
+            CLPlacemark *placemark = [placemarks objectAtIndex:0];
+            //获取城市
+            NSString *city = placemark.locality;
+            if (!city) {
+                //四大直辖市的城市信息无法通过locality获得，只能通过获取省份的方法来获得（如果city为空，则可知为直辖市）
+                city = placemark.administrativeArea;
+            }
+//
+            
+            self.cityButtonItem.title = city;
+            
+//            获取邮编
+            BmobQuery *query = [BmobQuery queryWithClassName:@"City"];
+            [query whereKey:@"name" equalTo:city];
+            [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+                BmobObject *cityObject = [array firstObject];
+                self.cityId = [cityObject objectForKey:@"cityId"];
+            }];
+            //    成功获取了地理定位，才去取的附近店铺
+            [self fetchNearByData:0 tableView:self.nearByTableView];
+        }
+    }];
+    
+
+}
+//地理位置获取失败
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"无法定位" message:@"请打开设置-隐私-启用地理位置" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+    [alertView show];
+}
+//获取附近商铺活动
+- (void)fetchNearByData:(NSUInteger)skip tableView:(UITableView *)tableView {
+    BmobQuery *query = [BmobQuery queryWithClassName:@"Store"];
+    query.limit = PER_PAGE;
+    query.skip = skip;
+    [query whereKey:@"city" equalTo:self.cityId];
+    NSDictionary *condictionCityIdEmpty = @{@"cityId":@""};
+    NSDictionary *condictionCityIdNull = @{@"cityId":@{@"$exists":[NSNumber numberWithBool:NO]}};
+    NSArray *array = @[condictionCityIdEmpty,condictionCityIdNull];
+    [query addTheConstraintByOrOperationWithArray:array];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+        if (array.count == 0) {
+            if (self.pageNearBy == 0) {
+                tableView.hidden = YES;
+                UILabel *label = [[UILabel alloc]initWithFrame:tableView.frame];
+                label.textAlignment = NSTextAlignmentCenter;
+                label.textColor = [UIColor grayColor];
+                label.font = [UIFont systemFontOfSize:18.0];
+                label.text = NO_DATAS;
+                [tableView.superview addSubview:label];
+            } else {
+                [SVProgressHUD showSuccessWithStatus:NO_MORE];
+            }
+        } else {
+            [self.storeNearByActivityArray addObjectsFromArray:array];
+            [tableView reloadData];
+        }
+    }];
+}
+
+#pragma mark 获取全部店铺数据
 - (void) fetchData:(NSUInteger)skip tableView:(UITableView *)tableView {
     BmobQuery *activityQuery = [BmobQuery queryWithClassName:@"StoreActivity"];
     activityQuery.limit = PER_PAGE;
     activityQuery.skip = skip;
-    NSLog(@"%zi,%zi",self.page,skip);
     [activityQuery includeKey:@"store"];
     [activityQuery orderByDescending:@"time"];
     [activityQuery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
@@ -135,6 +268,8 @@
     }];
     
 }
+
+#pragma mark 代理方法
 //组眉
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 8.0;
@@ -145,6 +280,11 @@
 }
 //组数
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    if (tableView == self.nearByTableView) {
+        NSLog(@"count 1: %zi",self.storeNearByActivityArray.count);
+        return self.storeNearByActivityArray.count;
+    }
+    NSLog(@"count 2: %zi",self.storeActivityArray.count);
     return self.storeActivityArray.count;
 }
 //一组一个
@@ -154,8 +294,14 @@
 
 //自定义单元格
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (tableView == self.nearByTableView) {
+        BmobObject *store = self.storeNearByActivityArray[indexPath.section];
+        return [CommonUtil fetchStoreShowCell:store];
+    }
+    
     StoreTableViewCell *cell = [[[NSBundle mainBundle]loadNibNamed:@"StoreTableViewCell" owner:self options:nil]firstObject];
-    //    名称与描述
+
     BmobObject *activity = self.storeActivityArray[indexPath.section];
     cell.nameLabel.text = [activity objectForKey:@"name"];
 //    NSLog(@"%@",cell.nameLabel.text);
@@ -175,6 +321,7 @@
     cell.timeLabel.text = [formatter stringFromDate:[activity objectForKey:@"time"]];
     //    关联查询店铺
     cell.shopNameLabel.text = [[activity objectForKey:@"store"]objectForKey:@"name"];
+
     return cell;
 }
 

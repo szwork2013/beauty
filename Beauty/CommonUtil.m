@@ -51,6 +51,7 @@
     cell.avatarImageView.layer.cornerRadius = 28.0;
     cell.avatarImageView.layer.borderColor = [TINYGRAY_COLOR CGColor];
     cell.avatarImageView.layer.borderWidth = 1.0;
+    cell.avatarImageView.clipsToBounds = YES;
     cell.nameLabel.text = [store objectForKey:@"name"];
     cell.descriptLabel.text = [store objectForKey:@"descript"];
     return cell;

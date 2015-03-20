@@ -20,8 +20,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="店铺" id="jiW-DW-9rq"/>
+                    <navigationItem key="navigationItem" title="店铺" id="jiW-DW-9rq">
+                        <barButtonItem key="rightBarButtonItem" id="ui3-ka-AhL">
+                            <connections>
+                                <action selector="switchCity:" destination="cne-mI-oOW" id="geJ-pZ-f4H"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="cityButtonItem" destination="ui3-ka-AhL" id="Vfu-tr-Zk5"/>
                         <segue destination="SIY-JD-YnJ" kind="show" identifier="activity" id="CTU-yq-eRR"/>
                     </connections>
                 </viewController>
