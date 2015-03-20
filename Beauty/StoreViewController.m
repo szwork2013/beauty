@@ -18,6 +18,7 @@
 #import "SVPullToRefresh.h"
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
+#import "KGModal.h"
 
 @interface StoreViewController ()<UITableViewDataSource,UITableViewDelegate,CLLocationManagerDelegate>
 @property (strong ,nonatomic) NSMutableArray *storeActivityArray;
@@ -30,12 +31,15 @@
 //城市中文名
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cityButtonItem;
 @property (weak, nonatomic) NSString *cityId;
+@property (strong, nonatomic) NSArray *cityArray;
 @end
 
 @implementation StoreViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.cityButtonItem.title = @"";
+    self.cityButtonItem.title = @"广州市";
+    self.cityId = @"020";
+    [self loadCity];
     self.locationManager = [[CLLocationManager alloc]init];
     [self fetchLoaction];
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -44,9 +48,72 @@
     [self setup];
         // Do any additional setup after loading the view.
 }
-- (IBAction)switchCity:(id)sender {
-}
 
+- (void)loadCity{
+    BmobQuery *query = [BmobQuery queryWithClassName:@"City"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+        self.cityArray = array;
+    }];
+}
+//点击城市切换
+- (IBAction)switchCity:(id)sender {
+    CGFloat width = 300.0;
+
+    CGFloat buttonWidth = 80.0;
+    CGFloat buttonHeight = 30.0;
+    CGFloat buttonMargin = 20.0;
+    UIView *cityView = [[UIView alloc]init];
+    cityView.backgroundColor = [UIColor whiteColor];
+//    标题
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(10.0, 0, width, 50.0)];
+    label.textColor = MAIN_COLOR;
+    label.font = [UIFont systemFontOfSize:18.0];
+    label.text = @"请选择城市";
+    [cityView addSubview:label];
+//    分隔线
+    UIView *seperatedView = [[UIView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(label.frame), width, 1)];
+    seperatedView.backgroundColor = TINYGRAY_COLOR;
+    [cityView addSubview:seperatedView];
+//    城市列表
+    for (int i = 0; i < self.cityArray.count; i++) {
+        int column = i  % 3;
+        int row = i / 3;
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+        button.titleLabel.font = [UIFont systemFontOfSize:15.0];
+        [button setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+        [button setTitle:[self.cityArray[i]objectForKey:@"name"] forState:UIControlStateNormal];
+        button.bounds = CGRectMake(0, 0, buttonWidth, buttonHeight);
+        button.center = CGPointMake(width / 3.0 * (column + 0.5), CGRectGetMaxY(seperatedView.frame) + (buttonHeight + buttonMargin) * row + buttonHeight);
+        [button addTarget:self action:@selector(oneCityButtonPress:) forControlEvents:UIControlEventTouchUpInside];
+        //button border
+        button.layer.borderColor = [MAIN_COLOR CGColor];
+        button.layer.borderWidth = 1.0;
+        button.layer.cornerRadius = 8.0;
+        button.tag = i;
+        [cityView addSubview:button];
+    }
+    
+    
+    cityView.frame = CGRectMake(0, 0, width, CGRectGetMaxY(seperatedView.frame) + buttonMargin + (buttonHeight + buttonMargin) * ceil(self.cityArray.count / 3.0));
+    
+    [[KGModal sharedInstance]showWithContentView:cityView andAnimated:YES];
+    
+}
+- (void)oneCityButtonPress:(UIButton *)button {
+    NSUInteger tag = button.tag;
+    self.cityId = [self.cityArray[tag] objectForKey:@"cityId"];
+    
+    //关闭窗口
+    [[KGModal sharedInstance]hideAnimated:YES];
+//    清空数据源，同时将页码重新赋值为零
+    [self.storeNearByArray removeAllObjects];
+    self.pageNearBy = 0;
+//    右上角按钮重新赋值
+    self.cityButtonItem.title = [self.cityArray[tag] objectForKey:@"name"];
+//    获取新数据
+    [self fetchNearByData:0 tableView:self.nearByTableView];
+    
+}
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.tabBarController.tabBar.hidden = NO;
@@ -190,7 +257,7 @@
             }
 //
             //simulate city name
-            city = @"北京市";
+//            city = @"北京市";
             self.cityButtonItem.title = city;
             
 //            获取邮编

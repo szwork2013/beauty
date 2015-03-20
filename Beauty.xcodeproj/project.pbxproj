@@ -69,6 +69,7 @@
 		F72FFE721AAE77BD00C01BB2 /* login_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F72FFE701AAE77BD00C01BB2 /* login_bg@2x.png */; };
 		F72FFE751AAE8F4100C01BB2 /* MemberLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F72FFE741AAE8F4100C01BB2 /* MemberLoginViewController.m */; };
 		F72FFE8B1AAEF14B00C01BB2 /* MemberTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F72FFE8A1AAEF14B00C01BB2 /* MemberTableViewController.m */; };
+		F735C2031ABC5C5A00A61F47 /* KGModal.m in Sources */ = {isa = PBXBuildFile; fileRef = F735C2021ABC5C5A00A61F47 /* KGModal.m */; };
 		F745232A1AB45A1300C33281 /* WechatProductDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F74523231AB45A1300C33281 /* WechatProductDetailTableViewController.m */; };
 		F745232B1AB45A1300C33281 /* WechatProductTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F74523251AB45A1300C33281 /* WechatProductTableViewDataSource.m */; };
 		F745232C1AB45A1300C33281 /* WechatProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F74523271AB45A1300C33281 /* WechatProductViewController.m */; };
@@ -256,6 +257,8 @@
 		F72FFE741AAE8F4100C01BB2 /* MemberLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MemberLoginViewController.m; path = Beauty/MemberLoginViewController.m; sourceTree = "<group>"; };
 		F72FFE891AAEF14B00C01BB2 /* MemberTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MemberTableViewController.h; path = Beauty/MemberTableViewController.h; sourceTree = "<group>"; };
 		F72FFE8A1AAEF14B00C01BB2 /* MemberTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MemberTableViewController.m; path = Beauty/MemberTableViewController.m; sourceTree = "<group>"; };
+		F735C2011ABC5C5A00A61F47 /* KGModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGModal.h; sourceTree = "<group>"; };
+		F735C2021ABC5C5A00A61F47 /* KGModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGModal.m; sourceTree = "<group>"; };
 		F74523221AB45A1300C33281 /* WechatProductDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WechatProductDetailTableViewController.h; path = Beauty/WechatProduct/WechatProductDetailTableViewController.h; sourceTree = "<group>"; };
 		F74523231AB45A1300C33281 /* WechatProductDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WechatProductDetailTableViewController.m; path = Beauty/WechatProduct/WechatProductDetailTableViewController.m; sourceTree = "<group>"; };
 		F74523241AB45A1300C33281 /* WechatProductTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WechatProductTableViewDataSource.h; path = Beauty/WechatProduct/WechatProductTableViewDataSource.h; sourceTree = "<group>"; };
@@ -538,6 +541,15 @@
 			name = SlidePage;
 			sourceTree = "<group>";
 		};
+		F735C2001ABC5C5A00A61F47 /* KGModal */ = {
+			isa = PBXGroup;
+			children = (
+				F735C2011ABC5C5A00A61F47 /* KGModal.h */,
+				F735C2021ABC5C5A00A61F47 /* KGModal.m */,
+			);
+			path = KGModal;
+			sourceTree = "<group>";
+		};
 		F74523361AB469F600C33281 /* tryevent */ = {
 			isa = PBXGroup;
 			children = (
@@ -645,6 +657,7 @@
 				F787B7091AB3DFBE00D4C27D /* XHScrollMenu */,
 				F7B498511AA2FF300067219E /* BeautyTests */,
 				F7B498361AA2FF300067219E /* Products */,
+				F735C2001ABC5C5A00A61F47 /* KGModal */,
 				F7BBEBC61AA3633D000D74D0 /* SVProgressHUD */,
 				F7B498A21AA335E30067219E /* AFNetworking */,
 				F7B498881AA3356E0067219E /* UIKit+AFNetworking */,
@@ -1117,6 +1130,7 @@
 				F7172C371AA87D8500A9ED4C /* ProductTableViewController.m in Sources */,
 				F71483F61AB9253C005490FF /* ELCAlbumPickerController.m in Sources */,
 				F77FB1CD1AA9F02F0092D57F /* EvaluateTableViewController.m in Sources */,
+				F735C2031ABC5C5A00A61F47 /* KGModal.m in Sources */,
 				F70850341AB67F0200DD4A1C /* RankListProductTableViewDataSource.m in Sources */,
 				F76B38151AB303F90012F3A7 /* TryEventProductDetailTableViewController.m in Sources */,
 				F787B7141AB3DFBE00D4C27D /* UIScrollView+XHVisibleCenterScroll.m in Sources */,
