@@ -62,6 +62,19 @@
     [self updatePageIndicator];
     
 }
+
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 300, 200)];
+    view.backgroundColor = [UIColor grayColor  ];
+    return view;
+}
+
+-(void)scrollViewDidZoom:(UIScrollView *)scrollView {
+    NSLog(@"zoom");
+}
+-(void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(CGFloat)scale {
+    NSLog(@"%.2f",scale);
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

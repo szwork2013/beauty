@@ -137,10 +137,15 @@
                                                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="giY-vi-xcN">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="181"/>
                                                 </scrollView>
+                                                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="PCJ-aR-1a7">
+                                                    <rect key="frame" x="260" y="148" width="39" height="37"/>
+                                                </pageControl>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="PCJ-aR-1a7" secondAttribute="trailing" constant="13" id="39q-tk-p2X"/>
                                                 <constraint firstItem="giY-vi-xcN" firstAttribute="top" secondItem="sZO-0k-u3J" secondAttribute="topMargin" constant="-8" id="DpI-aT-NSd"/>
                                                 <constraint firstItem="giY-vi-xcN" firstAttribute="leading" secondItem="sZO-0k-u3J" secondAttribute="leadingMargin" constant="-8" id="JAc-fP-fvZ"/>
+                                                <constraint firstItem="PCJ-aR-1a7" firstAttribute="top" secondItem="sZO-0k-u3J" secondAttribute="topMargin" constant="140" id="f2U-Z1-PK3"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="giY-vi-xcN" secondAttribute="trailing" constant="-8" id="mKM-nv-sY7"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="giY-vi-xcN" secondAttribute="bottom" constant="-8" id="ulJ-R3-0p0"/>
                                             </constraints>
@@ -439,6 +444,7 @@
                         <outlet property="imagesScrollView" destination="giY-vi-xcN" id="hjz-nS-fID"/>
                         <outlet property="mapView" destination="A57-oG-N6f" id="TN1-5g-E2w"/>
                         <outlet property="nameLabel" destination="fox-im-gm8" id="QfS-Hl-wE8"/>
+                        <outlet property="pageControl" destination="PCJ-aR-1a7" id="bB5-g2-96N"/>
                         <outlet property="phoneLabel" destination="dqr-lR-4If" id="Q7x-ii-teK"/>
                     </connections>
                 </tableViewController>

@@ -289,8 +289,7 @@
 }
 //地理位置获取失败
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
-    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"无法定位" message:@"请打开设置-隐私-启用地理位置" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
-    [alertView show];
+    [SVProgressHUD showErrorWithStatus:@"请进入设置-隐私-启用地理位置"];
 }
 - (NSArray *)conditionArray {
     NSDictionary *conditionCityId = @{@"cityId":self.cityId == nil ? [NSNull null] : self.cityId};

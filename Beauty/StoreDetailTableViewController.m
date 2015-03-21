@@ -30,7 +30,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *callButton;
 
 //@property (strong, nonatomic) IBOutlet MKMapView *locationMapView;
-@property (strong, nonatomic) UIPageControl *pageControl;
+@property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
 
 @end
 
@@ -44,6 +44,12 @@
     self.callButton.layer.borderColor = [[UIColor colorWithRed:158.0/255.0 green:122.0/255.0 blue:183.0/255.0 alpha:1.0]CGColor];
     self.callButton.layer.borderWidth = 1.0;
     self.callButton.layer.cornerRadius = 5.0;
+//    分页控件
+    self.pageControl.pageIndicatorTintColor = [UIColor colorWithWhite:1.0 alpha:0.3];
+    self.pageControl.currentPageIndicatorTintColor = [UIColor whiteColor];
+    
+    self.imagesScrollView.delegate = self;
+    
 }
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -68,12 +74,11 @@
         [self.tableView reloadData];
         //banner
         CGFloat imageWidth = SCREEN_WIDTH;
-        CGFloat imageHeight = 181.0;
+        CGFloat imageHeight = 180.0;
         NSArray *imagesArray = [object objectForKey:@"images"];
-        RECT_LOG(self.imagesScrollView.frame);
         self.imagesScrollView.contentSize = CGSizeMake(imageWidth * imagesArray.count, imageHeight);
-        self.imagesScrollView.showsHorizontalScrollIndicator = YES;
-        self.imagesScrollView.showsVerticalScrollIndicator = YES;
+        self.imagesScrollView.showsHorizontalScrollIndicator = NO;
+        self.imagesScrollView.showsVerticalScrollIndicator = NO;
         for (int i = 0; i < imagesArray.count; i++) {
             UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(imageWidth * i, 0, imageWidth, imageHeight)];
             [imageView setImageWithURL:[NSURL URLWithString:imagesArray[i]]];
@@ -81,6 +86,8 @@
             imageView.clipsToBounds = YES;
             [self.imagesScrollView addSubview:imageView];
         }
+//        设置分页控件
+        self.pageControl.numberOfPages = imagesArray.count;
 //        获取地图区域
         self.mapView.mapType = MKMapTypeStandard;
         self.mapView.showsUserLocation = YES;
@@ -98,6 +105,12 @@
         [self.mapView addAnnotation:annotation];
         
     }];
+}
+
+//滚动代理
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    NSInteger currentPage = (int)scrollView.contentOffset.x / scrollView.frame.size.width;
+    self.pageControl.currentPage = currentPage;
 }
 //高度
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
