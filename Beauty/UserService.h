@@ -10,9 +10,8 @@
 #import <BmobSDK/Bmob.h>
 
 typedef void(^actionBlock)(BmobUser *user);
-
+typedef void(^failBlock)(void);
 @interface UserService : NSObject
 + (instancetype)getInstance;
-- (void)actionWithUser:(actionBlock)actionBlock;
-- (BOOL)isLogin;
+- (void)actionWithUser:(actionBlock)actionBlock failBlock:(failBlock)failBlock;
 @end

@@ -14,6 +14,7 @@
 #import "CommonUtil.h"
 #import "Global.h"
 #import "ProductShowTableViewCell.h"
+#import "UserService.h"
 
 @interface TryEventProductDetailTableViewController ()<UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
@@ -135,12 +136,13 @@
 }
 
 - (IBAction)submit:(id)sender {
-//    NSLog(@"username : %@",[[NSUserDefaults standardUserDefaults]objectForKey:@"username"]);
-    if ([[NSUserDefaults standardUserDefaults]objectForKey:@"username"]) {
+    UserService *service = [UserService getInstance];
+    [service actionWithUser:^(BmobUser *user) {
         [self performSegueWithIdentifier:@"submit" sender:self];
-    } else {
+    } failBlock:^{
         [self performSegueWithIdentifier:@"login" sender:self];
-    }
+
+    }];
 }
 
 #pragma mark - Navigation

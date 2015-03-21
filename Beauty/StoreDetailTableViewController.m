@@ -10,8 +10,10 @@
 #import <BmobSDK/Bmob.h>
 #import "UIImageView+AFNetworking.h"
 #import "CommonUtil.h"
+#import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface StoreDetailTableViewController ()
+@interface StoreDetailTableViewController () <UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *imagesScrollView;
 //服务器抓取的数据
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -19,6 +21,8 @@
 @property (weak, nonatomic) IBOutlet UITextView *descriptTextView;
 @property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
+
 //描述高度
 @property (assign, nonatomic) CGFloat descriptHeight;
 
@@ -26,7 +30,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *callButton;
 
 //@property (strong, nonatomic) IBOutlet MKMapView *locationMapView;
-
+@property (strong, nonatomic) UIPageControl *pageControl;
 
 @end
 
@@ -35,6 +39,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.contentInset=UIEdgeInsetsMake(-36, 0, 0, 0);
+    self.tabBarController.tabBar.hidden = YES;
     [self fetchStoreData];
     self.callButton.layer.borderColor = [[UIColor colorWithRed:158.0/255.0 green:122.0/255.0 blue:183.0/255.0 alpha:1.0]CGColor];
     self.callButton.layer.borderWidth = 1.0;
@@ -43,6 +48,8 @@
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [CommonUtil updateTableViewHeight:self];
+}
+- (IBAction)favorButtonPress:(id)sender {
 }
 
 #pragma mark - 服务器抓取
@@ -60,17 +67,34 @@
         self.descriptHeight = self.descriptTextView.frame.size.height + 8;
         [self.tableView reloadData];
         //banner
-        CGFloat imageWidth = 375.0;
+        CGFloat imageWidth = SCREEN_WIDTH;
         CGFloat imageHeight = 181.0;
         NSArray *imagesArray = [object objectForKey:@"images"];
         self.imagesScrollView.contentSize = CGSizeMake(imageWidth * imagesArray.count, imageHeight);
-        
+        self.imagesScrollView.showsHorizontalScrollIndicator = YES;
+        self.imagesScrollView.showsVerticalScrollIndicator = YES;
         for (int i = 0; i < imagesArray.count; i++) {
             UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(imageWidth * i, 0, imageWidth, imageHeight)];
             [imageView setImageWithURL:[NSURL URLWithString:imagesArray[i]]];
-//            imageView.contentMode = UIViewContentModeScaleAspectFill;
+            imageView.contentMode = UIViewContentModeScaleAspectFill;
+            imageView.clipsToBounds = YES;
             [self.imagesScrollView addSubview:imageView];
         }
+//        获取地图区域
+        self.mapView.mapType = MKMapTypeStandard;
+        self.mapView.showsUserLocation = YES;
+        BmobGeoPoint *point = [object objectForKey:@"location"];
+        CLLocationCoordinate2D center = {point.latitude,point.longitude};
+        MKCoordinateSpan span;
+        span.latitudeDelta = 0.01;
+        span.longitudeDelta = 0.01;
+        MKCoordinateRegion region = {center,span};
+        [self.mapView setRegion:region animated:YES];
+// 添加标注
+        MKPointAnnotation *annotation = [[MKPointAnnotation alloc]init];
+        annotation.coordinate = center;
+//        annotation.title = [object objectForKey:@"name"];
+        [self.mapView addAnnotation:annotation];
         
     }];
 }

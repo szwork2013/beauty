@@ -38,8 +38,10 @@
 }
 - (void)fetchUser {
     UserService *service = [UserService getInstance];
+    if ([BmobUser getCurrentUser]) {
+        
+    }
     [service actionWithUser:^(BmobUser *user) {
-        if (user) {
             [self.loginButton setTitle:@"退出登录" forState:UIControlStateNormal];
             [self.nicknameButton setTitle:[user objectForKey:@"nickname"] forState:UIControlStateNormal];
             //                产品收藏
@@ -66,25 +68,29 @@
             [tryQuery countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
                 [self.tryCountButton setTitle:[NSString stringWithFormat:@"%d",number] forState:UIControlStateNormal];
             }];
-        }
+    } failBlock:^{
+        
     }];
 }
 
 //退出或登录按钮
 - (IBAction)loginButtonPress:(id)sender {
     UserService *service = [UserService getInstance];
-    if ([service isLogin]) {
-        [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"username"];
-//        还差一个修改头像的变成原来的
-        [self.loginButton setTitle:@"登录" forState:UIControlStateNormal];
-        [self.nicknameButton setTitle:@"点击头像登录" forState:UIControlStateNormal];
-        [self.tryCountButton setTitle:@"0" forState:UIControlStateNormal];
-        [self.collectCountButton setTitle:@"0" forState:UIControlStateNormal];
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"退出成功" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
-        [alert show];
-    } else {
+    [service actionWithUser:^(BmobUser *user) {
+
+            [BmobUser logout];
+            //        还差一个修改头像的变成原来的
+            [self.loginButton setTitle:@"登录" forState:UIControlStateNormal];
+            [self.nicknameButton setTitle:@"点击头像登录" forState:UIControlStateNormal];
+            [self.tryCountButton setTitle:@"0" forState:UIControlStateNormal];
+            [self.collectCountButton setTitle:@"0" forState:UIControlStateNormal];
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"退出成功" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+            [alert show];
+        
+        
+    } failBlock:^{
         [self performSegueWithIdentifier:@"login" sender:self];
-    }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

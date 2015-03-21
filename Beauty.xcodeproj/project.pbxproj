@@ -70,6 +70,7 @@
 		F72FFE751AAE8F4100C01BB2 /* MemberLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F72FFE741AAE8F4100C01BB2 /* MemberLoginViewController.m */; };
 		F72FFE8B1AAEF14B00C01BB2 /* MemberTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F72FFE8A1AAEF14B00C01BB2 /* MemberTableViewController.m */; };
 		F735C2031ABC5C5A00A61F47 /* KGModal.m in Sources */ = {isa = PBXBuildFile; fileRef = F735C2021ABC5C5A00A61F47 /* KGModal.m */; };
+		F735C2051ABD1E6A00A61F47 /* map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F735C2041ABD1E6A00A61F47 /* map@2x.png */; };
 		F745232A1AB45A1300C33281 /* WechatProductDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F74523231AB45A1300C33281 /* WechatProductDetailTableViewController.m */; };
 		F745232B1AB45A1300C33281 /* WechatProductTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F74523251AB45A1300C33281 /* WechatProductTableViewDataSource.m */; };
 		F745232C1AB45A1300C33281 /* WechatProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F74523271AB45A1300C33281 /* WechatProductViewController.m */; };
@@ -259,6 +260,7 @@
 		F72FFE8A1AAEF14B00C01BB2 /* MemberTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MemberTableViewController.m; path = Beauty/MemberTableViewController.m; sourceTree = "<group>"; };
 		F735C2011ABC5C5A00A61F47 /* KGModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGModal.h; sourceTree = "<group>"; };
 		F735C2021ABC5C5A00A61F47 /* KGModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGModal.m; sourceTree = "<group>"; };
+		F735C2041ABD1E6A00A61F47 /* map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "map@2x.png"; path = "images/map@2x.png"; sourceTree = "<group>"; };
 		F74523221AB45A1300C33281 /* WechatProductDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WechatProductDetailTableViewController.h; path = Beauty/WechatProduct/WechatProductDetailTableViewController.h; sourceTree = "<group>"; };
 		F74523231AB45A1300C33281 /* WechatProductDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WechatProductDetailTableViewController.m; path = Beauty/WechatProduct/WechatProductDetailTableViewController.m; sourceTree = "<group>"; };
 		F74523241AB45A1300C33281 /* WechatProductTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WechatProductTableViewDataSource.h; path = Beauty/WechatProduct/WechatProductTableViewDataSource.h; sourceTree = "<group>"; };
@@ -737,6 +739,7 @@
 			isa = PBXGroup;
 			children = (
 				F71484071AB952AD005490FF /* add@2x.png */,
+				F735C2041ABD1E6A00A61F47 /* map@2x.png */,
 				F71483D61AB85787005490FF /* cat_more@2x.png */,
 				F74523361AB469F600C33281 /* tryevent */,
 				F71B7C891AB03F63005E8648 /* submit_button@2x.png */,
@@ -1035,6 +1038,7 @@
 				F71483FE1AB9253C005490FF /* ELCAssetPicker.xib in Resources */,
 				F713C8C81AA48F5D004BE58C /* tel@2x.png in Resources */,
 				F71484081AB952AD005490FF /* add@2x.png in Resources */,
+				F735C2051ABD1E6A00A61F47 /* map@2x.png in Resources */,
 				F79D17951AA5A6E700F0D86E /* Default-568h@2x.png in Resources */,
 				F78FC90D1AA7436B00F3C1EE /* activity_search_bar@2x.png in Resources */,
 				F7147A5D1AA6FBC2007605E6 /* willtry@2x.png in Resources */,

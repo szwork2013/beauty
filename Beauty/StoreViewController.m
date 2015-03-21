@@ -21,6 +21,7 @@
 #import "KGModal.h"
 #import "StoreDetailTableViewController.h"
 #import "UserService.h"
+#import "MemberLoginViewController.h"
 
 @interface StoreViewController ()<UITableViewDataSource,UITableViewDelegate,CLLocationManagerDelegate>
 @property (strong ,nonatomic) NSMutableArray *storeActivityArray;
@@ -385,19 +386,44 @@
 - (void)switchFavor:(UIButton *)button {
     UserService *service = [UserService getInstance];
     [service actionWithUser:^(BmobUser *user) {
-        if (user) {
-//            取消收藏操作
-//            BmobObject *store = [BmobObject objectWithoutDatatWithClassName:@"Store" objectId:[self.storeNearByArray[button.tag] objectId]];
-//            BmobRelation *storeRelation = [[BmobRelation alloc]init];
-//            [storeRelation removeObject:store];
-//            [user addRelation:storeRelation forKey:@"relStoreCollect"];
-//            [user updateInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
-//                NSLog(@"error %@",[error description]);
-//                if (isSuccessful) {
-//                    NSLog(@"已经删除");
-//                }
-//            }];
-        }
+
+        
+        
+        
+        
+        //        判断收藏与否
+        BmobQuery *storeQuery = [BmobQuery queryWithClassName:@"Store"];
+        [storeQuery whereObjectKey:@"relStoreCollect" relatedTo:user];
+        //                从当前会员下所有收藏店铺中遍历，看是否找到当前单元格的遍历
+        [storeQuery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+            BmobObject *store = [BmobObject objectWithoutDatatWithClassName:@"Store" objectId:[self.storeNearByArray[button.tag] objectId]];
+            BmobRelation *storeRelation = [[BmobRelation alloc]init];
+            NSString *hudStr = @"收藏成功";
+            for (int i = 0; i < array.count; i ++) {
+                if ([[array[i] objectId] isEqualToString:[store objectId]]) {
+                    [storeRelation removeObject:store];
+                    hudStr = @"取消收藏成功";
+                    break;
+                } else {
+                    [storeRelation addObject:store];
+                }
+            }
+//            如果没有找到
+            if (array.count == 0) {
+                [storeRelation addObject:store];
+            }
+            [user addRelation:storeRelation forKey:@"relStoreCollect"];
+            [user updateInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+                if (isSuccessful) {
+                    [self.nearByTableView reloadSections:[NSIndexSet indexSetWithIndex:button.tag] withRowAnimation:UITableViewRowAnimationAutomatic];
+                    [SVProgressHUD showSuccessWithStatus:hudStr];
+                }
+            }];
+        }];
+
+    } failBlock:^{
+        MemberLoginViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"login"];
+        [self.navigationController pushViewController:vc animated:YES];
     }];
 }
 //自定义单元格
@@ -406,23 +432,10 @@
     if (tableView == self.nearByTableView) {
         BmobObject *store = self.storeNearByArray[indexPath.section];
         StoreShowTableViewCell *cell = [CommonUtil fetchStoreShowCell:store];
-//        UIButton *favorButton = [UIButton buttonWithType:UIButtonTypeSystem];
-//        [favorButton setBackgroundImage:[UIImage imageNamed:@"favor.png"] forState:UIControlStateNormal];
-//        [favorButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-//        favorButton.frame = CGRectMake(80.0, 90.0, 100.0, 28.0);
-        //还要与数据库比对过
-//        [favorButton setTitle:@"收藏" forState:UIControlStateNormal];
-        
-        //添加按钮点击事件
-//        [cell.contentView addSubview:favorButton];
 //        判断收藏与否
-//        [cell.favorButton setTitle:@"" forState:UIControlStateNormal];
         UserService *service = [UserService getInstance];
-        
         [service actionWithUser:^(BmobUser *user) {
-            if (user) {
                 BmobQuery *storeQuery = [BmobQuery queryWithClassName:@"Store"];
-//                [storeQuery whereKey:@"objectId" equalTo:[store objectId]];
                 [storeQuery whereObjectKey:@"relStoreCollect" relatedTo:user];
 //                从当前会员下所有收藏店铺中遍历，看是否找到当前单元格的遍历
                 [storeQuery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
@@ -436,7 +449,8 @@
                         }
                     }
                 }];
-            }
+        } failBlock:^{
+            
         }];
         cell.favorButton.tag = indexPath.section;
         [cell.favorButton addTarget:self action:@selector(switchFavor:) forControlEvents:UIControlEventTouchUpInside];

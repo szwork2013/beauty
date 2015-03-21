@@ -16,29 +16,14 @@
     }
     return instance;
 }
-- (BOOL)isLogin {
-    if ([[NSUserDefaults standardUserDefaults]objectForKey:@"username"]) {
-        return YES;
-    }
-    return NO;
-}
 
-- (void)actionWithUser:(actionBlock)actionBlock {
-    if ([self isLogin]) {
-        BmobQuery *query = [BmobUser query];
-        [query whereKey:@"username" equalTo:[[NSUserDefaults standardUserDefaults]objectForKey:@"username"]];
-        [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
-            if (error) {
-                NSLog(@"%@",error);
-            } else {
-                BmobUser *user = [array firstObject];
-                actionBlock(user);
-            }
-        }];
+- (void)actionWithUser:(actionBlock)actionBlock failBlock:(failBlock)failBlock {
+    BmobUser *user = [BmobUser getCurrentUser];
+    if (user) {
+        actionBlock(user);
     } else {
-        //请先登录
-        actionBlock(nil);
+//        跳转登录页面或其他操作
+        failBlock();
     }
-    
 }
 @end

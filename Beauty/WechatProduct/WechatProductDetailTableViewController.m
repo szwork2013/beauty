@@ -14,6 +14,7 @@
 #import "CommonUtil.h"
 #import "Global.h"
 #import "ProductShowTableViewCell.h"
+#import "UserService.h"
 
 @interface WechatProductDetailTableViewController ()<UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
@@ -130,11 +131,15 @@
 }
 
 - (IBAction)submit:(id)sender {
-    if ([[NSUserDefaults standardUserDefaults]objectForKey:@"username"]) {
+    UserService *service = [UserService getInstance];
+    [service actionWithUser:^(BmobUser *user) {
         [self performSegueWithIdentifier:@"submit" sender:self];
-    } else {
+
+    } failBlock:^{
         [self performSegueWithIdentifier:@"login" sender:self];
-    }
+        
+    }];
+
 }
 
 #pragma mark - Navigation

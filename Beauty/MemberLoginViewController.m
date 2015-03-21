@@ -69,33 +69,18 @@
                 [bUser setUserName:self.phoneTextField.text];
                 [bUser setPassword:self.phoneTextField.text];
                 [bUser signUpInBackground];
-                
-//                
-//                BmobUser *user = [BmobUser objectWithClassName:@"User"];
-//                [user setObject:self.phoneTextField.text forKey:@"username"];
-//                [user saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
-//                    if (error) {
-//                        NSLog(@"%@",error);
-//                    } else if (isSuccessful) {
-////                        [NSUserDefaults standardUserDefaults]objectForKey:@"username"] = self.phoneTextField.text;
-//                    } else {
-//                        NSLog(@"not regist");
-//                    }
-//                }];
-
-            } else {
-                NSLog(@"s");
             }
         }
     }];
-
 }
 
 - (IBAction)loginPress:(id)sender {
     if ([self.code isEqualToString:self.codeTextFiled.text]) {
-        [[NSUserDefaults standardUserDefaults]setObject:self.phoneTextField.text forKey:@"username"];
-        [self.navigationController popViewControllerAnimated:YES];
-        
+        [BmobUser logout];
+//        [BmobUser loginWithUsernameInBackground:self.phoneTextField.text password:self.phoneTextField.text];
+        [BmobUser loginWithUsernameInBackground:self.phoneTextField.text password:self.phoneTextField.text block:^(BmobUser *user, NSError *error) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }];
     } else {
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"验证码不正确" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
         [alert show];

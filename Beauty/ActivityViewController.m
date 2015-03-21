@@ -18,7 +18,7 @@
 #define SECTION_WEBVIEW 2
 #define SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
 //#define IMAGE_HEIGHT (SCREEN_WIDTH * 0.64)
-#define IMAGE_HEIGHT 137.0
+#define IMAGE_HEIGHT 140.0
 
 @interface ActivityViewController ()<UITableViewDataSource,UITableViewDelegate,UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
