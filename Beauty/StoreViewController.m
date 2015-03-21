@@ -19,6 +19,8 @@
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
 #import "KGModal.h"
+#import "StoreDetailTableViewController.h"
+#import "UserService.h"
 
 @interface StoreViewController ()<UITableViewDataSource,UITableViewDelegate,CLLocationManagerDelegate>
 @property (strong ,nonatomic) NSMutableArray *storeActivityArray;
@@ -28,6 +30,7 @@
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, assign) CLLocationCoordinate2D coordinate;
 @property (nonatomic, strong) UITableView *nearByTableView;
+@property (nonatomic, strong) UITableView *activityTableView;
 //城市中文名
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cityButtonItem;
 @property (weak, nonatomic) NSString *cityId;
@@ -113,6 +116,12 @@
 //    获取新数据
     [self fetchNearByData:0 tableView:self.nearByTableView];
     
+    //    清空数据源，同时将页码重新赋值为零
+    [self.storeActivityArray removeAllObjects];
+    self.page = 0;
+    //    获取新数据
+    [self fetchData:0 tableView:self.activityTableView];
+    
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -181,6 +190,7 @@
                         [weakSelf fetchData:PER_PAGE * self.page tableView:weakTableView];
                         [weakTableView.infiniteScrollingView stopAnimating];
                     }];
+                    self.activityTableView = tableView;
                 } else {
                     
                     [tableView addInfiniteScrollingWithActionHandler:^{
@@ -264,7 +274,7 @@
 
             BmobQuery *query = [BmobQuery queryWithClassName:@"City"];
             [query whereKey:@"name" equalTo:city];
-            NSLog(@"city name : %@",city);
+//            NSLog(@"city name : %@",city);
             [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
                 BmobObject *cityObject = [array firstObject];
                 self.cityId = [cityObject objectForKey:@"cityId"];
@@ -281,18 +291,22 @@
     UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"无法定位" message:@"请打开设置-隐私-启用地理位置" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
     [alertView show];
 }
+- (NSArray *)conditionArray {
+    NSDictionary *conditionCityId = @{@"cityId":self.cityId == nil ? [NSNull null] : self.cityId};
+    NSDictionary *conditionCityIdEmpty = @{@"cityId":@""};
+    NSDictionary *conditionCityIdNull = @{@"cityId":@{@"$exists":[NSNumber numberWithBool:NO]}};
+    
+    NSArray *array = @[conditionCityId,conditionCityIdEmpty,conditionCityIdNull];
+    return array;
+}
 //获取附近商铺活动
 - (void)fetchNearByData:(NSUInteger)skip tableView:(UITableView *)tableView {
     BmobQuery *query = [BmobQuery queryWithClassName:@"Store"];
     query.limit = PER_PAGE;
     query.skip = skip;
     
-    NSDictionary *condictionCityId = @{@"cityId":self.cityId == nil ? [NSNull null] : self.cityId};
-    NSDictionary *condictionCityIdEmpty = @{@"cityId":@""};
-    NSDictionary *condictionCityIdNull = @{@"cityId":@{@"$exists":[NSNumber numberWithBool:NO]}};
-    
-    NSArray *array = @[condictionCityId,condictionCityIdEmpty,condictionCityIdNull];
-    [query addTheConstraintByOrOperationWithArray:array];
+
+    [query addTheConstraintByOrOperationWithArray:[self conditionArray]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
         if (array.count == 0) {
             if (self.pageNearBy == 0) {
@@ -315,9 +329,14 @@
 
 #pragma mark 获取全部店铺数据
 - (void) fetchData:(NSUInteger)skip tableView:(UITableView *)tableView {
+    BmobQuery *inQuery = [BmobQuery queryWithClassName:@"Store"];
+    [inQuery addTheConstraintByOrOperationWithArray:[self conditionArray]];
     BmobQuery *activityQuery = [BmobQuery queryWithClassName:@"StoreActivity"];
     activityQuery.limit = PER_PAGE;
     activityQuery.skip = skip;
+    //关联查询
+    [activityQuery whereKey:@"store" matchesQuery:inQuery];
+    
     [activityQuery includeKey:@"store"];
     [activityQuery orderByDescending:@"time"];
     [activityQuery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
@@ -353,23 +372,75 @@
 //组数
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     if (tableView == self.nearByTableView) {
-        NSLog(@"count 1: %zi",self.storeNearByArray.count);
+//        NSLog(@"count nearby store: %zi",self.storeNearByArray.count);
         return self.storeNearByArray.count;
     }
-    NSLog(@"count 2: %zi",self.storeActivityArray.count);
+//    NSLog(@"count activity: %zi",self.storeActivityArray.count);
     return self.storeActivityArray.count;
 }
 //一组一个
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 1;
 }
-
+- (void)switchFavor:(UIButton *)button {
+    UserService *service = [UserService getInstance];
+    [service actionWithUser:^(BmobUser *user) {
+        if (user) {
+//            取消收藏操作
+//            BmobObject *store = [BmobObject objectWithoutDatatWithClassName:@"Store" objectId:[self.storeNearByArray[button.tag] objectId]];
+//            BmobRelation *storeRelation = [[BmobRelation alloc]init];
+//            [storeRelation removeObject:store];
+//            [user addRelation:storeRelation forKey:@"relStoreCollect"];
+//            [user updateInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+//                NSLog(@"error %@",[error description]);
+//                if (isSuccessful) {
+//                    NSLog(@"已经删除");
+//                }
+//            }];
+        }
+    }];
+}
 //自定义单元格
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (tableView == self.nearByTableView) {
         BmobObject *store = self.storeNearByArray[indexPath.section];
-        return [CommonUtil fetchStoreShowCell:store];
+        StoreShowTableViewCell *cell = [CommonUtil fetchStoreShowCell:store];
+//        UIButton *favorButton = [UIButton buttonWithType:UIButtonTypeSystem];
+//        [favorButton setBackgroundImage:[UIImage imageNamed:@"favor.png"] forState:UIControlStateNormal];
+//        [favorButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//        favorButton.frame = CGRectMake(80.0, 90.0, 100.0, 28.0);
+        //还要与数据库比对过
+//        [favorButton setTitle:@"收藏" forState:UIControlStateNormal];
+        
+        //添加按钮点击事件
+//        [cell.contentView addSubview:favorButton];
+//        判断收藏与否
+//        [cell.favorButton setTitle:@"" forState:UIControlStateNormal];
+        UserService *service = [UserService getInstance];
+        
+        [service actionWithUser:^(BmobUser *user) {
+            if (user) {
+                BmobQuery *storeQuery = [BmobQuery queryWithClassName:@"Store"];
+//                [storeQuery whereKey:@"objectId" equalTo:[store objectId]];
+                [storeQuery whereObjectKey:@"relStoreCollect" relatedTo:user];
+//                从当前会员下所有收藏店铺中遍历，看是否找到当前单元格的遍历
+                [storeQuery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+                    for (int i = 0; i < array.count; i ++) {
+                        if ([[array[i] objectId] isEqualToString:[store objectId]]) {
+                            [cell.favorButton setTitle:@"取消收藏" forState:UIControlStateNormal];
+                            break;
+                            
+                        } else {
+                            [cell.favorButton setTitle:@"收藏" forState:UIControlStateNormal];
+                        }
+                    }
+                }];
+            }
+        }];
+        cell.favorButton.tag = indexPath.section;
+        [cell.favorButton addTarget:self action:@selector(switchFavor:) forControlEvents:UIControlEventTouchUpInside];
+        return cell;
     }
     
     StoreTableViewCell *cell = [[[NSBundle mainBundle]loadNibNamed:@"StoreTableViewCell" owner:self options:nil]firstObject];
@@ -399,13 +470,20 @@
 
 //单元格高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (tableView == self.nearByTableView) {
+        return 130.0;
+    }
     return 110.0;
 }
 
 //单击单元格
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self performSegueWithIdentifier:@"activity" sender:self];
-    self.activityId = [self.storeActivityArray[indexPath.section] objectId];
+    if (tableView == self.activityTableView) {
+        [self performSegueWithIdentifier:@"activity" sender:self];
+    } else {
+        [self performSegueWithIdentifier:@"storeDetail" sender:self];
+    }
+//    NSLog(@"select id %@",[self.storeActivityArray[indexPath.section] objectId]);
 }
 
 /**
@@ -413,8 +491,15 @@
  */
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    ActivityViewController *activityVC = (ActivityViewController *)segue.destinationViewController;
-    activityVC.objectId = self.activityId;
+    if ([segue.identifier isEqualToString:@"activity"]) {
+        
+        ActivityViewController *activityVC = (ActivityViewController *)segue.destinationViewController;
+        activityVC.objectId = [self.storeActivityArray[self.activityTableView.indexPathForSelectedRow.section] objectId];
+    } else if ([segue.identifier isEqualToString:@"storeDetail"]) {
+        StoreDetailTableViewController *storeVC = segue.destinationViewController;
+        storeVC.storeId = [self.storeNearByArray[self.activityTableView.indexPathForSelectedRow.section] objectId];
+
+    }
 }
 
 @end

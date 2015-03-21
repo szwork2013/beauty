@@ -10,6 +10,7 @@
 #import <BmobSDK/Bmob.h>
 
 typedef void(^actionBlock)(BmobUser *user);
+
 @interface UserService : NSObject
 + (instancetype)getInstance;
 - (void)actionWithUser:(actionBlock)actionBlock;

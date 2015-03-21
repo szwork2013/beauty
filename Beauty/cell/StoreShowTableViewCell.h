@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *orderLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptLabel;
+@property (weak, nonatomic) IBOutlet UIButton *favorButton;
 
 @end

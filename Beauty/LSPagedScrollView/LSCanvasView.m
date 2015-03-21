@@ -52,9 +52,9 @@
     //    获取分类数据
     BmobQuery *query = [BmobQuery queryWithClassName:@"RankListClassify"];
     [query whereKey:@"type" equalTo:self.type];
-    NSDictionary *condictionCityIdEmpty = @{@"cityId":@""};
-    NSDictionary *condictionCityIdNull = @{@"cityId":@{@"$exists":[NSNumber numberWithBool:NO]}};
-    NSArray *array = @[condictionCityIdEmpty,condictionCityIdNull];
+    NSDictionary *conditionCityIdEmpty = @{@"cityId":@""};
+    NSDictionary *conditionCityIdNull = @{@"cityId":@{@"$exists":[NSNumber numberWithBool:NO]}};
+    NSArray *array = @[conditionCityIdEmpty,conditionCityIdNull];
     [query addTheConstraintByOrOperationWithArray:array];
     [query orderByAscending:@"rank"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {

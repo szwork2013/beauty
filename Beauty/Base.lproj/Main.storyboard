@@ -30,6 +30,7 @@
                     <connections>
                         <outlet property="cityButtonItem" destination="ui3-ka-AhL" id="Vfu-tr-Zk5"/>
                         <segue destination="SIY-JD-YnJ" kind="show" identifier="activity" id="CTU-yq-eRR"/>
+                        <segue destination="WRk-gT-Qc4" kind="show" identifier="storeDetail" id="ihq-vE-UUC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eCX-Dq-bsa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -45,11 +46,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Mid-rA-V2g"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="AwM-eR-SYn">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标题" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ar8-TX-kbV">
-                                <rect key="frame" x="0.0" y="64" width="375" height="55"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="55"/>
                                 <color key="backgroundColor" red="0.86274509803921573" green="0.86274509803921573" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="N8f-uw-mpX"/>
@@ -58,8 +59,8 @@
                                 <color key="textColor" red="0.73333333329999995" green="0.47843137250000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="GuM-Wl-cY8">
-                                <rect key="frame" x="0.0" y="119" width="375" height="548"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="GuM-Wl-cY8">
+                                <rect key="frame" x="0.0" y="119" width="320" height="449"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="name" id="ZsF-Dz-nk8">
@@ -79,7 +80,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <webView tag="21" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fdy-uz-Mqx">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </webView>
                                             </subviews>
@@ -96,14 +97,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Mid-rA-V2g" firstAttribute="top" secondItem="GuM-Wl-cY8" secondAttribute="bottom" id="5wZ-YU-gMW"/>
                             <constraint firstItem="ar8-TX-kbV" firstAttribute="leading" secondItem="AwM-eR-SYn" secondAttribute="leadingMargin" constant="-16" id="LvB-BY-4BU"/>
+                            <constraint firstItem="GuM-Wl-cY8" firstAttribute="leading" secondItem="AwM-eR-SYn" secondAttribute="leadingMargin" constant="-16" id="cgh-Ed-NtW"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ar8-TX-kbV" secondAttribute="trailing" constant="-16" id="gsd-Bc-Sdh"/>
                             <constraint firstItem="ar8-TX-kbV" firstAttribute="top" secondItem="IZW-hj-E5Y" secondAttribute="bottom" id="lqD-Le-exJ"/>
+                            <constraint firstItem="GuM-Wl-cY8" firstAttribute="top" secondItem="IZW-hj-E5Y" secondAttribute="bottom" constant="55" id="tVt-Lb-vFI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="GuM-Wl-cY8" secondAttribute="trailing" constant="-16" id="uGh-c9-P8v"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="活动详情" id="2b2-us-2d7"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="activityTableView" destination="GuM-Wl-cY8" id="ZKF-bP-bsU"/>
                         <outlet property="nameLabel" destination="ar8-TX-kbV" id="BRm-RZ-XAB"/>
@@ -111,7 +116,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cHk-4T-Hby" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="922.5" y="61.5"/>
+            <point key="canvasLocation" x="914" y="183"/>
         </scene>
         <!--店铺详情-->
         <scene sceneID="jCA-nx-QAr">
@@ -130,7 +135,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="giY-vi-xcN">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="181"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="181"/>
                                                 </scrollView>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -649,7 +654,7 @@
         <!--用户登录-->
         <scene sceneID="esY-33-HFQ">
             <objects>
-                <viewController id="XIx-iL-kZY" userLabel="用户登录" customClass="MemberLoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="login" useStoryboardIdentifierAsRestorationIdentifier="YES" id="XIx-iL-kZY" userLabel="用户登录" customClass="MemberLoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hcu-xz-wqN"/>
                         <viewControllerLayoutGuide type="bottom" id="xAb-ya-X8F"/>
@@ -2686,12 +2691,12 @@
         <image name="try_bg.png" width="317" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lCi-hW-Cwb"/>
         <segue reference="CTU-yq-eRR"/>
         <segue reference="Zst-Jl-lkN"/>
+        <segue reference="lCi-hW-Cwb"/>
         <segue reference="JbZ-RO-xKe"/>
-        <segue reference="Ovv-6A-JRB"/>
         <segue reference="fK9-ib-ITl"/>
         <segue reference="Ehz-G5-5vx"/>
+        <segue reference="Ovv-6A-JRB"/>
     </inferredMetricsTieBreakers>
 </document>
