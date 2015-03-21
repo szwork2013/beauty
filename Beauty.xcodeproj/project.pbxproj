@@ -100,7 +100,6 @@
 		F78FC90D1AA7436B00F3C1EE /* activity_search_bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F78FC90C1AA7436B00F3C1EE /* activity_search_bar@2x.png */; };
 		F79547531AAD8A4600212CEA /* default_avatar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F79547511AAD8A4600212CEA /* default_avatar@2x.png */; };
 		F79547541AAD8A4600212CEA /* member_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F79547521AAD8A4600212CEA /* member_bg@2x.png */; };
-		F79D17951AA5A6E700F0D86E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F79D17941AA5A6E700F0D86E /* Default-568h@2x.png */; };
 		F7A6D6281ABBF0BA0049D6C6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7A6D6271ABBF0BA0049D6C6 /* MapKit.framework */; };
 		F7B4983B1AA2FF300067219E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B4983A1AA2FF300067219E /* main.m */; };
 		F7B4983E1AA2FF300067219E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B4983D1AA2FF300067219E /* AppDelegate.m */; };
@@ -310,7 +309,6 @@
 		F78FC90C1AA7436B00F3C1EE /* activity_search_bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "activity_search_bar@2x.png"; path = "images/home/activity_search_bar@2x.png"; sourceTree = "<group>"; };
 		F79547511AAD8A4600212CEA /* default_avatar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default_avatar@2x.png"; sourceTree = "<group>"; };
 		F79547521AAD8A4600212CEA /* member_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "member_bg@2x.png"; sourceTree = "<group>"; };
-		F79D17941AA5A6E700F0D86E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "images/Default-568h@2x.png"; sourceTree = "<group>"; };
 		F7A6D6271ABBF0BA0049D6C6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		F7B498351AA2FF300067219E /* Beauty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beauty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7B498391AA2FF300067219E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -746,7 +744,6 @@
 				F79547501AAD8A4600212CEA /* member */,
 				F7172C3B1AA89C2000A9ED4C /* product */,
 				F7E4F1771AA5D1190025D868 /* home */,
-				F79D17941AA5A6E700F0D86E /* Default-568h@2x.png */,
 				F713C8C71AA48F5D004BE58C /* tel@2x.png */,
 				F713C8C51AA48A5A004BE58C /* favor@2x.png */,
 				F7B498781AA31D390067219E /* location@2x.png */,
@@ -1039,7 +1036,6 @@
 				F713C8C81AA48F5D004BE58C /* tel@2x.png in Resources */,
 				F71484081AB952AD005490FF /* add@2x.png in Resources */,
 				F735C2051ABD1E6A00A61F47 /* map@2x.png in Resources */,
-				F79D17951AA5A6E700F0D86E /* Default-568h@2x.png in Resources */,
 				F78FC90D1AA7436B00F3C1EE /* activity_search_bar@2x.png in Resources */,
 				F7147A5D1AA6FBC2007605E6 /* willtry@2x.png in Resources */,
 				F7B4986D1AA311350067219E /* bar_shop@2x.png in Resources */,

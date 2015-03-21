@@ -70,6 +70,7 @@
         CGFloat imageWidth = SCREEN_WIDTH;
         CGFloat imageHeight = 181.0;
         NSArray *imagesArray = [object objectForKey:@"images"];
+        RECT_LOG(self.imagesScrollView.frame);
         self.imagesScrollView.contentSize = CGSizeMake(imageWidth * imagesArray.count, imageHeight);
         self.imagesScrollView.showsHorizontalScrollIndicator = YES;
         self.imagesScrollView.showsVerticalScrollIndicator = YES;

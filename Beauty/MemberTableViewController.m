@@ -38,9 +38,6 @@
 }
 - (void)fetchUser {
     UserService *service = [UserService getInstance];
-    if ([BmobUser getCurrentUser]) {
-        
-    }
     [service actionWithUser:^(BmobUser *user) {
             [self.loginButton setTitle:@"退出登录" forState:UIControlStateNormal];
             [self.nicknameButton setTitle:[user objectForKey:@"nickname"] forState:UIControlStateNormal];
