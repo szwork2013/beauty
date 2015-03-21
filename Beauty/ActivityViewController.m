@@ -13,6 +13,7 @@
 #import "SVProgressHUD.h"
 #import "UIImageView+AFNetworking.h"
 #import "StoreDetailTableViewController.h"
+#import "ImageBrowserViewController.h"
 
 #define SECTION_IMAGE 1
 #define SECTION_WEBVIEW 2
@@ -26,6 +27,7 @@
 @property (strong, nonatomic) NSArray *activityArray;
 @property (strong, nonatomic) NSString *shopObjectId;
 @property (assign, nonatomic) CGFloat webHeight;
+@property (strong, nonatomic) NSArray *imageArray;
 @end
 
 @implementation ActivityViewController
@@ -36,13 +38,8 @@
     self.activityTableView.dataSource = self;
     self.activityTableView.delegate = self;
     [self fetch];
-//    [self testImageView];
 }
--(void) testImageView {
-    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 100, 120)];
-    [imageView setImageWithURL:[NSURL URLWithString:@"http://lorempixel.com/700/256/fashion/1/"]];
-    [self.view addSubview:imageView];
-}
+
 //从Bmob上获取数据
 - (void)fetch {
     BmobQuery *activityQuery = [BmobQuery queryWithClassName:@"StoreActivity"];
@@ -59,6 +56,7 @@
                 NSMutableArray *dataArray = [NSMutableArray array];
                 [dataArray addObject:[[object objectForKey:@"store"]objectForKey:@"name"]];
                 [dataArray addObject:[object objectForKey:@"images"]];
+                self.imageArray = [object objectForKey:@"images"];
                 [dataArray addObject:[object objectForKey:@"webUrl"]];
                 self.activityArray = dataArray;
                 self.shopObjectId = [[object objectForKey:@"store"] objectId];
@@ -148,6 +146,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         [self performSegueWithIdentifier:@"storeDetail" sender:self];
+    } else if(indexPath.section == 1) {
+        ImageBrowserViewController *vc = [[ImageBrowserViewController alloc]init];
+        vc.selectedIndex = indexPath.row;
+        vc.imageArray = self.imageArray;
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 

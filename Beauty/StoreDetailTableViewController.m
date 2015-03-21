@@ -12,9 +12,11 @@
 #import "CommonUtil.h"
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import "ImageBrowserViewController.h"
 
 @interface StoreDetailTableViewController () <UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *imagesScrollView;
+@property (strong, nonatomic) NSArray *imageArray;
 //服务器抓取的数据
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *businessHour;
@@ -62,6 +64,7 @@
 - (void)fetchStoreData {
     BmobQuery *storeQuery = [BmobQuery queryWithClassName:@"Store"];
     [storeQuery getObjectInBackgroundWithId:self.storeId block:^(BmobObject *object, NSError *error) {
+        
         self.nameLabel.text         = [object objectForKey:@"name"];
         self.businessHour.text      = [object objectForKey:@"businessHour"];
         self.phoneLabel.text        = [object objectForKey:@"phone"];
@@ -76,6 +79,7 @@
         CGFloat imageWidth = SCREEN_WIDTH;
         CGFloat imageHeight = 180.0;
         NSArray *imagesArray = [object objectForKey:@"images"];
+        self.imageArray = imagesArray;
         self.imagesScrollView.contentSize = CGSizeMake(imageWidth * imagesArray.count, imageHeight);
         self.imagesScrollView.showsHorizontalScrollIndicator = NO;
         self.imagesScrollView.showsVerticalScrollIndicator = NO;
@@ -85,7 +89,16 @@
             imageView.contentMode = UIViewContentModeScaleAspectFill;
             imageView.clipsToBounds = YES;
             [self.imagesScrollView addSubview:imageView];
+            UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+            button.tag = i;
+            button.bounds = imageView.frame;
+            button.center = imageView.center;
+            [button addTarget:self action:@selector(imagePress:) forControlEvents:UIControlEventTouchUpInside];
+            [self.imagesScrollView addSubview:button];
+            
         }
+
+        
 //        设置分页控件
         self.pageControl.numberOfPages = imagesArray.count;
 //        获取地图区域
@@ -98,15 +111,21 @@
         span.longitudeDelta = 0.01;
         MKCoordinateRegion region = {center,span};
         [self.mapView setRegion:region animated:YES];
+        
+        [self.tableView reloadData];
 // 添加标注
         MKPointAnnotation *annotation = [[MKPointAnnotation alloc]init];
         annotation.coordinate = center;
-//        annotation.title = [object objectForKey:@"name"];
-        [self.mapView addAnnotation:annotation];
         
     }];
 }
-
+- (void)imagePress:(UIButton *)button {
+    //        点击图片跳转浏览器
+    ImageBrowserViewController *vc = [[ImageBrowserViewController alloc]init];
+            vc.selectedIndex = button.tag;
+    vc.imageArray = self.imageArray;
+    [self.navigationController pushViewController:vc animated:YES];
+}
 //滚动代理
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     NSInteger currentPage = (int)scrollView.contentOffset.x / scrollView.frame.size.width;

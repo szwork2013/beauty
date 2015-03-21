@@ -7,11 +7,10 @@
 //
 
 #import "ImageBrowserViewController.h"
-#import "UIImageView+AFNetworking.h"
+#import "KL_ImageZoomView.h"
+#import "KL_ImagesZoomController.h"
 
-@interface ImageBrowserViewController ()<UIScrollViewDelegate>
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UILabel *pageIndicatorLabel;
+@interface ImageBrowserViewController ()<UIGestureRecognizerDelegate>
 
 @end
 
@@ -19,70 +18,29 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self updatePageIndicator];
-    [self loadImage];
-    
-    //init
-    self.naviHidden = YES;
-    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width * self.imageArray.count, self.view.frame.size.height);
-    self.scrollView.backgroundColor = [UIColor blackColor];
-    self.pageIndicatorLabel.textColor = [UIColor whiteColor];
-    self.scrollView.delegate = self;
-    [self hideNaviBar];
-    // Do any additional setup after loading the view.
-}
+    self.automaticallyAdjustsScrollViewInsets = NO;
+//    设置Done按钮
 
-- (void)loadImage {
-    for (int i = 0; i < self.imageArray.count; i++) {
-        UIImageView *imageView = [[UIImageView alloc]init];
-        imageView.bounds = self.view.bounds;
-        imageView.center = CGPointMake(self.view.center.x + self.view.frame.size.width * i, self.view.center.y);
-        [imageView setImageWithURL:[NSURL URLWithString:self.imageArray[i]]];
-        imageView.contentMode = UIViewContentModeScaleAspectFit;
-        //button
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
-        button.bounds = imageView.bounds;
-        button.center = imageView.center;
-        [button addTarget:self action:@selector(hideNaviBar) forControlEvents:UIControlEventTouchUpInside];
-        [self.scrollView addSubview:button];
-        
-        [self.scrollView addSubview:imageView];
-    }
-    [self updateImageIndex];
-}
-- (void)updateImageIndex {
-    [self.scrollView setContentOffset:CGPointMake(self.view.frame.size.width * self.selectedIndex, 0) animated:YES];
-}
-- (void)updatePageIndicator {
-    self.pageIndicatorLabel.text = [NSString stringWithFormat:@"%zi/%zi",self.selectedIndex + 1,self.imageArray.count];
-}
+    KL_ImagesZoomController *img = [[KL_ImagesZoomController alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height )imgViewSize:CGSizeZero];
+    [self.view addSubview:img];
 
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    self.selectedIndex = (int)scrollView.contentOffset.x / self.view.frame.size.width;
-    [self updatePageIndicator];
-    
-}
 
-- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
-    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 300, 200)];
-    view.backgroundColor = [UIColor grayColor  ];
-    return view;
+//    添加单击事件
+    UITapGestureRecognizer *singleFingerOne = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                      action:@selector(handleSingleFingerEvent:)];
+    singleFingerOne.numberOfTouchesRequired = 1; //手指数
+    singleFingerOne.numberOfTapsRequired = 1; //tap次数
+    singleFingerOne.delegate = self;
+    [img addGestureRecognizer:singleFingerOne];
+//    加载图片
+    [img updateImageDate:[self imageArray] selectIndex:self.selectedIndex];
 }
-
--(void)scrollViewDidZoom:(UIScrollView *)scrollView {
-    NSLog(@"zoom");
-}
--(void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(CGFloat)scale {
-    NSLog(@"%.2f",scale);
+- (void)handleSingleFingerEvent:(UITapGestureRecognizer *)tap {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-- (void)hideNaviBar {
-
-//    self.navigationController.navigationBar.hidden = self.naviHidden;
-//    self.naviHidden = !self.naviHidden;
 }
 /*
 #pragma mark - Navigation

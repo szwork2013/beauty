@@ -110,6 +110,13 @@
     
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    ImageBrowserViewController *vc = [[ImageBrowserViewController alloc]init];
+    vc.selectedIndex = indexPath.row;
+    vc.imageArray = self.imageArray;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 //网页加载完成代理方法
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
     self.webViewHeight = [[webView stringByEvaluatingJavaScriptFromString:@"document.body.offsetHeight;"] floatValue];
@@ -119,13 +126,12 @@
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    ImageBrowserViewController *vc = segue.destinationViewController;
-    vc.selectedIndex = self.tableView.indexPathForSelectedRow.row;
-    vc.imageArray = self.imageArray;
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    
+//
+//    // Get the new view controller using [segue destinationViewController].
+//    // Pass the selected object to the new view controller.
+//}
 
 
 @end

@@ -11,5 +11,4 @@
 @interface ImageBrowserViewController : UIViewController
 @property (nonatomic,strong) NSArray *imageArray;
 @property (nonatomic,assign) NSInteger selectedIndex;
-@property (nonatomic,assign) BOOL naviHidden;
 @end

@@ -940,9 +940,6 @@
                                         <constraint firstItem="IrW-XM-t6H" firstAttribute="top" secondItem="let-0v-xg8" secondAttribute="topMargin" id="hfP-Nz-5iX"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="geS-Pb-LBb" kind="show" identifier="image" id="5yj-2A-mXL"/>
-                                </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="webView" rowHeight="73" id="sEb-3O-qYR">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -974,54 +971,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p6O-fT-OES" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1846" y="-1276"/>
-        </scene>
-        <!--图片浏览器-->
-        <scene sceneID="oIw-01-vye">
-            <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="geS-Pb-LBb" userLabel="图片浏览器" customClass="ImageBrowserViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="bBu-gB-N4l"/>
-                        <viewControllerLayoutGuide type="bottom" id="N0j-Ud-Vem"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="2OM-Kb-cf0">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ocx-D1-gCx">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                            </scrollView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1/6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nvw-Db-Y7k">
-                                <rect key="frame" x="141" y="66" width="37" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="nvw-Db-Y7k" firstAttribute="top" secondItem="bBu-gB-N4l" secondAttribute="bottom" constant="2" id="D9O-e5-z6o"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Ocx-D1-gCx" secondAttribute="trailing" constant="-16" id="GLO-Ll-dS1"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="nvw-Db-Y7k" secondAttribute="trailing" constant="126" id="HuE-sf-tns"/>
-                            <constraint firstItem="Ocx-D1-gCx" firstAttribute="top" secondItem="bBu-gB-N4l" secondAttribute="bottom" constant="-64" id="PkY-vt-ZKD"/>
-                            <constraint firstItem="Ocx-D1-gCx" firstAttribute="leading" secondItem="2OM-Kb-cf0" secondAttribute="leadingMargin" constant="-16" id="RfZ-4c-IBV"/>
-                            <constraint firstItem="nvw-Db-Y7k" firstAttribute="leading" secondItem="2OM-Kb-cf0" secondAttribute="leadingMargin" constant="125" id="eTN-dl-2zj"/>
-                            <constraint firstItem="nvw-Db-Y7k" firstAttribute="top" secondItem="bBu-gB-N4l" secondAttribute="bottom" constant="2" id="gGK-a6-hfD"/>
-                            <constraint firstItem="N0j-Ud-Vem" firstAttribute="top" secondItem="Ocx-D1-gCx" secondAttribute="bottom" id="hjX-1J-9SL"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="gGK-a6-hfD"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <connections>
-                        <outlet property="pageIndicatorLabel" destination="nvw-Db-Y7k" id="jg3-F3-PmV"/>
-                        <outlet property="scrollView" destination="Ocx-D1-gCx" id="pZK-Qh-f7p"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ytz-5E-K7E" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2366" y="-1371"/>
         </scene>
         <!--品牌排行榜-->
         <scene sceneID="g9u-pd-vEt">
