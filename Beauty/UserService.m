@@ -69,4 +69,46 @@
     }];
     
 }
+
+- (void)favorButtonPressForProduct:(NSString *)productId successBlock:(successBlock)successBlock failBlock:(failBlock)failBlock {
+    
+    [self actionWithUser:^(BmobUser *user) {
+        //        判断收藏与否
+        BmobQuery *storeQuery = [BmobQuery queryWithClassName:@"Product"];
+        [storeQuery whereObjectKey:@"relProductCollect" relatedTo:user];
+        //                从当前会员下所有收藏店铺中遍历，看是否找到当前单元格的遍历
+        [storeQuery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+            //设置店铺id
+            BmobObject *store = [BmobObject objectWithoutDatatWithClassName:@"Store" objectId:productId];
+            BmobRelation *storeRelation = [[BmobRelation alloc]init];
+            NSString *hudStr = @"收藏成功";
+            for (int i = 0; i < array.count; i ++) {
+                if ([[array[i] objectId] isEqualToString:[store objectId]]) {
+                    [storeRelation removeObject:store];
+                    hudStr = @"取消收藏成功";
+                    break;
+                } else {
+                    [storeRelation addObject:store];
+                }
+            }
+            //            如果没有找到
+            if (array.count == 0) {
+                [storeRelation addObject:store];
+            }
+            [user addRelation:storeRelation forKey:@"relProductCollect"];
+            [user updateInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+                if (isSuccessful) {
+                    
+                    successBlock();
+                    
+                    [SVProgressHUD showSuccessWithStatus:hudStr];
+                }
+            }];
+        }];
+        
+    } failBlock:^{
+        failBlock();
+    }];
+    
+}
 @end

@@ -13,19 +13,31 @@
 #import "ProductDetailTableViewController.h"
 #import "StarView.h"
 #import "Global.h"
+#import "SVPullToRefresh.h"
+#import "SVProgressHUD.h"
 
 @interface ProductTableViewController ()
-@property (strong,nonatomic) NSArray *productArray;
-
+@property (strong,nonatomic) NSMutableArray *productArray;
+@property (nonatomic,assign) NSInteger page;
 @end
 
 @implementation ProductTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self fetchProduct];
     [self fetchTitle];
+    self.productArray = [NSMutableArray array];
+    [self fetchProduct:self.page];
+//    添加无限上拉刷新
+    __weak ProductTableViewController *weakSelf = self;
+    __weak UITableView *weakTableView = self.tableView;
+    [self.tableView addInfiniteScrollingWithActionHandler:^{
+        weakSelf.page ++;
+        [weakSelf fetchProduct:PER_PAGE * weakSelf.page];
+        [weakTableView.infiniteScrollingView stopAnimating];
+    }];
 }
+
 -(void) fetchTitle{
     BmobQuery *query = [BmobQuery queryWithClassName:@"ProductSecondLevel"];
     [query getObjectInBackgroundWithId:self.secondLevelId block:^(BmobObject *object, NSError *error) {
@@ -34,13 +46,30 @@
     
 }
 
-- (void)fetchProduct {
-    self.productArray = [NSArray array];
+- (void)fetchProduct:(NSInteger)skip {
     BmobQuery *bquery = [BmobQuery queryWithClassName:@"Product"];
+    bquery.skip = skip;
+    bquery.limit = PER_PAGE;
+    
     BmobObject *obj = [BmobObject objectWithoutDatatWithClassName:@"ProductSecondLevel" objectId:self.secondLevelId];
     [bquery whereObjectKey:@"products" relatedTo:obj];
     [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
-        self.productArray = array;
+        if (array.count == 0) {
+            if (self.page == 0) {
+                self.tableView.hidden = YES;
+                UILabel *label = [[UILabel alloc]initWithFrame:self.tableView.frame];
+                label.textAlignment = NSTextAlignmentCenter;
+                label.textColor = [UIColor grayColor];
+                label.font = [UIFont systemFontOfSize:18.0];
+                label.text = NO_DATAS;
+                [self.tableView.superview addSubview:label];
+            } else {
+                [SVProgressHUD showSuccessWithStatus:NO_MORE];
+            }
+        
+        }
+
+        [self.productArray addObjectsFromArray: array];
         [self.tableView reloadData];
     }];
 }

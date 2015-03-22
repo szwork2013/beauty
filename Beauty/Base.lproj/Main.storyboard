@@ -2183,7 +2183,7 @@
         <!--Product Detail Table View Controller-->
         <scene sceneID="ihc-mc-eQc">
             <objects>
-                <tableViewController id="z5s-pb-0rk" customClass="ProductDetailTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="product" useStoryboardIdentifierAsRestorationIdentifier="YES" id="z5s-pb-0rk" customClass="ProductDetailTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="grG-tb-9JQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="1268"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2228,11 +2228,15 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hZI-gR-gU7">
-                                                    <rect key="frame" x="153" y="90" width="84" height="24"/>
-                                                    <state key="normal" image="product_favor.png">
+                                                    <rect key="frame" x="153" y="90" width="84" height="28"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <state key="normal" title="收藏" backgroundImage="favor.png">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="favorButtonPress:" destination="z5s-pb-0rk" eventType="touchUpInside" id="z0Z-O5-hZ9"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="人评论" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xem-NI-dFv">
                                                     <rect key="frame" x="267" y="44" width="39" height="21"/>
@@ -2598,6 +2602,7 @@
                         <outlet property="avatarImageView" destination="Orj-uR-aXL" id="B2L-wI-Id7"/>
                         <outlet property="averagePrice" destination="ZAx-jb-qla" id="oTO-ac-cK4"/>
                         <outlet property="commentLabel" destination="rV0-PI-J9d" id="wiF-9Z-KgN"/>
+                        <outlet property="favorButton" destination="hZI-gR-gU7" id="UPf-Q8-VoI"/>
                         <outlet property="nameLabel" destination="PKX-kp-FGf" id="hZb-BC-SBZ"/>
                         <outlet property="sellerTableView" destination="ZCd-CT-mJF" id="7yw-Er-1iD"/>
                         <outlet property="starView" destination="rox-q9-3Wz" id="Afi-dk-mgo"/>
@@ -2709,7 +2714,6 @@
         <image name="member_chekin.png" width="33" height="33"/>
         <image name="member_favor.png" width="33" height="33"/>
         <image name="member_try.png" width="33" height="33"/>
-        <image name="product_favor.png" width="99" height="28"/>
         <image name="product_search_bar.png" width="242" height="25"/>
         <image name="product_search_bg.png" width="317" height="37"/>
         <image name="rank.png" width="137" height="65"/>

@@ -15,7 +15,7 @@
 #define SCREEN_HEIGHT [[UIScreen mainScreen] bounds].size.height
 #define TOPBAR_HEIGHT 64
 #define PAGEINDICATOR_WIDTH 100
-#define PER_PAGE 2
+#define PER_PAGE 3
 #define NO_MORE @"没有新数据了"
 #define NO_DATAS @"结果空空如也～"
 #define BASE_TAG 1000

@@ -13,12 +13,16 @@
 #import "WebViewBrowserController.h"
 #import "ProductSellerDataSource.h"
 #import "CommonUtil.h"
+#import "UserService.h"
+#import "MemberLoginViewController.h"
+
 @interface ProductDetailTableViewController ()
 @property (nonatomic,weak) IBOutlet UIImageView *avatarImageView;
 @property (nonatomic,weak) IBOutlet UILabel *nameLabel;
 @property (nonatomic,weak) IBOutlet UILabel *commentLabel;
 @property (nonatomic,weak) IBOutlet UILabel *averagePrice;
 @property (nonatomic,weak) IBOutlet UIView *starView;
+@property (weak, nonatomic) IBOutlet UIButton *favorButton;
 @property (nonatomic,strong) ProductSellerDataSource *productSellerDataSource;
 @end
 
@@ -37,7 +41,50 @@
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [CommonUtil updateTableViewHeight:self];
+    [self fetchFavorStatus];
 }
+
+-(void)fetchFavorStatus {
+    BmobObject *store = [BmobObject objectWithoutDatatWithClassName:@"Product" objectId:self.productId];
+    
+    //        判断收藏与否
+    UserService *service = [UserService getInstance];
+    [service actionWithUser:^(BmobUser *user) {
+        BmobQuery *storeQuery = [BmobQuery queryWithClassName:@"Product"];
+        [storeQuery whereObjectKey:@"relProductCollect" relatedTo:user];
+        //                从当前会员下所有收藏店铺中遍历，看是否找到当前单元格的遍历
+        [storeQuery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+            for (int i = 0; i < array.count; i ++) {
+                if ([[array[i] objectId] isEqualToString:[store objectId]]) {
+                    [self.favorButton setTitle:@"取消收藏" forState:UIControlStateNormal];
+                    break;
+                } else {
+                    [self.favorButton setTitle:@"收藏" forState:UIControlStateNormal];
+                }
+            }
+        }];
+    } failBlock:^{
+//        收藏按钮不做改变，也不必跳转到登录页
+    }];
+}
+//收藏按钮点击
+- (IBAction)favorButtonPress:(id)sender {
+    UserService *service = [UserService getInstance];
+    
+    [service favorButtonPressForProduct:self.productId successBlock:^{
+        //更新当前按钮
+        if ([self.favorButton.titleLabel.text isEqualToString:@"收藏"]) {
+            [self.favorButton setTitle:@"取消收藏" forState:UIControlStateNormal];
+        } else {
+            [self.favorButton setTitle:@"收藏" forState:UIControlStateNormal];
+        }
+        
+    } failBlock:^{
+        MemberLoginViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"login"];
+        [self.navigationController pushViewController:vc animated:YES];
+    }];
+}
+
 //获取产品数据
 - (void)fetchProduct {
     BmobQuery *query = [BmobQuery queryWithClassName:@"Product"];

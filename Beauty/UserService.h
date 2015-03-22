@@ -16,4 +16,5 @@ typedef void(^failBlock)(void);
 + (instancetype)getInstance;
 - (void)actionWithUser:(actionBlock)actionBlock failBlock:(failBlock)failBlock;
 - (void)favorButtonPress:(NSString *)storeId successBlock:(successBlock)successBlock failBlock:(failBlock)failBlock;
+- (void)favorButtonPressForProduct:(NSString *)productId successBlock:(successBlock)successBlock failBlock:(failBlock)failBlock;
 @end

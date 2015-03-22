@@ -197,7 +197,6 @@
                     }];
                     self.activityTableView = tableView;
                 } else {
-                    
                     [tableView addInfiniteScrollingWithActionHandler:^{
                         self.pageNearBy ++;
                         [weakSelf fetchNearByData:PER_PAGE * self.pageNearBy tableView:weakTableView];
