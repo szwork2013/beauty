@@ -441,6 +441,7 @@
                         <outlet property="businessHour" destination="IRU-IO-tFb" id="bk8-FA-iVC"/>
                         <outlet property="callButton" destination="d6t-R9-GQ9" id="4dX-Ra-oyV"/>
                         <outlet property="descriptTextView" destination="GUc-Q0-dbK" id="IMH-vf-Rcj"/>
+                        <outlet property="favorButton" destination="PDX-om-aFx" id="car-3R-bQX"/>
                         <outlet property="imagesScrollView" destination="giY-vi-xcN" id="hjz-nS-fID"/>
                         <outlet property="mapView" destination="A57-oG-N6f" id="TN1-5g-E2w"/>
                         <outlet property="nameLabel" destination="fox-im-gm8" id="QfS-Hl-wE8"/>

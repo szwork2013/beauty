@@ -10,8 +10,10 @@
 #import <BmobSDK/Bmob.h>
 
 typedef void(^actionBlock)(BmobUser *user);
+typedef void(^successBlock)(void);
 typedef void(^failBlock)(void);
 @interface UserService : NSObject
 + (instancetype)getInstance;
 - (void)actionWithUser:(actionBlock)actionBlock failBlock:(failBlock)failBlock;
+- (void)favorButtonPress:(NSString *)storeId successBlock:(successBlock)successBlock failBlock:(failBlock)failBlock;
 @end

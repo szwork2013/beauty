@@ -127,6 +127,10 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.tabBarController.tabBar.hidden = NO;
+    //    用于新登录后自刷新
+    if (self.nearByTableView) {
+        [self.nearByTableView reloadData];
+    }
 }
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
@@ -384,42 +388,8 @@
 }
 - (void)switchFavor:(UIButton *)button {
     UserService *service = [UserService getInstance];
-    [service actionWithUser:^(BmobUser *user) {
-
-        
-        
-        
-        
-        //        判断收藏与否
-        BmobQuery *storeQuery = [BmobQuery queryWithClassName:@"Store"];
-        [storeQuery whereObjectKey:@"relStoreCollect" relatedTo:user];
-        //                从当前会员下所有收藏店铺中遍历，看是否找到当前单元格的遍历
-        [storeQuery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
-            BmobObject *store = [BmobObject objectWithoutDatatWithClassName:@"Store" objectId:[self.storeNearByArray[button.tag] objectId]];
-            BmobRelation *storeRelation = [[BmobRelation alloc]init];
-            NSString *hudStr = @"收藏成功";
-            for (int i = 0; i < array.count; i ++) {
-                if ([[array[i] objectId] isEqualToString:[store objectId]]) {
-                    [storeRelation removeObject:store];
-                    hudStr = @"取消收藏成功";
-                    break;
-                } else {
-                    [storeRelation addObject:store];
-                }
-            }
-//            如果没有找到
-            if (array.count == 0) {
-                [storeRelation addObject:store];
-            }
-            [user addRelation:storeRelation forKey:@"relStoreCollect"];
-            [user updateInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
-                if (isSuccessful) {
-                    [self.nearByTableView reloadSections:[NSIndexSet indexSetWithIndex:button.tag] withRowAnimation:UITableViewRowAnimationAutomatic];
-                    [SVProgressHUD showSuccessWithStatus:hudStr];
-                }
-            }];
-        }];
-
+    [service favorButtonPress:[self.storeNearByArray[button.tag] objectId] successBlock:^{
+        [self.nearByTableView reloadSections:[NSIndexSet indexSetWithIndex:button.tag] withRowAnimation:UITableViewRowAnimationAutomatic];
     } failBlock:^{
         MemberLoginViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"login"];
         [self.navigationController pushViewController:vc animated:YES];

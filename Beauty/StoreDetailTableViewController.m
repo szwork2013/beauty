@@ -13,12 +13,16 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "ImageBrowserViewController.h"
+#import "SVProgressHUD.h"
+#import "UserService.h"
+#import "MemberLoginViewController.h"
 
 @interface StoreDetailTableViewController () <UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *imagesScrollView;
 @property (strong, nonatomic) NSArray *imageArray;
 //服务器抓取的数据
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UIButton *favorButton;
 @property (weak, nonatomic) IBOutlet UILabel *businessHour;
 @property (weak, nonatomic) IBOutlet UITextView *descriptTextView;
 @property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
@@ -56,9 +60,52 @@
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [CommonUtil updateTableViewHeight:self];
+//    刷新收藏按钮是否是已经收藏
+    [self fetchFavorStatus];
 }
+//可封装到UserService
+-(void)fetchFavorStatus {
+    BmobObject *store = [BmobObject objectWithoutDatatWithClassName:@"Store" objectId:self.storeId];
+
+    //        判断收藏与否
+    UserService *service = [UserService getInstance];
+    [service actionWithUser:^(BmobUser *user) {
+        BmobQuery *storeQuery = [BmobQuery queryWithClassName:@"Store"];
+        [storeQuery whereObjectKey:@"relStoreCollect" relatedTo:user];
+        //                从当前会员下所有收藏店铺中遍历，看是否找到当前单元格的遍历
+        [storeQuery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+            for (int i = 0; i < array.count; i ++) {
+                if ([[array[i] objectId] isEqualToString:[store objectId]]) {
+                    [self.favorButton setTitle:@"取消收藏" forState:UIControlStateNormal];
+                    break;
+                } else {
+                    [self.favorButton setTitle:@"收藏" forState:UIControlStateNormal];
+                }
+            }
+        }];
+    } failBlock:^{
+        
+    }];
+
+}
+//收藏店铺按钮
 - (IBAction)favorButtonPress:(id)sender {
+    UserService *service = [UserService getInstance];
+    
+    [service favorButtonPress:self.storeId successBlock:^{
+        //更新当前按钮
+        if ([self.favorButton.titleLabel.text isEqualToString:@"收藏"]) {
+            [self.favorButton setTitle:@"取消收藏" forState:UIControlStateNormal];
+        } else {
+            [self.favorButton setTitle:@"收藏" forState:UIControlStateNormal];
+        }
+
+    } failBlock:^{
+        MemberLoginViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"login"];
+        [self.navigationController pushViewController:vc animated:YES];
+    }];
 }
+
 
 #pragma mark - 服务器抓取
 - (void)fetchStoreData {
