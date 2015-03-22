@@ -34,8 +34,6 @@
 
 //拨号
 @property (weak, nonatomic) IBOutlet UIButton *callButton;
-
-//@property (strong, nonatomic) IBOutlet MKMapView *locationMapView;
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
 
 @end
@@ -44,6 +42,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = @"店铺";
     self.tableView.contentInset=UIEdgeInsetsMake(-36, 0, 0, 0);
     self.tabBarController.tabBar.hidden = YES;
     [self fetchStoreData];
@@ -163,7 +162,7 @@
 // 添加标注
         MKPointAnnotation *annotation = [[MKPointAnnotation alloc]init];
         annotation.coordinate = center;
-        
+        [self.mapView addAnnotation:annotation];
     }];
 }
 - (void)imagePress:(UIButton *)button {

@@ -115,6 +115,12 @@
 		F78FC90D1AA7436B00F3C1EE /* activity_search_bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F78FC90C1AA7436B00F3C1EE /* activity_search_bar@2x.png */; };
 		F79547531AAD8A4600212CEA /* default_avatar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F79547511AAD8A4600212CEA /* default_avatar@2x.png */; };
 		F79547541AAD8A4600212CEA /* member_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F79547521AAD8A4600212CEA /* member_bg@2x.png */; };
+		F7960D611ABEAB4200DFCE57 /* comment@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7960D5B1ABEAB4200DFCE57 /* comment@2x.png */; };
+		F7960D621ABEAB4200DFCE57 /* safe1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7960D5C1ABEAB4200DFCE57 /* safe1@2x.png */; };
+		F7960D631ABEAB4200DFCE57 /* safe2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7960D5D1ABEAB4200DFCE57 /* safe2@2x.png */; };
+		F7960D641ABEAB4200DFCE57 /* safe3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7960D5E1ABEAB4200DFCE57 /* safe3@2x.png */; };
+		F7960D651ABEAB4200DFCE57 /* safe4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7960D5F1ABEAB4200DFCE57 /* safe4@2x.png */; };
+		F7960D661ABEAB4200DFCE57 /* safe5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7960D601ABEAB4200DFCE57 /* safe5@2x.png */; };
 		F7A6D6281ABBF0BA0049D6C6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7A6D6271ABBF0BA0049D6C6 /* MapKit.framework */; };
 		F7B4983B1AA2FF300067219E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B4983A1AA2FF300067219E /* main.m */; };
 		F7B4983E1AA2FF300067219E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B4983D1AA2FF300067219E /* AppDelegate.m */; };
@@ -359,6 +365,12 @@
 		F78FC90C1AA7436B00F3C1EE /* activity_search_bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "activity_search_bar@2x.png"; path = "images/home/activity_search_bar@2x.png"; sourceTree = "<group>"; };
 		F79547511AAD8A4600212CEA /* default_avatar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default_avatar@2x.png"; sourceTree = "<group>"; };
 		F79547521AAD8A4600212CEA /* member_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "member_bg@2x.png"; sourceTree = "<group>"; };
+		F7960D5B1ABEAB4200DFCE57 /* comment@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "comment@2x.png"; sourceTree = "<group>"; };
+		F7960D5C1ABEAB4200DFCE57 /* safe1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "safe1@2x.png"; sourceTree = "<group>"; };
+		F7960D5D1ABEAB4200DFCE57 /* safe2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "safe2@2x.png"; sourceTree = "<group>"; };
+		F7960D5E1ABEAB4200DFCE57 /* safe3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "safe3@2x.png"; sourceTree = "<group>"; };
+		F7960D5F1ABEAB4200DFCE57 /* safe4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "safe4@2x.png"; sourceTree = "<group>"; };
+		F7960D601ABEAB4200DFCE57 /* safe5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "safe5@2x.png"; sourceTree = "<group>"; };
 		F7A6D6271ABBF0BA0049D6C6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		F7B498351AA2FF300067219E /* Beauty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beauty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7B498391AA2FF300067219E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -564,6 +576,12 @@
 		F7172C3B1AA89C2000A9ED4C /* product */ = {
 			isa = PBXGroup;
 			children = (
+				F7960D5B1ABEAB4200DFCE57 /* comment@2x.png */,
+				F7960D5C1ABEAB4200DFCE57 /* safe1@2x.png */,
+				F7960D5D1ABEAB4200DFCE57 /* safe2@2x.png */,
+				F7960D5E1ABEAB4200DFCE57 /* safe3@2x.png */,
+				F7960D5F1ABEAB4200DFCE57 /* safe4@2x.png */,
+				F7960D601ABEAB4200DFCE57 /* safe5@2x.png */,
 				F70850261AB5CE5700DD4A1C /* no1@2x.png */,
 				F70850271AB5CE5700DD4A1C /* no2@2x.png */,
 				F70850281AB5CE5700DD4A1C /* no3@2x.png */,
@@ -1150,7 +1168,9 @@
 				F7147A601AA6FCF7007605E6 /* star_empty@2x.png in Resources */,
 				F7E4F17B1AA5D1280025D868 /* club@2x.png in Resources */,
 				F7B498721AA31B250067219E /* StoreTableViewCell.xib in Resources */,
+				F7960D661ABEAB4200DFCE57 /* safe5@2x.png in Resources */,
 				F7B498491AA2FF300067219E /* LaunchScreen.xib in Resources */,
+				F7960D631ABEAB4200DFCE57 /* safe2@2x.png in Resources */,
 				F7B4986B1AA311350067219E /* bar_member@2x.png in Resources */,
 				F7147A5B1AA6F9D1007605E6 /* ProductTableViewCell.xib in Resources */,
 				F70850291AB5CE5700DD4A1C /* no1@2x.png in Resources */,
@@ -1162,7 +1182,9 @@
 				F79547541AAD8A4600212CEA /* member_bg@2x.png in Resources */,
 				F71483FF1AB9253C005490FF /* ELCAssetTablePicker.xib in Resources */,
 				F7147A651AA73105007605E6 /* try_bg@2x.png in Resources */,
+				F7960D621ABEAB4200DFCE57 /* safe1@2x.png in Resources */,
 				F7147A681AA73962007605E6 /* search@2x.png in Resources */,
+				F7960D611ABEAB4200DFCE57 /* comment@2x.png in Resources */,
 				F71B7C8A1AB03F63005E8648 /* submit_button@2x.png in Resources */,
 				F7E4F17D1AA5D1280025D868 /* test@2x.png in Resources */,
 				F74523351AB467C200C33281 /* TryEventTableViewCell.xib in Resources */,
@@ -1181,6 +1203,7 @@
 				F735C2051ABD1E6A00A61F47 /* map@2x.png in Resources */,
 				F78FC90D1AA7436B00F3C1EE /* activity_search_bar@2x.png in Resources */,
 				F7147A5D1AA6FBC2007605E6 /* willtry@2x.png in Resources */,
+				F7960D641ABEAB4200DFCE57 /* safe3@2x.png in Resources */,
 				F7B4986D1AA311350067219E /* bar_shop@2x.png in Resources */,
 				F72FFE711AAE77BD00C01BB2 /* code_bg@2x.png in Resources */,
 				F76B94F31AB57D910072FAD4 /* LSCanvasView.xib in Resources */,
@@ -1191,6 +1214,7 @@
 				F7096BE11AB9AC0800BE86FD /* Upload.xib in Resources */,
 				F71484001AB9253C005490FF /* Overlay.png in Resources */,
 				F708502A1AB5CE5700DD4A1C /* no2@2x.png in Resources */,
+				F7960D651ABEAB4200DFCE57 /* safe4@2x.png in Resources */,
 				F72FFE6E1AAD935400C01BB2 /* member_try@2x.png in Resources */,
 				F745233A1AB469F600C33281 /* person@2x.png in Resources */,
 				F72FFE6D1AAD935400C01BB2 /* member_favor@2x.png in Resources */,
