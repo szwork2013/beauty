@@ -2852,16 +2852,22 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eW5-4O-vg1" id="MGv-tG-CA7">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="查看全部评论&gt;&gt;" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9vv-rx-wNd">
-                                                    <rect key="frame" x="99" y="13" width="123" height="21"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="heo-he-wbI">
+                                                    <rect key="frame" x="99" y="9" width="123" height="33"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.35686274509999999" green="0.35686274509999999" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <state key="normal" title="查看全部评价&gt;&gt;">
+                                                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="showProductComment:" destination="z5s-pb-0rk" eventType="touchUpInside" id="vcz-X6-uNz"/>
+                                                        <action selector="showProductIngredient:" destination="z5s-pb-0rk" eventType="touchUpInside" id="WiD-2D-HpX"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="9vv-rx-wNd" secondAttribute="bottom" constant="5" id="7SD-A9-CY8"/>
-                                                <constraint firstAttribute="centerX" secondItem="9vv-rx-wNd" secondAttribute="centerX" constant="-0.5" id="sVG-P2-9Ku"/>
+                                                <constraint firstAttribute="centerY" secondItem="heo-he-wbI" secondAttribute="centerY" constant="-2.25" id="QN7-o6-ebB"/>
+                                                <constraint firstAttribute="centerX" secondItem="heo-he-wbI" secondAttribute="centerX" constant="-0.5" id="o6W-EJ-6eJ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -2883,21 +2889,11 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="65" id="2rg-gD-XTS">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="2rg-gD-XTS">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2rg-gD-XTS" id="nCu-JB-pQH">
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A0m-zv-LiR">
-                                                    <rect key="frame" x="26" y="15" width="268" height="35"/>
-                                                    <color key="backgroundColor" red="0.6470588235294118" green="0.80392156862745101" blue="0.32156862745098042" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <state key="normal" title="安全指数">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                </button>
-                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="47" id="qNO-4g-RoC">
@@ -2906,16 +2902,21 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qNO-4g-RoC" id="SHK-54-4n7">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="查看全部成分&gt;&gt;" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C6y-Ic-Zll">
-                                                    <rect key="frame" x="99" y="13" width="123" height="21"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L7W-4E-fZU">
+                                                    <rect key="frame" x="99" y="8" width="123" height="33"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.35686274509999999" green="0.35686274509999999" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <state key="normal" title="查看全部成分&gt;&gt;">
+                                                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="showProductIngredient:" destination="z5s-pb-0rk" eventType="touchUpInside" id="0o5-te-GEB"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="centerY" secondItem="C6y-Ic-Zll" secondAttribute="centerY" id="KWg-uI-d3b"/>
-                                                <constraint firstAttribute="centerX" secondItem="C6y-Ic-Zll" secondAttribute="centerX" constant="-0.5" id="ikR-jK-NVf"/>
+                                                <constraint firstAttribute="centerX" secondItem="L7W-4E-fZU" secondAttribute="centerX" constant="-0.5" id="Ram-Mr-rd0"/>
+                                                <constraint firstAttribute="centerY" secondItem="L7W-4E-fZU" secondAttribute="centerY" constant="-0.5" id="aie-xq-0vM"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -3010,6 +3011,8 @@
                         <outlet property="favorButton" destination="hZI-gR-gU7" id="UPf-Q8-VoI"/>
                         <outlet property="markRate" destination="nUy-6G-pBb" id="UhV-BO-xM1"/>
                         <outlet property="nameLabel" destination="PKX-kp-FGf" id="hZb-BC-SBZ"/>
+                        <outlet property="productCommentButton" destination="heo-he-wbI" id="4CM-dw-Sdh"/>
+                        <outlet property="productIngredientButton" destination="L7W-4E-fZU" id="iVy-W4-KPL"/>
                         <outlet property="sellerTableView" destination="ZCd-CT-mJF" id="7yw-Er-1iD"/>
                         <outlet property="skinDistributeLabel0" destination="md9-6I-sfP" id="1zP-Xu-ye1"/>
                         <outlet property="skinDistributeLabel1" destination="mJf-xP-pG1" id="hZc-Pl-ocn"/>

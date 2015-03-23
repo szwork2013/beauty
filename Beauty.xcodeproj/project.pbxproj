@@ -162,6 +162,9 @@
 		F7BBEBCA1AA3633D000D74D0 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F7BBEBC71AA3633D000D74D0 /* SVProgressHUD.bundle */; };
 		F7BBEBCB1AA3633D000D74D0 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BBEBC91AA3633D000D74D0 /* SVProgressHUD.m */; };
 		F7BD0BA41AB1D998009E48B6 /* CommonUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BD0BA31AB1D998009E48B6 /* CommonUtil.m */; };
+		F7BFAC3A1ABF1177002BB5EB /* ProductIngredientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BFAC381ABF1177002BB5EB /* ProductIngredientViewController.m */; };
+		F7BFAC3B1ABF1177002BB5EB /* ProductIngredientViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7BFAC391ABF1177002BB5EB /* ProductIngredientViewController.xib */; };
+		F7BFAC3D1ABF16C0002BB5EB /* Product.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7BFAC3C1ABF16C0002BB5EB /* Product.storyboard */; };
 		F7DF10B01ABDA85200005AE8 /* Launch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7DF10AF1ABDA85200005AE8 /* Launch@2x.png */; };
 		F7E4F17B1AA5D1280025D868 /* club@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7E4F1781AA5D1280025D868 /* club@2x.png */; };
 		F7E4F17C1AA5D1280025D868 /* rank@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7E4F1791AA5D1280025D868 /* rank@2x.png */; };
@@ -443,6 +446,10 @@
 		F7BBEBC91AA3633D000D74D0 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		F7BD0BA21AB1D998009E48B6 /* CommonUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonUtil.h; path = Beauty/CommonUtil.h; sourceTree = "<group>"; };
 		F7BD0BA31AB1D998009E48B6 /* CommonUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommonUtil.m; path = Beauty/CommonUtil.m; sourceTree = "<group>"; };
+		F7BFAC371ABF1177002BB5EB /* ProductIngredientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductIngredientViewController.h; path = Product/ProductIngredientViewController.h; sourceTree = "<group>"; };
+		F7BFAC381ABF1177002BB5EB /* ProductIngredientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductIngredientViewController.m; path = Product/ProductIngredientViewController.m; sourceTree = "<group>"; };
+		F7BFAC391ABF1177002BB5EB /* ProductIngredientViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ProductIngredientViewController.xib; path = Product/ProductIngredientViewController.xib; sourceTree = "<group>"; };
+		F7BFAC3C1ABF16C0002BB5EB /* Product.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Product.storyboard; sourceTree = "<group>"; };
 		F7DF10AF1ABDA85200005AE8 /* Launch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Launch@2x.png"; path = "images/Launch@2x.png"; sourceTree = "<group>"; };
 		F7E4F1781AA5D1280025D868 /* club@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "club@2x.png"; path = "images/home/club@2x.png"; sourceTree = "<group>"; };
 		F7E4F1791AA5D1280025D868 /* rank@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "rank@2x.png"; path = "images/home/rank@2x.png"; sourceTree = "<group>"; };
@@ -1035,6 +1042,10 @@
 		F7BD0BA91AB1DF35009E48B6 /* Product */ = {
 			isa = PBXGroup;
 			children = (
+				F7BFAC371ABF1177002BB5EB /* ProductIngredientViewController.h */,
+				F7BFAC3C1ABF16C0002BB5EB /* Product.storyboard */,
+				F7BFAC381ABF1177002BB5EB /* ProductIngredientViewController.m */,
+				F7BFAC391ABF1177002BB5EB /* ProductIngredientViewController.xib */,
 				F71483D81AB85AB8005490FF /* FirstLevelTableViewController.h */,
 				F71483D91AB85AB8005490FF /* FirstLevelTableViewController.m */,
 				F7172C311AA84F8D00A9ED4C /* SecondLevelTableViewController.h */,
@@ -1180,8 +1191,10 @@
 				F7E4F17C1AA5D1280025D868 /* rank@2x.png in Resources */,
 				F71483FD1AB9253C005490FF /* ELCAlbumPickerController.xib in Resources */,
 				F79547541AAD8A4600212CEA /* member_bg@2x.png in Resources */,
+				F7BFAC3B1ABF1177002BB5EB /* ProductIngredientViewController.xib in Resources */,
 				F71483FF1AB9253C005490FF /* ELCAssetTablePicker.xib in Resources */,
 				F7147A651AA73105007605E6 /* try_bg@2x.png in Resources */,
+				F7BFAC3D1ABF16C0002BB5EB /* Product.storyboard in Resources */,
 				F7960D621ABEAB4200DFCE57 /* safe1@2x.png in Resources */,
 				F7147A681AA73962007605E6 /* search@2x.png in Resources */,
 				F7960D611ABEAB4200DFCE57 /* comment@2x.png in Resources */,
@@ -1277,6 +1290,7 @@
 				F7BBEBCB1AA3633D000D74D0 /* SVProgressHUD.m in Sources */,
 				F7B498A01AA3356F0067219E /* UIRefreshControl+AFNetworking.m in Sources */,
 				F7B4989D1AA3356F0067219E /* UIButton+AFNetworking.m in Sources */,
+				F7BFAC3A1ABF1177002BB5EB /* ProductIngredientViewController.m in Sources */,
 				F76979191ABDAB44002DE078 /* UIButton+WebCache.m in Sources */,
 				F7B498BC1AA335E30067219E /* AFURLRequestSerialization.m in Sources */,
 				F7B498B91AA335E30067219E /* AFNetworkReachabilityManager.m in Sources */,

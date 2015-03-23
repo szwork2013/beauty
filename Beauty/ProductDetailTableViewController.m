@@ -5,13 +5,6 @@
 //  Created by HuangXiuJie on 15/3/5.
 //  Copyright (c) 2015年 瑞安市灵犀网络技术有限公司. All rights reserved.
 //
-#define kColor0 [UIColor colorWithRed:109.0 / 255.0 green:194.0 / 255.0 blue:242.0 / 255.0 alpha:0.9]
-#define kColor1 [UIColor colorWithRed:192.0 / 255.0 green:221.0 / 255.0 blue:133.0 / 255.0 alpha:0.9]
-#define kColor2 [UIColor colorWithRed:236.0 / 255.0 green:136.0 / 255.0 blue:181.0 / 255.0 alpha:0.9]
-#define kColor3 [UIColor colorWithRed:228.0 / 255.0 green:80.0 / 255.0 blue:99.0 / 255.0 alpha:0.9]
-#define kColor4 [UIColor colorWithRed:248.0 / 255.0 green:196.0 / 255.0 blue:118.0 / 255.0 alpha:0.9]
-
-
 
 
 #import "ProductDetailTableViewController.h"
@@ -23,6 +16,8 @@
 #import "CommonUtil.h"
 #import "UserService.h"
 #import "MemberLoginViewController.h"
+#import "ProductIngredientViewController.h"
+#import "Global.h"
 
 @interface ProductDetailTableViewController ()
 @property (nonatomic,weak) IBOutlet UIImageView *avatarImageView;
@@ -67,6 +62,14 @@
 @property (weak, nonatomic) IBOutlet UIView *ageDistributeView2;
 @property (weak, nonatomic) IBOutlet UIView *ageDistributeView3;
 @property (weak, nonatomic) IBOutlet UIView *ageDistributeView4;
+@property (weak, nonatomic) IBOutlet UIButton *productCommentButton;
+//查看全部成分按钮
+@property (weak, nonatomic) IBOutlet UIButton *productIngredientButton;
+//成分条数
+@property (assign, nonatomic) NSInteger productIngredientCount;
+
+//产品规格
+@property (strong, nonatomic) NSArray *productParameter;
 @end
 
 @implementation ProductDetailTableViewController
@@ -86,10 +89,9 @@
     [CommonUtil updateTableViewHeight:self];
     [self fetchFavorStatus];
 }
-
+#pragma mark 获取当前收藏状态
 -(void)fetchFavorStatus {
     BmobObject *store = [BmobObject objectWithoutDatatWithClassName:@"Product" objectId:self.productId];
-    
     //        判断收藏与否
     UserService *service = [UserService getInstance];
     [service actionWithUser:^(BmobUser *user) {
@@ -110,7 +112,7 @@
 //        收藏按钮不做改变，也不必跳转到登录页
     }];
 }
-//收藏按钮点击
+#pragma mark 收藏按钮点击
 - (IBAction)favorButtonPress:(id)sender {
     UserService *service = [UserService getInstance];
     
@@ -127,8 +129,24 @@
         [self.navigationController pushViewController:vc animated:YES];
     }];
 }
-
-//获取产品数据
+#pragma mark 查看全部成分
+- (IBAction)showProductIngredient:(id)sender {
+//    ProductIngredientViewController *productVC = [[ProductIngredientViewController alloc]initWithNibName:@"ProductIngredientViewController" bundle:nil];
+//    [self.navigationController pushViewController:productVC animated:YES];
+    UIStoryboard *subStoryBoard = [UIStoryboard storyboardWithName:@"Product" bundle:nil];
+    ProductIngredientViewController *vc = [subStoryBoard instantiateViewControllerWithIdentifier:@"ProductIngredient"];
+    vc.productId = self.productId;
+    [self.navigationController pushViewController:vc animated:YES];
+    
+}
+#pragma mark 查看全部评价
+- (IBAction)showProductComment:(id)sender {
+}
+#pragma mark 点击评价按钮
+- (IBAction)productCommentPress:(id)sender {
+//    跳转登录或点评页
+}
+#pragma mark 获取产品数据
 - (void)fetchProduct {
     BmobQuery *query = [BmobQuery queryWithClassName:@"Product"];
     [query getObjectInBackgroundWithId:self.productId block:^(BmobObject *product, NSError *error) {
@@ -153,10 +171,14 @@
         self.useMethodHeight = self.useMethodTextView.frame.size.height + 8;
         [self.starView addSubview:view];
         [self.starViewMid addSubview:viewMid];
+//        获取成分
+        [self fetchIngredientByProductId];
+//        获取规格
+        [self fetchParameterByProductId];
     }];
 }
 
-//计算肤质比例
+#pragma mark 计算肤质比例
 - (void)calculateSkinDistribute:(NSArray *)skinDistribute {
     //最大比例条的宽度
     CGFloat maxWidth = CGRectGetWidth(self.skinDistributeView1.frame);
@@ -183,7 +205,7 @@
     }
 }
 
-//计算肤质比例
+#pragma mark 计算年龄分层
 - (void)calculateAgeDistribute:(NSArray *)ageDistribute {
     //最大比例条的宽度
     CGFloat maxWidth = CGRectGetWidth(self.ageDistributeView1.frame);
@@ -209,11 +231,8 @@
     }
 }
 
-//计算分层
-- (IBAction)productCommentPress:(id)sender {
-//    跳转登录或点评页
-}
 
+#pragma mark 每行高度
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 1 && indexPath.row == 1) {
         return self.productSellerDataSource.sellerArray.count * 100.0;
@@ -221,14 +240,90 @@
     if (indexPath.section == 5 && indexPath.row == 1) {
         return self.useMethodHeight;
     }
+    if (indexPath.section == 4 && indexPath.row == 1) {
+        if (self.productIngredientCount == 0) {
+            return 60.0;
+        }
+        return 84.0 + self.productIngredientCount * 44.0;
+    }
+    if (indexPath.section == 6 && indexPath.row == 1) {
+        if (self.productParameter.count == 0) {
+            return 44.0;
+        }
+        return self.productParameter.count * 30.0 + 10.0;
+    }
     return [super tableView:tableView heightForRowAtIndexPath:indexPath];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
+//获取成分条数
+- (void)fetchIngredientByProductId {
+    BmobQuery *query = [BmobQuery queryWithClassName:@"ProductIngredient"];
+    [query whereKey:@"product" equalTo:[BmobObject objectWithoutDatatWithClassName:@"Product" objectId:self.productId]];
+    [query countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
+        self.productIngredientCount = number >= 5 ? 5 :number;
+        if (number == 0) {
+            [self.productIngredientButton setTitle:@"暂时没有成分信息" forState:UIControlStateNormal];
+            self.productIngredientButton.enabled = NO;
+        }
+        [self.tableView reloadData];
+    }];
+}
+#pragma mark 获取规格
+- (void)fetchParameterByProductId {
+    BmobQuery *query = [BmobQuery queryWithClassName:@"ProductParameter"];
+    [query whereKey:@"product" equalTo:[BmobObject objectWithoutDatatWithClassName:@"Product" objectId:self.productId]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+        self.productParameter = array;
+        [self.tableView reloadData];
+        
+    }];
+}
+#pragma mark 生成单元格
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [[UITableViewCell alloc]init];
+    if (indexPath.section == 4 && indexPath.row == 1) {
+        UIStoryboard *subStoryBoard = [UIStoryboard storyboardWithName:@"Product" bundle:nil];
+        ProductIngredientViewController *vc = [subStoryBoard instantiateViewControllerWithIdentifier:@"ProductIngredient"];
+        vc.productId = self.productId;
+        vc.limit = 5;
+        [cell addSubview:vc.view];
+        cell.clipsToBounds = YES;
+        return cell;
+    }else if (indexPath.section == 6 && indexPath.row == 1) {
+        for (int i = 0; i < self.productParameter.count; i++) {
+            BmobObject *parameter = self.productParameter[i];
+            UILabel *nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, 10 + i * 30, 80, 20)];
+            UILabel *valueLabel = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(nameLabel.frame), 10 + i * 30, 200, 20)];
+            nameLabel.font = [UIFont systemFontOfSize:14.0];
+            nameLabel.textColor = [UIColor grayColor];
+            nameLabel.text = [NSString stringWithFormat:@"%@:",[parameter objectForKey:@"name"]];
+            //分别设置字体大小，颜色，内容
+            valueLabel.font = [UIFont systemFontOfSize:14.0];
+            valueLabel.textColor = [UIColor grayColor];
+            valueLabel.text = [NSString stringWithFormat:@"%@",[parameter objectForKey:@"value"]];
+            if ([parameter objectForKey:@"isHighlight"]) {
+                nameLabel.textColor = MAIN_COLOR;
+                valueLabel.textColor = MAIN_COLOR;
+            }
+            [cell.contentView addSubview:nameLabel];
+            [cell.contentView addSubview:valueLabel];
+        }
+        if (self.productParameter.count == 0) {
+            UILabel *label = [[UILabel alloc]init];
+            label.center = CGPointMake(CGRectGetWidth(self.view.frame) / 2.0 , 22.0);
+            label.bounds = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 44.0);
+            label.textAlignment = NSTextAlignmentCenter;
+            label.text = @"暂时没有产品规格信息";
+            label.textColor = [UIColor grayColor];
+            [cell addSubview:label];
+        }
+        return cell;
+    }
+    return [super tableView:tableView cellForRowAtIndexPath:indexPath];
+}
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
