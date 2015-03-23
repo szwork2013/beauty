@@ -38,7 +38,7 @@
         [m_TableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:row  inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
     }
     
-    progressLabel.text = [NSString stringWithFormat:@"%lu/%lu",index + 1,self.imgs.count];
+//    progressLabel.text = [NSString stringWithFormat:@"%d/%d",index + 1,self.imgs.count];
 }
 
 - (void)_initView
@@ -98,16 +98,16 @@
 //
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-        NSIndexPath *index =  [m_TableView indexPathForRowAtPoint:scrollView.contentOffset];
-        progressLabel.text = [NSString stringWithFormat:@"%lu/%lu",index.row + 1,self.imgs.count];
+//        NSIndexPath *index =  [m_TableView indexPathForRowAtPoint:scrollView.contentOffset];
+//        progressLabel.text = [NSString stringWithFormat:@"%lu/%lu",index.row + 1,self.imgs.count];
 
 }
 
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
 
-    NSIndexPath *index =  [m_TableView indexPathForRowAtPoint:scrollView.contentOffset];
-     progressLabel.text = [NSString stringWithFormat:@"%lu/%lu",index.row + 1,self.imgs.count];
+//    NSIndexPath *index =  [m_TableView indexPathForRowAtPoint:scrollView.contentOffset];
+//     progressLabel.text = [NSString stringWithFormat:@"%lu/%lu",index.row + 1,self.imgs.count];
 //    NSLog(@"index.row : %lu",index.row);
     
 }

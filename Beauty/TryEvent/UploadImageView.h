@@ -9,13 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "ELCImagePickerHeader.h"
 #import <MobileCoreServices/UTCoreTypes.h>
-@interface UploadImageView : UIView<UIActionSheetDelegate,ELCImagePickerControllerDelegate>
+@interface UploadImageView : UIView<UIActionSheetDelegate,ELCImagePickerControllerDelegate,UIImagePickerControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *addButton;
 @property (weak, nonatomic) IBOutlet UILabel *desciptLabel;
-@property (nonatomic, copy) NSArray *chosenImages;
-@property (nonatomic, copy) NSArray *imagesURL;
-@property (nonatomic, strong) IBOutlet UIScrollView *containerView;
+@property (nonatomic, strong) NSMutableArray *chosenImages;
+@property (nonatomic, strong) IBOutlet UIView *containerView;
 @property (nonatomic, strong) NSMutableArray *fileUrlArray;
 @property (nonatomic, strong)UIViewController *vc;
+@property (nonatomic, assign) NSInteger existChosenImagesCount;
+-(void)createChosenImagesArray;
 @end

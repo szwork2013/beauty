@@ -18,6 +18,8 @@
 #import "MemberLoginViewController.h"
 #import "ProductIngredientViewController.h"
 #import "Global.h"
+#import "ProductCommentPublish.h"
+#import "ProductCommentListViewController.h"
 
 @interface ProductDetailTableViewController ()
 @property (nonatomic,weak) IBOutlet UIImageView *avatarImageView;
@@ -70,6 +72,8 @@
 
 //产品规格
 @property (strong, nonatomic) NSArray *productParameter;
+//Sub StoryBoard
+@property (strong, nonatomic) UIStoryboard *subStoryBoard;
 @end
 
 @implementation ProductDetailTableViewController
@@ -77,6 +81,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"产品信息";
+    self.subStoryBoard = [UIStoryboard storyboardWithName:@"Product" bundle:nil];
     self.tableView.contentInset=UIEdgeInsetsMake(-36, 0, 0, 0);
     [self fetchProduct];
     self.productSellerDataSource = [[ProductSellerDataSource alloc]initWithViewController:self];
@@ -141,9 +146,21 @@
 }
 #pragma mark 查看全部评价
 - (IBAction)showProductComment:(id)sender {
+    ProductCommentListViewController *vc = [self.subStoryBoard instantiateViewControllerWithIdentifier:@"productCommentList"];
+    vc.productId = self.productId;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 #pragma mark 点击评价按钮
 - (IBAction)productCommentPress:(id)sender {
+    UserService *service = [UserService getInstance];
+    [service actionWithUser:^(BmobUser *user) {
+        ProductCommentPublish *vc = [self.subStoryBoard instantiateViewControllerWithIdentifier:@"productCommentPublish"];
+        vc.productId = self.productId;
+        [self.navigationController pushViewController:vc animated:YES];
+    } failBlock:^{
+        MemberLoginViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"login"];
+        [self.navigationController pushViewController:vc animated:YES];
+    }];
 //    跳转登录或点评页
 }
 #pragma mark 获取产品数据

@@ -127,8 +127,223 @@
             </objects>
             <point key="canvasLocation" x="318" y="418"/>
         </scene>
+        <!--Product Comment Publish-->
+        <scene sceneID="xPp-it-NjW">
+            <objects>
+                <viewController storyboardIdentifier="productCommentPublish" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bbA-f9-ZK2" customClass="ProductCommentPublish" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="j4w-sQ-UQt"/>
+                        <viewControllerLayoutGuide type="bottom" id="vc9-zf-ejG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dHa-Fc-MPR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qce-bQ-Ax5" userLabel="评分view">
+                                <rect key="frame" x="71" y="37" width="178" height="21"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="评分：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BrH-PI-Y3q">
+                                        <rect key="frame" x="0.0" y="0.0" width="48" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" red="0.73333333329999995" green="0.47843137250000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n6O-H3-FzW">
+                                        <rect key="frame" x="48" y="1" width="18" height="18"/>
+                                        <state key="normal" image="star_empty_publish.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="scoreButtonPress:" destination="bbA-f9-ZK2" eventType="touchUpInside" id="mFJ-g3-KIl"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mzc-cy-GcC">
+                                        <rect key="frame" x="74" y="1" width="18" height="18"/>
+                                        <state key="normal" image="star_empty_publish.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="scoreButtonPress:" destination="bbA-f9-ZK2" eventType="touchUpInside" id="9nb-Tp-Ws9"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HaG-XZ-Dph">
+                                        <rect key="frame" x="100" y="1" width="18" height="18"/>
+                                        <state key="normal" image="star_empty_publish.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="scoreButtonPress:" destination="bbA-f9-ZK2" eventType="touchUpInside" id="GZ7-Q3-nCP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SKm-2I-NC4">
+                                        <rect key="frame" x="125" y="1" width="18" height="18"/>
+                                        <state key="normal" image="star_empty_publish.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="scoreButtonPress:" destination="bbA-f9-ZK2" eventType="touchUpInside" id="bsW-4r-CkG"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="90S-XT-f8m">
+                                        <rect key="frame" x="150" y="1" width="18" height="18"/>
+                                        <state key="normal" image="star_empty_publish.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="scoreButtonPress:" destination="bbA-f9-ZK2" eventType="touchUpInside" id="x5B-SW-TlW"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="178" id="kJG-dv-l6o"/>
+                                    <constraint firstAttribute="height" constant="21" id="tWc-H5-pEk"/>
+                                </constraints>
+                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="说点什么吧~" translatesAutoresizingMaskIntoConstraints="NO" id="OHJ-KW-hRZ">
+                                <rect key="frame" x="30" y="79" width="261" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="5vb-za-eih"/>
+                                </constraints>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="89y-3m-8vd">
+                                <rect key="frame" x="65" y="353" width="190" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="190" id="hwV-pS-5aO"/>
+                                    <constraint firstAttribute="height" constant="32" id="jEa-FX-KlZ"/>
+                                </constraints>
+                                <state key="normal" title="提交点评" backgroundImage="submit_button.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="submit:" destination="bbA-f9-ZK2" eventType="touchUpInside" id="fSq-yK-Gm0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="OHJ-KW-hRZ" secondAttribute="trailing" constant="13" id="2Tv-I9-LMA"/>
+                            <constraint firstItem="89y-3m-8vd" firstAttribute="top" secondItem="j4w-sQ-UQt" secondAttribute="bottom" constant="333" id="DXj-em-cFC"/>
+                            <constraint firstItem="OHJ-KW-hRZ" firstAttribute="top" secondItem="Qce-bQ-Ax5" secondAttribute="bottom" constant="21" id="Onc-5L-4bl"/>
+                            <constraint firstAttribute="centerX" secondItem="89y-3m-8vd" secondAttribute="centerX" id="mPo-iA-jEa"/>
+                            <constraint firstItem="Qce-bQ-Ax5" firstAttribute="top" secondItem="j4w-sQ-UQt" secondAttribute="bottom" constant="17" id="qo8-PN-1Ow"/>
+                            <constraint firstItem="OHJ-KW-hRZ" firstAttribute="leading" secondItem="dHa-Fc-MPR" secondAttribute="leadingMargin" constant="14" id="uXL-pA-GdH"/>
+                            <constraint firstAttribute="centerX" secondItem="Qce-bQ-Ax5" secondAttribute="centerX" id="xFQ-O4-Hs3"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="contentTextView" destination="OHJ-KW-hRZ" id="KlX-gH-Ntx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XZm-zR-uXm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="827" y="432"/>
+        </scene>
+        <!--Product Comment List View Controller-->
+        <scene sceneID="kcd-12-DCJ">
+            <objects>
+                <viewController storyboardIdentifier="productCommentList" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fB8-50-ool" customClass="ProductCommentListViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DPe-O7-Ir2"/>
+                        <viewControllerLayoutGuide type="bottom" id="dkr-bT-mFx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="141-MG-BVt">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="107" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="6Lk-dh-Xr0">
+                                <rect key="frame" x="0.0" y="54" width="320" height="476"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="comment" rowHeight="107" id="kBi-tc-BPO">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kBi-tc-BPO" id="eYP-so-jNb">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="fB8-50-ool" id="9vp-43-LCr"/>
+                                    <outlet property="delegate" destination="fB8-50-ool" id="hmI-hZ-ak8"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Am-Ae-2dZ">
+                                <rect key="frame" x="73" y="538" width="175" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="175" id="mdl-pj-86O"/>
+                                </constraints>
+                                <inset key="titleEdgeInsets" minX="17" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="我要点评" image="comment.png">
+                                    <color key="titleColor" red="0.71764705880000002" green="0.4549019608" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="commentButtonPress:" destination="fB8-50-ool" eventType="touchUpInside" id="T1E-xs-JGr"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="共有" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EV8-bm-HFe">
+                                <rect key="frame" x="26" y="20" width="40" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="名用户评论" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L6x-uf-fjs">
+                                <rect key="frame" x="98" y="20" width="102" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="9Zh-sE-pVT">
+                                <rect key="frame" x="62" y="20" width="34" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GoD-o9-D39">
+                                <rect key="frame" x="0.0" y="45" width="320" height="1"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="qSn-hk-8RW"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GoD-o9-D39" firstAttribute="top" secondItem="DPe-O7-Ir2" secondAttribute="bottom" constant="25" id="47y-9f-M80"/>
+                            <constraint firstItem="GoD-o9-D39" firstAttribute="leading" secondItem="141-MG-BVt" secondAttribute="leadingMargin" constant="-16" id="EwM-hp-LW3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6Lk-dh-Xr0" secondAttribute="trailing" constant="-16" id="GXh-lG-vEQ"/>
+                            <constraint firstItem="6Lk-dh-Xr0" firstAttribute="top" secondItem="DPe-O7-Ir2" secondAttribute="bottom" constant="34" id="O6P-0i-l4y"/>
+                            <constraint firstAttribute="centerX" secondItem="7Am-Ae-2dZ" secondAttribute="centerX" constant="-0.5" id="bFw-ex-nGv"/>
+                            <constraint firstItem="6Lk-dh-Xr0" firstAttribute="leading" secondItem="141-MG-BVt" secondAttribute="leadingMargin" constant="-16" id="eIP-1m-iDR"/>
+                            <constraint firstItem="dkr-bT-mFx" firstAttribute="top" secondItem="6Lk-dh-Xr0" secondAttribute="bottom" constant="38" id="gfN-4Q-VFg"/>
+                            <constraint firstItem="dkr-bT-mFx" firstAttribute="top" secondItem="7Am-Ae-2dZ" secondAttribute="bottom" constant="8" id="tAH-9E-QTs"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="GoD-o9-D39" secondAttribute="trailing" constant="-16" id="ykG-Qv-OeO"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="commentButton" destination="7Am-Ae-2dZ" id="WVi-ok-bMc"/>
+                        <outlet property="tableView" destination="6Lk-dh-Xr0" id="PIO-kW-hWo"/>
+                        <segue destination="bbA-f9-ZK2" kind="show" identifier="publish" id="r5j-wB-IQH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ibs-Gr-SFC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1242" y="432"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="comment.png" width="17" height="17"/>
         <image name="safe1.png" width="25" height="26"/>
+        <image name="star_empty_publish.png" width="18" height="18"/>
+        <image name="submit_button.png" width="230" height="39"/>
     </resources>
 </document>

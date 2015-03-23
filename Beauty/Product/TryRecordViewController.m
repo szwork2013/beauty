@@ -30,8 +30,9 @@
 //初始化view
     self.uploadImageView = [[[NSBundle mainBundle]loadNibNamed:@"Upload" owner:self options:nil]firstObject];
     self.uploadImageView.vc = self;
-
+    
     self.uploadImageView.frame = CGRectMake(0, 230.0, self.view.frame.size.width, 130.0);
+    [self.uploadImageView createChosenImagesArray];
     [self.view addSubview:self.uploadImageView];
 //    点击与滑动手势以去掉键盘
     UITapGestureRecognizer *topScrollView = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard:)];

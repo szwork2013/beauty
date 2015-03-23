@@ -411,8 +411,8 @@ static SDWebImageManager *instance;
     long long didReceiveLength = 0;
     long long totalLength = 1;
     for (SDWebImageDownloader *downloader in downloaders) {
-        long long tmpTotalLength = [downloader getImageTotalDateLength];
-        NSLog(@"已经下载图片的长度: %lU,图片内容的长度: %lld",downloader.imageData.length,tmpTotalLength);
+//        long long tmpTotalLength = [downloader getImageTotalDateLength];
+//        NSLog(@"已经下载图片的长度: %lU,图片内容的长度: %lld",downloader.imageData.length,tmpTotalLength);
         
         if ([[url absoluteString] isEqualToString:[downloader.url absoluteString]]) {
             didReceiveLength = downloader.imageData.length;

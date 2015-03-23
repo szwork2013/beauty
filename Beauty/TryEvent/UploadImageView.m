@@ -14,7 +14,14 @@
 
 @implementation UploadImageView
 
+- (void)createImagesArray {
+    
+}
 
+-(void)createChosenImagesArray{
+    self.chosenImages = [NSMutableArray array];
+    self.fileUrlArray = [NSMutableArray array];
+}
 - (IBAction)selectUploadSource:(id)sender {
     UIActionSheet *sheet = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照",@"相册", nil];
         [sheet showInView:self];
@@ -22,15 +29,68 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 1) {
         [self selectFromAblum];
+    } else if(buttonIndex == 0) {
+        [self takePhoto];
     }
 }
 
+- (void)takePhoto {
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypeCamera];
+    picker.delegate = self;
+    picker.allowsEditing = NO;
+    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    [self.vc presentViewController:picker animated:YES completion:NULL];
+}
 
+#pragma mark 选取照片操作之后的代理方法，即将图片置于ImageView中及赋值给image1等，并将回调的pid存于self.pidArray中。
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    //    最原始的图
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    //    先减半传到服务器
+    UIImage *imageOriginal = [self shrinkImage:image toSize:CGSizeMake(0.2*image.size.width, 0.2*image.size.height)];
+    NSInteger column = self.chosenImages.count % 3;
+    NSInteger row = self.chosenImages.count / 3;
+    CGRect frame = CGRectMake( 40 * column, 40 * row, 38.0, 38.0);
+    UIImageView *imageView = [[UIImageView alloc]init];
+    imageView.frame = frame;
+    [imageView setImage:imageOriginal];
+    [self.containerView addSubview:imageView];
+    [self.chosenImages addObject:imageOriginal];
+    [picker dismissViewControllerAnimated:YES completion:^{
+
+        
+            [SVProgressHUD showWithStatus:@"正在上传..." maskType:SVProgressHUDMaskTypeGradient];
+
+                BmobFile *file = [[BmobFile alloc] initWithFileName:@"photo.jpg" withFileData:UIImageJPEGRepresentation(imageOriginal,0.6)];
+                [file saveInBackground:^(BOOL isSuccessful, NSError *error) {
+                    
+                    if (isSuccessful) {
+                        
+                        [self.fileUrlArray addObject:file.url];
+
+                            [SVProgressHUD dismiss];
+//                        已有图片数 + 1
+                        self.existChosenImagesCount++;
+
+                    } else {
+                        //                NSLog(@"%@",error);
+                    }
+                } withProgressBlock:^(float progress) {
+                }];
+                
+        
+        
+
+    }];
+}
+
+#pragma mark 从手机中选择
 - (void)selectFromAblum {
 
        	ELCImagePickerController *elcPicker = [[ELCImagePickerController alloc] initImagePicker];
     
-        elcPicker.maximumImagesCount = 9; //Set the maximum number of images to select to 100
+        elcPicker.maximumImagesCount = 9 - self.existChosenImagesCount; //Set the maximum number of images to select to 100
         elcPicker.returnsOriginalImage = YES; //Only return the fullScreenImage, not the fullResolutionImage
         elcPicker.returnsImage = YES; //Return UIimage if YES. If NO, only return asset location information
         elcPicker.onOrder = YES; //For multiple image selection, display and return order of selected images
@@ -45,56 +105,67 @@
 {
     [self.vc dismissViewControllerAnimated:YES completion:nil];
     
-    for (UIView *v in [self.containerView subviews]) {
-        [v removeFromSuperview];
-    }
+//    for (UIView *v in [self.containerView subviews]) {
+//        [v removeFromSuperview];
+//    }
     
-    CGRect workingFrame = self.containerView.frame;
-    workingFrame.origin.x = 0;
-    
+//    CGRect workingFrame = self.containerView.frame;
+//    workingFrame.origin.x = 0;
+
     NSMutableArray *images = [NSMutableArray arrayWithCapacity:[info count]];
-    NSMutableArray *imagesURL = [NSMutableArray arrayWithCapacity:[info count]];
+//    NSMutableArray *imagesURL = [NSMutableArray arrayWithCapacity:[info count]];
+    int i = 0;
+    self.existChosenImagesCount += self.chosenImages.count;
     for (NSDictionary *dict in info) {
+        
         if ([dict objectForKey:UIImagePickerControllerMediaType] == ALAssetTypePhoto){
             if ([dict objectForKey:UIImagePickerControllerOriginalImage]){
                 UIImage* image=[dict objectForKey:UIImagePickerControllerOriginalImage];
                 [images addObject:image];
-                NSURL *imageURL=[dict objectForKey:UIImagePickerControllerReferenceURL];
-                [imagesURL addObject:imageURL.path];
+//                NSURL *imageURL=[dict objectForKey:UIImagePickerControllerReferenceURL];
+//                [imagesURL addObject:imageURL.path];
                 
                 UIImageView *imageview = [[UIImageView alloc] initWithImage:image];
-                [imageview setContentMode:UIViewContentModeScaleAspectFit];
-                imageview.frame = workingFrame;
+                [imageview setContentMode:UIViewContentModeScaleAspectFill];
+                imageview.clipsToBounds = YES;
+                
+                NSInteger column = (i + self.existChosenImagesCount) % 3;
+                NSInteger row = (i + self.existChosenImagesCount) / 3;
+                CGRect frame = CGRectMake( 40 * column, 40 * row, 38.0, 38.0);
+                imageview.frame = frame;
                 
                 [self.containerView addSubview:imageview];
                 
-                workingFrame.origin.x = workingFrame.origin.x + workingFrame.size.width;
+//                workingFrame.origin.x = workingFrame.origin.x + workingFrame.size.width;
             } else {
                 NSLog(@"UIImagePickerControllerReferenceURL = %@", dict);
             }
         } else {
             NSLog(@"Uknown asset type");
         }
+        i++;
     }
-    self.chosenImages = images;
-    self.imagesURL = imagesURL;
-    [self.containerView setPagingEnabled:YES];
-    [self.containerView setContentSize:CGSizeMake(workingFrame.origin.x, workingFrame.size.height)];
+    //                传完后，就自己清空，以免重复上传
+    [self.chosenImages removeAllObjects];
+    [self.chosenImages addObjectsFromArray:images];
+//    self.imagesURL = imagesURL;
+//    [self.containerView setPagingEnabled:YES];
+//    [self.containerView setContentSize:CGSizeMake(workingFrame.origin.x, workingFrame.size.height)];
     [self uploadImages];
+    
 }
 - (void)uploadImages {
-    self.fileUrlArray = [NSMutableArray arrayWithCapacity:self.chosenImages.count];
     [SVProgressHUD showWithStatus:@"正在上传..." maskType:SVProgressHUDMaskTypeGradient];
     __block int finishCount = 0;
     for (int i = 0; i < self.chosenImages.count; i++) {
-        BmobFile *file = [[BmobFile alloc] initWithFileName:@"image.png" withFileData:UIImageJPEGRepresentation(self.chosenImages[i],0.6)];
+        BmobFile *file = [[BmobFile alloc] initWithFileName:@"image.jpg" withFileData:UIImageJPEGRepresentation(self.chosenImages[i],0.6)];
         [file saveInBackground:^(BOOL isSuccessful, NSError *error) {
             
             if (isSuccessful) {
                 
                 [self.fileUrlArray addObject:file.url];
 //                NSLog(@"file1 url %@",file.url);
-                
+
                 finishCount++;
                 if (finishCount == self.chosenImages.count) {
                     [SVProgressHUD dismiss];
@@ -107,6 +178,37 @@
         
     }
 }
+
+#pragma mark 缩小图片
+- (UIImage *)shrinkImage:(UIImage *)original toSize:(CGSize)size
+{
+    UIGraphicsBeginImageContextWithOptions(size, YES, 0);
+    CGFloat originalAspect = original.size.width / original.size.height;
+    CGFloat targetAspect = size.width / size.height;
+    CGRect targetRect;
+    if (originalAspect > targetAspect) {
+        // original is wider than target
+        targetRect.size.width = size.width * originalAspect / targetAspect;
+        targetRect.size.height = size.height;
+        targetRect.origin.x = 0;
+        targetRect.origin.y = (size.height - targetRect.size.height) * 0.5;
+    } else if (originalAspect < targetAspect) {
+        // original is narrower than target
+        targetRect.size.width = size.width;
+        targetRect.size.height = size.height * targetAspect / originalAspect;
+        targetRect.origin.x = (size.width - targetRect.size.width) * 0.5;
+        targetRect.origin.y = 0;
+    } else {
+        // original and target have same aspect ratio
+        targetRect = CGRectMake(0, 0, size.width, size.height);
+    }
+    //    targetRect = CGRectMake(0, 0, .5*original.size.width, .5*original.size.height);
+    [original drawInRect:targetRect];
+    UIImage *final = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return final;
+}
+
 //
 //+(void)filesUploadBatchWithDataArray:(NSArray *)dataArray
 //                       progressBlock:(BmobFileBatchProgressBlock)progress

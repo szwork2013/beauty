@@ -84,6 +84,10 @@
 		F7540A0C1AB42C6100042CB0 /* TryEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7540A0B1AB42C6100042CB0 /* TryEventViewController.m */; };
 		F7540A131AB42D2A00042CB0 /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = F7540A101AB42D2A00042CB0 /* UIScrollView+SVInfiniteScrolling.m */; };
 		F7540A141AB42D2A00042CB0 /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = F7540A121AB42D2A00042CB0 /* UIScrollView+SVPullToRefresh.m */; };
+		F75B75C41AC033C00096F749 /* ProductCommentPublish.m in Sources */ = {isa = PBXBuildFile; fileRef = F75B75C21AC033C00096F749 /* ProductCommentPublish.m */; };
+		F75B75C81AC036070096F749 /* star_empty_publish@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F75B75C61AC036070096F749 /* star_empty_publish@2x.png */; };
+		F75B75C91AC036070096F749 /* star_full_publish@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F75B75C71AC036070096F749 /* star_full_publish@2x.png */; };
+		F75B75CC1AC04F390096F749 /* ProductCommentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F75B75CB1AC04F390096F749 /* ProductCommentListViewController.m */; };
 		F75DE8491AB532A200B669F2 /* RankViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F75DE8481AB532A200B669F2 /* RankViewController.m */; };
 		F75DE84E1AB5345F00B669F2 /* LSCanvasView.m in Sources */ = {isa = PBXBuildFile; fileRef = F75DE84D1AB5345F00B669F2 /* LSCanvasView.m */; };
 		F76979101ABDAB44002DE078 /* ClubNoImgPlaceholderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F76978E71ABDAB43002DE078 /* ClubNoImgPlaceholderView.m */; };
@@ -309,6 +313,12 @@
 		F7540A101AB42D2A00042CB0 /* UIScrollView+SVInfiniteScrolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVInfiniteScrolling.m"; sourceTree = "<group>"; };
 		F7540A111AB42D2A00042CB0 /* UIScrollView+SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVPullToRefresh.h"; sourceTree = "<group>"; };
 		F7540A121AB42D2A00042CB0 /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
+		F75B75C11AC033C00096F749 /* ProductCommentPublish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductCommentPublish.h; path = Product/ProductCommentPublish.h; sourceTree = "<group>"; };
+		F75B75C21AC033C00096F749 /* ProductCommentPublish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductCommentPublish.m; path = Product/ProductCommentPublish.m; sourceTree = "<group>"; };
+		F75B75C61AC036070096F749 /* star_empty_publish@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star_empty_publish@2x.png"; sourceTree = "<group>"; };
+		F75B75C71AC036070096F749 /* star_full_publish@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star_full_publish@2x.png"; sourceTree = "<group>"; };
+		F75B75CA1AC04F390096F749 /* ProductCommentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductCommentListViewController.h; path = Beauty/Product/ProductCommentListViewController.h; sourceTree = SOURCE_ROOT; };
+		F75B75CB1AC04F390096F749 /* ProductCommentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductCommentListViewController.m; path = Beauty/Product/ProductCommentListViewController.m; sourceTree = SOURCE_ROOT; };
 		F75DE8471AB532A200B669F2 /* RankViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RankViewController.h; path = Beauty/Rank/RankViewController.h; sourceTree = SOURCE_ROOT; };
 		F75DE8481AB532A200B669F2 /* RankViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RankViewController.m; path = Beauty/Rank/RankViewController.m; sourceTree = SOURCE_ROOT; };
 		F75DE84C1AB5345F00B669F2 /* LSCanvasView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSCanvasView.h; sourceTree = "<group>"; };
@@ -533,6 +543,8 @@
 		F715AE7B1AB710D900D07C38 /* Product */ = {
 			isa = PBXGroup;
 			children = (
+				F75B75CA1AC04F390096F749 /* ProductCommentListViewController.h */,
+				F75B75CB1AC04F390096F749 /* ProductCommentListViewController.m */,
 				F70850321AB67F0200DD4A1C /* RankListProductTableViewDataSource.h */,
 				F70850331AB67F0200DD4A1C /* RankListProductTableViewDataSource.m */,
 				F708502C1AB66DE500DD4A1C /* RankListProductViewController.h */,
@@ -583,6 +595,8 @@
 		F7172C3B1AA89C2000A9ED4C /* product */ = {
 			isa = PBXGroup;
 			children = (
+				F75B75C61AC036070096F749 /* star_empty_publish@2x.png */,
+				F75B75C71AC036070096F749 /* star_full_publish@2x.png */,
 				F7960D5B1ABEAB4200DFCE57 /* comment@2x.png */,
 				F7960D5C1ABEAB4200DFCE57 /* safe1@2x.png */,
 				F7960D5D1ABEAB4200DFCE57 /* safe2@2x.png */,
@@ -1042,6 +1056,8 @@
 		F7BD0BA91AB1DF35009E48B6 /* Product */ = {
 			isa = PBXGroup;
 			children = (
+				F75B75C11AC033C00096F749 /* ProductCommentPublish.h */,
+				F75B75C21AC033C00096F749 /* ProductCommentPublish.m */,
 				F7BFAC371ABF1177002BB5EB /* ProductIngredientViewController.h */,
 				F7BFAC3C1ABF16C0002BB5EB /* Product.storyboard */,
 				F7BFAC381ABF1177002BB5EB /* ProductIngredientViewController.m */,
@@ -1196,10 +1212,12 @@
 				F7147A651AA73105007605E6 /* try_bg@2x.png in Resources */,
 				F7BFAC3D1ABF16C0002BB5EB /* Product.storyboard in Resources */,
 				F7960D621ABEAB4200DFCE57 /* safe1@2x.png in Resources */,
+				F75B75C81AC036070096F749 /* star_empty_publish@2x.png in Resources */,
 				F7147A681AA73962007605E6 /* search@2x.png in Resources */,
 				F7960D611ABEAB4200DFCE57 /* comment@2x.png in Resources */,
 				F71B7C8A1AB03F63005E8648 /* submit_button@2x.png in Resources */,
 				F7E4F17D1AA5D1280025D868 /* test@2x.png in Resources */,
+				F75B75C91AC036070096F749 /* star_full_publish@2x.png in Resources */,
 				F74523351AB467C200C33281 /* TryEventTableViewCell.xib in Resources */,
 				F7BBEBCA1AA3633D000D74D0 /* SVProgressHUD.bundle in Resources */,
 				F71484011AB9253C005490FF /* Overlay@2x.png in Resources */,
@@ -1277,6 +1295,7 @@
 				F72FFE8B1AAEF14B00C01BB2 /* MemberTableViewController.m in Sources */,
 				F7540A131AB42D2A00042CB0 /* UIScrollView+SVInfiniteScrolling.m in Sources */,
 				F769791C1ABDAB44002DE078 /* SDWebImageDecoder.m in Sources */,
+				F75B75C41AC033C00096F749 /* ProductCommentPublish.m in Sources */,
 				F7172C4E1AA98DAB00A9ED4C /* ProductSellerDataSource.m in Sources */,
 				F7E4F1821AA5EC310025D868 /* HomeViewController.m in Sources */,
 				F7172C331AA84F8D00A9ED4C /* SecondLevelTableViewController.m in Sources */,
@@ -1304,6 +1323,7 @@
 				F7540A0C1AB42C6100042CB0 /* TryEventViewController.m in Sources */,
 				F72FFE751AAE8F4100C01BB2 /* MemberLoginViewController.m in Sources */,
 				F7147A5A1AA6F9D1007605E6 /* ProductTryTableViewCell.m in Sources */,
+				F75B75CC1AC04F390096F749 /* ProductCommentListViewController.m in Sources */,
 				F72269321AB7BCF30068C436 /* ImageBrowserViewController.m in Sources */,
 				F7540A091AB41DAD00042CB0 /* XHRootView.m in Sources */,
 				F71483DD1AB8840B005490FF /* TryRecordViewController.m in Sources */,
