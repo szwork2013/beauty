@@ -16,12 +16,14 @@
 @property (weak, nonatomic) IBOutlet UIButton *commentButton;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) NSArray *commentArray;
+@property (weak, nonatomic) IBOutlet UILabel *commentCountLabel;
 @end
 
 @implementation ProductCommentListViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = @"所有评价";
     self.commentButton.layer.borderColor = [MAIN_COLOR CGColor];
     self.commentButton.layer.borderWidth = 1.0;
     self.commentButton.layer.cornerRadius = 8.0;
@@ -38,6 +40,7 @@
         }else{
             self.commentArray = array;
             [self.tableView reloadData];
+            self.commentCountLabel.text = [NSString stringWithFormat:@"%zi",self.commentArray.count];
         }
     }];
 }
@@ -57,7 +60,7 @@
 - (IBAction)commentButtonPress:(id)sender {
     UserService *service = [UserService getInstance];
     [service actionWithUser:^(BmobUser *user) {
-        [self performSegueWithIdentifier:@"submit" sender:self];
+        [self performSegueWithIdentifier:@"publish" sender:self];
     } failBlock:^{
         UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         MemberLoginViewController *vc = [mainStoryboard instantiateViewControllerWithIdentifier:@"login"];

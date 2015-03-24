@@ -259,7 +259,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="107" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="6Lk-dh-Xr0">
-                                <rect key="frame" x="0.0" y="54" width="320" height="476"/>
+                                <rect key="frame" x="0.0" y="54" width="320" height="462"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="comment" rowHeight="107" id="kBi-tc-BPO">
@@ -275,20 +275,6 @@
                                     <outlet property="delegate" destination="fB8-50-ool" id="hmI-hZ-ak8"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Am-Ae-2dZ">
-                                <rect key="frame" x="73" y="538" width="175" height="22"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="175" id="mdl-pj-86O"/>
-                                </constraints>
-                                <inset key="titleEdgeInsets" minX="17" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="我要点评" image="comment.png">
-                                    <color key="titleColor" red="0.71764705880000002" green="0.4549019608" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="commentButtonPress:" destination="fB8-50-ool" eventType="touchUpInside" id="T1E-xs-JGr"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="共有" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EV8-bm-HFe">
                                 <rect key="frame" x="26" y="20" width="40" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -314,6 +300,21 @@
                                     <constraint firstAttribute="height" constant="1" id="qSn-hk-8RW"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Am-Ae-2dZ">
+                                <rect key="frame" x="73" y="524" width="175" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="175" id="ce3-AL-eSp"/>
+                                    <constraint firstAttribute="height" constant="36" id="gcy-0B-zrn"/>
+                                </constraints>
+                                <inset key="titleEdgeInsets" minX="17" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="我要点评" image="comment.png">
+                                    <color key="titleColor" red="0.71764705880000002" green="0.4549019608" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="commentButtonPress:" destination="fB8-50-ool" eventType="touchUpInside" id="T1E-xs-JGr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -321,16 +322,17 @@
                             <constraint firstItem="GoD-o9-D39" firstAttribute="leading" secondItem="141-MG-BVt" secondAttribute="leadingMargin" constant="-16" id="EwM-hp-LW3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6Lk-dh-Xr0" secondAttribute="trailing" constant="-16" id="GXh-lG-vEQ"/>
                             <constraint firstItem="6Lk-dh-Xr0" firstAttribute="top" secondItem="DPe-O7-Ir2" secondAttribute="bottom" constant="34" id="O6P-0i-l4y"/>
-                            <constraint firstAttribute="centerX" secondItem="7Am-Ae-2dZ" secondAttribute="centerX" constant="-0.5" id="bFw-ex-nGv"/>
+                            <constraint firstAttribute="centerX" secondItem="7Am-Ae-2dZ" secondAttribute="centerX" constant="-0.5" id="bMB-xb-XM3"/>
                             <constraint firstItem="6Lk-dh-Xr0" firstAttribute="leading" secondItem="141-MG-BVt" secondAttribute="leadingMargin" constant="-16" id="eIP-1m-iDR"/>
-                            <constraint firstItem="dkr-bT-mFx" firstAttribute="top" secondItem="6Lk-dh-Xr0" secondAttribute="bottom" constant="38" id="gfN-4Q-VFg"/>
-                            <constraint firstItem="dkr-bT-mFx" firstAttribute="top" secondItem="7Am-Ae-2dZ" secondAttribute="bottom" constant="8" id="tAH-9E-QTs"/>
+                            <constraint firstItem="dkr-bT-mFx" firstAttribute="top" secondItem="6Lk-dh-Xr0" secondAttribute="bottom" constant="52" id="gfN-4Q-VFg"/>
+                            <constraint firstAttribute="centerY" secondItem="7Am-Ae-2dZ" secondAttribute="centerY" constant="-258" id="tA3-yu-xK3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="GoD-o9-D39" secondAttribute="trailing" constant="-16" id="ykG-Qv-OeO"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="commentButton" destination="7Am-Ae-2dZ" id="WVi-ok-bMc"/>
+                        <outlet property="commentCountLabel" destination="9Zh-sE-pVT" id="KlY-UI-IVW"/>
                         <outlet property="tableView" destination="6Lk-dh-Xr0" id="PIO-kW-hWo"/>
                         <segue destination="bbA-f9-ZK2" kind="show" identifier="publish" id="r5j-wB-IQH"/>
                     </connections>
