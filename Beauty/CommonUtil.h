@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ProductShowTableViewCell.h"
+#import "ProductCommentTableViewCell.h"
 #import "StoreShowTableViewCell.h"
 #import <BmobSDK/Bmob.h>
 #import "UIImageView+AFNetworking.h"
@@ -17,7 +18,9 @@
 + (NSDictionary *)textViewAttribute;
 + (NSString *)enterChar:(NSString *)descriptString;
 + (ProductShowTableViewCell *)fetchProductShowCell:(BmobObject *)product index:(NSInteger)i;
++ (ProductCommentTableViewCell *)fetchProductCommentCell:(BmobObject *)comment;
 + (NSInteger)daysInterval:(NSDate *)date;
 + (StoreShowTableViewCell *)fetchStoreShowCell:(BmobObject *)store;
 + (void)updateTableViewHeight:(UIViewController *)vc;
++ (NSString *) compareCurrentTime:(NSDate*) compareDate;
 @end

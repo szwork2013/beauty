@@ -56,21 +56,14 @@
     [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
         if (array.count == 0) {
             if (self.page == 0) {
-                self.tableView.hidden = YES;
-                UILabel *label = [[UILabel alloc]initWithFrame:self.tableView.frame];
-                label.textAlignment = NSTextAlignmentCenter;
-                label.textColor = [UIColor grayColor];
-                label.font = [UIFont systemFontOfSize:18.0];
-                label.text = NO_DATAS;
-                [self.tableView.superview addSubview:label];
+                [SVProgressHUD showSuccessWithStatus:NO_DATAS];
             } else {
                 [SVProgressHUD showSuccessWithStatus:NO_MORE];
             }
-        
+        }else{
+            [self.productArray addObjectsFromArray: array];
+            [self.tableView reloadData];
         }
-
-        [self.productArray addObjectsFromArray: array];
-        [self.tableView reloadData];
     }];
 }
 

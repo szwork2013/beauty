@@ -633,16 +633,25 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gFl-a3-5I4" id="xDQ-PX-BeA">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="member_chekin.png" translatesAutoresizingMaskIntoConstraints="NO" id="LVK-3R-GPp">
-                                                    <rect key="frame" x="20" y="8" width="34" height="34"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="member_chekin.png" translatesAutoresizingMaskIntoConstraints="NO" id="LVK-3R-GPp">
+                                                    <rect key="frame" x="20" y="9" width="33" height="33"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="修改资料" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rYh-CW-tJK">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="修改资料" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rYh-CW-tJK">
                                                     <rect key="frame" x="83" y="14" width="105" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="105" id="RbD-Os-aFT"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="rYh-CW-tJK" firstAttribute="leading" secondItem="LVK-3R-GPp" secondAttribute="trailing" constant="30" id="2UZ-9L-vCY"/>
+                                                <constraint firstItem="LVK-3R-GPp" firstAttribute="leading" secondItem="xDQ-PX-BeA" secondAttribute="leadingMargin" constant="12" id="3Pv-UA-d7p"/>
+                                                <constraint firstAttribute="centerY" secondItem="rYh-CW-tJK" secondAttribute="centerY" constant="-0.25" id="7T7-Yt-SMl"/>
+                                                <constraint firstAttribute="centerY" secondItem="LVK-3R-GPp" secondAttribute="centerY" constant="-0.5" id="IyK-AQ-WVa"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="49" id="0Vh-BZ-gAg">
@@ -650,16 +659,25 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Vh-BZ-gAg" id="ELp-qf-pPg">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="member_try.png" translatesAutoresizingMaskIntoConstraints="NO" id="fuq-1d-rsU">
-                                                    <rect key="frame" x="20" y="8" width="34" height="34"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="我的试用" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RGz-AW-fEX">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的试用" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RGz-AW-fEX">
                                                     <rect key="frame" x="83" y="14" width="105" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="105" id="2LQ-23-TRL"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="member_try.png" translatesAutoresizingMaskIntoConstraints="NO" id="fuq-1d-rsU">
+                                                    <rect key="frame" x="20" y="8" width="33" height="33"/>
+                                                </imageView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerY" secondItem="RGz-AW-fEX" secondAttribute="centerY" id="COS-c5-XoI"/>
+                                                <constraint firstItem="RGz-AW-fEX" firstAttribute="leading" secondItem="fuq-1d-rsU" secondAttribute="trailing" constant="30" id="MZE-Vl-GVa"/>
+                                                <constraint firstAttribute="centerY" secondItem="fuq-1d-rsU" secondAttribute="centerY" id="ir5-El-Pzs"/>
+                                                <constraint firstItem="fuq-1d-rsU" firstAttribute="leading" secondItem="ELp-qf-pPg" secondAttribute="leadingMargin" constant="12" id="uuO-pa-Dx5"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="49" id="Ba0-p2-Sga">
@@ -667,16 +685,25 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ba0-p2-Sga" id="PEv-q0-rha">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="member_favor.png" translatesAutoresizingMaskIntoConstraints="NO" id="VH2-YP-O6z">
-                                                    <rect key="frame" x="20" y="8" width="34" height="34"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="member_favor.png" translatesAutoresizingMaskIntoConstraints="NO" id="VH2-YP-O6z">
+                                                    <rect key="frame" x="20" y="8" width="33" height="33"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="我的收藏" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQp-Xd-fBL">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的收藏" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQp-Xd-fBL">
                                                     <rect key="frame" x="83" y="14" width="105" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="105" id="EBZ-yO-b21"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="aQp-Xd-fBL" firstAttribute="leading" secondItem="VH2-YP-O6z" secondAttribute="trailing" constant="30" id="1Cy-gF-zTx"/>
+                                                <constraint firstAttribute="centerY" secondItem="aQp-Xd-fBL" secondAttribute="centerY" constant="-0.25" id="6Ig-YA-WUt"/>
+                                                <constraint firstItem="VH2-YP-O6z" firstAttribute="leading" secondItem="PEv-q0-rha" secondAttribute="leadingMargin" constant="12" id="9FF-rK-9mv"/>
+                                                <constraint firstAttribute="centerY" secondItem="VH2-YP-O6z" secondAttribute="centerY" id="gHI-0U-iWw"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -1047,9 +1074,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="JDv-5z-1Wb" kind="show" id="14H-Xx-qGq"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -1058,6 +1082,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="分类" id="xAS-0U-Xmt"/>
+                    <connections>
+                        <segue destination="JDv-5z-1Wb" kind="show" identifier="product" id="vgF-EU-OGE"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SCe-ug-6RO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1095,7 +1122,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <state key="normal" title="      看一看最新优惠活动" backgroundImage="activity_search_bar.png">
                                                     <color key="titleColor" red="0.73333333333333328" green="0.47843137254901957" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </state>
                                             </button>
                                         </subviews>
@@ -1197,7 +1224,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <state key="normal" title="         热门化妆品/护手霜/面膜" backgroundImage="product_search_bar.png">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </state>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="产品搜索" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T8Z-xE-nFb">
@@ -2861,7 +2888,6 @@
                                                     </state>
                                                     <connections>
                                                         <action selector="showProductComment:" destination="z5s-pb-0rk" eventType="touchUpInside" id="vcz-X6-uNz"/>
-                                                        <action selector="showProductIngredient:" destination="z5s-pb-0rk" eventType="touchUpInside" id="WiD-2D-HpX"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -3158,12 +3184,12 @@
         <image name="try_bg.png" width="317" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CTU-yq-eRR"/>
         <segue reference="ihq-vE-UUC"/>
+        <segue reference="ZlD-nl-gaj"/>
         <segue reference="lCi-hW-Cwb"/>
+        <segue reference="0R7-G8-1VP"/>
         <segue reference="JbZ-RO-xKe"/>
         <segue reference="fK9-ib-ITl"/>
-        <segue reference="Ehz-G5-5vx"/>
         <segue reference="Ovv-6A-JRB"/>
     </inferredMetricsTieBreakers>
 </document>

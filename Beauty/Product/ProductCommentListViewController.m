@@ -11,12 +11,23 @@
 #import "Global.h"
 #import "UserService.h"
 #import "MemberLoginViewController.h"
-
+#import "CommonUtil.h"
+#import "ProductCommentTableViewCell.h"
+#import "StarView.h"
+#import "SVPullToRefresh.h"
+#import "SVProgressHUD.h"
+#define COMMENT_PER_PAGE 10
 @interface ProductCommentListViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *commentButton;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) NSArray *commentArray;
+@property (strong, nonatomic) NSMutableArray *commentArray;
 @property (weak, nonatomic) IBOutlet UILabel *commentCountLabel;
+//评语高度
+@property (strong, nonatomic) NSMutableArray *commentContentHeightArray;
+//图片高度
+@property (strong, nonatomic) NSMutableArray *commentPhotosHeightArray;
+//paged
+@property (nonatomic,assign) NSInteger page;
 @end
 
 @implementation ProductCommentListViewController
@@ -27,20 +38,47 @@
     self.commentButton.layer.borderColor = [MAIN_COLOR CGColor];
     self.commentButton.layer.borderWidth = 1.0;
     self.commentButton.layer.cornerRadius = 8.0;
-    [self fetch];
-    // Do any additional setup after loading the view.
+    [self fetchCommentCount];
+    self.commentContentHeightArray = [NSMutableArray array];
+    self.commentPhotosHeightArray = [ NSMutableArray array];
+//    初始化后取评价数
+    self.commentArray = [NSMutableArray array];
+    [self fetch:0];
+    
+    //    添加无限上拉刷新
+    __weak ProductCommentListViewController *weakSelf = self;
+    __weak UITableView *weakTableView = self.tableView;
+    [self.tableView addInfiniteScrollingWithActionHandler:^{
+        weakSelf.page ++;
+        [weakSelf fetch:COMMENT_PER_PAGE * weakSelf.page];
+        [weakTableView.infiniteScrollingView stopAnimating];
+    }];
 }
-//网络加载数据
-- (void)fetch {
+- (void)fetchCommentCount {
     BmobQuery *query = [BmobQuery queryWithClassName:@"ProductComment"];
     [query whereKey:@"product" equalTo:[BmobObject objectWithoutDatatWithClassName:@"Product" objectId:self.productId]];
+    [query countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
+        self.commentCountLabel.text = [NSString stringWithFormat:@"%zi",number];
+    }];
+}
+//网络加载数据
+- (void)fetch:(NSInteger)skip {
+    BmobQuery *query = [BmobQuery queryWithClassName:@"ProductComment"];
+    [query includeKey:@"user"];
+    query.limit = COMMENT_PER_PAGE;
+    query.skip = skip;
+    [query orderByDescending:@"createdAt"];
+    [query whereKey:@"product" equalTo:[BmobObject objectWithoutDatatWithClassName:@"Product" objectId:self.productId]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
-        if (error) {
-            NSLog(@"%@",error);
-        }else{
-            self.commentArray = array;
+        if (array.count == 0){
+            [SVProgressHUD showSuccessWithStatus:NO_MORE];
+        } else {
+            for (NSDictionary *commentObject in array) {
+                [self.commentArray addObject:commentObject];
+                [commentObject objectForKey:@"content"];
+                [self.commentContentHeightArray addObject:@""];
+            }
             [self.tableView reloadData];
-            self.commentCountLabel.text = [NSString stringWithFormat:@"%zi",self.commentArray.count];
         }
     }];
 }
@@ -53,8 +91,12 @@
 - (UITableViewCell *)tableView:tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"comment"];
     BmobObject *comment = self.commentArray[indexPath.row];
-    cell.textLabel.text = [comment objectForKey:@"content"];
+    cell = [CommonUtil fetchProductCommentCell:comment];
     return cell;
+}
+#pragma mark 单元格高度
+- (CGFloat) tableView:tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 108 + 50.0;
 }
 //发布评价按钮
 - (IBAction)commentButtonPress:(id)sender {

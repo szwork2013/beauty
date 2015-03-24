@@ -120,7 +120,6 @@
 #pragma mark 收藏按钮点击
 - (IBAction)favorButtonPress:(id)sender {
     UserService *service = [UserService getInstance];
-    
     [service favorButtonPressForProduct:self.productId successBlock:^{
         //更新当前按钮
         if ([self.favorButton.titleLabel.text isEqualToString:@"收藏"]) {
@@ -136,8 +135,6 @@
 }
 #pragma mark 查看全部成分
 - (IBAction)showProductIngredient:(id)sender {
-//    ProductIngredientViewController *productVC = [[ProductIngredientViewController alloc]initWithNibName:@"ProductIngredientViewController" bundle:nil];
-//    [self.navigationController pushViewController:productVC animated:YES];
     UIStoryboard *subStoryBoard = [UIStoryboard storyboardWithName:@"Product" bundle:nil];
     ProductIngredientViewController *vc = [subStoryBoard instantiateViewControllerWithIdentifier:@"ProductIngredient"];
     vc.productId = self.productId;

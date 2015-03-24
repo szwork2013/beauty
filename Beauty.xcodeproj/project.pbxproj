@@ -80,6 +80,8 @@
 		F74523351AB467C200C33281 /* TryEventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F74523331AB467C200C33281 /* TryEventTableViewCell.xib */; };
 		F74523391AB469F600C33281 /* gift@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F74523371AB469F600C33281 /* gift@2x.png */; };
 		F745233A1AB469F600C33281 /* person@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F74523381AB469F600C33281 /* person@2x.png */; };
+		F74FFE2F1AC138CB0015E3D3 /* ProductCommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F74FFE2D1AC138CB0015E3D3 /* ProductCommentTableViewCell.m */; };
+		F74FFE301AC138CB0015E3D3 /* ProductCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F74FFE2E1AC138CB0015E3D3 /* ProductCommentTableViewCell.xib */; };
 		F7540A091AB41DAD00042CB0 /* XHRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = F7540A081AB41DAD00042CB0 /* XHRootView.m */; };
 		F7540A0C1AB42C6100042CB0 /* TryEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7540A0B1AB42C6100042CB0 /* TryEventViewController.m */; };
 		F7540A131AB42D2A00042CB0 /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = F7540A101AB42D2A00042CB0 /* UIScrollView+SVInfiniteScrolling.m */; };
@@ -304,6 +306,9 @@
 		F74523331AB467C200C33281 /* TryEventTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TryEventTableViewCell.xib; path = cell/TryEventTableViewCell.xib; sourceTree = "<group>"; };
 		F74523371AB469F600C33281 /* gift@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gift@2x.png"; sourceTree = "<group>"; };
 		F74523381AB469F600C33281 /* person@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "person@2x.png"; sourceTree = "<group>"; };
+		F74FFE2C1AC138CB0015E3D3 /* ProductCommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductCommentTableViewCell.h; path = Product/ProductCommentTableViewCell.h; sourceTree = "<group>"; };
+		F74FFE2D1AC138CB0015E3D3 /* ProductCommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductCommentTableViewCell.m; path = Product/ProductCommentTableViewCell.m; sourceTree = "<group>"; };
+		F74FFE2E1AC138CB0015E3D3 /* ProductCommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ProductCommentTableViewCell.xib; path = Product/ProductCommentTableViewCell.xib; sourceTree = "<group>"; };
 		F7540A071AB41DAD00042CB0 /* XHRootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHRootView.h; sourceTree = "<group>"; };
 		F7540A081AB41DAD00042CB0 /* XHRootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHRootView.m; sourceTree = "<group>"; };
 		F7540A0A1AB42C6100042CB0 /* TryEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TryEventViewController.h; sourceTree = "<group>"; };
@@ -1060,6 +1065,9 @@
 				F75B75C21AC033C00096F749 /* ProductCommentPublish.m */,
 				F7BFAC371ABF1177002BB5EB /* ProductIngredientViewController.h */,
 				F7BFAC3C1ABF16C0002BB5EB /* Product.storyboard */,
+				F74FFE2C1AC138CB0015E3D3 /* ProductCommentTableViewCell.h */,
+				F74FFE2D1AC138CB0015E3D3 /* ProductCommentTableViewCell.m */,
+				F74FFE2E1AC138CB0015E3D3 /* ProductCommentTableViewCell.xib */,
 				F7BFAC381ABF1177002BB5EB /* ProductIngredientViewController.m */,
 				F7BFAC391ABF1177002BB5EB /* ProductIngredientViewController.xib */,
 				F71483D81AB85AB8005490FF /* FirstLevelTableViewController.h */,
@@ -1193,6 +1201,7 @@
 				F7DF10B01ABDA85200005AE8 /* Launch@2x.png in Resources */,
 				F7B498441AA2FF300067219E /* Main.storyboard in Resources */,
 				F7147A601AA6FCF7007605E6 /* star_empty@2x.png in Resources */,
+				F74FFE301AC138CB0015E3D3 /* ProductCommentTableViewCell.xib in Resources */,
 				F7E4F17B1AA5D1280025D868 /* club@2x.png in Resources */,
 				F7B498721AA31B250067219E /* StoreTableViewCell.xib in Resources */,
 				F7960D661ABEAB4200DFCE57 /* safe5@2x.png in Resources */,
@@ -1309,6 +1318,7 @@
 				F7BBEBCB1AA3633D000D74D0 /* SVProgressHUD.m in Sources */,
 				F7B498A01AA3356F0067219E /* UIRefreshControl+AFNetworking.m in Sources */,
 				F7B4989D1AA3356F0067219E /* UIButton+AFNetworking.m in Sources */,
+				F74FFE2F1AC138CB0015E3D3 /* ProductCommentTableViewCell.m in Sources */,
 				F7BFAC3A1ABF1177002BB5EB /* ProductIngredientViewController.m in Sources */,
 				F76979191ABDAB44002DE078 /* UIButton+WebCache.m in Sources */,
 				F7B498BC1AA335E30067219E /* AFURLRequestSerialization.m in Sources */,
