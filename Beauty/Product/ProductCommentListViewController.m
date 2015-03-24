@@ -96,7 +96,24 @@
 }
 #pragma mark 单元格高度
 - (CGFloat) tableView:tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 108 + 50.0;
+    BmobObject *comment = self.commentArray[indexPath.row];
+    NSString *text = [comment objectForKey:@"content"];
+    
+    CGSize constraint = CGSizeMake(self.view.frame.size.width - (10 * 2), 20000.0f);
+    
+
+    CGRect rect = [text boundingRectWithSize:constraint
+                         options:(NSStringDrawingUsesFontLeading|NSStringDrawingTruncatesLastVisibleLine|NSStringDrawingUsesLineFragmentOrigin)
+                      attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:17.5]}
+                         context:NULL];
+    
+    //photo numbers
+    NSArray *photosArray = [comment objectForKey:@"photos"];
+    NSInteger photoCount = [photosArray count];
+    long row = ceil(photoCount / 3.0);
+    CGFloat photoGalleryHeight = row * (self.view.frame.size.width - 10 * 2) / 3.0;
+    
+    return 78.0 + rect.size.height + photoGalleryHeight;
 }
 //发布评价按钮
 - (IBAction)commentButtonPress:(id)sender {
