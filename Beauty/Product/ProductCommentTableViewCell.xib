@@ -8,8 +8,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="100" id="KGk-i7-Jjw" customClass="ProductCommentTableViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="140" id="KGk-i7-Jjw" customClass="ProductCommentTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="140"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -42,19 +42,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ShF-ib-EbA">
-                        <rect key="frame" x="13" y="66" width="295" height="24"/>
+                        <rect key="frame" x="13" y="66" width="295" height="33"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="24" id="BLz-Q2-TxA"/>
-                        </constraints>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="BLz-Q2-TxA"/>
-                            </mask>
-                        </variation>
                     </textView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="5小时前" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="k4M-0i-Y2N">
                         <rect key="frame" x="258" y="13" width="62" height="21"/>
@@ -62,12 +54,19 @@
                         <color key="textColor" red="0.35686274509999999" green="0.35686274509999999" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="va7-Il-PjQ">
+                        <rect key="frame" x="0.0" y="101" width="320" height="30"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="ShF-ib-EbA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="DcP-kR-BNu"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="ShF-ib-EbA" secondAttribute="trailing" constant="4" id="dS6-nO-Koh"/>
-                    <constraint firstItem="ShF-ib-EbA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="58" id="fQA-5b-pma"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="ShF-ib-EbA" secondAttribute="bottom" constant="2" id="tgj-2S-P6P"/>
+                    <constraint firstItem="va7-Il-PjQ" firstAttribute="top" secondItem="ShF-ib-EbA" secondAttribute="bottom" constant="2" id="300-jY-GSM"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="va7-Il-PjQ" secondAttribute="trailing" constant="-8" id="K52-bn-dZs"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="va7-Il-PjQ" secondAttribute="bottom" constant="1" id="Qgi-Ar-PwP"/>
+                    <constraint firstItem="va7-Il-PjQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="SyD-PB-D8Y"/>
+                    <constraint firstItem="ShF-ib-EbA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="ZDF-x3-TLR"/>
+                    <constraint firstItem="ShF-ib-EbA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="58" id="owa-Om-683"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="ShF-ib-EbA" secondAttribute="trailing" constant="4" id="pgt-VR-V2U"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -76,10 +75,11 @@
                 <outlet property="contentTextView" destination="ShF-ib-EbA" id="6X5-Xc-JoS"/>
                 <outlet property="createdAtLabel" destination="k4M-0i-Y2N" id="X6R-e8-Fck"/>
                 <outlet property="nicknameLabel" destination="H63-jy-KDn" id="ixi-uT-KZl"/>
+                <outlet property="photoGalleryContainerView" destination="va7-Il-PjQ" id="l2q-Jn-Qgo"/>
                 <outlet property="skinTypeLabel" destination="wuA-Bn-QFc" id="cJG-Yu-7QX"/>
                 <outlet property="starView" destination="LMi-lc-A2K" id="rfp-C8-eu3"/>
             </connections>
-            <point key="canvasLocation" x="537" y="396"/>
+            <point key="canvasLocation" x="537" y="416"/>
         </tableViewCell>
     </objects>
 </document>

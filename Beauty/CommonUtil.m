@@ -125,21 +125,29 @@
     [cell.contentTextView sizeToFit];
     
 //    点评图片
-    CGFloat offsetY = CGRectGetMaxY(cell.contentView.frame);
-    CGFloat offsetX = 15.0 / 320.0 * cell.contentView.frame.size.width;
+    CGFloat photoGalleryWidth = SCREEN_WIDTH;
+    NSLog(@"photo width : %.2f",photoGalleryWidth);
     NSArray *photos = [comment objectForKey:@"photos"];
-    CGFloat photoWidth = (cell.contentView.frame.size.width - 10 * 2) / 3.0;
+    CGFloat photoWidth = photoGalleryWidth / 3.0;
     for (int i = 0; i < photos.count; i++) {
         int row = i / 3;
         int column = i % 3;
         UIImageView *imageView = [[UIImageView alloc]init];
-        imageView.frame = CGRectMake(offsetX + photoWidth * column, offsetY + photoWidth * row, photoWidth - 4, photoWidth - 4);
+        imageView.bounds = CGRectMake(0, 0, photoWidth - 5, photoWidth - 5);
+        if (column == 0) {
+            imageView.center = CGPointMake(photoGalleryWidth / 2.0 - photoWidth, photoWidth / 2.0 + row * photoWidth);
+        } else if (column == 1) {
+            imageView.center = CGPointMake(photoGalleryWidth / 2.0, photoWidth / 2.0 + row * photoWidth);
+        } else {
+            imageView.center = CGPointMake(photoGalleryWidth / 2.0 + photoWidth, photoWidth / 2.0 + row * photoWidth);
+        }
+        
         imageView.clipsToBounds = YES;
         imageView.contentMode = UIViewContentModeScaleAspectFill;
         [imageView setImageWithURL:[NSURL URLWithString:[photos objectAtIndex:i]]];
-        [cell.contentView addSubview:imageView];
+        [cell.photoGalleryContainerView addSubview:imageView];
     }
-    
+    cell.contentView.clipsToBounds = YES;
     return cell;
 
 }

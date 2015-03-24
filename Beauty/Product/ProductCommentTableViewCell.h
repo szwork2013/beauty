@@ -16,5 +16,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *skinTypeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *createdAtLabel;
 @property (weak, nonatomic) IBOutlet UITextView *contentTextView;
+@property (weak, nonatomic) IBOutlet UIView *photoGalleryContainerView;
 
 @end

@@ -248,7 +248,7 @@
         <!--Product Comment List View Controller-->
         <scene sceneID="kcd-12-DCJ">
             <objects>
-                <viewController storyboardIdentifier="productCommentList" autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fB8-50-ool" customClass="ProductCommentListViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="productCommentList" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fB8-50-ool" customClass="ProductCommentListViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DPe-O7-Ir2"/>
                         <viewControllerLayoutGuide type="bottom" id="dkr-bT-mFx"/>

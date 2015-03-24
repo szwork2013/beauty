@@ -101,17 +101,20 @@
     
     CGSize constraint = CGSizeMake(self.view.frame.size.width - (10 * 2), 20000.0f);
     
-
+    //如果是没有评语，就需要去纠正一下它的偏移量了。
+    if ([text isEqualToString:@""] || text == nil) {
+        text = @" ";
+    }
     CGRect rect = [text boundingRectWithSize:constraint
                          options:(NSStringDrawingUsesFontLeading|NSStringDrawingTruncatesLastVisibleLine|NSStringDrawingUsesLineFragmentOrigin)
                       attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:17.5]}
                          context:NULL];
-    
+
     //photo numbers
     NSArray *photosArray = [comment objectForKey:@"photos"];
     NSInteger photoCount = [photosArray count];
     long row = ceil(photoCount / 3.0);
-    CGFloat photoGalleryHeight = row * (self.view.frame.size.width - 10 * 2) / 3.0;
+    CGFloat photoGalleryHeight = row * (self.view.frame.size.width) / 3.0;
     
     return 78.0 + rect.size.height + photoGalleryHeight;
 }
