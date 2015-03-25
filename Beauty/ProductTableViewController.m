@@ -15,6 +15,7 @@
 #import "Global.h"
 #import "SVPullToRefresh.h"
 #import "SVProgressHUD.h"
+#import "CommonUtil.h"
 
 @interface ProductTableViewController ()
 @property (strong,nonatomic) NSMutableArray *productArray;
@@ -38,14 +39,15 @@
     }];
 }
 
+#pragma mark 设置分类标题
 -(void) fetchTitle{
     BmobQuery *query = [BmobQuery queryWithClassName:@"ProductSecondLevel"];
     [query getObjectInBackgroundWithId:self.secondLevelId block:^(BmobObject *object, NSError *error) {
         self.navigationItem.title = [object objectForKey:@"name"];;
     }];
-    
 }
 
+#pragma mark 获取数据
 - (void)fetchProduct:(NSInteger)skip {
     BmobQuery *bquery = [BmobQuery queryWithClassName:@"Product"];
     bquery.skip = skip;
@@ -73,7 +75,7 @@
 }
 
 #pragma mark - Table view data source
-
+//获取条数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
     return self.productArray.count;
@@ -81,22 +83,7 @@
 
 //自定义单元格
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ProductTryTableViewCell *cell = [[[NSBundle mainBundle]loadNibNamed:@"ProductTableViewCell" owner:self options:nil]lastObject];
-    BmobObject *product = self.productArray[indexPath.row];
-    BmobFile *avatar = [product objectForKey:@"avatar"];
-    [cell.thumbImageView setImageWithURL:[NSURL URLWithString:avatar.url]];
-    //缩略图加圆角边框
-    cell.thumbImageView.layer.cornerRadius = 40.0;
-    cell.thumbImageView.layer.borderColor = [TINYGRAY_COLOR CGColor];
-    cell.thumbImageView.layer.borderWidth = 1.0;
-    cell.nameLabel.text = [product objectForKey:@"name"];
-    cell.commentCountLabel.text = [[product objectForKey:@"commentCount"]stringValue];
-    
-    cell.averagePriceLabel.text = [NSString stringWithFormat:@"%.1f",[[product objectForKey:@"averagePrice"]floatValue]];
-    //        评分星级
-    StarView *view = [[StarView alloc]initWithCount:[product objectForKey:@"mark"] frame:CGRectMake(0, 0, 55.0, 11.0)];
-    [cell.starView addSubview:view];
-    return cell;
+    return [CommonUtil fetchProductShowCell:self.productArray[indexPath.row] index:1];
 
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

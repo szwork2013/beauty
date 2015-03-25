@@ -45,7 +45,7 @@
     BmobFile *avatar = [[seller objectForKey:@"seller"]objectForKey:@"avatar"];
     [cell.avatarImageView setImageWithURL:[NSURL URLWithString:avatar.url]];
     cell.nameLabel.text = [[seller objectForKey:@"seller"]objectForKey:@"name"];
-    cell.priceLabel.text = [[seller objectForKey:@"price"]stringValue];
+    cell.priceLabel.text = [NSString stringWithFormat:@"%.2f",[[seller objectForKey:@"price"]floatValue]];
     cell.descriptLabel.text = [seller objectForKey:@"descript"];
     cell.buyButton.tag = indexPath.row;
     [cell.buyButton addTarget:self action:@selector(jumpWebView:) forControlEvents:UIControlEventTouchUpInside];

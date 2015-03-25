@@ -126,7 +126,6 @@
     
 //    点评图片
     CGFloat photoGalleryWidth = SCREEN_WIDTH;
-    NSLog(@"photo width : %.2f",photoGalleryWidth);
     NSArray *photos = [comment objectForKey:@"photos"];
     CGFloat photoWidth = photoGalleryWidth / 3.0;
     for (int i = 0; i < photos.count; i++) {
@@ -151,7 +150,49 @@
     return cell;
 
 }
+//评价高度
++ (CGFloat)fetchProductCommentCellHeight:(BmobObject *)commentObject {
+    BmobObject *comment = commentObject;
+    NSString *text = [comment objectForKey:@"content"];
+    
+    CGSize constraint = CGSizeMake(SCREEN_WIDTH - (10 * 2), 20000.0f);
+    
+    //如果是没有评语，就需要去纠正一下它的偏移量了。
+    if ([text isEqualToString:@""] || text == nil) {
+        text = @" ";
+    }
+    CGRect rect = [text boundingRectWithSize:constraint
+                                     options:(NSStringDrawingUsesFontLeading|NSStringDrawingTruncatesLastVisibleLine|NSStringDrawingUsesLineFragmentOrigin)
+                                  attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:17.5]}
+                                     context:NULL];
+    
+    //photo numbers
+    NSArray *photosArray = [comment objectForKey:@"photos"];
+    NSInteger photoCount = [photosArray count];
+    long row = ceil(photoCount / 3.0);
+    CGFloat photoGalleryHeight = row * (SCREEN_WIDTH) / 3.0;
+    return 82.0 + rect.size.height + photoGalleryHeight;
+}
+//产品搜索页
++ (ProductShowTableViewCell *) fetchProductShowCell:(BmobObject *)product {
+    ProductShowTableViewCell *cell = [[[NSBundle mainBundle]loadNibNamed:@"ProductTableViewCell" owner:self options:nil]lastObject];
+    BmobFile *avatar = [product objectForKey:@"avatar"];
+    [cell.thumbImageView setImageWithURL:[NSURL URLWithString:avatar.url]];
+    //缩略图加圆角边框
+    cell.thumbImageView.layer.cornerRadius = 40.0;
+    cell.thumbImageView.layer.borderColor = [TINYGRAY_COLOR CGColor];
+    cell.thumbImageView.layer.borderWidth = 1.0;
+    cell.nameLabel.text = [product objectForKey:@"name"];
+    cell.commentCountLabel.text = [[product objectForKey:@"commentCount"]stringValue];
+    
+    cell.averagePriceLabel.text = [NSString stringWithFormat:@"%.1f",[[product objectForKey:@"averagePrice"]floatValue]];
+    //        评分星级
+    StarView *view = [[StarView alloc]initWithCount:[product objectForKey:@"mark"] frame:CGRectMake(0, 0, 55.0, 11.0)];
+    [cell.starView addSubview:view];
+    return cell;
+}
 
+//店铺
 + (StoreShowTableViewCell *)fetchStoreShowCell:(BmobObject *)store {
     StoreShowTableViewCell *cell = [[[NSBundle mainBundle]loadNibNamed:@"StoreShowTableViewCell" owner:self options:nil]lastObject];
     BmobFile *avatar = [store objectForKey:@"avatar"];

@@ -23,4 +23,8 @@
 + (StoreShowTableViewCell *)fetchStoreShowCell:(BmobObject *)store;
 + (void)updateTableViewHeight:(UIViewController *)vc;
 + (NSString *) compareCurrentTime:(NSDate*) compareDate;
+//评价高度
++ (CGFloat)fetchProductCommentCellHeight:(BmobObject *)commentObject;
+//产品搜索页
++ (ProductShowTableViewCell *) fetchProductShowCell:(BmobObject *)product;
 @end

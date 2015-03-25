@@ -72,6 +72,8 @@
 
 //产品规格
 @property (strong, nonatomic) NSArray *productParameter;
+//首条产品
+@property (strong, nonatomic) BmobObject *firstComment;
 //Sub StoryBoard
 @property (strong, nonatomic) UIStoryboard *subStoryBoard;
 @end
@@ -84,11 +86,31 @@
     self.subStoryBoard = [UIStoryboard storyboardWithName:@"Product" bundle:nil];
     self.tableView.contentInset=UIEdgeInsetsMake(-36, 0, 0, 0);
     [self fetchProduct];
+    [self fetchFirstComment];
     self.productSellerDataSource = [[ProductSellerDataSource alloc]initWithViewController:self];
     self.sellerTableView.dataSource = self.productSellerDataSource;
     self.sellerTableView.delegate = self.productSellerDataSource;
 }
-
+#pragma mark 获取首条评价记录
+- (void)fetchFirstComment {
+    //获取当前产品的第一条评论，或许它是没有任何一条评价
+    BmobQuery *query = [BmobQuery queryWithClassName:@"ProductComment"];
+    query.limit = 1;
+    [query orderByDescending:@"createdAt"];
+    [query whereKey:@"product" equalTo:[BmobObject objectWithoutDatatWithClassName:@"Product" objectId:self.productId]];
+    [query countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
+        if (number > 0) {
+            [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+                BmobObject *commentObject = [array firstObject];
+                self.firstComment = commentObject;
+                [self.tableView reloadData];
+            }];
+        } else {
+            self.productCommentButton.enabled = NO;
+            [self.productCommentButton setTitle:@"暂时没有评价" forState:UIControlStateNormal];
+        }
+    }];
+}
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [CommonUtil updateTableViewHeight:self];
@@ -178,7 +200,10 @@
         [self calculateSkinDistribute:[product objectForKey:@"skinDistribute"]];
         [self calculateAgeDistribute:[product objectForKey:@"ageDistribute"]];
         //        用户使用方法，富文本
-        self.useMethodTextView.attributedText = [[NSAttributedString alloc] initWithString:[product objectForKey:@"useMethod"] attributes:[CommonUtil textViewAttribute]];
+        if (![[product objectForKey:@"useMethod"] isEqualToString:@""] && [product objectForKey:@"useMethod"] != nil) {
+            
+            self.useMethodTextView.attributedText = [[NSAttributedString alloc] initWithString:[product objectForKey:@"useMethod"] attributes:[CommonUtil textViewAttribute]];
+        }
         [self.useMethodTextView sizeToFit];
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:5] withRowAnimation:UITableViewRowAnimationAutomatic];
         //        取得高度
@@ -194,54 +219,62 @@
 
 #pragma mark 计算肤质比例
 - (void)calculateSkinDistribute:(NSArray *)skinDistribute {
-    //最大比例条的宽度
-    CGFloat maxWidth = CGRectGetWidth(self.skinDistributeView1.frame);
-    CGFloat maxRate = 0;
-    //    得到最大比例值，如85%
-    for (NSString *rateStr in skinDistribute) {
-        CGFloat rate = [rateStr floatValue];
-        if (rate > maxRate) {
-            maxRate = rate;
+    if (skinDistribute) {
+        
+
+        //最大比例条的宽度
+        CGFloat maxWidth = CGRectGetWidth(self.skinDistributeView1.frame);
+        CGFloat maxRate = 0;
+        //    得到最大比例值，如85%
+        for (NSString *rateStr in skinDistribute) {
+            CGFloat rate = [rateStr floatValue];
+            if (rate > maxRate) {
+                maxRate = rate;
+            }
         }
-    }
-    //    依次为5个比例条赋值，与最大值换算而来，并依次为5个百分比赋值
-    NSArray *rateViewArray = @[_skinDistributeView0, _skinDistributeView1, _skinDistributeView2, _skinDistributeView3, _skinDistributeView4];
-    NSArray *rateColorArray = @[kColor0, kColor1, kColor2, kColor3, kColor4];
-    NSArray *rateLabelArray = @[_skinDistributeLabel0, _skinDistributeLabel1, _skinDistributeLabel2, _skinDistributeLabel3, _skinDistributeLabel4];
-    for (int i = 0; i < rateViewArray.count; i++) {
-        UIView *rateView = rateViewArray[i];
-        UIView *subView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [skinDistribute[i] floatValue] / maxRate * maxWidth, 10.0)];
-        subView.backgroundColor = rateColorArray[i];
-        [rateView addSubview:subView];
-//        完成比例条，以下是百分比赋值
-        UILabel *rateLabel = rateLabelArray[i];
-        rateLabel.text = [NSString stringWithFormat:@"%.f%%",[skinDistribute[i] floatValue]];
+        //    依次为5个比例条赋值，与最大值换算而来，并依次为5个百分比赋值
+        NSArray *rateViewArray = @[_skinDistributeView0, _skinDistributeView1, _skinDistributeView2, _skinDistributeView3, _skinDistributeView4];
+        NSArray *rateColorArray = @[kColor0, kColor1, kColor2, kColor3, kColor4];
+        NSArray *rateLabelArray = @[_skinDistributeLabel0, _skinDistributeLabel1, _skinDistributeLabel2, _skinDistributeLabel3, _skinDistributeLabel4];
+        for (int i = 0; i < rateViewArray.count; i++) {
+            UIView *rateView = rateViewArray[i];
+            UIView *subView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [skinDistribute[i] floatValue] / maxRate * maxWidth, 10.0)];
+            subView.backgroundColor = rateColorArray[i];
+            [rateView addSubview:subView];
+    //        完成比例条，以下是百分比赋值
+            UILabel *rateLabel = rateLabelArray[i];
+            rateLabel.text = [NSString stringWithFormat:@"%.f%%",[skinDistribute[i] floatValue]];
+        }
     }
 }
 
 #pragma mark 计算年龄分层
 - (void)calculateAgeDistribute:(NSArray *)ageDistribute {
-    //最大比例条的宽度
-    CGFloat maxWidth = CGRectGetWidth(self.ageDistributeView1.frame);
-    CGFloat maxRate = 0;
-    //    得到最大比例值，如85%
-    for (NSString *rateStr in ageDistribute) {
-        CGFloat rate = [rateStr floatValue];
-        if (rate > maxRate) {
-            maxRate = rate;
+    if (ageDistribute) {
+        
+        //最大比例条的宽度
+        CGFloat maxWidth = CGRectGetWidth(self.ageDistributeView1.frame);
+        CGFloat maxRate = 0;
+        //    得到最大比例值，如85%
+        for (NSString *rateStr in ageDistribute) {
+            CGFloat rate = [rateStr floatValue];
+            if (rate > maxRate) {
+                maxRate = rate;
+            }
         }
-    }
-    //    依次为5个比例条赋值，与最大值换算而来，并依次为5个百分比赋值
-    NSArray *rateViewArray = @[_ageDistributeView0, _ageDistributeView1, _ageDistributeView2, _ageDistributeView3, _ageDistributeView4];
-    NSArray *rateLabelArray = @[_ageDistributeLabel0, _ageDistributeLabel1, _ageDistributeLabel2, _ageDistributeLabel3, _ageDistributeLabel4];
-    for (int i = 0; i < rateViewArray.count; i++) {
-        UIView *rateView = rateViewArray[i];
-        UIView *subView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [ageDistribute[i] floatValue] / maxRate * maxWidth, 10.0)];
-        subView.backgroundColor = MAIN_COLOR;
-        [rateView addSubview:subView];
-        //        完成比例条，以下是百分比赋值
-        UILabel *rateLabel = rateLabelArray[i];
-        rateLabel.text = [NSString stringWithFormat:@"%.f%%",[ageDistribute[i] floatValue]];
+        //    依次为5个比例条赋值，与最大值换算而来，并依次为5个百分比赋值
+        NSArray *rateViewArray = @[_ageDistributeView0, _ageDistributeView1, _ageDistributeView2, _ageDistributeView3, _ageDistributeView4];
+        NSArray *rateLabelArray = @[_ageDistributeLabel0, _ageDistributeLabel1, _ageDistributeLabel2, _ageDistributeLabel3, _ageDistributeLabel4];
+        for (int i = 0; i < rateViewArray.count; i++) {
+            UIView *rateView = rateViewArray[i];
+            UIView *subView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [ageDistribute[i] floatValue] / maxRate * maxWidth, 10.0)];
+            subView.backgroundColor = MAIN_COLOR;
+            [rateView addSubview:subView];
+            //        完成比例条，以下是百分比赋值
+            UILabel *rateLabel = rateLabelArray[i];
+            rateLabel.text = [NSString stringWithFormat:@"%.f%%",[ageDistribute[i] floatValue]];
+        }
+    
     }
 }
 
@@ -253,6 +286,11 @@
     }
     if (indexPath.section == 5 && indexPath.row == 1) {
         return self.useMethodHeight;
+    }
+    if (indexPath.section == 3 && indexPath.row == 3) {
+        if (self.firstComment) {
+            return [CommonUtil fetchProductCommentCellHeight:self.firstComment];
+        }
     }
     if (indexPath.section == 4 && indexPath.row == 1) {
         if (self.productIngredientCount == 0) {
@@ -306,7 +344,13 @@
         [cell addSubview:vc.view];
         cell.clipsToBounds = YES;
         return cell;
-    }else if (indexPath.section == 6 && indexPath.row == 1) {
+    } else if (indexPath.section == 3 && indexPath.row == 3) {
+        if (self.firstComment) {
+            
+            return [CommonUtil fetchProductCommentCell:self.firstComment];
+        }
+    
+    } else if (indexPath.section == 6 && indexPath.row == 1) {
         for (int i = 0; i < self.productParameter.count; i++) {
             BmobObject *parameter = self.productParameter[i];
             UILabel *nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, 10 + i * 30, 80, 20)];
