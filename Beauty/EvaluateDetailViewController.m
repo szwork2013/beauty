@@ -58,7 +58,8 @@
             CGFloat imageWidth = image.size.width;
             CGFloat imageViewWidth = SCREEN_WIDTH - margin - margin;
             CGFloat imageViewHeight = imageViewWidth / (imageWidth / imageHeight);
-            
+            //force imageHeight
+            imageViewHeight = 140.0;
             _imageView.image = image;
             _imageView.frame = CGRectMake(margin, y + i * margin + self.offsetY, imageViewWidth, imageViewHeight);
             self.offsetY += imageViewHeight;
@@ -67,7 +68,7 @@
 //            scrollView添加子视图
             [self.scrollView addSubview:seperatedView];
 //            scrollView内容高度增加
-            self.webView.frame = CGRectMake(0, y + self.offsetY, SCREEN_WIDTH, 400);
+            self.webView.frame = CGRectMake(0, y + self.offsetY, SCREEN_WIDTH, 1400);
             self.scrollView.contentSize = CGSizeMake(self.scrollView.contentSize.width, y + self.offsetY + margin * i + margin + self.webView.scrollView.contentSize.height);
         } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
             

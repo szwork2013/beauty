@@ -16,6 +16,7 @@
 #import "SVProgressHUD.h"
 #import "UserService.h"
 #import "MemberLoginViewController.h"
+#import "CommonDetailTableViewController.h"
 
 @interface StoreDetailTableViewController () <UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *imagesScrollView;
@@ -186,6 +187,17 @@
 
     return [super tableView:tableView heightForRowAtIndexPath:indexPath];
 }
+
+#pragma mark 单元格点击
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 2 && indexPath.row == 0) {
+        CommonDetailTableViewController *vc = [[UIStoryboard storyboardWithName:@"Product" bundle:nil] instantiateViewControllerWithIdentifier:@"commonDetail"];
+        vc.objectId = self.storeId;
+        vc.className = @"Store";
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+}
+
 - (IBAction)callMe:(id)sender {
     NSString *telStr = self.phoneLabel.text;
     if (![telStr isEqualToString:@""]) {

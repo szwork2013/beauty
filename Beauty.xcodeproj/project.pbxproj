@@ -63,6 +63,8 @@
 		F72269321AB7BCF30068C436 /* ImageBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F72269311AB7BCF30068C436 /* ImageBrowserViewController.m */; };
 		F72A352C1AC256C700C7D36F /* searchInner@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F72A352B1AC256C700C7D36F /* searchInner@2x.png */; };
 		F72A352F1AC2588600C7D36F /* ProductSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F72A352E1AC2588600C7D36F /* ProductSearchViewController.m */; };
+		F72A35321AC2E1DC00C7D36F /* ActivitySearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F72A35311AC2E1DC00C7D36F /* ActivitySearchViewController.m */; };
+		F72A35351AC2E97500C7D36F /* CommonDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F72A35341AC2E97500C7D36F /* CommonDetailTableViewController.m */; };
 		F72A95BC1AAAD47A00B2B611 /* EvaluateDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F72A95BB1AAAD47A00B2B611 /* EvaluateDetailViewController.m */; };
 		F72FFE6C1AAD935400C01BB2 /* member_chekin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F72FFE691AAD935400C01BB2 /* member_chekin@2x.png */; };
 		F72FFE6D1AAD935400C01BB2 /* member_favor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F72FFE6A1AAD935400C01BB2 /* member_favor@2x.png */; };
@@ -282,6 +284,10 @@
 		F72A352B1AC256C700C7D36F /* searchInner@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "searchInner@2x.png"; path = "images/home/searchInner@2x.png"; sourceTree = "<group>"; };
 		F72A352D1AC2588600C7D36F /* ProductSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductSearchViewController.h; path = Beauty/Product/ProductSearchViewController.h; sourceTree = SOURCE_ROOT; };
 		F72A352E1AC2588600C7D36F /* ProductSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductSearchViewController.m; path = Beauty/Product/ProductSearchViewController.m; sourceTree = SOURCE_ROOT; };
+		F72A35301AC2E1DC00C7D36F /* ActivitySearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivitySearchViewController.h; path = Beauty/Store/ActivitySearchViewController.h; sourceTree = "<group>"; };
+		F72A35311AC2E1DC00C7D36F /* ActivitySearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivitySearchViewController.m; path = Beauty/Store/ActivitySearchViewController.m; sourceTree = "<group>"; };
+		F72A35331AC2E97500C7D36F /* CommonDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonDetailTableViewController.h; path = Beauty/CommonDetailTableViewController.h; sourceTree = "<group>"; };
+		F72A35341AC2E97500C7D36F /* CommonDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommonDetailTableViewController.m; path = Beauty/CommonDetailTableViewController.m; sourceTree = "<group>"; };
 		F72A95BA1AAAD47A00B2B611 /* EvaluateDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EvaluateDetailViewController.h; path = Beauty/EvaluateDetailViewController.h; sourceTree = "<group>"; };
 		F72A95BB1AAAD47A00B2B611 /* EvaluateDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EvaluateDetailViewController.m; path = Beauty/EvaluateDetailViewController.m; sourceTree = "<group>"; };
 		F72FFE691AAD935400C01BB2 /* member_chekin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "member_chekin@2x.png"; sourceTree = "<group>"; };
@@ -1040,6 +1046,8 @@
 		F7BD0BA71AB1DEE4009E48B6 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				F72A35331AC2E97500C7D36F /* CommonDetailTableViewController.h */,
+				F72A35341AC2E97500C7D36F /* CommonDetailTableViewController.m */,
 				F7147A661AA73826007605E6 /* Global.h */,
 				F7BD0BA21AB1D998009E48B6 /* CommonUtil.h */,
 				F7BD0BA31AB1D998009E48B6 /* CommonUtil.m */,
@@ -1053,6 +1061,8 @@
 		F7BD0BA81AB1DF08009E48B6 /* Store */ = {
 			isa = PBXGroup;
 			children = (
+				F72A35301AC2E1DC00C7D36F /* ActivitySearchViewController.h */,
+				F72A35311AC2E1DC00C7D36F /* ActivitySearchViewController.m */,
 				F7B4987C1AA31FE90067219E /* StoreViewController.h */,
 				F7B4987D1AA31FE90067219E /* StoreViewController.m */,
 				F713C8C91AA49089004BE58C /* StoreDetailTableViewController.h */,
@@ -1348,9 +1358,11 @@
 				F71483DD1AB8840B005490FF /* TryRecordViewController.m in Sources */,
 				F7B498A11AA3356F0067219E /* UIWebView+AFNetworking.m in Sources */,
 				F7B4989B1AA3356F0067219E /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				F72A35351AC2E97500C7D36F /* CommonDetailTableViewController.m in Sources */,
 				F7B498B61AA335E30067219E /* AFHTTPRequestOperation.m in Sources */,
 				F71483F91AB9253C005490FF /* ELCAssetTablePicker.m in Sources */,
 				F715AE761AB7050C00D07C38 /* BrandDetailTableViewController.m in Sources */,
+				F72A35321AC2E1DC00C7D36F /* ActivitySearchViewController.m in Sources */,
 				F787B7161AB3DFBE00D4C27D /* XHMenu.m in Sources */,
 				F745232A1AB45A1300C33281 /* WechatProductDetailTableViewController.m in Sources */,
 				F787B7151AB3DFBE00D4C27D /* XHIndicatorView.m in Sources */,

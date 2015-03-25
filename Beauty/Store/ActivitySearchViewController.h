@@ -1,5 +1,5 @@
 //
-//  ProductSearchViewController.h
+//  ActivitySearchViewController.h
 //  Beauty
 //
 //  Created by HuangXiuJie on 15/3/25.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProductSearchViewController : UIViewController
+@interface ActivitySearchViewController : UIViewController
 
 @end

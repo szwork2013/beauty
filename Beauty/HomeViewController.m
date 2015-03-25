@@ -17,6 +17,8 @@
 #import "TryEventProductDetailTableViewController.h"
 #import "ActivityViewController.h"
 #import "ProductSearchViewController.h"
+#import "ActivitySearchViewController.h"
+
 @interface HomeViewController ()<UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
 //置顶海报轮播
@@ -272,7 +274,8 @@
 #pragma mark -
 #pragma mark 搜索活动
 - (IBAction)searchActivity:(id)sender {
-    
+    ActivitySearchViewController *vc = [self.subStoryboard instantiateViewControllerWithIdentifier:@"activitySearch"];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark 搜索产品

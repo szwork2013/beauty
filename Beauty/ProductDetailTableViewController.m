@@ -20,6 +20,7 @@
 #import "Global.h"
 #import "ProductCommentPublish.h"
 #import "ProductCommentListViewController.h"
+#import "CommonDetailTableViewController.h"
 
 @interface ProductDetailTableViewController ()
 @property (nonatomic,weak) IBOutlet UIImageView *avatarImageView;
@@ -332,6 +333,16 @@
         [self.tableView reloadData];
         
     }];
+}
+#pragma mark -
+#pragma mark 单击单元格
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 2 && indexPath.row == 0) {
+        CommonDetailTableViewController *vc = [self.subStoryBoard instantiateViewControllerWithIdentifier:@"commonDetail"];
+        vc.objectId = self.productId;
+        vc.className = @"Product";
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 #pragma mark 生成单元格
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
