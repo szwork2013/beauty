@@ -11,8 +11,9 @@
 #import <BmobSDK/Bmob.h>
 #import "CommonUtil.h"
 #import "SVProgressHUD.h"
+#import "ProductDetailTableViewController.h"
 @interface ProductSearchViewController ()<UITableViewDataSource,UITableViewDelegate>
-@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray *dataArray;
 @property (nonatomic, strong) NSArray *keyWordsArray;
 @end
@@ -20,6 +21,7 @@
 @implementation ProductSearchViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
 //    初始化边框
     self.searchTextField.layer.borderColor = [MAIN_COLOR CGColor];
@@ -27,31 +29,39 @@
     self.searchTextField.layer.cornerRadius = 4.0;
 //    加载热门关键字
     [self loadKeyWords];
-//    生成表格
-    [self createTableView];
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.tabBarController.tabBar.hidden = YES;
+}
+#pragma mark 搜索方法，以关键字为参数，代码块的方法赋值与重载表格
+- (void)searchByKeyWord:(NSString *)keyWord {
+    BmobQuery *query = [BmobQuery queryWithClassName:@"Product"];
+    [query whereKey:@"name" matchesWithRegex:[NSString stringWithFormat:@".*%@.*",keyWord]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+        if (array.count == 0) {
+            [SVProgressHUD showErrorWithStatus:NO_DATAS];
+        } else {
+            self.tableView.hidden = NO;
+            self.containerView.hidden = YES;
+            self.dataArray = array;
+            [self.tableView reloadData];
+        }
+    }];
+}
+
 #pragma mark 搜索按钮点击
 - (IBAction)searchButtonPress:(id)sender {
     self.tableView.hidden = NO;
     self.containerView.hidden = YES;
-    
     if (![self.searchTextField.text isEqual:@""]) {
-        BmobQuery *query = [BmobQuery queryWithClassName:@"Product"];
-        [query whereKey:@"name" matchesWithRegex:[NSString stringWithFormat:@".*%@.*",self.searchTextField.text]];
-        [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
-            self.dataArray = array;
-            NSLog(@"%@",[array[0] objectForKey:@"name"]);
-            [self.tableView reloadData];
-        }];
+        [self searchByKeyWord:self.searchTextField.text];
     } else {
         [SVProgressHUD showErrorWithStatus:@"请先输入要搜索的内容"];
     }
-}
-#pragma mark 表格生成并且默认隐藏状态
-- (void)createTableView {
-    self.tableView.hidden = YES;
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
+    
+
 }
 
 
@@ -86,8 +96,9 @@
             keyWordButton.bounds = CGRectMake(0, 0, keyWordStr.length * 19.0 + 30.0, 33.0);
             int row = i / 2;
             int column = i % 2;
+//            偶数行偏移x坐标
             CGFloat offsetX = self.containerView.frame.size.width / 4.0;
-            if (row != 0) {
+            if ((row / 2.0) > 0) {
                 offsetX += 30.0;
             }
             keyWordButton.center = CGPointMake(offsetX + (1 + 2 * column * self.containerView.frame.size.width) / 4.0, 80.0 + row * 60.0);
@@ -100,8 +111,11 @@
 }
 #pragma mark 按钮点击事件
 - (void)keyWordButtonPress:(UIButton *)button {
-    self.tableView.hidden = NO;
-    self.containerView.hidden = YES;
+
+//    为搜索框赋值
+    NSString *keyWord = [self.dataArray[button.tag] objectForKey:@"name"];
+    self.searchTextField.text = keyWord;
+    [self searchByKeyWord:keyWord];
 //    reload
 }
 #pragma mark -
@@ -109,12 +123,25 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.dataArray.count;
 }
-
+#pragma mark 生成单元格
 - (UITableViewCell *)tableView:tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     BmobObject *object = self.dataArray[indexPath.row];
     return [CommonUtil fetchProductShowCell:object index:1];
 }
 
+#pragma mark 表格单元格高度
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 120.0;
+}
+
+#pragma mark 表格单元格点击事件
+- (void)tableView:tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UIStoryboard *main = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ProductDetailTableViewController *vc = [main instantiateViewControllerWithIdentifier:@"product"];
+    vc.productId = [self.dataArray[indexPath.row] objectId];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+#pragma mark -
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

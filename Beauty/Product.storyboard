@@ -279,6 +279,10 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="huY-01-Hjb">
                                 <rect key="frame" x="0.0" y="83" width="320" height="485"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="P9k-Lv-9Vr" id="NHG-U3-yS5"/>
+                                    <outlet property="delegate" destination="P9k-Lv-9Vr" id="cnE-tR-des"/>
+                                </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k4S-zL-thq" userLabel="Container View">
                                 <rect key="frame" x="0.0" y="83" width="320" height="485"/>
@@ -318,6 +322,7 @@
                     <connections>
                         <outlet property="containerView" destination="k4S-zL-thq" id="4ra-AJ-uRG"/>
                         <outlet property="searchTextField" destination="CZ4-sV-M9J" id="Vhl-W5-7ZY"/>
+                        <outlet property="tableView" destination="huY-01-Hjb" id="3Ll-gl-fvm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xKF-Rt-uP4" userLabel="First Responder" sceneMemberID="firstResponder"/>
