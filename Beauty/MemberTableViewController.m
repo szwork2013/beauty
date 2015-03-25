@@ -9,6 +9,7 @@
 #import "MemberTableViewController.h"
 #import <BmobSDK/Bmob.h>
 #import "UserService.h"
+#import "MyTryViewController.h"
 
 @interface MemberTableViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *nicknameButton;
@@ -30,6 +31,7 @@
     
 }
 -(void)viewWillAppear:(BOOL)animated {
+    self.tabBarController.tabBar.hidden = NO;
     [super viewWillAppear:animated];
     self.collectCount = 0;
     
@@ -94,7 +96,20 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 1 && indexPath.row == 1) {
+        UserService *service = [UserService getInstance];
+        [service actionWithUser:^(BmobUser *user) {
+            MyTryViewController *vc = [[MyTryViewController alloc]init];
+            vc.user = user;
+            [self.navigationController pushViewController:vc animated:YES];
+            
+        } failBlock:^{
+            
+        }];
+        
+    }
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

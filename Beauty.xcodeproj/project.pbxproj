@@ -65,6 +65,9 @@
 		F72A352F1AC2588600C7D36F /* ProductSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F72A352E1AC2588600C7D36F /* ProductSearchViewController.m */; };
 		F72A35321AC2E1DC00C7D36F /* ActivitySearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F72A35311AC2E1DC00C7D36F /* ActivitySearchViewController.m */; };
 		F72A35351AC2E97500C7D36F /* CommonDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F72A35341AC2E97500C7D36F /* CommonDetailTableViewController.m */; };
+		F72A35381AC3021F00C7D36F /* MyTryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F72A35371AC3021F00C7D36F /* MyTryViewController.m */; };
+		F72A353A1AC30C6E00C7D36F /* clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F72A35391AC30C6E00C7D36F /* clock@2x.png */; };
+		F72A353D1AC3150000C7D36F /* MyCollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F72A353C1AC3150000C7D36F /* MyCollectViewController.m */; };
 		F72A95BC1AAAD47A00B2B611 /* EvaluateDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F72A95BB1AAAD47A00B2B611 /* EvaluateDetailViewController.m */; };
 		F72FFE6C1AAD935400C01BB2 /* member_chekin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F72FFE691AAD935400C01BB2 /* member_chekin@2x.png */; };
 		F72FFE6D1AAD935400C01BB2 /* member_favor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F72FFE6A1AAD935400C01BB2 /* member_favor@2x.png */; };
@@ -288,6 +291,11 @@
 		F72A35311AC2E1DC00C7D36F /* ActivitySearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivitySearchViewController.m; path = Beauty/Store/ActivitySearchViewController.m; sourceTree = "<group>"; };
 		F72A35331AC2E97500C7D36F /* CommonDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonDetailTableViewController.h; path = Beauty/CommonDetailTableViewController.h; sourceTree = "<group>"; };
 		F72A35341AC2E97500C7D36F /* CommonDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommonDetailTableViewController.m; path = Beauty/CommonDetailTableViewController.m; sourceTree = "<group>"; };
+		F72A35361AC3021F00C7D36F /* MyTryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyTryViewController.h; path = Beauty/MyTryViewController.h; sourceTree = "<group>"; };
+		F72A35371AC3021F00C7D36F /* MyTryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyTryViewController.m; path = Beauty/MyTryViewController.m; sourceTree = "<group>"; };
+		F72A35391AC30C6E00C7D36F /* clock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clock@2x.png"; sourceTree = "<group>"; };
+		F72A353B1AC3150000C7D36F /* MyCollectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyCollectViewController.h; path = Beauty/Member/MyCollectViewController.h; sourceTree = "<group>"; };
+		F72A353C1AC3150000C7D36F /* MyCollectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyCollectViewController.m; path = Beauty/Member/MyCollectViewController.m; sourceTree = "<group>"; };
 		F72A95BA1AAAD47A00B2B611 /* EvaluateDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EvaluateDetailViewController.h; path = Beauty/EvaluateDetailViewController.h; sourceTree = "<group>"; };
 		F72A95BB1AAAD47A00B2B611 /* EvaluateDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EvaluateDetailViewController.m; path = Beauty/EvaluateDetailViewController.m; sourceTree = "<group>"; };
 		F72FFE691AAD935400C01BB2 /* member_chekin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "member_chekin@2x.png"; sourceTree = "<group>"; };
@@ -661,6 +669,7 @@
 		F74523361AB469F600C33281 /* tryevent */ = {
 			isa = PBXGroup;
 			children = (
+				F72A35391AC30C6E00C7D36F /* clock@2x.png */,
 				F74523371AB469F600C33281 /* gift@2x.png */,
 				F74523381AB469F600C33281 /* person@2x.png */,
 			);
@@ -1034,8 +1043,12 @@
 		F7BD0BA61AB1DED5009E48B6 /* Member */ = {
 			isa = PBXGroup;
 			children = (
+				F72A35361AC3021F00C7D36F /* MyTryViewController.h */,
+				F72A35371AC3021F00C7D36F /* MyTryViewController.m */,
 				F72FFE891AAEF14B00C01BB2 /* MemberTableViewController.h */,
 				F72FFE8A1AAEF14B00C01BB2 /* MemberTableViewController.m */,
+				F72A353B1AC3150000C7D36F /* MyCollectViewController.h */,
+				F72A353C1AC3150000C7D36F /* MyCollectViewController.m */,
 				F72FFE731AAE8F4100C01BB2 /* MemberLoginViewController.h */,
 				F72FFE741AAE8F4100C01BB2 /* MemberLoginViewController.m */,
 			);
@@ -1233,6 +1246,7 @@
 				F7B498461AA2FF300067219E /* Images.xcassets in Resources */,
 				F7E4F17C1AA5D1280025D868 /* rank@2x.png in Resources */,
 				F71483FD1AB9253C005490FF /* ELCAlbumPickerController.xib in Resources */,
+				F72A353A1AC30C6E00C7D36F /* clock@2x.png in Resources */,
 				F79547541AAD8A4600212CEA /* member_bg@2x.png in Resources */,
 				F7BFAC3B1ABF1177002BB5EB /* ProductIngredientViewController.xib in Resources */,
 				F71483FF1AB9253C005490FF /* ELCAssetTablePicker.xib in Resources */,
@@ -1302,6 +1316,7 @@
 				F76979161ABDAB44002DE078 /* RoundImageView.m in Sources */,
 				F7B4983E1AA2FF300067219E /* AppDelegate.m in Sources */,
 				F7B4989C1AA3356F0067219E /* UIAlertView+AFNetworking.m in Sources */,
+				F72A35381AC3021F00C7D36F /* MyTryViewController.m in Sources */,
 				F76979121ABDAB44002DE078 /* UIImage+Category.m in Sources */,
 				F74523301AB45DCA00C33281 /* TryEventProductTableViewDataSource.m in Sources */,
 				F787B7171AB3DFBE00D4C27D /* XHMenuButton.m in Sources */,
@@ -1330,6 +1345,7 @@
 				F7B498B71AA335E30067219E /* AFHTTPRequestOperationManager.m in Sources */,
 				F769791D1ABDAB44002DE078 /* SDWebImageManager.m in Sources */,
 				F769791A1ABDAB44002DE078 /* UIImageView+WebCache.m in Sources */,
+				F72A353D1AC3150000C7D36F /* MyCollectViewController.m in Sources */,
 				F769791B1ABDAB44002DE078 /* SDWebImageDownloader.m in Sources */,
 				F787B7181AB3DFBE00D4C27D /* XHScrollMenu.m in Sources */,
 				F7B498811AA3246B0067219E /* StoreActivityDataSource.m in Sources */,

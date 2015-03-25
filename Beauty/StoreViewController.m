@@ -62,7 +62,6 @@
 //点击城市切换
 - (IBAction)switchCity:(id)sender {
     CGFloat width = 300.0;
-
     CGFloat buttonWidth = 80.0;
     CGFloat buttonHeight = 30.0;
     CGFloat buttonMargin = 20.0;

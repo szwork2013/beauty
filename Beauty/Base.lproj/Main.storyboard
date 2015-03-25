@@ -1717,7 +1717,7 @@
         <!--产品试用-->
         <scene sceneID="6zM-bi-fcF">
             <objects>
-                <tableViewController id="3Bq-0s-D2I" customClass="TryEventProductDetailTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="tryEvent" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3Bq-0s-D2I" customClass="TryEventProductDetailTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="GFV-Iw-gQF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3235,12 +3235,12 @@
         <image name="try_bg.png" width="317" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZlD-nl-gaj"/>
         <segue reference="0R7-G8-1VP"/>
         <segue reference="lCi-hW-Cwb"/>
         <segue reference="JbZ-RO-xKe"/>
         <segue reference="Zst-Jl-lkN"/>
         <segue reference="fK9-ib-ITl"/>
+        <segue reference="Ehz-G5-5vx"/>
         <segue reference="Ovv-6A-JRB"/>
     </inferredMetricsTieBreakers>
 </document>
