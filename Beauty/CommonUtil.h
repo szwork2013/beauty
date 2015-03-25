@@ -28,4 +28,6 @@
 //产品搜索页
 + (ProductShowTableViewCell *) fetchProductShowCell:(BmobObject *)product;
 + (UIColor *)colorWithHexString:(NSString *)color alpha:(CGFloat)alpha;
+//不带收藏按钮
++ (StoreShowTableViewCell *) fetchStoreShowCellWithoutFavorButton:(BmobObject *)store WithOrderNum:(NSInteger)num;
 @end

@@ -117,7 +117,11 @@
         self.phoneLabel.text        = [object objectForKey:@"phone"];
         self.addressLabel.text      = [object objectForKey:@"address"];
 //        店铺简介，使用富文本
-        self.descriptTextView.attributedText = [[NSAttributedString alloc] initWithString:[object objectForKey:@"descript"] attributes:[CommonUtil textViewAttribute]];
+        NSString *desciptStr = [object objectForKey:@"descript"];
+        if (desciptStr == nil) {
+            desciptStr = @"";
+        }
+        self.descriptTextView.attributedText = [[NSAttributedString alloc] initWithString:desciptStr attributes:[CommonUtil textViewAttribute]];
         [self.descriptTextView sizeToFit];
 //        取得高度
         self.descriptHeight = self.descriptTextView.frame.size.height + 8;

@@ -121,7 +121,7 @@
         <!--店铺详情-->
         <scene sceneID="jCA-nx-QAr">
             <objects>
-                <tableViewController id="WRk-gT-Qc4" userLabel="店铺详情" customClass="StoreDetailTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="store" id="WRk-gT-Qc4" userLabel="店铺详情" customClass="StoreDetailTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Xtv-PR-FoR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
