@@ -257,14 +257,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="热门化妆品/护手霜/面膜" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CZ4-sV-M9J">
-                                <rect key="frame" x="23" y="20" width="239" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="热门化妆品/护手霜/面膜" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CZ4-sV-M9J">
+                                <rect key="frame" x="23" y="37" width="239" height="30"/>
                                 <color key="textColor" red="0.73333333329999995" green="0.47843137250000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XqQ-gx-NmX">
-                                <rect key="frame" x="272" y="22" width="32" height="26"/>
+                                <rect key="frame" x="272" y="39" width="32" height="26"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="26" id="d3r-Ys-kmv"/>
                                     <constraint firstAttribute="width" constant="32" id="j9H-Ug-d2c"/>
@@ -276,8 +276,12 @@
                                     <action selector="searchButtonPress:" destination="P9k-Lv-9Vr" eventType="touchUpInside" id="Pt2-dL-6ug"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="huY-01-Hjb">
+                                <rect key="frame" x="0.0" y="83" width="320" height="485"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k4S-zL-thq" userLabel="Container View">
-                                <rect key="frame" x="0.0" y="58" width="320" height="510"/>
+                                <rect key="frame" x="0.0" y="83" width="320" height="485"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="产品推荐" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4u3-Wy-dbF">
                                         <rect key="frame" x="8" y="8" width="76" height="23"/>
@@ -295,20 +299,24 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="XqQ-gx-NmX" firstAttribute="top" secondItem="Pwo-nN-dah" secondAttribute="bottom" constant="2" id="0pY-gc-egV"/>
+                            <constraint firstItem="XqQ-gx-NmX" firstAttribute="top" secondItem="Pwo-nN-dah" secondAttribute="bottom" constant="19" id="0pY-gc-egV"/>
                             <constraint firstItem="jb1-9C-xcu" firstAttribute="top" secondItem="k4S-zL-thq" secondAttribute="bottom" id="1tV-0J-9ut"/>
                             <constraint firstItem="CZ4-sV-M9J" firstAttribute="leading" secondItem="khd-Kx-u0H" secondAttribute="leadingMargin" constant="7" id="AJN-nX-Xbu"/>
-                            <constraint firstItem="k4S-zL-thq" firstAttribute="top" secondItem="Pwo-nN-dah" secondAttribute="bottom" constant="38" id="EBR-J8-VdR"/>
+                            <constraint firstItem="k4S-zL-thq" firstAttribute="top" secondItem="Pwo-nN-dah" secondAttribute="bottom" constant="63" id="EBR-J8-VdR"/>
                             <constraint firstAttribute="trailingMargin" secondItem="k4S-zL-thq" secondAttribute="trailing" constant="-16" id="GqT-ev-6HD"/>
+                            <constraint firstItem="huY-01-Hjb" firstAttribute="width" secondItem="k4S-zL-thq" secondAttribute="width" id="KDe-qF-Arp"/>
                             <constraint firstItem="XqQ-gx-NmX" firstAttribute="leading" secondItem="CZ4-sV-M9J" secondAttribute="trailing" constant="10" id="PCM-2l-rPZ"/>
+                            <constraint firstItem="huY-01-Hjb" firstAttribute="centerX" secondItem="k4S-zL-thq" secondAttribute="centerX" id="YG1-Q5-xlK"/>
                             <constraint firstItem="XqQ-gx-NmX" firstAttribute="trailing" secondItem="khd-Kx-u0H" secondAttribute="trailingMargin" id="aDx-dg-6zB"/>
-                            <constraint firstItem="CZ4-sV-M9J" firstAttribute="top" secondItem="Pwo-nN-dah" secondAttribute="bottom" id="gjp-jB-bjC"/>
+                            <constraint firstItem="huY-01-Hjb" firstAttribute="centerY" secondItem="k4S-zL-thq" secondAttribute="centerY" id="fkO-de-wSM"/>
+                            <constraint firstItem="CZ4-sV-M9J" firstAttribute="top" secondItem="Pwo-nN-dah" secondAttribute="bottom" constant="17" id="gjp-jB-bjC"/>
                             <constraint firstItem="k4S-zL-thq" firstAttribute="leading" secondItem="khd-Kx-u0H" secondAttribute="leadingMargin" constant="-16" id="qWy-3f-bgm"/>
+                            <constraint firstItem="huY-01-Hjb" firstAttribute="height" secondItem="k4S-zL-thq" secondAttribute="height" id="zWG-1q-83K"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="container" destination="k4S-zL-thq" id="pqE-zz-Mdx"/>
+                        <outlet property="containerView" destination="k4S-zL-thq" id="4ra-AJ-uRG"/>
                         <outlet property="searchTextField" destination="CZ4-sV-M9J" id="Vhl-W5-7ZY"/>
                     </connections>
                 </viewController>

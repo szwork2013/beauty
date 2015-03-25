@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ProductSearchViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UIView *container;
+@property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
 
 @end

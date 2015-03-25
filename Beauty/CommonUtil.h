@@ -27,4 +27,5 @@
 + (CGFloat)fetchProductCommentCellHeight:(BmobObject *)commentObject;
 //产品搜索页
 + (ProductShowTableViewCell *) fetchProductShowCell:(BmobObject *)product;
++ (UIColor *)colorWithHexString:(NSString *)color alpha:(CGFloat)alpha;
 @end

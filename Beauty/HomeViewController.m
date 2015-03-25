@@ -16,7 +16,7 @@
 #import "CommonUtil.h"
 #import "TryEventProductDetailTableViewController.h"
 #import "ActivityViewController.h"
-
+#import "ProductSearchViewController.h"
 @interface HomeViewController ()<UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView;
 //置顶海报轮播
@@ -38,6 +38,9 @@
 //海报关联的activity
 @property (strong, nonatomic) NSMutableDictionary *activityDictionary;
 @property (assign, nonatomic) NSString *activityId;
+//获取另一个Storyborad
+@property (strong, nonatomic) UIStoryboard *subStoryboard;
+
 @end
 
 @implementation HomeViewController
@@ -50,7 +53,8 @@
     self.moreButton.layer.borderColor = [[UIColor whiteColor]CGColor];
     self.moreButton.layer.borderWidth = 1.0;
     self.moreButton.layer.cornerRadius = 4.0;
-
+//初始化另一个Storyboard
+    self.subStoryboard = [UIStoryboard storyboardWithName:@"Product" bundle:nil];
     [self fetchRecommendScrollView];
     [self fetchProducts];
     [self fetchCategory];
@@ -265,6 +269,18 @@
     return 120.0;
     
 }
+#pragma mark -
+#pragma mark 搜索活动
+- (IBAction)searchActivity:(id)sender {
+    
+}
+
+#pragma mark 搜索产品
+- (IBAction)searchProduct:(id)sender {
+    ProductSearchViewController *vc = [self.subStoryboard instantiateViewControllerWithIdentifier:@"productSearch"];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 
 #pragma mark - Navigation
 
