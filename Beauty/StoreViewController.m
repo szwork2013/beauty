@@ -329,7 +329,7 @@
     }];
 }
 
-#pragma mark 获取全部店铺数据
+#pragma mark 获取全部活动数据
 - (void) fetchData:(NSUInteger)skip tableView:(UITableView *)tableView {
     BmobQuery *inQuery = [BmobQuery queryWithClassName:@"Store"];
     [inQuery addTheConstraintByOrOperationWithArray:[self conditionArray]];

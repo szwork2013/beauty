@@ -68,6 +68,7 @@
 		F72A35381AC3021F00C7D36F /* MyTryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F72A35371AC3021F00C7D36F /* MyTryViewController.m */; };
 		F72A353A1AC30C6E00C7D36F /* clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F72A35391AC30C6E00C7D36F /* clock@2x.png */; };
 		F72A353D1AC3150000C7D36F /* MyCollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F72A353C1AC3150000C7D36F /* MyCollectViewController.m */; };
+		F72A35401AC3994500C7D36F /* StoreActivityTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F72A353F1AC3994500C7D36F /* StoreActivityTableViewController.m */; };
 		F72A95BC1AAAD47A00B2B611 /* EvaluateDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F72A95BB1AAAD47A00B2B611 /* EvaluateDetailViewController.m */; };
 		F72FFE6C1AAD935400C01BB2 /* member_chekin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F72FFE691AAD935400C01BB2 /* member_chekin@2x.png */; };
 		F72FFE6D1AAD935400C01BB2 /* member_favor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F72FFE6A1AAD935400C01BB2 /* member_favor@2x.png */; };
@@ -296,6 +297,8 @@
 		F72A35391AC30C6E00C7D36F /* clock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clock@2x.png"; sourceTree = "<group>"; };
 		F72A353B1AC3150000C7D36F /* MyCollectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyCollectViewController.h; path = Beauty/Member/MyCollectViewController.h; sourceTree = "<group>"; };
 		F72A353C1AC3150000C7D36F /* MyCollectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyCollectViewController.m; path = Beauty/Member/MyCollectViewController.m; sourceTree = "<group>"; };
+		F72A353E1AC3994500C7D36F /* StoreActivityTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StoreActivityTableViewController.h; path = Beauty/StoreActivityTableViewController.h; sourceTree = "<group>"; };
+		F72A353F1AC3994500C7D36F /* StoreActivityTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StoreActivityTableViewController.m; path = Beauty/StoreActivityTableViewController.m; sourceTree = "<group>"; };
 		F72A95BA1AAAD47A00B2B611 /* EvaluateDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EvaluateDetailViewController.h; path = Beauty/EvaluateDetailViewController.h; sourceTree = "<group>"; };
 		F72A95BB1AAAD47A00B2B611 /* EvaluateDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EvaluateDetailViewController.m; path = Beauty/EvaluateDetailViewController.m; sourceTree = "<group>"; };
 		F72FFE691AAD935400C01BB2 /* member_chekin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "member_chekin@2x.png"; sourceTree = "<group>"; };
@@ -856,6 +859,8 @@
 		F7B4982C1AA2FF300067219E = {
 			isa = PBXGroup;
 			children = (
+				F72A353E1AC3994500C7D36F /* StoreActivityTableViewController.h */,
+				F72A353F1AC3994500C7D36F /* StoreActivityTableViewController.m */,
 				F7A6D6271ABBF0BA0049D6C6 /* MapKit.framework */,
 				F71483DE1AB9253C005490FF /* ELCImagePicker */,
 				F7B498371AA2FF300067219E /* Beauty */,
@@ -1410,6 +1415,7 @@
 				F7B498BE1AA335E30067219E /* AFURLSessionManager.m in Sources */,
 				F7BD0BA41AB1D998009E48B6 /* CommonUtil.m in Sources */,
 				F75DE8491AB532A200B669F2 /* RankViewController.m in Sources */,
+				F72A35401AC3994500C7D36F /* StoreActivityTableViewController.m in Sources */,
 				F72A95BC1AAAD47A00B2B611 /* EvaluateDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

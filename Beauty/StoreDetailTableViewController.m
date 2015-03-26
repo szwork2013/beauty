@@ -17,6 +17,7 @@
 #import "UserService.h"
 #import "MemberLoginViewController.h"
 #import "CommonDetailTableViewController.h"
+#import "StoreActivityTableViewController.h"
 
 @interface StoreDetailTableViewController () <UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *imagesScrollView;
@@ -215,14 +216,16 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    StoreActivityTableViewController *vc = segue.destinationViewController;
+    vc.storeId = self.storeId;
 }
-*/
+
 
 @end

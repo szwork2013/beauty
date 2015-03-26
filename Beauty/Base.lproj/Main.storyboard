@@ -292,6 +292,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="xgc-aP-pbU" kind="show" id="2U8-S4-jsF"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -452,6 +455,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mp6-gB-NdY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1393" y="62"/>
+        </scene>
+        <!--Store Activity Table View Controller-->
+        <scene sceneID="Tnr-4y-Jma">
+            <objects>
+                <tableViewController id="xgc-aP-pbU" customClass="StoreActivityTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ogZ-nF-xtX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="activity" id="HyU-xF-Wk6">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HyU-xF-Wk6" id="VbV-mH-2BG">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="xgc-aP-pbU" id="AWg-ej-NoO"/>
+                            <outlet property="delegate" destination="xgc-aP-pbU" id="lTp-mL-g5u"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <segue destination="SIY-JD-YnJ" kind="show" identifier="activityDetail" id="OTo-XW-WDS"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ok2-vM-y51" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1892" y="204"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="pOV-yb-Ik5">
@@ -3235,12 +3267,12 @@
         <image name="try_bg.png" width="317" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0R7-G8-1VP"/>
         <segue reference="lCi-hW-Cwb"/>
         <segue reference="JbZ-RO-xKe"/>
-        <segue reference="Zst-Jl-lkN"/>
         <segue reference="fK9-ib-ITl"/>
         <segue reference="Ehz-G5-5vx"/>
         <segue reference="Ovv-6A-JRB"/>
+        <segue reference="Zst-Jl-lkN"/>
+        <segue reference="OTo-XW-WDS"/>
     </inferredMetricsTieBreakers>
 </document>
