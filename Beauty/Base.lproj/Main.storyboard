@@ -97,13 +97,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Mid-rA-V2g" firstAttribute="top" secondItem="GuM-Wl-cY8" secondAttribute="bottom" id="5wZ-YU-gMW"/>
+                            <constraint firstItem="GuM-Wl-cY8" firstAttribute="leading" secondItem="ar8-TX-kbV" secondAttribute="leading" id="8Gz-IJ-fyh"/>
                             <constraint firstItem="ar8-TX-kbV" firstAttribute="leading" secondItem="AwM-eR-SYn" secondAttribute="leadingMargin" constant="-16" id="LvB-BY-4BU"/>
-                            <constraint firstItem="GuM-Wl-cY8" firstAttribute="leading" secondItem="AwM-eR-SYn" secondAttribute="leadingMargin" constant="-16" id="cgh-Ed-NtW"/>
+                            <constraint firstItem="GuM-Wl-cY8" firstAttribute="top" secondItem="ar8-TX-kbV" secondAttribute="bottom" id="QVW-2b-Boa"/>
+                            <constraint firstItem="GuM-Wl-cY8" firstAttribute="bottom" secondItem="Mid-rA-V2g" secondAttribute="top" id="aGu-o9-dbZ"/>
+                            <constraint firstItem="GuM-Wl-cY8" firstAttribute="trailing" secondItem="ar8-TX-kbV" secondAttribute="trailing" id="exk-oR-VRe"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ar8-TX-kbV" secondAttribute="trailing" constant="-16" id="gsd-Bc-Sdh"/>
                             <constraint firstItem="ar8-TX-kbV" firstAttribute="top" secondItem="IZW-hj-E5Y" secondAttribute="bottom" id="lqD-Le-exJ"/>
-                            <constraint firstItem="GuM-Wl-cY8" firstAttribute="top" secondItem="IZW-hj-E5Y" secondAttribute="bottom" constant="55" id="tVt-Lb-vFI"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="GuM-Wl-cY8" secondAttribute="trailing" constant="-16" id="uGh-c9-P8v"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="活动详情" id="2b2-us-2d7"/>
@@ -477,9 +477,6 @@
                             <outlet property="delegate" destination="xgc-aP-pbU" id="lTp-mL-g5u"/>
                         </connections>
                     </tableView>
-                    <connections>
-                        <segue destination="SIY-JD-YnJ" kind="show" identifier="activityDetail" id="OTo-XW-WDS"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ok2-vM-y51" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -3267,12 +3264,12 @@
         <image name="try_bg.png" width="317" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lCi-hW-Cwb"/>
+        <segue reference="CTU-yq-eRR"/>
+        <segue reference="Zst-Jl-lkN"/>
         <segue reference="JbZ-RO-xKe"/>
+        <segue reference="lCi-hW-Cwb"/>
+        <segue reference="Ovv-6A-JRB"/>
         <segue reference="fK9-ib-ITl"/>
         <segue reference="Ehz-G5-5vx"/>
-        <segue reference="Ovv-6A-JRB"/>
-        <segue reference="Zst-Jl-lkN"/>
-        <segue reference="OTo-XW-WDS"/>
     </inferredMetricsTieBreakers>
 </document>

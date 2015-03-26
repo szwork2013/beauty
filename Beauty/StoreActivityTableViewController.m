@@ -132,18 +132,21 @@
    
 }
 - (void)tableView:tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self performSegueWithIdentifier:@"activityDetail" sender:self];
+    ActivityViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"activity"];
+    vc.objectId = [self.activityArray[indexPath.section]objectId];
+    [self.navigationController pushViewController:vc animated:YES];
+//    [self performSegueWithIdentifier:@"activityDetail" sender:self];
 }
 
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-    ActivityViewController *vc = segue.destinationViewController;
-    vc.objectId = [self.activityArray[self.tableView.indexPathForSelectedRow.section]objectId];
-}
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    // Get the new view controller using [segue destinationViewController].
+//    // Pass the selected object to the new view controller.
+//    ActivityViewController *vc = segue.destinationViewController;
+//    vc.objectId = [self.activityArray[self.tableView.indexPathForSelectedRow.section]objectId];
+//}
 
 
 @end
