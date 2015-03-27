@@ -35,6 +35,8 @@ typedef void(^modalViewBlock)(void);
 @property (strong, nonatomic) NSMutableArray *tagStatusArray;
 @property (strong, nonatomic) NSMutableArray *checkedImageViewArray;
 @property (strong, nonatomic) IBOutlet UIView *selectedTagContainerView;
+@property (assign, nonatomic) BOOL isInitForTag;
+@property (strong , nonatomic) NSArray *userSavedTagArry;
 @end
 
 @implementation MemberProfileTableViewController
@@ -96,6 +98,7 @@ typedef void(^modalViewBlock)(void);
                         [CommonUtil colorWithHexString:@"#eb6876" alpha:1.0]
                     ];
     [self fetchTags];
+    [self loadTag];
 }
 
 #pragma mark 点击头像选择拍照或本地选取
@@ -161,15 +164,40 @@ typedef void(^modalViewBlock)(void);
     if ([self.nicknameLabel.text isEqualToString:@""]) {
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"请填写昵称" message:nil delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
         [alert show];
+        
     } else {
-//        做保存提交操作
-        [self.user setObject:self.nicknameLabel.text forKey:@"nickname"];
-        [self.user setObject:[NSNumber numberWithInteger:[[self.ageButton titleForState:UIControlStateNormal] intValue]] forKey:@"age"];
-        [self.user setObject:[NSNumber numberWithInteger:self.selectedSkinType] forKey:@"skinType"];
+        //        保存之前要先删除原来所有的Tag，然后再加入新的
+        BmobRelation *tagRemovingRelation = [[BmobRelation alloc]init];
+        for (int i = 0; i < self.tagStatusArray.count; i++) {
+            BmobObject *tagRemovingObject = [BmobObject objectWithoutDatatWithClassName:@"Tag" objectId:[self.tagArray[i] objectId]];
+            [tagRemovingRelation removeObject:tagRemovingObject];
+        }
+        [self.user addRelation:tagRemovingRelation forKey:@"tag"];
         [self.user updateInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
             if (isSuccessful) {
-                [SVProgressHUD showSuccessWithStatus:@"保存成功"];
-                [self.navigationController popViewControllerAnimated:YES];
+//                删除干净了，可以设置新Tag值了
+                //        做保存提交操作
+                [self.user setObject:self.nicknameLabel.text forKey:@"nickname"];
+                [self.user setObject:[NSNumber numberWithInteger:[[self.ageButton titleForState:UIControlStateNormal] intValue]] forKey:@"age"];
+                [self.user setObject:[NSNumber numberWithInteger:self.selectedSkinType] forKey:@"skinType"];
+                //        保存tag操作
+                BmobRelation *tagRelation = [[BmobRelation alloc]init];
+                for (int i = 0; i < self.tagStatusArray.count; i++) {
+                    NSNumber *tagStatus = self.tagStatusArray[i];
+                    //        保存之前要先删除原来所有的Tag，然后再加入新的
+                    if ([tagStatus boolValue]) {
+                        BmobObject *removedObject = [BmobObject objectWithoutDatatWithClassName:@"Tag" objectId:[self.tagArray[i] objectId]];
+                        [tagRelation addObject:removedObject];
+                    }
+                }
+                [self.user addRelation:tagRelation forKey:@"tag"];
+                
+                [self.user updateInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+                    if (isSuccessful) {
+                        [SVProgressHUD showSuccessWithStatus:@"保存成功"];
+                        [self.navigationController popViewControllerAnimated:YES];
+                    }
+                }];
             }
         }];
         
@@ -257,6 +285,7 @@ typedef void(^modalViewBlock)(void);
 }
 #pragma mark 标签选择
 - (IBAction)pickTag:(id)sender {
+    self.isInitForTag = NO;
     CGFloat width = SCREEN_WIDTH;
     CGFloat buttonWidth = 80.0;
     CGFloat buttonHeight = 30.0;
@@ -300,6 +329,11 @@ typedef void(^modalViewBlock)(void);
         checkImageView.center = CGPointMake(width / 3.0 * (column + 0.5), CGRectGetMaxY(seperatedView.frame) + (buttonHeight + buttonMargin) * row + buttonHeight);
         checkImageView.contentMode = UIViewContentModeScaleAspectFit;
         checkImageView.userInteractionEnabled = NO;
+//        复显原选取项，做一出取反的操作即可
+//        NSLog(@"count : %zi",self.tagStatusArray.count);
+//        if (self.tagStatusArray.count > 0) {
+//            checkImageView.hidden = ![self.tagStatusArray[i] boolValue];
+//        }
         checkImageView.hidden = YES;
         checkImageView.image = [UIImage imageNamed:@"checked.png"];
         [self.checkedImageViewArray addObject:checkImageView];
@@ -334,50 +368,98 @@ typedef void(^modalViewBlock)(void);
 
 #pragma mark 标签tag选择确定按钮点击
 - (void)tagSubmitButtonPress {
-    for (int i = 0; i < self.tagStatusArray.count; i++) {
-        NSNumber *tagStatus = self.tagStatusArray[i];
-        if ([tagStatus boolValue]) {
-            NSLog(@"您分别选了：%@",[self.tagArray[i] objectForKey:@"name"]);
-        }
+//先删除原来的所有按钮
+    for (UIButton *button in self.selectedTagContainerView.subviews) {
+        [button removeFromSuperview];
     }
-
     [[KGModal sharedInstance] hideAnimated:YES withCompletionBlock:^{
 //        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:4] withRowAnimation:UITableViewRowAnimationAutomatic];
 //        刷新单元格高度
         [self.tableView reloadData];
 //        设置已选内容
         
-        CGFloat width = SCREEN_WIDTH;
+        CGFloat width = self.selectedTagContainerView.frame.size.width;
         CGFloat buttonWidth = 80.0;
         CGFloat buttonHeight = 30.0;
         CGFloat buttonMargin = 20.0;
+        BOOL hasSelectedButton = NO;
+        int iPosition = 0;
         for (int i = 0; i < self.tagArray.count; i++) {
             NSNumber *tagStatus = self.tagStatusArray[i];
             if ([tagStatus boolValue]) {
-                int column = i  % 3;
-                int row = i / 3;
+                hasSelectedButton = YES;
+                int column = iPosition  % 3;
+                int row = iPosition / 3;
                 UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
                 button.titleLabel.font = [UIFont systemFontOfSize:15.0];
                 [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
                 [button setTitle:[self.tagArray[i] objectForKey:@"name"] forState:UIControlStateNormal];
                 [button setBackgroundColor:self.colorArray[[[self.tagArray[i]objectForKey:@"backgroundColorType"] intValue]]];
                 button.bounds = CGRectMake(0, 0, buttonWidth, buttonHeight);
-                button.center = CGPointMake(width / 3.0 * (column + 0.5), CGRectGetMaxY(self.selectedTagContainerView.frame) + (buttonHeight + buttonMargin) * row + buttonHeight);
+                button.center = CGPointMake(width / 3.0 * (column + 0.5), CGRectGetMinY(self.selectedTagContainerView.frame) + (buttonHeight + buttonMargin / 2) * row + 23.0);
                 [button addTarget:self action:@selector(pickTag:) forControlEvents:UIControlEventTouchUpInside];
                 button.layer.cornerRadius = 8.0;
                 [self.selectedTagContainerView addSubview:button];
+                iPosition ++;
             }
         }
+        //一旦有选择任何一个标签，那么就隐藏默认的标签
+        if (hasSelectedButton) {
+            self.tagButton.hidden = YES;
+        } else {
+            self.tagButton.hidden = NO;
+        }
     }];
+}
+
+#pragma mark 加载原来的Tag
+- (void)loadTag {
+    self.isInitForTag = YES;
+    BmobQuery *tagQuery = [BmobQuery queryWithClassName:@"Tag"];
+    [tagQuery orderByAscending:@"rank"];
+    [tagQuery whereObjectKey:@"tag" relatedTo:self.user];
+    [tagQuery findObjectsInBackgroundWithBlock:^(NSArray *tagArray, NSError *error) {
+        CGFloat width = self.selectedTagContainerView.frame.size.width;
+        CGFloat buttonWidth = 80.0;
+        CGFloat buttonHeight = 30.0;
+        CGFloat buttonMargin = 20.0;
+        self.userSavedTagArry = tagArray;
+        for (int i = 0; i < tagArray.count; i++) {
+            int column = i  % 3;
+            int row = i / 3;
+            UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+            button.titleLabel.font = [UIFont systemFontOfSize:15.0];
+            [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            [button setTitle:[tagArray[i] objectForKey:@"name"] forState:UIControlStateNormal];
+            [button setBackgroundColor:self.colorArray[[[tagArray[i]objectForKey:@"backgroundColorType"] intValue]]];
+            button.bounds = CGRectMake(0, 0, buttonWidth, buttonHeight);
+            button.center = CGPointMake(width / 3.0 * (column + 0.5), CGRectGetMinY(self.selectedTagContainerView.frame) + (buttonHeight + buttonMargin / 2) * row + 23.0);
+            [button addTarget:self action:@selector(pickTag:) forControlEvents:UIControlEventTouchUpInside];
+            button.layer.cornerRadius = 8.0;
+            [self.selectedTagContainerView addSubview:button];
+        }
+        if (tagArray.count > 0) {
+            self.tagButton.hidden = YES;
+        }
+        [self.tableView reloadData];
+    }];
+    
+    
+
 }
 #pragma mark 单元格高度
 - (CGFloat)tableView:tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 4) {
+//        运算出用户选择了几个Tag，然后得出高度
         NSInteger selectedTagCount = 0;
         for (NSNumber *tagStatus in self.tagStatusArray) {
             if ([tagStatus boolValue]) {
                 selectedTagCount ++;
             }
+        }
+        //        为初始化加载适配高度
+        if (self.isInitForTag) {
+            selectedTagCount = self.userSavedTagArry.count;
         }
         selectedTagCount = selectedTagCount == 0 ? selectedTagCount = 1 : selectedTagCount;
         return ceil(selectedTagCount / 3.0) * 44.0;

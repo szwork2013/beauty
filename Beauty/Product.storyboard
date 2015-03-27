@@ -610,7 +610,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ehr-G5-tBv">
-                                                    <rect key="frame" x="64" y="8" width="248" height="31"/>
+                                                    <rect key="frame" x="64" y="0.0" width="248" height="47"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标签" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SfB-t2-wJt">
@@ -638,11 +638,11 @@
                                                 <constraint firstItem="SfB-t2-wJt" firstAttribute="leading" secondItem="csA-rj-1hW" secondAttribute="leadingMargin" constant="14" id="4xj-mc-eFn"/>
                                                 <constraint firstItem="Ehr-G5-tBv" firstAttribute="trailing" secondItem="csA-rj-1hW" secondAttribute="trailingMargin" id="MTQ-0A-pNU"/>
                                                 <constraint firstItem="Drb-Er-aGp" firstAttribute="leading" secondItem="SfB-t2-wJt" secondAttribute="trailing" constant="20" id="Mj5-Te-49q"/>
-                                                <constraint firstItem="Ehr-G5-tBv" firstAttribute="top" secondItem="csA-rj-1hW" secondAttribute="topMargin" id="OfL-pw-YIV"/>
+                                                <constraint firstItem="Ehr-G5-tBv" firstAttribute="top" secondItem="csA-rj-1hW" secondAttribute="topMargin" constant="-8" id="OfL-pw-YIV"/>
                                                 <constraint firstItem="Ehr-G5-tBv" firstAttribute="leading" secondItem="csA-rj-1hW" secondAttribute="leadingMargin" constant="56" id="X6l-fN-477"/>
                                                 <constraint firstAttribute="centerY" secondItem="SfB-t2-wJt" secondAttribute="centerY" id="gYO-Jk-mps"/>
                                                 <constraint firstAttribute="centerY" secondItem="Drb-Er-aGp" secondAttribute="centerY" id="mI3-jj-aF2"/>
-                                                <constraint firstItem="Ehr-G5-tBv" firstAttribute="bottom" secondItem="csA-rj-1hW" secondAttribute="bottomMargin" id="qY5-av-ZYD"/>
+                                                <constraint firstItem="Ehr-G5-tBv" firstAttribute="bottom" secondItem="csA-rj-1hW" secondAttribute="bottomMargin" constant="8" id="qY5-av-ZYD"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>

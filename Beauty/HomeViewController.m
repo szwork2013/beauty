@@ -125,6 +125,7 @@
 -(void) fetchProducts {
     self.productArray = [NSArray array];
     BmobQuery *query = [[BmobQuery alloc]initWithClassName:@"TryEvent"];
+//    query.cachePolicy = kBmobCachePolicyCacheThenNetwork;
     [query includeKey:@"product"];
     [query whereKey:@"endTime" greaterThanOrEqualTo:[NSDate date]];
     [query orderByAscending:@"endTime"];
