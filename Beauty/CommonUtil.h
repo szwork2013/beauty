@@ -30,4 +30,5 @@
 + (UIColor *)colorWithHexString:(NSString *)color alpha:(CGFloat)alpha;
 //不带收藏按钮
 + (StoreShowTableViewCell *) fetchStoreShowCellWithoutFavorButton:(BmobObject *)store WithOrderNum:(NSInteger)num;
++ (UIImage *)shrinkImage:(UIImage *)original toSize:(CGSize)size;
 @end

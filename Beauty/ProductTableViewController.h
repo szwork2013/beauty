@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProductTableViewController : UITableViewController
+@interface ProductTableViewController : UIViewController
 @property (nonatomic,strong) NSString *secondLevelId;
 @end

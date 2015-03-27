@@ -262,4 +262,33 @@ return cell;
     frame.size.height += 49.0;
     rootView.frame = frame;
 }
+//图片缩放
++ (UIImage *)shrinkImage:(UIImage *)original toSize:(CGSize)size
+{
+    UIGraphicsBeginImageContextWithOptions(size, YES, 0);
+    CGFloat originalAspect = original.size.width / original.size.height;
+    CGFloat targetAspect = size.width / size.height;
+    CGRect targetRect;
+    if (originalAspect > targetAspect) {
+        // original is wider than target
+        targetRect.size.width = size.width * originalAspect / targetAspect;
+        targetRect.size.height = size.height;
+        targetRect.origin.x = 0;
+        targetRect.origin.y = (size.height - targetRect.size.height) * 0.5;
+    } else if (originalAspect < targetAspect) {
+        // original is narrower than target
+        targetRect.size.width = size.width;
+        targetRect.size.height = size.height * targetAspect / originalAspect;
+        targetRect.origin.x = (size.width - targetRect.size.width) * 0.5;
+        targetRect.origin.y = 0;
+    } else {
+        // original and target have same aspect ratio
+        targetRect = CGRectMake(0, 0, size.width, size.height);
+    }
+    //    targetRect = CGRectMake(0, 0, .5*original.size.width, .5*original.size.height);
+    [original drawInRect:targetRect];
+    UIImage *final = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return final;
+}
 @end

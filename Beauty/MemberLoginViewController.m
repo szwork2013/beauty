@@ -9,11 +9,16 @@
 #import "MemberLoginViewController.h"
 #import "AFHTTPRequestOperationManager.h"
 #import <BmobSDK/Bmob.h>
+#import "SVProgressHUD.h"
 
 @interface MemberLoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
 @property (weak, nonatomic) IBOutlet UITextField *codeTextFiled;
 @property (strong, nonatomic) NSString *code;
+@property (strong, nonatomic) NSTimer * timer;
+@property (assign, nonatomic) int timerNum;
+@property (weak, nonatomic) IBOutlet UILabel *numLabel;
+@property (weak, nonatomic) IBOutlet UIButton *fetchButton;
 @end
 
 @implementation MemberLoginViewController
@@ -37,19 +42,43 @@
     self.code = code;
     return code;
 }
-- (IBAction)fetchCode:(id)sender {
+
+-(void)timerClock{
+    self.numLabel.text = [NSString stringWithFormat:@"重发(%d)",--self.timerNum];
+    
+    if (self.timerNum == 0) {
+        self.numLabel.hidden = YES;
+        self.fetchButton.hidden = NO;
+        [self.timer setFireDate:[NSDate distantFuture]];
+    }
+}
+
+
+- (IBAction)fetchCode:(UIButton *)sender {
     
     
     if ([self isValidateMobile:self.phoneTextField.text]) {
+
+        
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         [manager GET:[NSString stringWithFormat:@"http://120.24.158.159:8090/sendSMS/%@/%@",self.phoneTextField.text,[self createCode]] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
             [self regist];
-            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"验证码已发送" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+            [SVProgressHUD showSuccessWithStatus:@"验证码已发送"];
+//            并且开始倒数
+            //        显示重发倒计时按钮
+            self.timerNum = 60;
+            sender.hidden = YES;
+            self.numLabel.hidden = NO;
+            //获取验证码，重发
+            self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerClock) userInfo:nil repeats:YES];
+            if ([self.timer isValid]) {
+                [self.timer setFireDate:[NSDate date]];
+            }
             
-            [alert show];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"验证码发送失败" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
             [alert show];
+            
         }];
     } else {
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"手机号码不正确" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];

@@ -117,6 +117,9 @@
 		F769791F1ABDAB44002DE078 /* ZoomImgItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F769790F1ABDAB44002DE078 /* ZoomImgItem.m */; };
 		F76B38151AB303F90012F3A7 /* TryEventProductDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F76B38141AB303F90012F3A7 /* TryEventProductDetailTableViewController.m */; };
 		F76B94F31AB57D910072FAD4 /* LSCanvasView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F76B94F21AB57D910072FAD4 /* LSCanvasView.xib */; };
+		F7779A491AC3D17100A1CCB8 /* ico_make.png in Resources */ = {isa = PBXBuildFile; fileRef = F7779A461AC3D17100A1CCB8 /* ico_make.png */; };
+		F7779A4A1AC3D17100A1CCB8 /* JSDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F7779A481AC3D17100A1CCB8 /* JSDropDownMenu.m */; };
+		F7779A4D1AC4224D00A1CCB8 /* MemberProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7779A4C1AC4224D00A1CCB8 /* MemberProfileTableViewController.m */; };
 		F77FB1CD1AA9F02F0092D57F /* EvaluateTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F77FB1CC1AA9F02F0092D57F /* EvaluateTableViewController.m */; };
 		F787B7141AB3DFBE00D4C27D /* UIScrollView+XHVisibleCenterScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = F787B70B1AB3DFBE00D4C27D /* UIScrollView+XHVisibleCenterScroll.m */; };
 		F787B7151AB3DFBE00D4C27D /* XHIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = F787B70D1AB3DFBE00D4C27D /* XHIndicatorView.m */; };
@@ -136,6 +139,7 @@
 		F7960D651ABEAB4200DFCE57 /* safe4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7960D5F1ABEAB4200DFCE57 /* safe4@2x.png */; };
 		F7960D661ABEAB4200DFCE57 /* safe5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7960D601ABEAB4200DFCE57 /* safe5@2x.png */; };
 		F7A6D6281ABBF0BA0049D6C6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7A6D6271ABBF0BA0049D6C6 /* MapKit.framework */; };
+		F7B155881AC532E500E95818 /* checked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7B155871AC532E500E95818 /* checked@2x.png */; };
 		F7B4983B1AA2FF300067219E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B4983A1AA2FF300067219E /* main.m */; };
 		F7B4983E1AA2FF300067219E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B4983D1AA2FF300067219E /* AppDelegate.m */; };
 		F7B498441AA2FF300067219E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7B498421AA2FF300067219E /* Main.storyboard */; };
@@ -387,6 +391,11 @@
 		F76B38131AB303F90012F3A7 /* TryEventProductDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TryEventProductDetailTableViewController.h; path = TryEvent/TryEventProductDetailTableViewController.h; sourceTree = "<group>"; };
 		F76B38141AB303F90012F3A7 /* TryEventProductDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TryEventProductDetailTableViewController.m; path = TryEvent/TryEventProductDetailTableViewController.m; sourceTree = "<group>"; };
 		F76B94F21AB57D910072FAD4 /* LSCanvasView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LSCanvasView.xib; sourceTree = "<group>"; };
+		F7779A461AC3D17100A1CCB8 /* ico_make.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_make.png; sourceTree = "<group>"; };
+		F7779A471AC3D17100A1CCB8 /* JSDropDownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSDropDownMenu.h; sourceTree = "<group>"; };
+		F7779A481AC3D17100A1CCB8 /* JSDropDownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSDropDownMenu.m; sourceTree = "<group>"; };
+		F7779A4B1AC4224D00A1CCB8 /* MemberProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MemberProfileTableViewController.h; path = Beauty/Member/MemberProfileTableViewController.h; sourceTree = "<group>"; };
+		F7779A4C1AC4224D00A1CCB8 /* MemberProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MemberProfileTableViewController.m; path = Beauty/Member/MemberProfileTableViewController.m; sourceTree = "<group>"; };
 		F77FB1CB1AA9F02F0092D57F /* EvaluateTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EvaluateTableViewController.h; path = Beauty/EvaluateTableViewController.h; sourceTree = "<group>"; };
 		F77FB1CC1AA9F02F0092D57F /* EvaluateTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EvaluateTableViewController.m; path = Beauty/EvaluateTableViewController.m; sourceTree = "<group>"; };
 		F787B70A1AB3DFBE00D4C27D /* UIScrollView+XHVisibleCenterScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+XHVisibleCenterScroll.h"; sourceTree = "<group>"; };
@@ -412,6 +421,7 @@
 		F7960D5F1ABEAB4200DFCE57 /* safe4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "safe4@2x.png"; sourceTree = "<group>"; };
 		F7960D601ABEAB4200DFCE57 /* safe5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "safe5@2x.png"; sourceTree = "<group>"; };
 		F7A6D6271ABBF0BA0049D6C6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		F7B155871AC532E500E95818 /* checked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "checked@2x.png"; path = "images/checked@2x.png"; sourceTree = "<group>"; };
 		F7B498351AA2FF300067219E /* Beauty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beauty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7B498391AA2FF300067219E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F7B4983A1AA2FF300067219E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -822,6 +832,16 @@
 			name = TryEvent;
 			sourceTree = "<group>";
 		};
+		F7779A451AC3D17100A1CCB8 /* JSDropDownMenu */ = {
+			isa = PBXGroup;
+			children = (
+				F7779A461AC3D17100A1CCB8 /* ico_make.png */,
+				F7779A471AC3D17100A1CCB8 /* JSDropDownMenu.h */,
+				F7779A481AC3D17100A1CCB8 /* JSDropDownMenu.m */,
+			);
+			path = JSDropDownMenu;
+			sourceTree = "<group>";
+		};
 		F787B7091AB3DFBE00D4C27D /* XHScrollMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -872,6 +892,7 @@
 				F735C2001ABC5C5A00A61F47 /* KGModal */,
 				F7BBEBC61AA3633D000D74D0 /* SVProgressHUD */,
 				F7B498A21AA335E30067219E /* AFNetworking */,
+				F7779A451AC3D17100A1CCB8 /* JSDropDownMenu */,
 				F7B498881AA3356E0067219E /* UIKit+AFNetworking */,
 				F7B498621AA301020067219E /* CFNetwork.framework */,
 				F7B498661AA3013C0067219E /* libicucore.dylib */,
@@ -948,6 +969,7 @@
 		F7B498771AA31CFF0067219E /* images */ = {
 			isa = PBXGroup;
 			children = (
+				F7B155871AC532E500E95818 /* checked@2x.png */,
 				F7DF10AF1ABDA85200005AE8 /* Launch@2x.png */,
 				F71484071AB952AD005490FF /* add@2x.png */,
 				F72A352B1AC256C700C7D36F /* searchInner@2x.png */,
@@ -1048,6 +1070,8 @@
 		F7BD0BA61AB1DED5009E48B6 /* Member */ = {
 			isa = PBXGroup;
 			children = (
+				F7779A4B1AC4224D00A1CCB8 /* MemberProfileTableViewController.h */,
+				F7779A4C1AC4224D00A1CCB8 /* MemberProfileTableViewController.m */,
 				F72A35361AC3021F00C7D36F /* MyTryViewController.h */,
 				F72A35371AC3021F00C7D36F /* MyTryViewController.m */,
 				F72FFE891AAEF14B00C01BB2 /* MemberTableViewController.h */,
@@ -1273,8 +1297,10 @@
 				F72FFE721AAE77BD00C01BB2 /* login_bg@2x.png in Resources */,
 				F7172C471AA94C0600A9ED4C /* buy@2x.png in Resources */,
 				F71483D71AB85787005490FF /* cat_more@2x.png in Resources */,
+				F7B155881AC532E500E95818 /* checked@2x.png in Resources */,
 				F7B4987A1AA31D390067219E /* location@2x.png in Resources */,
 				F71483FE1AB9253C005490FF /* ELCAssetPicker.xib in Resources */,
+				F7779A491AC3D17100A1CCB8 /* ico_make.png in Resources */,
 				F713C8C81AA48F5D004BE58C /* tel@2x.png in Resources */,
 				F71484081AB952AD005490FF /* add@2x.png in Resources */,
 				F735C2051ABD1E6A00A61F47 /* map@2x.png in Resources */,
@@ -1358,6 +1384,7 @@
 				F7BBEBCB1AA3633D000D74D0 /* SVProgressHUD.m in Sources */,
 				F7B498A01AA3356F0067219E /* UIRefreshControl+AFNetworking.m in Sources */,
 				F7B4989D1AA3356F0067219E /* UIButton+AFNetworking.m in Sources */,
+				F7779A4D1AC4224D00A1CCB8 /* MemberProfileTableViewController.m in Sources */,
 				F74FFE2F1AC138CB0015E3D3 /* ProductCommentTableViewCell.m in Sources */,
 				F7BFAC3A1ABF1177002BB5EB /* ProductIngredientViewController.m in Sources */,
 				F76979191ABDAB44002DE078 /* UIButton+WebCache.m in Sources */,
@@ -1401,6 +1428,7 @@
 				F76B38151AB303F90012F3A7 /* TryEventProductDetailTableViewController.m in Sources */,
 				F787B7141AB3DFBE00D4C27D /* UIScrollView+XHVisibleCenterScroll.m in Sources */,
 				F7B4989E1AA3356F0067219E /* UIImageView+AFNetworking.m in Sources */,
+				F7779A4A1AC3D17100A1CCB8 /* JSDropDownMenu.m in Sources */,
 				F76979151ABDAB44002DE078 /* RoundButton.m in Sources */,
 				F7B498B81AA335E30067219E /* AFHTTPSessionManager.m in Sources */,
 				F713C8CB1AA49089004BE58C /* StoreDetailTableViewController.m in Sources */,

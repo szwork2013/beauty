@@ -59,10 +59,12 @@
             CGFloat imageViewWidth = SCREEN_WIDTH - margin - margin;
             CGFloat imageViewHeight = imageViewWidth / (imageWidth / imageHeight);
             //force imageHeight
-            imageViewHeight = 140.0;
+//            imageViewHeight = 140.0;
             _imageView.image = image;
-            _imageView.frame = CGRectMake(margin, y + i * margin + self.offsetY, imageViewWidth, imageViewHeight);
+            _imageView.frame = CGRectMake(margin * 2, y + i * margin + self.offsetY, imageViewWidth, imageViewHeight);
             self.offsetY += imageViewHeight;
+            _imageView.contentMode = UIViewContentModeScaleAspectFill;
+            _imageView.clipsToBounds = YES;
             UIView *seperatedView = [[UIView alloc]initWithFrame:CGRectMake(margin, _imageView.frame.origin.y + imageViewHeight + margin / 2, imageViewWidth, 1)];
             seperatedView.backgroundColor = [UIColor colorWithWhite:0.8 alpha:1.0];
 //            scrollView添加子视图
