@@ -104,11 +104,18 @@
 }
 
 - (IBAction)loginPress:(id)sender {
+    
     if ([self.code isEqualToString:self.codeTextFiled.text]) {
-        [BmobUser logout];
+//        [BmobUser logout];
 //        [BmobUser loginWithUsernameInBackground:self.phoneTextField.text password:self.phoneTextField.text];
         [BmobUser loginWithUsernameInBackground:self.phoneTextField.text password:self.phoneTextField.text block:^(BmobUser *user, NSError *error) {
-            [self.navigationController popViewControllerAnimated:YES];
+            if (error) {
+                UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"登录失败" message:@"用户名或密码不正确" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+                [alertView show];
+            }else{
+                [SVProgressHUD showSuccessWithStatus:@"登录成功"];
+                [self.navigationController popViewControllerAnimated:YES];
+            }
         }];
     } else {
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"验证码不正确" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
