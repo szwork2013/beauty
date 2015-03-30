@@ -231,7 +231,7 @@
         BmobQuery *tryEventQuery = [BmobQuery queryWithClassName:@"TryEvent"];
         [tryEventQuery includeKey:@"product"];
         [tryEventQuery getObjectInBackgroundWithId:tryEvent.objectId block:^(BmobObject *object, NSError *error) {
-            NSLog(@"new product id : %@",[[object objectForKey:@"product"] objectId]);
+//            NSLog(@"new product id : %@",[[object objectForKey:@"product"] objectId]);
             vc.productId = [[object objectForKey:@"product"] objectId];
             [self.navigationController pushViewController:vc animated:YES];
         }];
