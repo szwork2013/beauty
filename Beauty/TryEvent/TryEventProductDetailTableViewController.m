@@ -68,7 +68,11 @@
             self.productObject = [object objectForKey:@"product"];
             
 //            简介
-            self.descriptTextView.attributedText = [[NSAttributedString alloc] initWithString:[CommonUtil enterChar:[object objectForKey:@"descript"]] attributes:[CommonUtil textViewAttribute]];
+            NSString *desciptStr = [object objectForKey:@"descript"];
+            if (desciptStr == nil) {
+                desciptStr = @"";
+            }
+            self.descriptTextView.attributedText = [[NSAttributedString alloc] initWithString:[CommonUtil enterChar:desciptStr] attributes:[CommonUtil textViewAttribute]];
             [self.descriptTextView sizeToFit];
             self.descriptHeight = self.descriptTextView.frame.size.height + 8;
             

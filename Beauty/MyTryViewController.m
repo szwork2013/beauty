@@ -224,10 +224,19 @@
     TryEventProductDetailTableViewController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"tryEvent"];
     if (tableView == self.tableViewOfValid) {
         vc.productId = [[self.arrayOfValid[tableView.indexPathForSelectedRow.section]objectForKey:@"product"] objectId];
+        [self.navigationController pushViewController:vc animated:YES];
     } else {
-        vc.productId = [[self.arrayOfMine[tableView.indexPathForSelectedRow.section]objectForKey:@"product"] objectId];
+//        不能做三表联合查询
+        BmobObject *tryEvent = self.arrayOfMine[tableView.indexPathForSelectedRow.section];
+        BmobQuery *tryEventQuery = [BmobQuery queryWithClassName:@"TryEvent"];
+        [tryEventQuery includeKey:@"product"];
+        [tryEventQuery getObjectInBackgroundWithId:tryEvent.objectId block:^(BmobObject *object, NSError *error) {
+            NSLog(@"new product id : %@",[[object objectForKey:@"product"] objectId]);
+            vc.productId = [[object objectForKey:@"product"] objectId];
+            [self.navigationController pushViewController:vc animated:YES];
+        }];
+
     }
-    [self.navigationController pushViewController:vc animated:YES];
 }
 //单元格高度
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
