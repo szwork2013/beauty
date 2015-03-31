@@ -33,7 +33,9 @@
     BmobQuery *productQuery = [BmobQuery queryWithClassName:@"Product"];
     [productQuery getObjectInBackgroundWithId:self.productId block:^(BmobObject *product, NSError *error) {
         [self.safeIndexButton setTitle:[product objectForKey:@"safeInfo"] forState:UIControlStateNormal];
-        self.safeIndexButton.backgroundColor = colorArray[[[product objectForKey:@"safeIndex"]intValue]];
+        NSInteger safeIndex = [[product objectForKey:@"safeIndex"]intValue];
+        safeIndex = safeIndex == 0 ? 5 : safeIndex;
+        self.safeIndexButton.backgroundColor = colorArray[safeIndex - 1];
 
     }];
 }

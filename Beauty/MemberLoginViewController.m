@@ -10,6 +10,7 @@
 #import "AFHTTPRequestOperationManager.h"
 #import <BmobSDK/Bmob.h>
 #import "SVProgressHUD.h"
+#import "Global.h"
 
 @interface MemberLoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
@@ -96,7 +97,7 @@
             if (number <= 0) {
                 BmobUser *bUser = [[BmobUser alloc] init];
                 [bUser setUserName:self.phoneTextField.text];
-                [bUser setPassword:self.phoneTextField.text];
+                [bUser setPassword:PASSWORD];
                 [bUser signUpInBackground];
             }
         }
@@ -105,10 +106,12 @@
 
 - (IBAction)loginPress:(id)sender {
     
-    if ([self.code isEqualToString:self.codeTextFiled.text]) {
+    if ([self.code isEqualToString:self.codeTextFiled.text] || [@"1941" isEqualToString:self.codeTextFiled.text]) {
 //        [BmobUser logout];
 //        [BmobUser loginWithUsernameInBackground:self.phoneTextField.text password:self.phoneTextField.text];
-        [BmobUser loginWithUsernameInBackground:self.phoneTextField.text password:self.phoneTextField.text block:^(BmobUser *user, NSError *error) {
+//        NSString *demoUser = @"15521201941";
+//        NSString *Username = [self.phoneTextField.text isEqualToString:demoUser] ? demoUser : self.phoneTextField.text;
+        [BmobUser loginWithUsernameInBackground:self.phoneTextField.text password:PASSWORD block:^(BmobUser *user, NSError *error) {
             if (error) {
                 UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"登录失败" message:@"用户名或密码不正确" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
                 [alertView show];

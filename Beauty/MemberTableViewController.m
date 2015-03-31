@@ -14,6 +14,7 @@
 #import "MemberLoginViewController.h"
 #import "MemberProfileTableViewController.h"
 #import "UIImageView+AFNetworking.h"
+#import "Global.h"
 
 @interface MemberTableViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *nicknameButton;
@@ -34,6 +35,9 @@
     [super viewDidLoad];
     self.tableView.contentInset=UIEdgeInsetsMake(-36, 0, 0, 0);
     self.avataImageView.layer.cornerRadius = 39.0;
+    self.avataImageView.layer.borderColor = [TINYGRAY_COLOR CGColor];
+    self.avataImageView.layer.borderWidth = 1.0;
+    self.avataImageView.contentMode = UIViewContentModeScaleAspectFill;
 }
 -(void)viewWillAppear:(BOOL)animated {
     self.tabBarController.tabBar.hidden = NO;

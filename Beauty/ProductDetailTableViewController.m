@@ -84,7 +84,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"产品信息";
-    self.subStoryBoard = [UIStoryboard storyboardWithName:@"Product" bundle:nil];
+    UIView *rootView = [self.tabBarController.view.subviews objectAtIndex:0];
+    
+    CGRect frame = rootView.frame;
+    frame.size.height += 30.0;
+    rootView.frame = frame;    self.subStoryBoard = [UIStoryboard storyboardWithName:@"Product" bundle:nil];
     self.tableView.contentInset=UIEdgeInsetsMake(-36, 0, 0, 0);
     [self fetchProduct];
     [self fetchFirstComment];
@@ -292,7 +296,9 @@
         if (self.firstComment) {
             return [CommonUtil fetchProductCommentCellHeight:self.firstComment];
         }
+        return 0.0;
     }
+    
     if (indexPath.section == 4 && indexPath.row == 1) {
         if (self.productIngredientCount == 0) {
             return 60.0;
@@ -343,10 +349,12 @@
         vc.className = @"Product";
         [self.navigationController pushViewController:vc animated:YES];
     }
+    NSLog(@"%zi,",indexPath.row);
 }
 #pragma mark 生成单元格
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [[UITableViewCell alloc]init];
+    //成分
     if (indexPath.section == 4 && indexPath.row == 1) {
         UIStoryboard *subStoryBoard = [UIStoryboard storyboardWithName:@"Product" bundle:nil];
         ProductIngredientViewController *vc = [subStoryBoard instantiateViewControllerWithIdentifier:@"ProductIngredient"];
@@ -355,12 +363,14 @@
         [cell addSubview:vc.view];
         cell.clipsToBounds = YES;
         return cell;
+//        首条评论
     } else if (indexPath.section == 3 && indexPath.row == 3) {
         if (self.firstComment) {
             
             return [CommonUtil fetchProductCommentCell:self.firstComment];
         }
-    
+        return [super tableView:tableView cellForRowAtIndexPath:indexPath];
+//    规格
     } else if (indexPath.section == 6 && indexPath.row == 1) {
         for (int i = 0; i < self.productParameter.count; i++) {
             BmobObject *parameter = self.productParameter[i];

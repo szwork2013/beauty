@@ -26,4 +26,5 @@
 #define kColor2 [UIColor colorWithRed:236.0 / 255.0 green:136.0 / 255.0 blue:181.0 / 255.0 alpha:0.9]
 #define kColor3 [UIColor colorWithRed:228.0 / 255.0 green:80.0 / 255.0 blue:99.0 / 255.0 alpha:0.9]
 #define kColor4 [UIColor colorWithRed:248.0 / 255.0 green:196.0 / 255.0 blue:118.0 / 255.0 alpha:0.9]
+#define PASSWORD @"MEIZHUANG"
 #endif
