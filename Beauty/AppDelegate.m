@@ -15,7 +15,6 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSString *appKey = @"4f9af9412c122816f905cfbdc5efd2e1";
     [Bmob registerWithAppKey:appKey];
