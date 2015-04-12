@@ -105,6 +105,7 @@
     [query whereKey:@"product" equalTo:[BmobObject objectWithoutDatatWithClassName:@"Product" objectId:self.productId]];
     [query countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
         if (number > 0) {
+            [query includeKey:@"user"];
             [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
                 BmobObject *commentObject = [array firstObject];
                 self.firstComment = commentObject;
