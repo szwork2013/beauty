@@ -9,6 +9,9 @@
 #import "AppDelegate.h"
 #import <BmobSDK/Bmob.h>
 #import "Global.h"
+#import "HomeViewController.h"
+#import "LaunchViewController.h"
+
 @interface AppDelegate ()
 
 @end
@@ -23,22 +26,23 @@
     [[UINavigationBar appearance] setBarTintColor:tintColor];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UITabBar appearance]setTintColor:tintColor];
+    //启动首页
     
+    self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"]) {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstLaunch"];
+        LaunchViewController *launchVC = [[LaunchViewController alloc]initWithNibName:@"LaunchViewController" bundle:nil];
+        self.window.rootViewController = launchVC;
+
+    } else {
+        HomeViewController *homeVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateInitialViewController];
+        self.window.rootViewController = homeVC;
+//        [[NSUserDefaults standardUserDefaults] setObject:@"done" forKey:@"firstLaunch"];
+    }
+    [self.window makeKeyAndVisible];
 
     
-//    //查找GameScore表
-//    BmobQuery   *bquery = [BmobQuery queryWithClassName:@"TryEvent"];
-//    //查找GameScore表里面id为0c6db13c的数据
-//    
-//    [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
-//        for (BmobObject *obj in array) {
-//            //打印playerName
-//            NSLog(@"name = %@", [obj objectForKey:@"name"]);
-//            NSLog(@"image = %@", [obj objectForKey:@"avatar"]);
-//        }
-//    }];
-//    
-    // Override point for customization after application launch.
+    
     return YES;
 }
 
