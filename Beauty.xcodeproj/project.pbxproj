@@ -94,6 +94,7 @@
 		F7540A0C1AB42C6100042CB0 /* TryEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7540A0B1AB42C6100042CB0 /* TryEventViewController.m */; };
 		F7540A131AB42D2A00042CB0 /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = F7540A101AB42D2A00042CB0 /* UIScrollView+SVInfiniteScrolling.m */; };
 		F7540A141AB42D2A00042CB0 /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = F7540A121AB42D2A00042CB0 /* UIScrollView+SVPullToRefresh.m */; };
+		F758FE2E1AE0E60500562C8B /* Launch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F758FE2D1AE0E60500562C8B /* Launch@2x.png */; };
 		F75B75C41AC033C00096F749 /* ProductCommentPublish.m in Sources */ = {isa = PBXBuildFile; fileRef = F75B75C21AC033C00096F749 /* ProductCommentPublish.m */; };
 		F75B75C81AC036070096F749 /* star_empty_publish@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F75B75C61AC036070096F749 /* star_empty_publish@2x.png */; };
 		F75B75C91AC036070096F749 /* star_full_publish@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F75B75C71AC036070096F749 /* star_full_publish@2x.png */; };
@@ -189,7 +190,6 @@
 		F7BFAC3A1ABF1177002BB5EB /* ProductIngredientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BFAC381ABF1177002BB5EB /* ProductIngredientViewController.m */; };
 		F7BFAC3B1ABF1177002BB5EB /* ProductIngredientViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7BFAC391ABF1177002BB5EB /* ProductIngredientViewController.xib */; };
 		F7BFAC3D1ABF16C0002BB5EB /* Product.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7BFAC3C1ABF16C0002BB5EB /* Product.storyboard */; };
-		F7DF10B01ABDA85200005AE8 /* Launch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7DF10AF1ABDA85200005AE8 /* Launch@2x.png */; };
 		F7E4F17B1AA5D1280025D868 /* club@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7E4F1781AA5D1280025D868 /* club@2x.png */; };
 		F7E4F17C1AA5D1280025D868 /* rank@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7E4F1791AA5D1280025D868 /* rank@2x.png */; };
 		F7E4F17D1AA5D1280025D868 /* test@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7E4F17A1AA5D1280025D868 /* test@2x.png */; };
@@ -350,6 +350,7 @@
 		F7540A101AB42D2A00042CB0 /* UIScrollView+SVInfiniteScrolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVInfiniteScrolling.m"; sourceTree = "<group>"; };
 		F7540A111AB42D2A00042CB0 /* UIScrollView+SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVPullToRefresh.h"; sourceTree = "<group>"; };
 		F7540A121AB42D2A00042CB0 /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
+		F758FE2D1AE0E60500562C8B /* Launch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Launch@2x.png"; path = "images/Launch@2x.png"; sourceTree = "<group>"; };
 		F75B75C11AC033C00096F749 /* ProductCommentPublish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductCommentPublish.h; path = Product/ProductCommentPublish.h; sourceTree = "<group>"; };
 		F75B75C21AC033C00096F749 /* ProductCommentPublish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductCommentPublish.m; path = Product/ProductCommentPublish.m; sourceTree = "<group>"; };
 		F75B75C61AC036070096F749 /* star_empty_publish@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star_empty_publish@2x.png"; sourceTree = "<group>"; };
@@ -510,7 +511,6 @@
 		F7BFAC381ABF1177002BB5EB /* ProductIngredientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductIngredientViewController.m; path = Product/ProductIngredientViewController.m; sourceTree = "<group>"; };
 		F7BFAC391ABF1177002BB5EB /* ProductIngredientViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ProductIngredientViewController.xib; path = Product/ProductIngredientViewController.xib; sourceTree = "<group>"; };
 		F7BFAC3C1ABF16C0002BB5EB /* Product.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Product.storyboard; sourceTree = "<group>"; };
-		F7DF10AF1ABDA85200005AE8 /* Launch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Launch@2x.png"; path = "images/Launch@2x.png"; sourceTree = "<group>"; };
 		F7E4F1781AA5D1280025D868 /* club@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "club@2x.png"; path = "images/home/club@2x.png"; sourceTree = "<group>"; };
 		F7E4F1791AA5D1280025D868 /* rank@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "rank@2x.png"; path = "images/home/rank@2x.png"; sourceTree = "<group>"; };
 		F7E4F17A1AA5D1280025D868 /* test@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "test@2x.png"; path = "images/home/test@2x.png"; sourceTree = "<group>"; };
@@ -951,6 +951,7 @@
 				F7B498421AA2FF300067219E /* Main.storyboard */,
 				F7B498451AA2FF300067219E /* Images.xcassets */,
 				F7B498471AA2FF300067219E /* LaunchScreen.xib */,
+				F758FE2D1AE0E60500562C8B /* Launch@2x.png */,
 				F7B498381AA2FF300067219E /* Supporting Files */,
 			);
 			path = Beauty;
@@ -990,7 +991,6 @@
 				F77D55F71ADB98560081FD21 /* s2.jpg */,
 				F77D55F81ADB98560081FD21 /* s3.jpg */,
 				F7B155871AC532E500E95818 /* checked@2x.png */,
-				F7DF10AF1ABDA85200005AE8 /* Launch@2x.png */,
 				F71484071AB952AD005490FF /* add@2x.png */,
 				F72A352B1AC256C700C7D36F /* searchInner@2x.png */,
 				F735C2041ABD1E6A00A61F47 /* map@2x.png */,
@@ -1279,7 +1279,6 @@
 				F7172C3D1AA89C2000A9ED4C /* product_favor@2x.png in Resources */,
 				F708502B1AB5CE5700DD4A1C /* no3@2x.png in Resources */,
 				F7147A631AA725CA007605E6 /* star_full@2x.png in Resources */,
-				F7DF10B01ABDA85200005AE8 /* Launch@2x.png in Resources */,
 				F7B498441AA2FF300067219E /* Main.storyboard in Resources */,
 				F7147A601AA6FCF7007605E6 /* star_empty@2x.png in Resources */,
 				F74FFE301AC138CB0015E3D3 /* ProductCommentTableViewCell.xib in Resources */,
@@ -1323,6 +1322,7 @@
 				F7172C471AA94C0600A9ED4C /* buy@2x.png in Resources */,
 				F71483D71AB85787005490FF /* cat_more@2x.png in Resources */,
 				F7B155881AC532E500E95818 /* checked@2x.png in Resources */,
+				F758FE2E1AE0E60500562C8B /* Launch@2x.png in Resources */,
 				F77D56011ADBC1610081FD21 /* LaunchViewController.xib in Resources */,
 				F7B4987A1AA31D390067219E /* location@2x.png in Resources */,
 				F71483FE1AB9253C005490FF /* ELCAssetPicker.xib in Resources */,
